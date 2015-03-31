@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_i3h_fqk_j4">
+  <title>DITA 1.3 RNG-to-X Test Tools</title>
+  <body>
+    <p>The Ant script <filepath>doctypes/test/build.xml</filepath> provides targets for testing the RNG-to-DTD and RNG-to-XSD tools. It runs the generation transforms and then uses the generated DTDs and schemas to validate sets of test documents.</p>
+    <note>Running the tests requires the Apache Ant tool. Ant is included with the Open Toolkit full-easy-install package or you can install Ant if it's not already installed on your system. See <xref
+        href="http://ant.apache.org" format="html" scope="external">ant.apache.org</xref> for downloads and installation instructions.</note>
+    <p>To run the test you must specify the output directory to put the generated DTDs, XSDs, and test docs into. You also need to specify the DITA version you are testing (1.2 or 1.3).</p>
+    <p>The test script logs all the output to a log file in addition to logging to the console. You can take advantage of this by suppressing the console log and using a tool like Baretale (Windows) or Console (OS X) to view the log, which produces a lot of output.</p>
+    <section>
+      <title>One-time setup</title>
+      <p>The validation processing requires that the file <filepath>resolver.jar</filepath> be on the Ant classpath. There are several ways to ensure this:<ol id="ol_dr2_p4l_1q">
+          <li>Copy <filepath>resolver.jar</filepath> into your user-specific <filepath>.ant/lib</filepath> directory (you may need to create this directory if it doesn't already exist). You can get
+            the jar from the Open Toolkit's <filepath>lib/</filepath> directory.</li>
+          <li>Set the CLASSPATH environment variable with the full path to <filepath>resolver.jar</filepath>. Again, you can use the copy in the Open Toolkit's <filepath>lib/</filepath>
+            directory.</li>
+          <li>Simply use the Open Toolkit's <filepath>startcmd</filepath> script to set up a command environment. This will set up the required Java class path.</li>
+        </ol></p>
+    </section>
+    <section>
+      <title>Purpose of the tests</title>
+      <p>The tests are intended primarily as a one-action regression test of all the generation process, failing if any single aspect fails. It is intended to be run as an automated regression test using Jenkins or a similar continuous integration tool. Completion of the generation process is indicated by successful completion of the tests.</p>
+      <p>The generation log reports the details of the generation and validation processes. Likewise, the generated test documents can be individually inspected in order to diagnose specific problems.</p>
+      <p>This test is not definitive: they are not intended to test every DITA element or every possible combination of elements. </p>
+      <p>The test documents are primarily intended to simply validate that the DTDs and XSDs are usable at all. However, the test documents do reflect certain edge cases that have either proved problematic or that were originally not handled by the generated DTDs or XSDs.</p>
+      <p>Producing a set of comprehensive test case documents is not in the scope of the DTD and XSD generation development activity.</p>
+    </section>
+    <section>
+      <title>Running the tests</title>
+      <p>The run all the tests, do the following:<ol
+        id="ol_rb3_prk_j4">
+        <li>In a command-line console, navigate to the <filepath>doctypes/test</filepath> directory:<codeblock>c:\ > cd dita-spec/doctypes/test
+c:\dita-spec/doctypes/test > _</codeblock></li>
+        <li>Run the ant command with parameters for the output directory, DITA version, and log
+              location:<codeblock>> ant run-all-tests -Doutdir=/Users/ekimber/temp/workspace/output 
+  -Dditaver=1.3 -l /dev/null</codeblock><p>For Windows you can use "nul" instead of
+              "/dev/null":<codeblock>> ant run-all-tests -Doutdir=c:/Users/ekimber/temp/workspace/output 
+  -Dditaver=1.3 -l nul</codeblock></p><p>This runs the DTD and XSD generation process,
+              generates working copies of the test documents, then validates the generated documents. The script will report failure if the generation process fails or if any document fails to
+              validate.</p><p>The log will be <filepath>test-all.log</filepath> in the same directory as the Ant script. Because this log is always generated, there's no need to also echo the log
+              messages to the console, thus the <codeph>-l /dev/null</codeph> or <codeph>-l nul</codeph>  parameter to suppress the console log.</p><p>You can inspect the log to see what worked and
+              what didn't.</p></li>
+        </ol></p>
+      <p>Each phase of the process is logged to a separate file in addition to the master <filepath>test-all.log</filepath>. This is intended to make it easier to inspect or automatically analyze the logs for a specific phase.</p>
+    </section>
+    <section>
+      <title>Ant parameters</title>
+      <parml>
+        <plentry>
+          <pt><parmname>ditaver</parmname></pt>
+          <pd>The DITA version to generate the DTDs and XSDs for. The default is "1.2". Values are "1.2" and "1.3".</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>outdir</parmname></pt>
+          <pd>The directory to put the generated output in. Default is <filepath>temp</filepath> underneath the directory you run the ant script from.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>debug</parmname></pt>
+          <pd>Turns debug messages on or off. Default is "false". Set to "true" to turn on debug messages from the generation transforms.</pd>
+        </plentry>
+      </parml>
+    </section>
+    <section>
+      <title>Test approach</title>
+      <p>The DTDs and XSDs are tested by validating sample documents in several ways.</p>
+      <p>For DTD-based documents, two forms of validation are used:<ul
+        id="ul_mv2_25k_j4">
+        <li>Validation using the Ant xml-validate task.<p>This validation uses the Xerces parser and generates good error messages directly in the Ant log. It is easy to configure using Ant to operate on multiple files. However, it fails utterly if any DTD file cannot be resolved or parsed.</p></li>
+        <li>
+          <p>Validation using Saxon.</p>
+          <p>This validation uses Saxon to parse each document. This transform operates on all the documents in specific directory and produces a "validation report" as its direct output. It will survive any particular document referencing an unparseable or unresolvable DTD but can only indicate binary valid/invalid results.</p>
+        </li>
+        </ul></p>
+      <p>For XSDs, the Ant schemavalidate target is used, which will report validation details for each document validated.</p>
+    </section>
+  </body>
+</topic>

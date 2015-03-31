@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================================================
+  
+  Catalog for DITA 1.3-specific versions of all DTD shells and vocabulary modules.
+  
+  This catalog does not include version-independent mappings, only version-specific
+  mappings.
+  
+  ============================================================================
+  -->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    
+    
+  <nextCatalog catalog="dtd/catalog.xml"/>
+
+</catalog>

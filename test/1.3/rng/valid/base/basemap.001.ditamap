@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/base/rng/basemap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map cascade="merge"> 
+  <title>DITA 1.3 Map Title</title>
+  <topicmeta >
+    <shortdesc>Short desc. <xref>xref in shortdesc</xref></shortdesc>
+    <resourceid appid="appid-01" appname="appname-01"/>
+      <ux-window name="window-01"
+        top="10"
+        left="10"
+        height="300"
+        width="400"
+        full-screen="yes"
+        on-top="yes"
+        relative="yes"
+      />
+   
+    <ux-window id="fg23" name="csh" top="10" left="20" height="400" width="500" 
+     features="status=yes,toolbar=no,menubar=no,location=no" relative="yes"
+     full-screen="no" />
+  </topicmeta>
+  <topicref keyscope="scope.01" cascade="merge"/>
+  <topicref keys="key01"/>
+  <topicgroup deliveryTarget="pdf">
+    <topicmeta>
+      <navtitle>Topic Group With Navtitle</navtitle>
+      <sort-as value="group me"/>
+    </topicmeta>
+    <topichead>
+      <topicmeta>
+        <navtitle>Topic Head</navtitle>
+      </topicmeta>
+    </topichead>
+  </topicgroup>
+ <topicref href="progexample.dita">
+  <topicmeta>
+   <navtitle>Programming example</navtitle>
+   <searchtitle>Example of programming in XSLT</searchtitle>
+  </topicmeta>
+   <ditavalref href="../ditavals/windows-only.ditaval">
+     <ditavalmeta>
+       <dvr-keynamePrefix>win-</dvr-keynamePrefix>
+     </ditavalmeta>
+   </ditavalref>
+   <ditavalref href="../ditavals/osx-only.ditaval">
+     <ditavalmeta>
+       <dvr-keyscopePrefix>osx</dvr-keyscopePrefix>
+     </ditavalmeta>
+   </ditavalref>
+ </topicref>
+ <topicref href="myThing.dita">
+ <topicmeta>
+  <navtitle>Navigation title for my topic</navtitle>
+  <shortdesc>A description of myThing that is specific to this context.</shortdesc>
+ </topicmeta>
+</topicref>
+</map>

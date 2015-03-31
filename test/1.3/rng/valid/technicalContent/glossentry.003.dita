@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../../../../../src/1.3/rng/technicalContent/rng/glossentry.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<glossentry id="wmd" xml:lang="es">
+    <glossterm>armas de destrucción masiva</glossterm>
+  <glossdef><p>The glossary definition.</p>
+  </glossdef>
+  <prolog>
+    <metadata></metadata>
+    <change-historylist></change-historylist>
+  </prolog>
+    <glossBody>
+     <glossPartOfSpeech/>
+      <glossStatus/>
+      <glossProperty>gloss property</glossProperty>
+        
+        <glossSurfaceForm>WMD<text>Text in glossSurfaceForm</text></glossSurfaceForm>
+      <glossUsage><text>Text in gloss usage</text></glossUsage>
+      <glossScopeNote>Gloss scope note</glossScopeNote>
+      <note>Note within glossbody</note>
+        <glossAlt>
+          <glossAbbreviation><text>text in gloss abbreviation</text></glossAbbreviation>
+          <glossUsage><text>Text in gloss usage</text></glossUsage>
+        </glossAlt>
+      <glossAlt>
+            <glossAcronym>WMD</glossAcronym>
+      </glossAlt>
+      <glossAlt>
+            <glossSynonym><text>text in gloss synonym</text></glossSynonym>
+      </glossAlt>
+      <glossAlt>
+           <glossAlternateFor keyref="foo"/>
+      </glossAlt>
+    </glossBody>
+</glossentry>

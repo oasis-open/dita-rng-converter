@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmap id="taskbook" shellPackage="bookmap" shellName="bookmap">
+    <booktitle>
+        <mainbooktitle>Product tasks</mainbooktitle>
+        <booktitlealt>Tasks and what they do</booktitlealt>
+    </booktitle>
+    <bookmeta>
+        <author>John Doe</author>
+        <authorinformation>
+            <personinfo>
+                <namedetails>
+                    <personname>
+                        <firstname>Derek</firstname>
+                        <middlename>L.</middlename>
+                        <lastname>Singleton</lastname>
+                        <generationidentifier>Jr.</generationidentifier>
+                        <otherinfo>noted psychologist</otherinfo>
+                    </personname>
+                </namedetails>
+                <addressdetails>
+                    <thoroughfare>123 Yellow Brick Road</thoroughfare>
+                    <locality>Emerald City</locality>
+                    <administrativearea>Kansas</administrativearea>
+                    <country>USA</country>
+                </addressdetails>
+                <contactnumbers>
+                    <contactnumber>123-555-4678</contactnumber>
+                </contactnumbers>
+                <emailaddresses>
+                    <emailaddress>wizard@example.org</emailaddress>
+                </emailaddresses>
+            </personinfo>
+        </authorinformation>
+      <change-historylist>
+        <change-item>
+          <change-completed>2014-08-20</change-completed>
+          <change-summary audience="internal">This is the change summary
+          </change-summary>
+          <change-summary audience="external">It's all good.</change-summary>
+        </change-item>
+        <change-item product="productA productB">
+          <change-person>Joan Smith</change-person>
+          <change-completed>2013-03-23</change-completed>
+          <change-summary>Made change 1 to both products</change-summary>
+          <data>Details of change 1</data>
+        </change-item>
+        <change-item product="productA">
+          <change-person>Bill Carter</change-person>
+          <change-completed>2013-06-07</change-completed>
+          <change-summary>Made change 2 to product A</change-summary>
+          <data>Details of change 2</data>
+          <data>adtads</data>
+          <data>adfads</data>
+        </change-item>
+        <change-item product="productA productB">
+          <change-person>Richard Smith</change-person>
+          <change-completed>2013-07-20</change-completed>
+          <change-summary>Made change 3 to both products</change-summary>
+          <data>Details of change 3</data>
+        </change-item>
+      </change-historylist>  
+      <prodinfo>
+            <prodname>Some Product</prodname>
+            <vrmlist>
+                <vrm version="1"/>
+            </vrmlist>
+            <brand>eServer</brand>
+            <series>iSeries</series>
+        </prodinfo>
+        <bookrights>
+            <copyrfirst>
+                <year>2006</year>
+            </copyrfirst>
+            <bookowner>
+                <person href="task_preface.dita">Jane Doe</person>
+            </bookowner>
+            <bookrestriction value="unclassified"/>
+        </bookrights>
+      <data name="markup-domain-test">
+        <markupname>markup name element</markupname>
+      </data>
+      <data name="xml-domain-test">
+        <xmlelement>xmlelement</xmlelement> element
+      </data>
+    </bookmeta>
+    <frontmatter>
+        <preface/>
+        <booklists>
+            <abbrevlist href="abbrev.dita"/>
+        </booklists>
+    </frontmatter>
+    <chapter format="ditamap" href="installing.ditamap"/>
+    <chapter href="configuring.dita"/>
+    <chapter href="maintaining.dita">
+        <topicref href="maintainstorage.dita"/>
+        <topicref href="maintainserver.dita"/>
+        <topicref href="maintaindatabase.dita"/>
+    </chapter>
+    <appendices toc="yes" print="no">
+        <topicmeta>
+            <navtitle>Appendices</navtitle>
+        </topicmeta>
+        <appendix href="task_appendix.dita"/>
+        <appendix href="return-codes.dita"/>
+        <appendix href="messages.dita"/>
+        <appendix href="extra-info.dita"/>
+    </appendices>
+</bookmap>

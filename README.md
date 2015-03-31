@@ -5,6 +5,8 @@ This project is *not* a work product of the OASIS Open DITA Technical Committee.
 
 *NOTE*:  This project may be pulled into an OASIS open source repository affiliated with the DITA TC at some point in the future. If this happens, the project and its contents will continue to be available under substantially the same license terms as used here (Apache 2, the same as is used for the DITA Open Toolkit).
 
+*NOTE*: This project includes a copy of the TC-defined DITA 1.2 and 1.3 RELAX NG grammars as a convenience. The versions here are intended to reflect the latest TC-provided files as maintained in the TC's master source code control repository. While every effort is made to ensure that this project is in sync with the TC's work, the TC's versions are authoritative.
+
 This project provides the following transforms from RNG grammars that follow the coding conventions used by the DITA Technical Committee for the TC-defined modules and shells:
 
 * RNG-to-DTD: Generates conforming DTD-syntax document type shells and modules

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic id="topicid" shellPackage="base" shellName="basetopic">
+  <title>topic title</title>
+  <titlealts>
+    <navtitle>The Nav Title</navtitle>
+    <searchtitle>The Search Title</searchtitle>
+  </titlealts>
+  <body>
+    <p>Non-breaking space entity ref: "<entityref xmlns="urn:oasis-open:dita:testing" name="nbsp"/>"</p>
+    <p>More stuff</p>
+    <imagemap>
+      <image></image>
+      <area>
+        <shape>rect</shape>
+        <coords>54,1,117,60</coords>
+        <xref href="d1-s2.dita"></xref>
+      </area>
+    </imagemap>
+    <p><b>STOP!</b> This is <b>very</b> important!</p>
+    <bodydiv  id="div">
+      <p>This set of information is reusable as a group.</p>
+      <p>Lists of three contain three items.</p>
+      <ul>
+        <li>This is one item.</li>
+        <li>This is another item.</li>
+        <li>This is the third item.</li>
+      </ul>
+    </bodydiv>
+    <p>The online article <cite>Specialization in the Darwin Information Typing
+      Architecture</cite> provides a detailed explanation of how to define new
+      topic types.</p>
+    <dl>
+      <dlhead>
+        <dthd>Image File View Selection</dthd>
+        <ddhd>Resulting Information</ddhd>
+      </dlhead>
+      <dlentry>
+        <dt>Bytes returned</dt>
+        <dd>The number of bytes of data returned.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Bytes available</dt>
+        <dd>The number of bytes of data available to be returned.</dd>
+      </dlentry>
+      <dlentry><dt>Handle</dt>
+        <dd>The returned handle value</dd>
+      </dlentry>
+    </dl>
+    <fig><title>The Handshake</title>
+      <desc>This image shows two hands clasped in a formal, 
+        business-like handshake.</desc>
+      <image href="handshake.jpg">
+        <alt>The handshake</alt>
+      </image>
+    </fig>
+  </body>
+  <related-links scope="external" format="html">
+    <link href="http://www.example.org" format="html">
+      <linktext>Example 1</linktext>
+    </link>
+    <link href="http://www.example.com" format="html">
+      <linktext>Example 2</linktext>
+    </link>
+  </related-links>
+</topic>

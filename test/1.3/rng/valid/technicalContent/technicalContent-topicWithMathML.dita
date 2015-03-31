@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/technicalContent/rng/topic.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<topic id="topic_nt4_kbq_sl">
+  <title>Topic title</title>
+  <body>
+    <p>Topic paragraph<equation-inline></equation-inline><equation-figure>
+      <equation-block></equation-block>
+    </equation-figure></p>
+    <equation-block>
+      <mathml>
+        <m:math  xmlns:m="http://www.w3.org/1998/Math/MathML">
+          <m:abs/>
+        </m:math>
+      </mathml>
+    </equation-block>
+  </body>
+</topic>

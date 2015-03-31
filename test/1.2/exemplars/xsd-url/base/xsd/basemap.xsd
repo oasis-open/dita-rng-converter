@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA MAP XSD                                      -->
+<!--  VERSION:   1.2                                             -->
+<!--  DATE:      November 2009                                     -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    W3C XML Schema to describe DITA maps with base functionality             -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             April 2010                                       -->
+<!--                                                               -->
+<!--             (C) Copyright OASIS-Open.org 2010               -->
+<!--             All Rights Reserved.                              -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <!-- ======= INCLUDE ======= -->
+   <xs:include schemaLocation="../../base/xsd/delayResolutionDomainMod.xsd" />
+   <xs:include schemaLocation="../../base/xsd/indexingDomainMod.xsd" />
+   <xs:include schemaLocation="../../base/xsd/mapGroupMod.xsd" />
+   <xs:include schemaLocation="../../base/xsd/highlightDomainMod.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/utilitiesDomainMod.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/hazardstatementDomainMod.xsd"/>
+
+ <!--  ================ GROUP DEFINITIONS =====================  -->
+ <xs:redefine schemaLocation="../../base/xsd/metaDeclGrp.xsd">
+   <xs:group name="keywords">
+         <xs:choice>
+            <xs:group ref="keywords"/>
+            <xs:group ref="delay-d-keywords" />
+         </xs:choice>
+   </xs:group>
+ </xs:redefine>
+  
+  <xs:include schemaLocation="../../base/xsd/tblDeclGrp.xsd"/>
+ 
+ <!-- =================  MODULE INLCUDE DEFINITION  ==================  -->
+  <xs:include schemaLocation="../../base/xsd/commonElementMod.xsd"/>
+ <!-- ======== Table elements ======== -->
+  <xs:include schemaLocation="../../base/xsd/tblDeclMod.xsd"/>    
+ <!-- ======= MetaData elements, plus keyword and indexterm ======= -->
+  <xs:include schemaLocation="../../base/xsd/metaDeclMod.xsd"/>
+    
+  
+<xs:redefine schemaLocation="../../base/xsd/mapGrp.xsd">
+ <xs:group name="topicref">
+   <xs:choice>
+    <xs:group ref="topicref"/>
+    <xs:group ref="mapgroup-d-topicref"/>
+   </xs:choice>
+  </xs:group>
+ </xs:redefine>
+ 
+ <xs:redefine schemaLocation="../../base/xsd/commonElementGrp.xsd">
+  <xs:group name="index-base">
+   <xs:choice>
+    <xs:group ref="index-base"/>
+    <xs:group ref="indexing-d-index-base"/>
+   </xs:choice>
+  </xs:group>
+    <xs:group name="ph">
+      <xs:choice>
+        <xs:group ref="ph"/>
+        <xs:group ref="hi-d-ph" />
+      </xs:choice>
+    </xs:group>
+
+
+    <xs:group name="fig">
+      <xs:choice>
+        <xs:group ref="fig"/>
+        <xs:group ref="ut-d-fig" />
+      </xs:choice>
+    </xs:group >
+    <xs:group name="note">
+      <xs:choice>
+        <xs:group ref="note"/>
+        <xs:group ref="hazard-d-note"/>
+      </xs:choice>
+    </xs:group >
+  </xs:redefine>
+  
+ <xs:include schemaLocation="../../base/xsd/mapMod.xsd" />
+
+  <xs:attributeGroup name="domains-att">
+    <xs:attribute name="domains"
+                    type="xs:string"
+                    default="(topic delay-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (map mapgroup-d) (topic ut-d)"/>
+  </xs:attributeGroup>
+  
+  
+
+</xs:schema>

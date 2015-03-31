@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamap>
+  <title>Shell to Public ID and URN map</title>
+  <mapitem 
+    key="base/basemap"
+    dtdPubId="-//OASIS//DTD DITA Base Map//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:basemap.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:basemap.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:basemap.xsd"
+    />
+  <mapitem 
+    key="base/basetopic"
+    dtdPubId="-//OASIS//DTD DITA Base Topic//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:basetopic.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:basetopic.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:basetopic.xsd"
+    />
+  <mapitem 
+    key="bookmap/bookmap"
+    dtdPubId="-//OASIS//DTD DITA BookMap//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:bookmap.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:bookmap.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:bookmap.xsd"
+    />
+  <mapitem 
+    key="ditaval/ditaval"
+    dtdPubId="-//OASIS//DTD DITA DITAVAL//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:ditaval.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:ditaval.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:ditaval.xsd"
+    />
+  <mapitem 
+    key="learning/learningAssessment-learning1"
+    dtdPubId="-//OASIS//DTD DITA Learning Assessment Learning1//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningAssessment-learning1.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningAssessment-learning1.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningAssessment-learning1.xsd"
+    />
+  <mapitem 
+    key="learning/learningAssessment-learning2"
+    dtdPubId="-//OASIS//DTD DITA Learning Assessment Learning2//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningAssessment-learning2.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningAssessment-learning2.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningAssessment-learning2.xsd"
+  />
+  <mapitem 
+    key="learning/learningAssessment"
+    dtdPubId="-//OASIS//DTD DITA Learning Assessment//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningAssessment.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningAssessment.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningAssessment.xsd"
+  />
+  <mapitem 
+    key="learning/learningBookmap"
+    dtdPubId="-//OASIS//DTD DITA Learning BookMap//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningBookmap.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningBookmap.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningBookmap.xsd"
+    />
+  <mapitem 
+    key="learning/learningContent"
+    dtdPubId="-//OASIS//DTD DITA Learning Content//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningContent.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningContent.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningContent.xsd"
+    />
+  <mapitem 
+    key="learning/learningMap"
+    dtdPubId="-//OASIS//DTD DITA Learning Map//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningMap.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningMap.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningMap.xsd"
+    />
+  <mapitem 
+    key="learning/learningGroupMap"
+    dtdPubId="-//OASIS//DTD DITA Learning Group Map//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningGroupMap.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningGroupMap.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningGroupMap.xsd"
+  />
+  <mapitem 
+    key="learning/learningObjectMap"
+    dtdPubId="-//OASIS//DTD DITA Learning Object Map//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningObjectMap.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningObjectMap.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningObjectMap.xsd"
+  />
+  <mapitem 
+    key="learning/learningOverview"
+    dtdPubId="-//OASIS//DTD DITA Learning Overview//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningOverview.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningOverview.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningOverview.xsd"
+    />
+  <mapitem 
+    key="learning/learningPlan"
+    dtdPubId="-//OASIS//DTD DITA Learning Plan//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningPlan.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningPlan.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningPlan.xsd"
+    />
+  <mapitem 
+    key="learning/learningSummary"
+    dtdPubId="-//OASIS//DTD DITA Learning Summary//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:learningSummary.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:learningSummary.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:learningSummary.xsd"
+    />
+  <mapitem 
+    key="machineryIndustry/machineryTask"
+    dtdPubId="-//OASIS//DTD DITA Machinery Task//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:machineryTask.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:machineryTask.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:machinerytask.xsd"
+    />
+  <mapitem 
+    key="subjectScheme/classifyMap"
+    dtdPubId="-//OASIS//DTD DITA Classification Map//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:classifyMap.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:classifyMap.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:classifyMap.xsd"
+    />
+  <mapitem 
+    key="subjectScheme/subjectScheme"
+    dtdPubId="-//OASIS//DTD DITA Subject Scheme Map//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:subjectScheme.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:subjectScheme.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:subjectScheme.xsd"
+    />
+  <mapitem 
+    key="technicalContent/concept"
+    dtdPubId="-//OASIS//DTD DITA Concept//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:concept.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:concept.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:concept.xsd"
+    />
+  <mapitem 
+    key="technicalContent/ditabase"
+    dtdPubId="-//OASIS//DTD DITA Composite//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:ditabase.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:ditabase.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:ditabase.xsd"
+    />
+  <mapitem 
+    key="technicalContent/generalTask"
+    dtdPubId="-//OASIS//DTD DITA General Task//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:generalTask.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:generalTask.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:generalTask.xsd"
+    />
+  <mapitem 
+    key="technicalContent/glossary"
+    dtdPubId="-//OASIS//DTD DITA Glossary//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:glossary.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:glossary.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:glossary.xsd"
+    />
+  <mapitem 
+    key="technicalContent/glossentry"
+    dtdPubId="-//OASIS//DTD DITA Glossary Entry//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:glossentry.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:glossentry.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:glossentry.xsd"
+    />
+  <mapitem 
+    key="technicalContent/glossgroup"
+    dtdPubId="-//OASIS//DTD DITA Glossary Group//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:glossgroup.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:glossgroup.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:glossgroup.xsd"
+    />
+  <mapitem 
+    key="technicalContent/map"
+    dtdPubId="-//OASIS//DTD DITA Map//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:map.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:map.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:map.xsd"
+    />
+  <mapitem 
+    key="technicalContent/reference"
+    dtdPubId="-//OASIS//DTD DITA Reference//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:reference.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:reference.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:reference.xsd"
+    />
+  <mapitem 
+    key="technicalContent/task"
+    dtdPubId="-//OASIS//DTD DITA Task//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:task.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:task.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:task.xsd"
+    />
+  <mapitem 
+    key="technicalContent/troubleshooting"
+    dtdPubId="-//OASIS//DTD DITA Troubleshooting//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:troubleshooting.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:troubleshooting.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:troubleshooting.xsd"
+  />
+  <mapitem 
+    key="technicalContent/topic"
+    dtdPubId="-//OASIS//DTD DITA Topic//EN"
+    rngUrn="urn:oasis:names:tc:dita:rng:topic.rng"
+    rncUrn="urn:oasis:names:tc:dita:rng:topic.rnc"
+    xsdUrn="urn:oasis:names:tc:dita:xsd:topic.xsd"
+    />
+</datamap>

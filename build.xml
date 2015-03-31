@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="help" name="dita-rng2dtdxsd">
+   
+<!--  <property environment="env"/> -->
+  
+  <property name="ditaver" description="The DITA version to generate (1.2, 1.3, etc.)"
+     value="1.3"
+  />
+
+  <!-- This is relative to the location of this Ant script and reflects
+       the organization of the DITA TC-managed source repository.
+    -->
+  <property name="doctypesDir" location="${basedir}../../../../doctypes"/>
+	
+	<!-- This is the tools/ dir under the doctypes DIR in the TC-managed
+	     source repository.
+	  -->
+  <property name="toolsDir" location="${basedir}/../../tools"/>
+  <property name="javaLibDir" location="${toolsDir}/lib"/>
+  <property name="saxonDir" location="${javaLibDir}/saxon"/>
+  <property name="catalogType" value="'all'"/>
+  <!-- The catalogType parameter specifies the type of catlaog
+       to be produced:
+       
+       - 'all' : Entries for each type of schema are included
+       - 'dtd' : Only DTD entries
+       - 'rng' : Only RNG entries
+       - 'rnc' : Only RNC entries
+       - 'schema' : The XSDs that use URNs to reference modules
+       - 'schema-url' : The XSDs that use URls to reference modules
+       
+    -->
+  
+		 
+  <property name="outdir" description="Root output directory for the generated files"
+      location="${doctypesDir}/src"
+   />
+  
+  <property name="verSpecificOutDir" 
+    location="${outdir}/${ditaver}"
+  />
+  
+  <property name="catalogOutDir" description="Directory containing the XML entity resolution catalogs"
+   location="${verSpecificOutDir}"
+  />
+  <echo>catalogOutDir=${catalogOutDir}</echo>
+  
+  <property name="dtd-outdir" description="Output directory for DTD files"
+     location="${verSpecificOutDir}/dtd"
+   />
+   <property name="xsd-urn-outdir" description="Output directory for URN-based XSD files"
+     location="${verSpecificOutDir}/schema"
+   />
+   <property name="xsd-url-outdir" description="Output directory for URL-based XSD files"
+     location="${verSpecificOutDir}/schema-url"
+   />
+  <property name="rnc-urn-outdir" description="Output directory for URN-based RNC files"
+    location="${verSpecificOutDir}/rnc"
+  />
+  
+   <property name="manifestOutputDir" description="Directory to put the generation manifest in" 
+     location="${verSpecificOutDir}/generationManifests"
+   />
+  
+  <property name="xslsrc" location="${basedir}/xsl"/>
+  <property name="src" description="root source directory for the doctypes"
+      location="${basedir}/../../src"
+  />  
+  <property name="rngsrc" description="Parent source dir for all RNG files" 
+    location="${src}/${ditaver}/rng"
+  />
+  <property name="foreignsrc" description="Directory containing foreign vocabulary declarations"
+    location="${src}/${ditaver}/foreign"
+  />
+  
+  <property name="usePublicIDsInShell" value="true"/><!-- For testing. True for production -->
+  
+  <!-- Catalog used by Saxon process to resolve URNs to RNG components. 
+  
+       The default is appropriate for the TC-managed source repository. 
+  -->
+  <property name="masterCatalog" location="${doctypesDir}/src/${ditaver}/catalog.xml"/>
+  
+  <property name="dtdGenerationXsl" location="${xslsrc}/rng2ditadtd/rng2ditadtd.xsl"/>
+  <property name="catalogGenerationXsl" location="${xslsrc}/rng2catalogs/rng2catalogs.xsl"/>
+  <property name="rncGenerationXsl" location="${xslsrc}/rng2ditarnc/rng2ditarnc.xsl"/>
+  <property name="xsdGenerationXsl" location="${xslsrc}/rng2ditaxsd/rng2ditaxsd.xsl"/>
+  
+  <!-- This is the default for TC-defined vocabulary. 
+       For non-TC stuff the scripts use the DITA OT catalog -->
+  <property name="catalogPath" location="../../src/${ditaver}/catalog.xml"/>
+  
+  <makeurl property="catalogPathUrl" file="${catalogPath}"/>
+
+  
+  <property name="debug" value="false"/>
+  <condition property="doGenerateModules" value="${generateModules}">
+    <isset property="generateModules"/>
+  </condition>
+  <condition property="doGenerateStandardModules" value="${generateStandardModules}">
+    <isset property="generateStandardModules"/>
+  </condition>
+  <condition property="doGenerateModules" value="false">
+    <not>
+      <isset property="generateModules"/>
+    </not>
+  </condition>
+  <condition property="doGenerateCatalogs" value="${generateCatalogs}">
+    <isset property="generateCatalogs"/>
+  </condition>
+  <condition property="doGenerateCatalogs" value="false">
+    <not>
+      <isset property="generateCatalogs"/>
+    </not>
+  </condition>
+  
+  <target name="init">
+    <echo>outdir=${outdir}</echo>
+    <echo>catalogOutDir="${catalogOutDir}"</echo>
+    <echo>saxonDir="${saxonDir}"</echo>
+		<buildnumber/>
+    <tstamp/>
+  </target>
+
+  <tstamp>
+  	<format property="build-date-time"
+  	         pattern="yyyy-MM-dd HH:mm:SSS z"/>
+  </tstamp>
+	
+  	
+  <path id="saxonClasspath">
+    <fileset dir="${saxonDir}" >
+      <include name="saxon9*.jar"/>
+    </fileset>
+    <fileset dir="${javaLibDir}">
+      <include name="resolver.jar"/>
+    </fileset>
+  </path>
+
+  <target name="clean">
+    <delete failonerror="false">
+      <fileset dir="${manifestOutputDir}">
+        <include name="**/*"/>
+      </fileset>
+    </delete>
+    <mkdir dir="${verSpecificOutDir}"/>
+
+  </target>
+  
+ <target name="help">
+   <echo>
+[generate-all|generate-dtd]
+
+  -Drngsrc={directory containing the RELAX NG document type shells to process}
+  
+  -Doutdir={directory to put the generated files into}
+  
+  -DcatalogOutDir={directory to put any generated catalogs into}
+  
+  -DusePublicIDsInShell=[true|FALSE]
+  
+     Use public IDs (URNs) rather than direct URLs for references to modules from shells.
+     
+  -DgenerateModules=[true|FALSE]
+           
+      Generate vocabulary modules in addition to document type shells.
+            
+   -DgenerateCatalogs=[true|FALSE]
+   
+      Generate entity resolution catalogs
+      
+   -DgenerateStandardModules=[true|FALSE]
+   
+      Generate the standard OASIS-defined modules as well as any other
+      modules.
+      
+   -D debug=[true|FALSE]
+   
+      Turns on debug messages.
+   </echo>
+ </target>
+
+ <target name="generate-all" 
+   description="Generates all OASIS-defined shells and modules for both DTD and XSD syntax"
+   depends="init, clean, generate-dtd, generate-rnc-urn, generate-xsd-url, generate-xsd-urn, generate-catalogs"
+   >
+  
+ </target> 
+
+  <!-- NOTE: In the XSLT tasks below, I'm not sure that the
+       <factory> specification is necessary since we're also
+       putting the saxon jar on the classpath. However, it doesn't 
+       seem to hurt and may help when the effective class path
+       doesn't end up with Saxon first.
+    -->
+  
+  <target name="generate-dtd" description="Generates the DTDs from the RNGs"
+    depends="init, clean"
+    >
+<!--  	<echoproperties regex="gen|out|debug|dir|Dir|ditaver|src|do"/>-->
+    <!-- NOTE: the -catalog Saxon parameter is not available with Saxon 9.1, so
+         this use of Saxon requires a newer version, e.g., 9.6.
+      -->
+  	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
+    <java classname="net.sf.saxon.Transform"
+      classpathref="saxonClasspath"
+     >
+      <arg line="-o:${manifestOutputDir}/dtd-generation-manifest.xml"/>
+      <arg line="-it:processDir"/>
+      <arg line="-xsl:${dtdGenerationXsl}"/>
+      <arg line="-catalog:${catalogPathUrl}"/>
+      <arg line="generateCatalogs=${doGenerateCatalogs}"/>
+      <arg line="outdir=${dtd-outdir}"/>
+      <arg line="usePublicIDsInShell=${usePublicIDsInShell}"/>
+      <arg line="ditaVersion=${ditaver}"/>
+      <arg line="debug=${debug}"/>
+      <arg line="rootDir=${rngsrcUrl}"/>
+      <arg line="generateModules=${doGenerateModules}"/>
+      <arg line="generateStandardModules=${doGenerateStandardModules}"/>
+      <arg line="generateCatalogs=${doGenerateCatalogs}"/>
+      <arg line="catalogs=${masterCatalog}"/>
+    </java>        
+    
+    <antcall target="copy1.3ForeignVocabs"/>
+   
+  </target>
+  
+  <target name="check.copyVocabs">
+    <condition property="doCopyVocabs">
+      <and>
+        <equals 
+          arg1="${ditaver}"
+          arg2="1.3"
+          />
+        <istrue value="${doGenerateModules}"
+        />
+        <istrue value="${doGenerateStandardModules}"
+        />
+      </and>
+    </condition>
+  </target>
+  
+  <target name="copy1.3ForeignVocabs" depends="check.copyVocabs" if="doCopyVocabs"
+    description="Copy the SVG and MathML declarations to the output if module generation is requested"
+    >
+    <echo>Copying foreign vocabularies to output...</echo>
+    <!-- Copy the foreign DTDs: -->
+    <copy todir="${dtd-outdir}/technicalContent/dtd">
+      <fileset dir="${foreignsrc}/dtd">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+    <!-- Copy the foreign XSDs: -->
+    <copy todir="${xsd-urn-outdir}/technicalContent/xsd">
+      <fileset dir="${foreignsrc}/xsd">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+    <copy todir="${xsd-url-outdir}/technicalContent/xsd">
+      <fileset dir="${foreignsrc}/xsd">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="generate-xsd-url"
+    depends="init, clean"
+    >
+    <!-- Catalog path is not needed for processing TC-defined RNGs as they 
+         use relative URLs, but for non-TC RNGs will need a catalog to resolve
+         URNs, e.g., the OT master catalog.
+      -->
+  	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
+    <java classname="net.sf.saxon.Transform"
+      classpathref="saxonClasspath"
+      >
+      <arg line="-o:${manifestOutputDir}/xsd-url-generation-manifest.xml"/>
+      <arg line="-it:processDir"/>
+      <arg line="-xsl:${xsdGenerationXsl}"/>
+      <arg line="-catalog:${catalogPathUrl}"/>
+      <arg line="outdir=${xsd-url-outdir}"/>
+      <arg line="useURNsInShell=false"/>
+      <arg line="ditaVersion=${ditaver}"/>
+      <arg line="debug=${debug}"/>
+      <arg line="rootDir=${rngsrcUrl}"/>
+      <arg line="generateModules=${doGenerateModules}"/>
+      <arg line="generateStandardModules=${doGenerateStandardModules}"/>
+      <arg line="generateCatalogs=${doGenerateCatalogs}"/>
+    </java>        
+    
+    <antcall target="copy1.3ForeignVocabs"/>
+  </target>
+
+  <target name="generate-xsd-urn"
+    depends="init, clean"
+    >
+  	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
+
+    <java classname="net.sf.saxon.Transform"
+      classpathref="saxonClasspath"
+      >
+      <arg line="-o:${manifestOutputDir}/xsd-urn-generation-manifest.xml"/>
+      <arg line="-it:processDir"/>
+      <arg line="-xsl:${xsdGenerationXsl}"/>
+      <arg line="-catalog:${catalogPathUrl}"/>
+      <arg line="outdir=${xsd-urn-outdir}"/>
+      <arg line="useURNsInShell=true"/>
+      <arg line="ditaVersion=${ditaver}"/>
+      <arg line="debug=${debug}"/>
+      <arg line="rootDir=${rngsrcUrl}"/>
+      <arg line="generateModules=${doGenerateModules}"/>
+      <arg line="generateStandardModules=${doGenerateStandardModules}"/>
+    </java>        
+  </target>
+
+  <target name="generate-rnc-urn"
+    depends="init, clean"
+    >
+  	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
+
+    <java classname="net.sf.saxon.Transform"
+      classpathref="saxonClasspath"
+      >
+      <arg line="-o:${manifestOutputDir}/rnc-urn-generation-manifest.xml"/>
+      <arg line="-it:processDir"/>
+      <arg line="-xsl:${rncGenerationXsl}"/>
+      <arg line="-catalog:${catalogPathUrl}"/>
+      <arg line="outdir=${rnc-urn-outdir}"/>
+      <arg line="usePublicIDsInShell=true"/>
+      <arg line="ditaVersion=${ditaver}"/>
+      <arg line="debug=${debug}"/>
+      <arg line="rootDir=${rngsrcUrl}"/>
+      <arg line="generateModules=${doGenerateModules}"/>
+      <arg line="generateStandardModules=${doGenerateStandardModules}"/>
+    </java>        
+  </target>
+  
+  <target name="generate-catalogs" description="Generate all the entity resolution catalogs for a specific DITA version"
+    depends="init, clean"
+    >
+  	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
+
+<!-- WEK: Not doing deletion for now. Need to be selective about which 
+          catalogs are deleted based on catalog type value (e.g., only
+          DTD catalogs).
+  -->
+<!--
+    <delete failonerror="false">
+      <fileset dir="${catalogOutDir}">
+        <include name="**/catalog.xml"/>
+      </fileset>
+    </delete>
+-->
+    <java classname="net.sf.saxon.Transform"
+      classpathref="saxonClasspath"
+      >
+      <arg line="-xsl:${catalogGenerationXsl}"/>
+      <arg line="-it:processDir"/>
+      <arg line="-catalog:${catalogPathUrl}"/>
+      <arg line="rootDir=${rngsrcUrl}"/>
+      <arg line="ditaVersion=${ditaver}"/>
+      <arg line="outdir=${verSpecificOutDir}"/>
+      <arg line="catalogType=${catalogType}"/>
+    </java>
+  </target>
+  
+  
+</project>

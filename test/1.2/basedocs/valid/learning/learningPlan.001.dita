@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<learningPlan id="learningPlan.001" shellPackage="learning" shellName="learningPlan">
+ <title>Learning Plan</title>
+ <shortdesc>The short description</shortdesc>
+  <learningPlanbody></learningPlanbody>
+</learningPlan>

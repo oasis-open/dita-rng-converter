@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Module Description Topic Shell-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng:1.3"
+              uri="rng/vocabularyModuleDesc.rng"/>
+      <system systemId="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+              uri="rng/vocabularyModuleDesc.rng"/>
+      <system systemId="urn:oasis:names:tc:dita:rng:vocabularyModuleDescMod.rng:1.3"
+              uri="rng/vocabularyModuleDescMod.rng"/>
+      <system systemId="urn:oasis:names:tc:dita:rng:vocabularyModuleDescMod.rng"
+              uri="rng/vocabularyModuleDescMod.rng"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng:1.3"
+           uri="rng/vocabularyModuleDesc.rng"/>
+      <uri name="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+           uri="rng/vocabularyModuleDesc.rng"/>
+      <uri name="urn:oasis:names:tc:dita:rng:vocabularyModuleDescMod.rng:1.3"
+           uri="rng/vocabularyModuleDescMod.rng"/>
+      <uri name="urn:oasis:names:tc:dita:rng:vocabularyModuleDescMod.rng"
+           uri="rng/vocabularyModuleDescMod.rng"/>
+   </group>
+</catalog>

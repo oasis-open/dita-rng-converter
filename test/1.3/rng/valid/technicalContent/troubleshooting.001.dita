@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/technicalContent/rng/troubleshooting.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<troubleshooting id="resolve" xml:lang="en-us">
+  <title>Trouble</title>
+  <shortdesc>Big trouble has happened.</shortdesc>
+  <prolog>
+    <change-historylist/>
+  </prolog>
+  <troublebody>
+    <condition>
+      <title>Condition title</title>
+      <p>You may notice that this has happened.</p>
+      <p>Another paragraph in condition.</p>
+    </condition>
+    <troubleSolution>
+      <cause>
+        <p>It should have happened, but it did not.</p>
+      </cause>
+      <remedy>
+        <steps>
+          <step>
+            <cmd>This first</cmd>
+          </step>
+          <step>
+            <cmd>This next</cmd>
+          </step>
+        </steps>
+      </remedy>
+    </troubleSolution>
+    <troubleSolution>
+      <cause>
+        <title>Cause title</title>
+        <p>The problem lies elsewhere.</p>
+        <p>Another paragraph in cause</p>        
+      </cause>
+      <remedy>        
+        <steps>
+          <step>
+            <cmd>This first</cmd>
+          </step>
+          <step>
+            <cmd>This next</cmd>
+          </step>
+        </steps>
+      </remedy>
+    </troubleSolution>
+    <troubleSolution>
+      <cause>
+        <p>This is the cause. There is no solution.</p>
+      </cause>
+      <cause>
+        <p>Another cause. Still no solution.</p>
+      </cause>
+    </troubleSolution>
+    <troubleSolution>
+      <remedy>
+        <responsibleParty>You</responsibleParty>
+        <steps>
+          <step>
+            <cmd>Clean up the mess.</cmd>
+          </step>
+        </steps>
+      </remedy>
+      <remedy>
+        <!-- Empty remedy is valid per 13 Jan 14 version of the proposal -->
+      </remedy>
+    </troubleSolution>
+      
+  </troublebody>
+  <task id="asdfasd">
+    <title>Subordinate Task Within Troubleshooting</title>
+    <taskbody>
+      <steps>
+        <step>
+          <cmd>A step</cmd>
+        </step>
+      </steps>
+    </taskbody>
+  </task>
+</troubleshooting>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="analyze-log" name="log-analyzer">
+  
+  <property environment="env"/>
+
+  
+  <property name="toolsDir" location="${basedir}/../tools"/>
+  <property name="javaLibDir" location="${toolsDir}/lib"/>
+  <property name="saxonDir" location="${javaLibDir}/saxon"/>
+  
+  <property name="logFile" location="${basedir}/test-all.log"/>
+  
+  <path id="saxonClasspath">
+    <fileset dir="${saxonDir}" >
+      <include name="saxon9*.jar"/>
+    </fileset>
+    <fileset dir="${javaLibDir}" >
+      <include name="resolver.jar"/>
+    </fileset>
+  </path>
+
+  <target name="init">
+    <buildnumber/>
+    <tstamp/>
+  </target>
+
+  <tstamp>
+    <format property="build-date-time"
+             pattern="yyyy-MM-dd HH:mm:SSS z"/>
+  </tstamp>
+  
+ <target name="analyze-log" description="Run XSLT to analyze the ant log from the test runner."
+   depends="init"
+  >
+    <makeurl file="${logFile}" property="logFileUri"/>
+    <java classname="net.sf.saxon.Transform" failonerror="true"
+      classpathref="saxonClasspath"
+     >
+      <arg line="-xsl:${basedir}/tools/xsl/log-analyzer/log-analyzer.xsl"/>
+      <arg line="-it:processLog"/>
+      <arg line="logfileUri=${logFileUri}"/>
+    </java>
+ </target>
+</project>

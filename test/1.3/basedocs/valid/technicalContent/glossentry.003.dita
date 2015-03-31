@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<glossentry id="wmd" xml:lang="es" shellPackage="technicalContent" shellName="glossentry">
+    <glossterm>armas de destrucción masiva</glossterm>
+    <glossBody>
+        <glossSurfaceForm>WMD</glossSurfaceForm>
+      <glossSymbol keyref="glosssymbol-01"/>
+      <glossSymbol href="glosssymbol-01.svg"/>
+      <glossAlt>
+            <glossAcronym>WMD</glossAcronym>
+        </glossAlt>
+    </glossBody>
+</glossentry>

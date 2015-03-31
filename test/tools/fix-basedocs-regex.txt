@@ -1,0 +1,3 @@
+<!DOCTYPE ([^ ]+) ((.+)?)//EN" "([^.]+).dtd">(\s|\n)*<([^>]+)>
+
+<$6 shellPackage="technicalContent" shellName="$1">

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subjectScheme shellPackage="subjectScheme" shellName="subjectScheme">
+    <subjectHead outputclass="subject-head">
+        <subjectHeadMeta>
+            <navtitle>
+                <!-- Enter a description of the subject scheme. -->
+            </navtitle>
+        </subjectHeadMeta>
+    </subjectHead>
+  <hasKind outputclass="has-kind">
+    
+  </hasKind>
+  <hasPart outputclass="has-part">
+    
+  </hasPart>
+  <hasNarrower outputclass="has-narrower">
+    
+  </hasNarrower>
+  <hasRelated outputclass="has-related" collection-type="sequence">
+    
+  </hasRelated>
+  <hasInstance>
+    <subjectdef keys="productSbjKey">
+      <!-- A tree of related values -->
+      <subjectdef keys="value1">
+        <topicmeta>
+          <navtitle>First level value</navtitle>
+        </topicmeta>
+        
+        <subjectdef keys="value21">
+          <topicmeta>
+            <navtitle>Second level value</navtitle>
+          </topicmeta>
+        </subjectdef>
+        
+        <subjectdef keys="value22">
+          <topicmeta>
+            <navtitle>Second level value</navtitle>
+          </topicmeta>
+        </subjectdef>
+        
+      </subjectdef>
+    </subjectdef>
+  </hasInstance>
+  <enumerationdef>
+    <!-- Bind an attribute to a tree of related values -->
+    <attributedef name="name"/>
+    <subjectdef/>
+  </enumerationdef>
+  <schemeref href="unixOS.ditamap"/>
+  <!-- Define new OS values that are merged with those in the unixOS scheme -->
+  <subjectdef keys="os">
+    <subjectdef keys="linux"/>
+    <subjectdef keys="mswin"/>
+    <subjectdef keys="zos"/>
+  </subjectdef>
+  <!-- Define application values -->
+  <subjectdef keys="app" navtitle="Applications">
+    <subjectdef keys="apacheserv" href="subject/apache.dita"/>
+    <subjectdef keys="mysql" href="subject/sql.dita"/>
+  </subjectdef>
+  
+  <!-- Define an enumeration of the platform attribute, equal to
+       each value in the OS subject. This makes the following values
+       valid for the platform attribute: linux, mswin, zos -->
+  <enumerationdef>
+    <attributedef name="platform"/>
+    <subjectdef keyref="os"/>
+  </enumerationdef>
+  <!-- Define an enumeration of the otherprops attribute, equal to
+       each value in the application subjects.
+       This makes the following values valid for the otherprops attribute:
+       apacheserv, mysql -->
+  <enumerationdef>
+    <attributedef name="otherprops"/>
+    <subjectdef keyref="app"/>
+  </enumerationdef>
+  <relatedSubjects outputclass="related-subjects">
+    
+  </relatedSubjects>
+</subjectScheme>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<learningSummary id="learningSummary.001" shellPackage="learning" shellName="learningSummary">
+ <title>Learning Summary</title>
+ <shortdesc>The short description</shortdesc>
+ <learningSummarybody></learningSummarybody>
+</learningSummary>

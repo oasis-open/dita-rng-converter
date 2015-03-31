@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/technicalContent/rng/reference.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<reference id="boldproperty">
+  <title>Bold property</title>
+  <shortdesc>(Read-write) Whether to use a bold font for the specified text string.</shortdesc>
+  <prolog>
+    <change-historylist></change-historylist>
+  </prolog>
+  <refbody>
+    <refsyn>
+      <synph>
+        <var>object</var><delim>.</delim><kwd>Font</kwd><delim>.</delim>
+        <kwd>Bold</kwd><delim> = </delim><var>trueorfalse</var>
+      </synph>
+    </refsyn>
+    <properties>
+      <property>
+        <proptype>Data type</proptype>
+        <propvalue>Boolean</propvalue>
+      </property>
+      <property>
+        <proptype>Legal values</proptype>
+        <propvalue>True (1) or False (0)</propvalue>
+      </property>
+    </properties>
+  </refbody>
+</reference>

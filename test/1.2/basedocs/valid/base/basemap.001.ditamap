@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map shellPackage="base" shellName="basemap"> 
+  <title>Map Title</title>
+  <topicmeta>
+    
+  </topicmeta>
+  <topicref/>
+  <topicref keys="key01"/>
+  <topicgroup>
+    <topicmeta>
+      <navtitle>Topic Group With Navtitle</navtitle>
+    </topicmeta>
+    <topichead>
+      <topicmeta>
+        <navtitle>Topic Head</navtitle>
+      </topicmeta>
+    </topichead>
+  </topicgroup>
+ <topicref href="progexample.dita">
+  <topicmeta>
+   <navtitle>Programming example</navtitle>
+   <searchtitle>Example of programming in XSLT</searchtitle>
+  </topicmeta>
+ </topicref>
+ <topicref href="myThing.dita">
+ <topicmeta>
+  <navtitle>Navigation title for my topic</navtitle>
+  <shortdesc>A description of myThing that is specific to this context.</shortdesc>
+ </topicmeta>
+</topicref>
+</map>

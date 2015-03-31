@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../../../../../src/1.3/rng/learning/rng/learningContent.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<learningContent id="learningContent.001">
+ <title>Learning Content</title>
+ <shortdesc>The short description</shortdesc>
+  <prolog>
+    <change-historylist></change-historylist>
+    <lcLom>
+      <lomAggregationLevel value="1"><text>Text in lomAggLevel</text></lomAggregationLevel>
+      <lomContext value="highereducation"><text>text in lomContext</text></lomContext>
+    </lcLom>
+  </prolog>
+  <learningContentbody>
+    <lcObjectives>
+      <lcObjectivesGroup>
+        <data>data</data>
+        <data-about>
+          <data>data-about</data>
+        </data-about>
+        <lcObjective></lcObjective>
+      </lcObjectivesGroup>
+    </lcObjectives>
+  </learningContentbody>
+</learningContent>

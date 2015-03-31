@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="boldproperty" shellPackage="technicalContent" shellName="reference">
+  <title>Bold property</title>
+  <shortdesc>(Read-write) Whether to use a bold font for the specified text string.</shortdesc>
+  <refbody>
+    <refsyn>
+      <synph>
+        <var>object</var><delim>.</delim><kwd>Font</kwd><delim>.</delim>
+        <kwd>Bold</kwd><delim> = </delim><var>trueorfalse</var>
+      </synph>
+    </refsyn>
+    <example>
+      <p>Message Block:</p>
+      <msgblock>
+Line of msg
+<msgph>Text in msgph</msgph> after msgph
+Another line of msg.
+      </msgblock>
+    </example>
+    <properties>
+      <property>
+        <proptype>Data type</proptype>
+        <propvalue>Boolean</propvalue>
+      </property>
+      <property>
+        <proptype>Legal values</proptype>
+        <propvalue>True (1) or False (0)</propvalue>
+      </property>
+    </properties>
+  </refbody>
+</reference>

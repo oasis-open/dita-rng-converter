@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/machineryIndustry/rng/machineryTask.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<task id="task_xtt_t2z_2n">
+    <title>Task title</title>
+    <shortdesc/>
+    <taskbody>
+      <prelreqs>
+        <reqconds>
+          <data>data</data>
+          <data-about>
+            <data>data-about</data>
+          </data-about>
+          <noconds/>
+        </reqconds>
+        <reqpers>
+          <data>data</data>
+          <data-about>
+            <data>data-about</data>
+          </data-about>
+          <personnel></personnel>
+        </reqpers>
+        <supequip>
+          <supeqli>
+          <data>data</data>
+          <data-about>
+            <data>data-about</data>
+          </data-about>
+            <supequi></supequi>
+          </supeqli>
+        </supequip>
+        <supplies>
+          <supplyli>
+          <data>data</data>
+          <data-about>
+            <data>data-about</data>
+          </data-about>
+            <supply></supply>
+          </supplyli>        
+        </supplies>
+        <spares>
+          <sparesli>
+          <data>data</data>
+          <data-about>
+            <data>data-about</data>
+          </data-about>
+            <spare></spare>
+          </sparesli>
+        </spares>
+        <safety>
+          <data>data</data>
+          <data-about>
+            <data>data-about</data>
+          </data-about>
+          <nosafety/>
+        </safety>       
+      </prelreqs>
+        <context>
+            <p>Context for the current task</p>
+        </context>
+        <steps>
+            <step>
+                <cmd>Task step.</cmd>
+            </step>
+        </steps>
+    </taskbody>
+</task>

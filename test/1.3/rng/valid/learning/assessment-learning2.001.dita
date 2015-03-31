@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/learning/rng/learningAssessment-learning2.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<learningAssessment
+  id="dita-1.3-lc-test-01">
+  <title>Learning Assessment DITA 1.3 Test, Learning 2</title>
+  <learningAssessmentbody>
+    <lcIntro> <p>This document contains examples of interactions (questions and
+      answers) that use the proposed 1.3 alternative markup.</p> </lcIntro>
+    <lcInteraction>
+      <lcSingleSelect2>
+        <lcInteractionLabel2>Typical Triumph Learning
+          Question</lcInteractionLabel2>
+        <lcQuestion2> <p>The spinner below is divided into 8 equal sections.
+          Xavier spins the pointer.</p> <p><image
+            href="art/spinner-01.svg">
+            <alt>A round spinner divided into 8 wedges, labeled clockwise from
+              the top: yellow, red, red, yellow, blue blue, red, blue.</alt>
+            </image></p> <p
+            outputclass="prompt">What is the probability that the pointer will
+            land on yellow?</p> </lcQuestion2>
+        <lcAnswerOptionGroup2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>2/8</lcAnswerContent2>
+            <lcCorrectResponse2/>
+            <lcFeedback2> <p>There are 8 wedges, two of which are yellow. Thus
+              the probability is:</p> <pre>2
+—
+8</pre>
+            </lcFeedback2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>3/8</lcAnswerContent2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>1/3</lcAnswerContent2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>2/5</lcAnswerContent2>
+          </lcAnswerOption2>
+        </lcAnswerOptionGroup2>
+        <data
+          name="subject"
+          value="math"/>
+        <data
+          name="gradelevel"
+          value="3"/>
+      </lcSingleSelect2>
+      <lcOpenQuestion2>
+        <lcInteractionLabel2>ARS: Single-select question</lcInteractionLabel2>
+        <lcQuestion2> <p>Do you think that people are capable of finding
+          happiness or are they always searching for something beyond what they
+          have?…</p> <lq>I entirely agree with you about the obscurity of Mrs
+          Browning's line about the stars. It is far-fetched. She wanted to
+          express something which she found beyond expression.<ph
+          outputclass="attribution">Marie Corelli</ph></lq> </lcQuestion2>
+        <lcOpenAnswer2> <div
+          outputclass="example"> <p>6 Score Essay</p> <p>Happiness means
+          different things to different people. My sister is happiest when she
+          performs onstage in a play…</p> </div> <div
+          outputclass="critique"> <p>6 Score Critique</p> <p>All essays are
+          evaluated on four basic criteria: Topic, Support, Organization, and
+          Language. This essay begins with the author’s interpretation of the
+          topic, showing…</p> </div> <div
+          outputclass="example"> <p>4 Score Essay</p> <p>My Mom’s favorite
+          expression is “The grass is always greener on the other side.” She
+          says this if I ask for something…</p> </div> <div
+          outputclass="critique"> <p>4 Score Critique</p> <p>All essays are
+          evaluated on four basic criteria: Topic, Support, Organization, and
+          Language. … </p> </div> </lcOpenAnswer2>
+      </lcOpenQuestion2>
+      <lcSingleSelect2>
+        <lcQuestion2> <p>Which of the following is true of the image formed
+          onthe retina?</p> <ol>
+          <li>It is real.</li>
+          <li>It is inverted.</li>
+          <li>It is reduced.</li>
+          </ol> </lcQuestion2>
+        <lcAnswerOptionGroup2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>I only</lcAnswerContent2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>I and II only</lcAnswerContent2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>II and III only</lcAnswerContent2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>I, II, and III</lcAnswerContent2>
+            <lcCorrectResponse2/>
+          </lcAnswerOption2>
+        </lcAnswerOptionGroup2>
+        <lcFeedbackCorrect2> <p>This question asks…</p> <p>…So statement III is
+          true</p> </lcFeedbackCorrect2>
+        <data
+          name="lcKPubSingleSelectType"
+          value="standard"/>
+      </lcSingleSelect2>
+    </lcInteraction>
+  </learningAssessmentbody>
+</learningAssessment>

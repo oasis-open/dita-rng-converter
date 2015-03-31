@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map shellPackage="technicalContent" shellName="map">
+  <title>Technical content map </title>
+  <topicmeta>
+    <prodinfo>
+      <prodname>Prodinfo with no VRM</prodname>
+    </prodinfo>
+    <resourceid appid="dita-sc"/>
+    <ux-window name="window-01" height="400" width="600"/>
+    <data name="markup-domain-test">
+      <markupname>markup name element</markupname>
+    </data>
+    <data name="xml-domain-test">
+      <xmlelement>xmlelement</xmlelement> element
+    </data>
+  </topicmeta>
+  <topicgroup>
+    <topicmeta><navtitle>Key Definitions</navtitle></topicmeta>
+    <keydef keys="svg-graphic-01" href="../../media/svg/dita_logo.svg"
+      format="svg"
+    />
+    <keydef keys="svg-graphic-02" href="../../media/svg/three-ovals.svg"
+      format="svg"
+    />
+    <keydef keys="mathml-equation-01" href="../../media/mathml/mathml-equation-01.mathml"
+      format="svg"
+    />
+    <keydef keys="glossentry.003.dtd" href="glossentry.003.dtd.dita"      
+    />
+  </topicgroup>
+  <topichead navtitle="Base Topics">
+    <topicref href="../base/basetopic.001.dtd.dita"/>
+  </topichead>
+  <topichead navtitle="Learning Topics">
+    <topicref href="../learning/learningAssessment.001.dtd.dita"/>
+    <topicref href="../learning/learningContent.001.dtd.dita"/>
+    <topicref href="../learning/learningOverview.001.dtd.dita"/>
+    <topicref href="../learning/learningPlan.001.dtd.dita"/>
+    <topicref href="../learning/learningSummary.001.dtd.dita"/>
+  </topichead>
+  <topichead navtitle="Machinery Industry Topics">
+    <topicref href="../machineryIndustry/machineryTask.001.dtd.dita"/>
+  </topichead>
+  <topichead navtitle="Technical Content Topics">
+    <topicref href="concept-abstract.001.dtd.dita"/>
+    <topicref href="concept-shortdesc.001.dtd.dita"/>
+    <topicref href="generalTask.001.dtd.dita"/>
+    <glossref keys="gloss-01" href="glossentry.003.dtd.dita"/>
+    <glossref keys="gloss-02" keyref="glossentry.003.dtd"/>
+    <topicref href="reference.001.dtd.dita"/>
+    <topicref href="task.001.dtd.dita"/>
+    <topicref href="technicalContent-topic.001.dtd.dita"/>
+  </topichead>
+  <topichead>
+    <topicmeta>
+      <navtitle>Glossary Reference</navtitle>
+    </topicmeta>
+    <glossref keys="gloss-01" processing-role="resource-only">
+      <topicmeta>
+        <navtitle>Glossref with @processing-role</navtitle>
+      </topicmeta>
+    </glossref>
+    <glossref keys="gloss-02" keyref="glossentry.002.dtd">
+      <topicmeta>
+        <navtitle>Glossref with @keyref only</navtitle>
+      </topicmeta>
+    </glossref>
+    <glossref keys="gloss-03" href="glossentry.003.dtd.dita">
+      <topicmeta>
+        <navtitle>Glossref with @href only</navtitle>
+      </topicmeta>
+    </glossref>
+  </topichead>
+</map>

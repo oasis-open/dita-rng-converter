@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<troubleshooting id="troubleshooting" shellPackage="technicalContent" shellName="troubleshooting">
+  <title>AE35 Unit</title>
+  <shortdesc>Your HAL 9000 unit has detected sort of fault or imminent faulure
+    in the AE35 communications module.</shortdesc>
+  <prolog>
+    <metadata>
+      <data name="testcase" value="troubleshooting.001"/>
+    </metadata>
+  </prolog>
+  <troublebody>
+    <condition>
+      <p>Fault in the AE35 unit</p>
+    </condition>
+    <troubleSolution>
+      <cause><p>Component failure</p></cause>
+      <remedy>
+        <responsibleParty>HAL 9000</responsibleParty>
+        <steps>
+          <step>
+            <cmd>Use EVA Pod to travel to communication mast.</cmd>
+          </step>
+          <step>
+            <cmd>Perform EVA from Pod to communication mast to access AE35 access panel.</cmd>
+          </step>
+          <step>
+            <cmd>Open access panel.</cmd>
+          </step>
+          <step>
+            <cmd>Remove failing AE35 unit, retain for analysis.</cmd>
+          </step>
+          <step>
+            <cmd>Install replacement AE35 unit.</cmd>
+          </step>
+          <step>
+            <cmd>Close and secure access panel.</cmd>
+          </step>
+          <step>
+            <cmd>Return to EVA Pod.</cmd>
+          </step>
+          <step>
+            <cmd>Return EVA Pod to pod bay.</cmd>
+          </step>
+        </steps>
+      </remedy>      
+    </troubleSolution>
+    <troubleSolution>
+      <!-- Empty trouble solution should be valid -->
+    </troubleSolution>
+    <troubleSolution>
+      <cause spectitle="Cause">
+        <p>Computer goes insane</p></cause>
+      <remedy>
+        <steps-informal>
+          <p>HAL has gone crazy. The missing is doomed.
+            Get in the EVA Pod and fly into the monolith.
+          </p>
+        </steps-informal>
+      </remedy>
+    </troubleSolution>
+    <troubleSolution>
+      <cause><p>Power coupling failure</p></cause>
+      <cause><p>Cosmic rays</p></cause>
+      <remedy spectitle="Sanity Check">
+        <steps-informal>
+          <p>Make sure your HAL 9000 is not insane. If
+          so see <xref keyref="task-restore-hal-9000-sanity">Restoring HAL 9000 sanity</xref>.</p>
+        </steps-informal>
+      </remedy>
+      <remedy>
+        <title>Check the power</title>        
+        <steps-unordered>
+          <step>
+            <cmd>Make sure it's pluged in</cmd>
+          </step>
+          <step>
+            <cmd>Jiggle the cord</cmd>
+          </step>
+          <step>
+            <cmd>Flip the power switch a few times.</cmd>
+          </step>
+          <step>
+            <cmd>Smack the side with your hand.</cmd>
+          </step>
+        </steps-unordered>
+      </remedy>
+    </troubleSolution>
+  </troublebody>
+</troubleshooting>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map shellPackage="base" shellName="basemap"> 
+  <title>Map Title</title>
+  <topicmeta>
+    
+  </topicmeta>
+  <keydef keyscope="scope0" keys="key-00"/>
+  <topicref keyscope="scope1"/>
+  <topicref keys="key01" keyscope="scope2"/>
+  <topicset keyscope="scope-09" keys="set-01" id="set-02">
+    <topicgroup keyscope="scope3">
+      <topicmeta>
+        <navtitle>Topic Group With Navtitle</navtitle>
+      </topicmeta>
+      <topichead keyscope="scope4">
+        <topicmeta>
+          <navtitle>Topic Head</navtitle>
+        </topicmeta>
+      </topichead>
+    </topicgroup>
+  </topicset>
+  <topicsetref keyref="set-02"/>
+  <topicsetref href="#set-02"/>
+  <topicref href="progexample.dita">
+  <topicmeta>
+   <navtitle>Programming example</navtitle>
+   <searchtitle outputclass="searchtitle-outputclass">Example of programming in XSLT</searchtitle>
+  </topicmeta>
+   <ditavalref>
+     <ditavalmeta>
+       <dvrResourcePrefix/>
+       <dvrResourceSuffix/>
+       <dvrKeyscopePrefix/>
+       <dvrKeyscopeSuffix/>
+     </ditavalmeta>
+   </ditavalref>
+   <ditavalref>
+     <ditavalmeta>
+       <dvrResourcePrefix/>
+       <dvrResourceSuffix/>
+       <dvrKeyscopePrefix/>
+       <dvrKeyscopeSuffix/>
+     </ditavalmeta>
+   </ditavalref>
+ </topicref>
+  <anchor id="anchor-01"/>
+  <anchorref  keyscope="scope6" keyref="anchor-01">
+    <topicref keyref="some-key-86"/>
+  </anchorref>
+  <mapref keyscope="scope8" keys="map-02" href="map2.ditamap"/>
+ <topicref href="myThing.dita">
+ <topicmeta>
+  <navtitle>Navigation title for my topic</navtitle>
+  <shortdesc>A description of myThing that is specific to this context.</shortdesc>
+ </topicmeta>
+</topicref>
+  <reltable>
+    <relheader>
+      <relcolspec type="concept"/>
+      <relcolspec type="task"/>
+      <relcolspec type="reference"/>
+    </relheader>
+    <relrow>
+      <relcell>
+        <topicref keyref="foo"/>
+      </relcell>
+      <relcell>
+        <topicref keyref="bar"/>
+      </relcell>
+      <relcell>
+        <topicref keyref="baz"/>
+      </relcell>
+    </relrow>
+  </reltable>
+</map>

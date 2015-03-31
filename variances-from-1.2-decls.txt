@@ -1,0 +1,35 @@
+Variances from 1.2 DTD declarations:
+
+1. Formatting of declarations standardized across modules
+
+2. Using "-type" in place of "-typemod" for structural modules
+
+3. Omitting use of : 
+<!ENTITY % hazard.cnt 
+  "#PCDATA | 
+   %basic.ph; | 
+   %sl; | 
+   %simpletable;"
+>
+
+in hazardstatementDomain.mod--only used in one element type, no point in preserving.
+
+4. The element name entity declarations for metaDecl.mod are in metaDecl.mod, not commonElements.ent.
+
+5. Omitted revision-specific comments. They are available in the 1.2 distribution for historical purposes.
+
+Variances from 1.2 XSD declarations
+
+1. commonElement*.xsd becomes commonElements*.xsd (or should we preserve the 1.2 naming convention)?
+
+2. Attribute declarations for enumerated attributes are all repeated for each declaration of the attribute,
+   rather than using the separate attribute class declarations. In looking at the XSDs I don't think the use
+   of the classes is actually warranted by the DITA design because each element type may choose to constrain
+   each of its attributes in any way it wants.
+   
+3. Name all domain modules with *Mod.xsd per spec.   
+
+4. Where element content models have two levels of sequence nesting, the generated declarations only have one
+  (this is equivalent to having double parens in a DTD, e.g. ((foo, bar)) as opposed to (foo, bar). The two
+  are functionally equivalent.
+

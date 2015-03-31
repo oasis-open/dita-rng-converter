@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task id="task" shellPackage="technicalContent" shellName="task">
+    <title>Building a bird house</title>
+    <shortdesc>Building a birdhouse is a perfect activity 
+        for adults to share with their children or grandchildren. 
+        It can be used to teach about birds, as well as the proper use of tools.
+    </shortdesc>
+        <prolog><metadata>
+        </metadata></prolog>
+    <taskbody>
+      <prereq>To build a sound birdhouse, you will need a complete set of tools:
+        <ul><li>hand saw</li>
+          <li>hammer ... </li>
+        </ul></prereq>
+      <context>Birdhouses provide safe locations for birds to build nests and raise their young. They also provide shelter during cold and rainy spells.</context>
+        <steps>
+            <step><cmd>Lay out the dimensions for the birdhouse elements.</cmd></step>
+            <step><cmd>Cut the elements to size.</cmd></step>
+            <step><cmd>Drill a 1 1/2" diameter hole for the bird entrance on the front.</cmd>
+                <info>You need to look at the drawing for the correct placement of the 
+                    hole.</info></step>
+          <step>
+            <cmd>Select <uicontrol>Shut Down</uicontrol> from the
+              <uicontrol>File</uicontrol> Menu.</cmd>
+            <steptroubleshooting>If a problem with the computer prevents you from choosing 
+              Shut Down—for example, if the computer “freezes” so that the pointer does 
+              not respond to the trackpad—you can turn off the computer by holding down 
+              the Control, Option, Command, and Power On keys at the same time.
+            </steptroubleshooting>
+          </step>
+          <step>
+            <cmd>Select the element for which you want to assign a conditional-
+              processing attribute, and, in the <wintitle>Attributes</wintitle>
+              window, select the conditional-processing attribute.</cmd>
+            <stepresult>The permissible values for the attribute are displayed in a
+              drop-down list.
+            </stepresult>
+            <steptroubleshooting>If the list of controlled values is not displayed, 
+              ensure that the root map is opened in the
+              <wintitle>DITA Maps Manager</wintitle> window.
+            </steptroubleshooting>
+          </step>
+        </steps>
+        <result>You now have a beautiful new birdhouse!</result>
+      <tasktroubleshooting>If the <uicontrol>small espresso</uicontrol>
+        button is not lit, recycle the unit by turning 
+        the external <uicontrol>Power</uicontrol> off 
+        and on.
+      </tasktroubleshooting>
+      <postreq>Now find a good place to mount it.</postreq>
+    </taskbody>
+</task>

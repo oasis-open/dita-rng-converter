@@ -1,0 +1,23 @@
+Testing To Dos:
+
+
+RNG2DTD To Dos:
+
+- Handle inclusion of topic modules through constraints as for technicalContent/task.rng
+
+
+
+6. Declaration for no-topic-nesting attributes. Should be an empty replacement text rather
+   than no declaration at all.
+   
+
+8. Generate catalogs
+
+RNG2XSD To Dos:
+
+
+- Put commonElements and metaDecl inclusions in shells, not topicMod.xsd
+
+- Include *.attlist in main .attributes group
+
+- Double nesting of <xs:sequence> per Eric S.

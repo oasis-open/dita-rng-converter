@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<learningOverview id="learningOverview.001" shellPackage="learning" shellName="learningOverview">
+ <title>Learning Overview</title>
+ <shortdesc>The short description</shortdesc>
+ <learningOverviewbody></learningOverviewbody>
+</learningOverview>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic id="topic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="urn:oasis:names:tc:dita:xsd:topic.xsd">
+    <title>Unit Test: topic.xsd.001.dita</title>
+    <body>
+      <p>Here's a little topic.</p>
+      <ul>
+        <li>Some item</li>
+        <li>Another item</li>
+      </ul>
+    </body>
+  </topic>

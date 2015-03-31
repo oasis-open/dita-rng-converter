@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/base/rng/basetopic.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<topic id="topicid">
+  <title rev="1.3">topic title<draft-comment author="ekimber">Draft comment in title.</draft-comment><cite>Citation in a title</cite></title>
+  <titlealts>
+    <navtitle>The Nav Title<draft-comment author="ekimber">Draft comment in navtitle</draft-comment></navtitle>
+    <searchtitle>The Search Title</searchtitle>
+  </titlealts>
+      <shortdesc>Short desc. <xref keyref="some-key">xref in shortdesc</xref></shortdesc>
+  <prolog>
+    <metadata>
+      <audience type="learner"/>
+      <data>
+        <draft-comment author="ekimber">Draft comment in data</draft-comment>
+      </data>
+    </metadata>       
+  <resourceid id="resid-01"
+    appid="sqlid00376" 
+            appname="dbaccess"
+            ux-context-string="a-context-string"
+            ux-source-priority="map-takes-priority"
+            ux-windowref="some-window"
+  />
+  <resourceid appid="sqlid00375"  deliveryTarget="winhelp"
+            appname="dbaccess"/>
+  <resourceid appid="sample" 
+            appname="otherApp1"/>
+  <resourceid appid="sample" 
+            appname="otherApp2"/>
+    <sort-as value="sort-as value"/>
+  </prolog>
+  <body>
+    <p>Non-breaking space entity ref: </p>
+    <p>Test of &lt;data>: <data><ph>Phrase within &lt;data&gt;</ph></data></p>
+    <p>Test of draft comment: <keyword><draft-comment>Draft comment in keyword</draft-comment></keyword></p>
+    <p>Test of draft comment: <term><draft-comment>Draft comment in term</draft-comment></term></p>
+    <p>Test of draft comment: <b><draft-comment>Draft comment in b</draft-comment></b></p>
+    <p>More stuff</p>
+    <imagemap>
+      <image>
+        <alt>An image.</alt>
+      </image>
+      <area>
+        <shape>rect</shape>
+        <coords>54,1,117,60</coords>
+        <xref href="d1-s2.dita"></xref>
+      </area>
+    </imagemap>
+    <p><b>STOP!</b> This is <b>very</b> important!</p>
+    <bodydiv id="div">
+      <p>This set of information is reusable as a group.</p>
+      <p>Lists of three contain three items.</p>
+      <ul>
+        <li>This is one item.</li>
+        <li>This is another item.</li>
+        <li>This is the third item.</li>
+      </ul>
+      <p>Index entries with phrase elements: <indexterm>text <ph>a phrase</ph> more text<index-see><ph>phrase in index-see</ph></index-see><index-see-also><ph>phrase in index-see-also</ph></index-see-also></indexterm></p>
+    </bodydiv>
+    <p>The online article <cite>Specialization in the Darwin Information Typing
+      Architecture</cite> provides a detailed explanation of how to define new
+      topic types.</p>
+    <dl>
+      <dlhead>
+        <dthd>Image File View Selection</dthd>
+        <ddhd>Resulting Information</ddhd>
+      </dlhead>
+      <dlentry>
+        <dt><sort-as>returned bytes</sort-as>Bytes returned</dt>
+        <dd>The number of bytes of data returned.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Bytes available</dt>
+        <dd>The number of bytes of data available to be returned.</dd>
+      </dlentry>
+      <dlentry><dt>Handle</dt>
+        <dd>The returned handle value</dd>
+      </dlentry>
+    </dl>
+    <fig><title>The Handshake</title>
+      <desc>This image shows two hands clasped in a formal, 
+        business-like handshake.</desc>
+      <image href="handshake.jpg">
+        <alt>The handshake</alt>
+      </image>
+    </fig>
+    <div id="div-01">
+      <p>This is a division</p>
+      <div>Div in a div</div>
+    </div>
+    <bodydiv>
+      <div>Div in a bodydiv</div>
+    </bodydiv>
+    <section>
+      <title>hi-d tests</title>
+      <p>Line-through: <line-through>line-through<text>text in line-through</text></line-through></p>
+      <p>Overline: <overline>overline<text>text in overline</text></overline></p>
+    </section>
+    <section><title>Keyref on object tests</title><object archivekeyrefs="archive1 archive2" classidkeyref="classied-01" codebasekeyref="codebase-01" datakeyref="data-01">
+      <param name="" keyref="key-of-data"/>
+      </object></section>
+    <section>
+      <title>Div tests</title>
+      <div>Div within section</div>
+      <sectiondiv>
+        <div>Div within sectiondiv</div>
+      </sectiondiv>
+    </section>
+    <section><title>Table Markup Tests</title>
+      <table rowheader="firstcol" orient="land">
+        <title>Proposal 13062: Table accessibility Updates</title>
+        <tgroup cols="4">
+          <colspec colname="c1" rowheader="firstcol"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <colspec colname="c4" />
+          <tbody>
+            <row>
+              <entry scope="row" rotate="1"><sort-as value="sort-as"></sort-as>scope="row"</entry>
+              <entry scope="col">scope="col"</entry>
+              <entry scope="rowgroup">scope="rowgroup"</entry>
+              <entry scope="colgroup">scope="colgroup"</entry>
+            </row>
+            <row>
+              <entry id="r2c1">r2c1</entry>
+              <entry id="r2c2">r2c2</entry>
+              <entry id="r2c3">r2c3</entry>
+              <entry id="r2c4">r2c4</entry>
+            </row>
+            <row>
+              <entry headers="r2c1 r2c2">r3c1</entry>
+              <entry>r3c2
+                <div>Div in entry</div>
+              </entry>
+              <entry>r3c3</entry>
+              <entry>r3c4</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <table frame="all" rowheader="firstcol">
+  <title>
+example: assuring complex table accessibility using headers</title>
+<desc>Names are listed in the column c1. Points are listed in both data columns, with the
+expected in column c2 and the actual in column c3.</desc>
+  <tgroup cols="3">
+    <colspec colname="c1"/>
+    <colspec colname="c2"/>
+    <colspec colname="c3"/>
+    <thead>
+      <row>
+        <entry morerows="1"> </entry>
+        <entry namest="c2" nameend="c3" id="pts">points</entry>
+      </row>
+      <row>
+        <entry id="exp" headers="pts">expected</entry>
+        <entry id="act" headers="pts">actual</entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry id="name1">Mark</entry>
+        <entry headers="name1 exp pts">10,000</entry>
+        <entry headers="name1 act pts">11,123.45</entry>
+      </row>
+      <row>
+        <entry id="name2">Peter</entry>
+        <entry headers="name2 exp pts">9,000</entry>
+        <entry headers="name2 act pts">11,012.34</entry>
+      </row>
+      <row>
+        <entry id="name3">Cindy</entry>
+        <entry headers="name3 exp pts">10,000</entry>
+        <entry headers="name3 act pts">10,987.64</entry>
+      </row>
+     </tbody>
+   </tgroup>
+</table>
+    </section>
+  </body>
+  <related-links scope="external" format="html">
+    <link href="http://www.example.org" format="html" cascade="nomerge">
+      <linktext>Example 1</linktext>
+    </link>
+    <link href="http://www.example.com" format="html">
+      <linktext>Example 2</linktext>
+    </link>
+  </related-links>
+</topic>

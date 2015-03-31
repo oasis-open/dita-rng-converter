@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA BASE XSD                                     -->
+<!--  VERSION:   1.2                                             -->
+<!--  DATE:      March 2009                                     -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Based W3C XML Schema holds all the information    -->
+<!--             types                                             -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             March 2001                                        -->
+<!--                                                               -->
+<!--             (C) Copyright OASIS-Open.org 2005, 2009                -->
+<!--             (C) Copyright IBM Corporation 2001, 2004.         -->
+<!--             All Rights Reserved.                              -->
+<!--                                                               -->
+<!--  UPDATES                                           -->
+<!--  2009.03.20 EAS: Added xml:lang and DITAArchVersion attribute to dita element   -->
+<!-- ============================================================= -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+
+  
+        <!-- Add the domains to the base topic XML Schema -->
+	<!--  ================ TOPIC DOMAINS =====================  -->
+	<xs:include schemaLocation="uiDomainMod.xsd"/>
+	<xs:include schemaLocation="softwareDomainMod.xsd"/>
+	<xs:include schemaLocation="../../base/xsd/highlightDomainMod.xsd"/>
+	<xs:include schemaLocation="programmingDomainMod.xsd"/>
+	<xs:include schemaLocation="../../base/xsd/utilitiesDomainMod.xsd"/>
+	<xs:include schemaLocation="../../base/xsd/indexingDomainMod.xsd"/>
+	<xs:include schemaLocation="../../base/xsd/hazardstatementDomainMod.xsd"/>
+  	<xs:include schemaLocation="abbreviateDomainMod.xsd" />
+	<!--  ================ GROUP DEFINITIONS =====================  -->
+	<xs:include schemaLocation="referenceGrp.xsd"/>
+	<xs:include schemaLocation="taskGrp.xsd"/>
+	<xs:include schemaLocation="conceptGrp.xsd"/>
+	<xs:include schemaLocation="glossentryGrp.xsd"/>
+	<xs:include schemaLocation="glossgroupGrp.xsd"/>
+	<xs:include schemaLocation="../../base/xsd/metaDeclGrp.xsd"/>
+	<xs:include schemaLocation="../../base/xsd/tblDeclGrp.xsd"/>
+	<xs:include schemaLocation="../../base/xsd/topicGrp.xsd"/>
+	<!-- =================  MODULE INLCUDE DEFINITION  ==================  -->
+	<xs:include schemaLocation="../../base/xsd/commonElementMod.xsd"/>
+	<!-- ======== Table elements ======== -->
+	<xs:include schemaLocation="../../base/xsd/tblDeclMod.xsd"/>
+	<!-- ======= MetaData elements, plus keyword and indexterm ======= -->
+	<xs:include schemaLocation="../../base/xsd/metaDeclMod.xsd"/>
+ 
+	<xs:redefine schemaLocation="../../base/xsd/commonElementGrp.xsd">
+		<xs:group name="keyword">
+			<xs:choice>
+				<xs:group ref="keyword"/>
+				<xs:group ref="pr-d-keyword"/>
+				<xs:group ref="ui-d-keyword"/>
+				<xs:group ref="sw-d-keyword"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="ph">
+			<xs:choice>
+				<xs:group ref="ph"/>
+				<xs:group ref="pr-d-ph"/>
+				<xs:group ref="ui-d-ph"/>
+				<xs:group ref="hi-d-ph"/>
+				<xs:group ref="sw-d-ph"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="pre">
+			<xs:choice>
+				<xs:group ref="pre"/>
+				<xs:group ref="pr-d-pre"/>
+				<xs:group ref="ui-d-pre"/>
+				<xs:group ref="sw-d-pre"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="dl">
+			<xs:choice>
+				<xs:group ref="dl"/>
+				<xs:group ref="pr-d-dl"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="fig">
+			<xs:choice>
+				<xs:group ref="fig"/>
+				<xs:group ref="pr-d-fig"/>
+				<xs:group ref="ut-d-fig"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="index-base">
+			<xs:choice>
+				<xs:group ref="index-base"/>
+				<xs:group ref="indexing-d-index-base"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="note">
+			<xs:choice>
+				<xs:group ref="note"/>
+				<xs:group ref="hazard-d-note"/>
+			</xs:choice>
+		</xs:group>
+    <xs:group name="term">
+      <xs:choice>
+        <xs:group ref="term"/>
+        <xs:group ref="abbrev-d-term"/>
+      </xs:choice>
+    </xs:group>
+	</xs:redefine>
+	<!--  ================ INFO TYPES =====================  -->
+	<xs:redefine schemaLocation="../../base/xsd/topicMod.xsd">
+		<xs:group name="topic-info-types">
+			<xs:choice>
+				<xs:group ref="info-types"/>
+			</xs:choice>
+		</xs:group>
+	</xs:redefine>
+	<xs:redefine schemaLocation="conceptMod.xsd">
+		<xs:group name="concept-info-types">
+			<xs:choice>
+				<xs:group ref="info-types"/>
+			</xs:choice>
+		</xs:group>
+	</xs:redefine>
+	<xs:redefine schemaLocation="strictTaskbodyConstraintMod.xsd">
+		<xs:group name="task-info-types">
+			<xs:choice>
+				<xs:group ref="info-types"/>
+			</xs:choice>
+		</xs:group>
+	</xs:redefine>
+	<xs:redefine schemaLocation="referenceMod.xsd">
+		<xs:group name="reference-info-types">
+			<xs:choice>
+				<xs:group ref="info-types"/>
+			</xs:choice>
+		</xs:group>
+	</xs:redefine>
+	<xs:redefine schemaLocation="glossentryMod.xsd">
+		<xs:group name="glossentry-info-types">
+			<xs:choice>
+				<xs:group ref="no-topic-nesting"/>
+			</xs:choice>
+		</xs:group>
+	</xs:redefine>
+	<xs:redefine schemaLocation="glossgroupMod.xsd">
+    <xs:group name="glossgroup-info-types">
+      <xs:choice>
+        <xs:group ref="glossgroup"/>
+        <xs:group ref="glossentry"/>
+      </xs:choice>
+    </xs:group>
+	</xs:redefine>
+	<xs:include schemaLocation="ditabaseMod.xsd"/>
+       <xs:group name="ditabase-info-types">
+		<xs:choice>
+			<xs:group ref="info-types"/>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="info-types">
+		<xs:choice>
+			<xs:element ref="topic"/>
+			<xs:element ref="task"/>
+			<xs:element ref="concept"/>
+			<xs:element ref="reference"/>
+			<xs:element ref="glossentry"/>
+			<xs:element ref="glossgroup"/>
+		</xs:choice>
+	</xs:group>
+	
+	<xs:attributeGroup name="domains-att">
+    <xs:attribute name="domains" type="xs:string" 
+      default="(topic hazard-d) 
+		      (topic abbrev-d)
+                      (topic hi-d) 
+                      (topic indexing-d)
+                      (topic sw-d) 
+                      (topic pr-d) 
+                      (topic ui-d)
+                      (topic ut-d)
+                      (topic concept) 
+                      (topic concept glossentry) 
+                      (topic concept glossgroup)
+                      (topic reference) 
+                      (topic task) 
+                      (topic task strictTaskbody-c) 
+                      "/>
+	</xs:attributeGroup>
+</xs:schema>

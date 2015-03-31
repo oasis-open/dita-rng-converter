@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmap id="taskbook" shellPackage="bookmap" shellName="bookmap">
+    <booktitle>
+        <mainbooktitle>Product tasks</mainbooktitle>
+        <booktitlealt>Tasks and what they do</booktitlealt>
+    </booktitle>
+    <bookmeta>
+        <author>John Doe</author>
+        <bookrights>
+            <copyrfirst>
+                <year>2006</year>
+            </copyrfirst>
+            <bookowner>
+                <person href="task_preface.dita">Jane Doe</person>
+            </bookowner>
+            <bookrestriction value="unclassified"/>
+        </bookrights>
+        <authorinformation>          
+            <personinfo>
+                <namedetails><personname>
+                    <firstname>Derek</firstname>
+                    <middlename>L.</middlename>
+                    <lastname>Singleton</lastname>
+                    <generationidentifier>Jr.</generationidentifier>
+                    <otherinfo>noted psychologist</otherinfo>
+                </personname></namedetails>
+                <addressdetails>
+                    <thoroughfare>123 Yellow Brick Road</thoroughfare>
+                    <locality>Emerald City</locality>
+                    <administrativearea>Kansas</administrativearea>
+                    <country>USA</country>
+                </addressdetails>
+                <contactnumbers><contactnumber>123-555-4678</contactnumber></contactnumbers>
+                <emailaddresses><emailaddress>wizard@example.org</emailaddress></emailaddresses>
+            </personinfo>
+        </authorinformation>
+        <prodinfo>
+            <prodname>Some Product</prodname>
+            <vrmlist><vrm version="1"/></vrmlist>
+            <brand>eServer</brand>
+            <series>iSeries</series>
+        </prodinfo> 
+    </bookmeta>
+    <frontmatter>
+        <preface/>
+        <booklists>          
+            <abbrevlist href="abbrev.dita"/>
+        </booklists>
+    </frontmatter>
+    <chapter format="ditamap" href="installing.ditamap"/>
+    <chapter href="configuring.dita"/>
+    <chapter href="maintaining.dita">
+        <topicref href="maintainstorage.dita"/>
+        <topicref href="maintainserver.dita"/>
+        <topicref href="maintaindatabase.dita"/>
+    </chapter>
+    <appendix href="task_appendix.dita"/>
+    <appendices toc="yes" print="no">
+        <topicmeta>
+            <navtitle>Appendices</navtitle>
+        </topicmeta>
+        <appendix href="return-codes.dita"/>
+        <appendix href="messages.dita"/>
+        <appendix href="extra-info.dita"/>
+    </appendices>
+</bookmap>

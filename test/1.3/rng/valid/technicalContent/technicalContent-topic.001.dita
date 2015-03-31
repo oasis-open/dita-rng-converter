@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/technicalContent/rng/topic.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<topic id="topic" xmlns:svg="http://www.w3.org/2000/svg"> <title>Unit Test: topic.dtd.001.dita</title> <prolog>
+  <author type="creator">Jane</author>
+  <author type="contributor">John</author>
+  <metadata>
+    <audience type="programmer" job="programming" experiencelevel="expert"/>
+  </metadata>
+  <change-historylist>
+    <change-item product="productA productB" id="foo">
+      <change-person>Joan Smith<text>some text</text></change-person>
+      <change-revisionid>.14</change-revisionid>
+      <change-request-reference>
+        <change-request-system>JIRA</change-request-system>
+        <change-request-id>DITA-103</change-request-id>
+      </change-request-reference>
+      <change-started>2014-03-04</change-started>
+      <change-completed>2013-03-23</change-completed>
+      <change-summary>Made change 1 to both products, added <tm tmtype="tm">MyProd</tm>.
+        </change-summary>
+      <data>Details of change 1</data>
+    </change-item>
+    <change-item product="productA">
+      <change-organization>Bill Carter Solutions</change-organization>
+      <change-completed>2013-06-07</change-completed>
+      <change-summary>Made change 2 to product A</change-summary>
+      <data>Details of change 2</data>
+    </change-item>
+    <change-item product="productA productB">
+      <change-person>Richard Smith</change-person>
+      <change-completed>2013-07-20</change-completed>
+      <change-summary>Made change 3 to both products</change-summary>
+      <data>Details of change 3</data>
+    </change-item>
+  </change-historylist>
+  </prolog> <body>
+  <p>Here's a little topic.</p>
+  <ul>
+    <li>Some item</li>
+    <li>Another item</li>
+  </ul>
+  <image href="tip-ing.jpg">
+    <alt>Here's a Tip!</alt>
+  </image>
+  <p>Use the <apiname>document.write</apiname> method to create text 
+      output in the dynamically constructed view.</p>
+  <p>She said "<boolean state="yes"/>" when I asked her to marry me!</p>
+  <section> <title>MathML and Equation Domains</title> <equation-block><ph>This is a block equation</ph> <mathml>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mstyle>
+        <mi>f</mi>
+        <mrow>
+          <mo>(</mo>
+          <mi>a</mi>
+          <mo>)</mo>
+        </mrow>
+        <mo>=</mo>
+        <mfrac>
+          <mn>1</mn>
+          <mrow>
+            <mn>2</mn>
+            <mi>π<!-- π --></mi>
+            <mi>i</mi>
+          </mrow>
+        </mfrac>
+        <msub>
+          <mo>∮</mo>
+          <mrow>
+            <mi>γ</mi>
+          </mrow>
+        </msub>
+        <mfrac>
+          <mrow>
+            <mi>f</mi>
+            <mo>(</mo>
+            <mi>z</mi>
+            <mo>)</mo>
+          </mrow>
+          <mrow>
+            <mi>z</mi>
+            <mo>−</mo>
+            <mi>a</mi>
+          </mrow>
+        </mfrac>
+        <mi>d</mi>
+        <mi>z</mi>
+      </mstyle>
+    </math>
+
+    </mathml> </equation-block> <p>Here is an inline equation: <equation-inline><mathml>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <mi>cos</mi>
+        <mo>&#x2061;</mo>
+        <mrow>
+          <mo>(</mo>
+          <mi>&#x03b8;</mi>
+          <mo>+</mo>
+          <mi>&#x03c6;</mi>
+          <mo>)</mo>
+        </mrow>
+        <mo>=</mo>
+        <mi>cos</mi>
+        <mo>&#x2061;</mo>
+        <mrow>
+          <mo>(</mo>
+          <mi>&#x03b8;</mi>
+          <mo>)</mo>
+        </mrow>
+        <mi>cos</mi>
+        <mo>&#x2061;</mo>
+        <mrow>
+          <mo>(</mo>
+          <mi>&#x03c6;</mi>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#x2212;</mo>
+        <mi>sin</mi>
+        <mo>&#x2061;</mo>
+        <mrow>
+          <mo>(</mo>
+          <mi>&#x03b8;</mi>
+          <mo>)</mo>
+        </mrow>
+        <mi>sin</mi>
+        <mo>&#x2061;</mo>
+        <mrow>
+          <mo>(</mo>
+          <mi>&#x03c6;</mi>
+          <mo>)</mo>
+        </mrow>
+      </mrow>
+    </math>
+    </mathml></equation-inline></p> <equation-figure>
+    <title>Equation Figure</title>
+    <mathml>
+      <data>Data in mathml</data>
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+        <mrow>
+          <mi>&#x03c3;</mi>
+          <mo>=</mo>
+          <msqrt>
+            <mrow>
+              <mfrac>
+                <mrow>
+                  <mn>1</mn>
+                </mrow>
+                <mrow>
+                  <mi>N</mi>
+                </mrow>
+              </mfrac>
+              <mstyle displaystyle="true">
+                <mrow>
+                  <munderover>
+                    <mrow>
+                      <mo>&#x2211;</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>i</mi>
+                      <mo>=</mo>
+                      <mn>1</mn>
+                    </mrow>
+                    <mrow>
+                      <mi>N</mi>
+                    </mrow>
+                  </munderover>
+                  <mrow>
+                    <msup>
+                      <mrow>
+                        <mo stretchy="false">(</mo>
+                        <msub>
+                          <mrow>
+                            <mi>x</mi>
+                          </mrow>
+                          <mrow>
+                            <mi>i</mi>
+                          </mrow>
+                        </msub>
+                        <mo>&#x2212;</mo>
+                        <mi>&#x03bc;</mi>
+                        <mo stretchy="false">)</mo>
+                      </mrow>
+                      <mrow>
+                        <mn>2</mn>
+                      </mrow>
+                    </msup>
+                  </mrow>
+                </mrow>
+              </mstyle>
+            </mrow>
+          </msqrt>
+          <mo>.</mo>
+        </mrow>
+      </math>
+    </mathml>
+    <equation-block> <ph>A equation-block within an equation-figure</ph>
+       <mathml>
+    <m:math xmlns:m="http://www.w3.org/1998/Math/MathML">
+      <m:semantics>
+        <m:mrow>
+          <m:msqrt>
+            <m:mrow>
+              <m:msup>
+                <m:mi>a</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+              <m:mo>+</m:mo><m:msup>
+                <m:mi>b</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+            </m:mrow>
+          </m:msqrt>        
+        </m:mrow>
+      </m:semantics>
+    </m:math>
+  </mathml>
+    </equation-block>
+    </equation-figure>
+      <equation-block><mathml>
+        <mathmlref keyref="mathml-ref-01"/>
+        </mathml></equation-block> </section>
+  <section> <title>SVG Domain</title> <fig id="fig_awg_lcz_jn">
+    <title>Figure with SVG content</title>
+    <svg_container>
+      <svg:svg height="150" width="500">
+        <svg:ellipse cx="240" cy="100" rx="220" ry="30" style="fill:purple"/>
+        <svg:ellipse cx="220" cy="70" rx="190" ry="20" style="fill:lime"/>
+        <svg:ellipse cx="210" cy="45" rx="170" ry="15" style="fill:yellow"/>
+      </svg:svg>
+      <svgref keyref="svg-graphic-01"/>
+    </svg_container>
+    </fig> </section>
+  <section> <title><xmlelement>data</xmlelement> within lists</title> <dl>
+    <data name="dataitem" value="somevalue"/>
+    <data-about>
+      <data name="some-data" value="some-value"/>
+    </data-about>
+    <dlentry>
+      <dt>term</dt>
+      <dd>def</dd>
+    </dlentry>
+    </dl> <ol id="ol_m5w_yst_jn">
+    <data name="dataitem" value="somevalue"/>
+    <data-about>
+      <data name="some-data" value="some-value"/>
+    </data-about>
+    <li>item</li>
+    </ol> <parml>
+    <data name="dataitem" value="somevalue"/>
+    <data-about>
+      <data name="some-data" value="some-value"/>
+    </data-about>
+    <plentry>
+      <pt>param</pt>
+      <pd>def</pd>
+    </plentry>
+    </parml> <sl id="ol_dy5_2tt_jn">
+    <data name="dataitem" value="somevalue"/>
+    <data-about>
+      <data name="some-data" value="some-value"/>
+    </data-about>
+    <sli>item</sli>
+    </sl> <ul id="ol_eyy_ftt_jn">
+    <data name="dataitem" value="somevalue"/>
+    <data-about>
+      <data name="some-data" value="some-value"/>
+    </data-about>
+    <li>item</li>
+    </ul> <hazardstatement>
+    <messagepanel id="messagepanel_q2q_ntt_jn">
+      <data name="dataitem" value="somevalue"/>
+      <data-about>
+        <data name="some-data" value="some-value"/>
+      </data-about>
+      <typeofhazard>weather</typeofhazard>
+      <howtoavoid>stay indoors</howtoavoid>
+    </messagepanel>
+    </hazardstatement> </section>
+  </body> </topic>

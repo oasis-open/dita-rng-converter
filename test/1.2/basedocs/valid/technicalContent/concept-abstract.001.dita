@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="concept" shellPackage="technicalContent" shellName="concept">
+  <title>Bird Songs</title>
+  <abstract>The abstract is being used to provide more complex content. 
+  <shortdesc>The shortdesc must be directly contained by the abstract.</shortdesc>
+  The abstract can put text around the shortdesc.
+ </abstract>
+    <conbody>
+      <p>Bird songs vary widely among species, from simple songs that are genetically imprinted to complex songs that are learned over a lifetime.</p>
+      <example>
+        <p>Flycatchers know their songs from birth:</p>
+        <ul>
+          <li>Flycatcher songs are simple sequences of notes.</li>
+          <li>Flycatcher songs never vary but are unique to each member of the Flycatcher family.</li>
+        </ul>
+      </example>
+    </conbody>
+</concept>

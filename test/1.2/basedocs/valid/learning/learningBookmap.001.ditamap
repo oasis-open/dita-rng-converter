@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bookmap id="taskbook" shellPackage="learning" shellName="learningBookmap">
+    <booktitle>
+        <mainbooktitle>Learning Bookmap sample</mainbooktitle>
+        <booktitlealt>Tasks and what they do</booktitlealt>
+    </booktitle>
+    <bookmeta>
+        <author>John Doe</author>
+        <bookrights>
+            <copyrfirst>
+                <year>2006</year>
+            </copyrfirst>
+            <bookowner>
+                <person href="task_preface.dita">Jane Doe</person>
+            </bookowner>
+            <bookrestriction value="unclassified"/>
+        </bookrights>
+    </bookmeta>
+    <frontmatter>
+        <preface/>
+    </frontmatter>
+    <chapter format="ditamap" href="installing.ditamap"/>
+    <chapter href="configuring.dita"/>
+    <chapter href="maintaining.dita">
+        <topicref href="maintainstorage.dita"/>
+        <topicref href="maintainserver.dita"/>
+        <topicref href="maintaindatabase.dita"/>
+    </chapter>
+    <appendix href="task_appendix.dita"/>
+</bookmap>

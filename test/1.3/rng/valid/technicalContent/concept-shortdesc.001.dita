@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/technicalContent/rng/concept.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<concept id="concept">
+ <title>Introduction to Bird Calling</title>
+ <shortdesc>If you wish to attract more birds to your Acme Bird Feeder,
+  learn the art of bird calling. Bird calling is an efficient way
+  to alert more birds to the presence of your bird feeder.</shortdesc>
+  <prolog>
+    <change-historylist></change-historylist>
+  </prolog>
+ <conbody>
+  <p>Bird calling requires learning:</p>
+  <ul>
+   <li>Popular and classical bird songs</li>
+   <li>How to whistle like a bird</li>
+  </ul>
+ </conbody>
+</concept>

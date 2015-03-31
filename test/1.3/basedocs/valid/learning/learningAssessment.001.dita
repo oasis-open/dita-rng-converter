@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<learningAssessment id="assessment_jxg_42z_2n" shellPackage="learning" shellName="learningAssessment">
+ <title>Quiz</title>
+ <shortdesc>The short description</shortdesc>
+ <learningAssessmentbody>
+   <lcDuration><lcTime value="3.5hr"/></lcDuration>
+   <lcInteraction>
+     <lcMultipleSelect id="q1">
+       <lcQuestion/>
+       <lcAnswerOptionGroup>
+         <lcAnswerOption>
+           <lcAnswerContent/>
+         </lcAnswerOption>
+       </lcAnswerOptionGroup>
+     </lcMultipleSelect>
+     <lcMatching2>
+       <lcQuestion2/>
+       <lcMatchTable2>
+         <lcMatchingPair2>
+           <lcItem2/>
+           <lcMatchingItem2/>
+         </lcMatchingPair2>
+       </lcMatchTable2>
+     </lcMatching2>     
+   </lcInteraction>
+   <lcSummary>
+     <p>The summary</p>
+   </lcSummary>
+ </learningAssessmentbody>
+  <no-topic-nesting/>
+</learningAssessment>

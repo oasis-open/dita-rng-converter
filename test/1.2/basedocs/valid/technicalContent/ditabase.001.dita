@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dita shellPackage="technicalContent" shellName="ditabase"
+  xml:lang="en-US"
+  ditaarch:DITAArchVersion="1.2"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  >
+  <concept id="batintro"><title>title</title><conbody><p>text</p></conbody></concept>
+  <reference id="batparts"><title>title</title><refbody><!-- ... --></refbody></reference>
+  <task id="batfeeding"><title>title</title><taskbody><!-- ... --></taskbody></task>
+  <task id="battraining"><title>title</title><taskbody><!-- ... --></taskbody></task>
+  <topic id="batcleanup"><title>title</title><body><!-- ... --></body></topic>
+</dita>

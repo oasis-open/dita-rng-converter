@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../../../../../src/1.3/rng/learning/rng/learningAssessment.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<learningAssessment id="assessment_jxg_42z_2n">
+ <title>Quiz</title>
+ <shortdesc>The short description</shortdesc>
+ <learningAssessmentbody>
+   <lcDuration><lcTime value="3.5hr"/></lcDuration>
+   <lcInteraction>
+     <lcMatching2>
+       <lcInteractionLabel2>A learning 2 matching question</lcInteractionLabel2>
+       <lcQuestion2>Match the items
+        <lcInstructornote2>This is an instructor note 2</lcInstructornote2>
+       </lcQuestion2>
+       <lcAsset2></lcAsset2>
+       <lcAsset2></lcAsset2>
+       <lcMatchTable2>
+         <lcMatchingPair2>
+           <lcItem2><p>Thing one</p></lcItem2>
+           <lcMatchingItem2><p>The thing to match to Thing one</p></lcMatchingItem2>
+         </lcMatchingPair2>
+       </lcMatchTable2>
+     </lcMatching2>
+   </lcInteraction>
+   <lcSummary>
+     <p>The summary</p>
+      <lcSequencing id="lcSequencing_e4b_f5t_jn">
+        <lcQuestion/>
+        <lcSequenceOptionGroup id="lcSequenceOptionGroup_n4b_f5t_jn">
+          <data>data</data>
+          <data-about>
+            <data>data-about</data>
+          </data-about>
+          <lcSequenceOption>
+            <lcAnswerContent/>
+            <lcSequence value=""/>
+          </lcSequenceOption>
+        </lcSequenceOptionGroup>
+      </lcSequencing>
+      <lcSingleSelect id="lcSingleSelect_vwp_h5t_jn">
+        <lcQuestion/>
+        <lcAnswerOptionGroup id="lcAnswerOptionGroup_lxp_h5t_jn">
+          <data>data</data>
+          <data-about>
+            <data>data-about</data>
+          </data-about>
+          <lcAnswerOption>
+            <lcAnswerContent/>
+          </lcAnswerOption>
+          <lcAnswerOption>
+            <lcAnswerContent/>
+          </lcAnswerOption>
+        </lcAnswerOptionGroup>
+      </lcSingleSelect>
+   </lcSummary>
+ </learningAssessmentbody>
+</learningAssessment>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<learningContent id="learningContent.001" shellPackage="learning" shellName="learningContent">
+ <title>Learning Content</title>
+ <shortdesc>The short description</shortdesc>
+  <learningContentbody></learningContentbody>
+  <topic id="topicid">
+    <title>Nested Topic</title>
+  </topic>
+  <task id="taskid">
+    <title>Nested Task</title>
+  </task>
+  <reference id="refid">
+    <title>Nested Reference Topic</title>
+  </reference>
+  <concept id="conceptid">
+    <title>Nested Concept</title>
+  </concept>
+  <learningAssessment id="learningAssessmentID">
+    <title>Nested Learning Assessment</title>
+    <learningAssessmentbody>
+      
+    </learningAssessmentbody>
+  </learningAssessment>
+  <learningSummary id="learningSummaryID">
+    <title>Nested Learning Summary</title>
+    <learningSummarybody>
+      
+    </learningSummarybody>
+  </learningSummary>
+</learningContent>

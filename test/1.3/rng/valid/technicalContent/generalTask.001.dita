@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/technicalContent/rng/generalTask.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<task id="task">
+    <title>Building a bird house</title>
+    <shortdesc>Building a birdhouse is a perfect activity 
+        for adults to share with their children or grandchildren. 
+        It can be used to teach about birds, as well as the proper use of tools.
+    </shortdesc>
+  <prolog>
+    <change-historylist></change-historylist>
+  </prolog>
+    <taskbody>
+        <context>Birdhouses provide safe locations for birds to build nests and raise their young. They also provide shelter during cold and rainy spells.</context>
+        <prereq>To build a sound birdhouse, you will need a complete set of tools:
+            <ul><li>hand saw</li>
+                <li>hammer ... </li>
+            </ul></prereq>
+        <steps>
+            <step><cmd>Lay out the dimensions for the birdhouse elements.</cmd></step>
+            <step><cmd>Cut the elements to size.</cmd></step>
+            <step><cmd>Drill a 1 1/2" diameter hole for the bird entrance on the front.</cmd>
+                <info>You need to look at the drawing for the correct placement of the 
+                    hole.</info></step>
+           <step>
+    <cmd>Select <uicontrol>Perform system backup</uicontrol></cmd>
+    <stepresult>
+      <p>The message <systemoutput>Backup successfully
+        completed</systemoutput> displays.</p>
+    </stepresult>
+    <steptroubleshooting>
+      <p>If an error message displays during the system backup,
+        locate the error ID in the <cite>Troubleshooting Guide
+        </cite> and follow the instructions there.</p>
+    </steptroubleshooting>
+  </step>
+        </steps>
+        <result>You now have a beautiful new birdhouse!</result>
+ <tasktroubleshooting>
+    <p>If the User Type menu does not display the additions, try
+      one or more of the following:
+      <ul>
+        <li>Refresh the page</li>
+        <li>Verify that <wintitle>Add Types</wintitle> is not
+          still open; if so, go to it and press
+          <uicontrol>OK</uicontrol>.</li>
+      </ul>
+    </p>
+  </tasktroubleshooting>
+      <example>
+        <p>The example</p>
+      </example>
+      <postreq>Now find a good place to mount it.</postreq>
+    </taskbody>
+</task>

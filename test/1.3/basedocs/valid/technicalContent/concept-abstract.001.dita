@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="concept" shellPackage="technicalContent" shellName="concept">
+  <title>Bird Songs</title>
+  <abstract>The abstract is being used to provide more complex content. <shortdesc>The shortdesc must be directly contained by the abstract.</shortdesc> The abstract can put text around the shortdesc.
+      <p>This topic contains test cases of most of the new topic vocabulary in DITA 1.3</p>
+  </abstract>
+  <conbody>
+    <p>Bird songs vary widely among species, from simple songs that are genetically imprinted to complex songs that are learned over a lifetime.</p>
+    <note type="trouble">If you do get condensation, turn off the camera 
+      and wait about two hours before using it. Once 
+      the camera adjusts to the surrounding temperature, 
+      the fogging will clear naturally.
+    </note>
+    <example>
+      <p>Flycatchers know their songs from birth:</p>
+      <ul>
+        <li>Flycatcher songs are simple sequences of notes.</li>
+        <li>Flycatcher songs never vary but are unique to each member of the Flycatcher family.</li>
+      </ul>
+    </example>
+    <section>
+      <title>SVG</title>
+      <fig>
+        <title>Inline SVG</title>
+        <svg-container>
+          <svg:svg height="150" width="500" xmlns:svg="http://www.w3.org/2000/svg">
+            <svg:ellipse cx="240" cy="100" rx="220" ry="30" style="fill:purple"/>
+            <svg:ellipse cx="220" cy="70" rx="190" ry="20" style="fill:lime"/>
+            <svg:ellipse cx="210" cy="45" rx="170" ry="15" style="fill:yellow"/>
+          </svg:svg>
+        </svg-container>
+      </fig>
+      <fig>
+        <title>SVG Reference direct URL reference</title>
+        <svg-container>
+          <svgref href="../../media/svg/three-ovals.svg"/>
+        </svg-container>
+      </fig>
+      <fig>
+        <title>SVG Reference key reference</title>
+        <svg-container>
+          <svgref keyref="svg-graphic-02"/>
+        </svg-container>
+      </fig>
+    </section>
+    <section>
+      <title>MathML</title>
+      <equation-figure>
+        <title>Inline MathML Within an <xmlelement>equation-figure</xmlelement></title>
+        <mathml>
+          <m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block">
+            <m:semantics>
+              <m:mrow>
+                <m:mi>n</m:mi>
+                <m:mfrac>
+                  <m:mrow>
+                    <m:mo>∂</m:mo>
+                    <m:mi>U</m:mi>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:mo>∂</m:mo>
+                    <m:mi>t</m:mi>
+                  </m:mrow>
+                </m:mfrac>
+                <m:mo>=</m:mo>
+                <m:mi>η</m:mi>
+                <m:msup>
+                  <m:mi>j</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msup>
+                <m:mo>−</m:mo>
+                <m:mfrac>
+                  <m:mrow>
+                    <m:mn>2</m:mn>
+                    <m:mi>q</m:mi>
+                    <m:mo>"</m:mo>
+                  </m:mrow>
+                  <m:mi>R</m:mi>
+                </m:mfrac>
+                <m:mo>−</m:mo>
+                <m:mi>P</m:mi>
+                <m:mfrac>
+                  <m:mrow>
+                    <m:mo>∂</m:mo>
+                    <m:mi>v</m:mi>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:mo>∂</m:mo>
+                    <m:mi>z</m:mi>
+                  </m:mrow>
+                </m:mfrac>
+                <m:mo>+</m:mo>
+                <m:mfrac>
+                  <m:mn>1</m:mn>
+                  <m:mn>2</m:mn>
+                </m:mfrac>
+                <m:msub>
+                  <m:mover accent="true">
+                    <m:mi>ρ</m:mi>
+                    <m:mo>˙</m:mo>
+                  </m:mover>
+                  <m:mrow>
+                    <m:mi>a</m:mi>
+                    <m:mi>b</m:mi>
+                    <m:mi>l</m:mi>
+                    <m:mi>a</m:mi>
+                    <m:mi>t</m:mi>
+                    <m:mi>i</m:mi>
+                    <m:mi>o</m:mi>
+                    <m:mi>n</m:mi>
+                  </m:mrow>
+                </m:msub>
+                <m:msup>
+                  <m:mi>v</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msup>
+                <m:mo>−</m:mo>
+                <m:msub>
+                  <m:mover accent="true">
+                    <m:mi>n</m:mi>
+                    <m:mo>˙</m:mo>
+                  </m:mover>
+                  <m:mrow>
+                    <m:mi>a</m:mi>
+                    <m:mi>b</m:mi>
+                    <m:mi>l</m:mi>
+                    <m:mi>a</m:mi>
+                    <m:mi>t</m:mi>
+                    <m:mi>i</m:mi>
+                    <m:mi>o</m:mi>
+                    <m:mi>n</m:mi>
+                  </m:mrow>
+                </m:msub>
+                <m:mi>U</m:mi>
+                <m:mo>−</m:mo>
+                <m:mi>v</m:mi>
+                <m:mfrac>
+                  <m:mrow>
+                    <m:mo>∂</m:mo>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mrow>
+                        <m:mi>n</m:mi>
+                        <m:mi>U</m:mi>
+                      </m:mrow>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:mo>∂</m:mo>
+                    <m:mi>z</m:mi>
+                  </m:mrow>
+                </m:mfrac>
+              </m:mrow>
+              <m:annotation encoding="MathType-MTEF"
+                >MathType@MTEF@5@5@+=feaaguart1ev2aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLnhiov2DGi1BTfMBaeXatLxBI9gBaerbd9wDYLwzYbItLDharqqtubsr4rNCHbGeaGqipDI8FfYJH8YrFfeuY=Hhbbf9v8qqaqFr0xc9pk0xbba9q8WqFfeaY=biLkVcLq=JHqpepeea0=as0Fb9pgeaYRXxe9vr0=vr0=vqpWqaaeaabiGaciaacaqabeaadaqaaqaaaOqaaiaad6gadaWcaaqaaiabgkGi2kaadwfaaeaacqGHciITcaWG0baaaiabg2da9iabeE7aOjaadQgadaahaaWcbeqaaiaaikdaaaGccqGHsisldaWcaaqaaiaaikdacaWGXbGaaiOiaaqaaiaadkfaaaGaeyOeI0IaamiuamaalaaabaGaeyOaIyRaamODaaqaaiabgkGi2kaadQhaaaGaey4kaSYaaSaaaeaacaaIXaaabaGaaGOmaaaacuaHbpGCgaGaamaaBaaaleaacaWGHbGaamOyaiaadYgacaWGHbGaamiDaiaadMgacaWGVbGaamOBaaqabaGccaWG2bWaaWbaaSqabeaacaaIYaaaaOGaeyOeI0IabmOBayaacaWaaSbaaSqaaiaadggacaWGIbGaamiBaiaadggacaWG0bGaamyAaiaad+gacaWGUbaabeaakiaadwfacqGHsislcaWG2bWaaSaaaeaacqGHciITdaqadaqaaiaad6gacaWGvbaacaGLOaGaayzkaaaabaGaeyOaIyRaamOEaaaaaaa@6C4D@</m:annotation>
+            </m:semantics>
+          </m:math>
+        </mathml>
+      </equation-figure>
+      <equation-figure id="equation-figure_uyp_4vn_mn">
+        <title>Mathref Within an <xmlelement>equation-figure</xmlelement></title>
+        <desc>Direct reference to the MathML document. Empty equation-number element</desc>
+        <equation-block>
+          <equation-number/>
+          <mathml>
+            <mathmlref href="../../media/mathml/mathml-equation-01.mathml"/>
+          </mathml>
+        </equation-block>
+      </equation-figure>
+      <equation-figure id="equation-figure_uyp_4vn_mn2">
+        <title>Mathref Within an <xmlelement>equation-figure</xmlelement></title>
+        <desc>Direct reference to the MathML document. Equation-number element with content</desc>
+        <equation-block>
+          <equation-number>3.2</equation-number>
+          <mathml>
+            <mathmlref href="../../media/mathml/mathml-equation-01.mathml"/>
+          </mathml>
+        </equation-block>
+      </equation-figure>
+      <equation-figure>
+        <title>Mathref Within an <xmlelement>equation-figure</xmlelement></title>
+        <desc>Key reference to the MathML document.</desc>
+        <mathml>
+          <mathmlref keyref="mathml-equation-01"/>
+        </mathml>
+      </equation-figure>
+      <equation-figure>
+        <title>Equation figure containing a definition list</title>
+        <dl>
+          <dlentry>
+            <dt><mathml><m:math xmlns:m="http://www.w3.org/1998/Math/MathML"><m:csymbol>symbol1</m:csymbol></m:math></mathml></dt>
+            <dd>
+              <mathml></mathml>
+            </dd>
+          </dlentry>
+        </dl>
+      </equation-figure>    </section>
+    <section>
+      <title>Markup and XML Domain</title>
+      <dl>
+        <dlentry>
+          <dt>
+            <xmlelement>xmlelement</xmlelement>
+          </dt>
+          <dd>
+            <xmlelement>xml-element</xmlelement>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>
+            <xmlelement>xmlatt</xmlelement>
+          </dt>
+          <dd>
+            <xmlatt>xml-att</xmlatt>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>
+            <xmlelement>xmlnsname</xmlelement>
+          </dt>
+          <dd>
+            <xmlnsname>urn:ns:xml-ns-name</xmlnsname>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>
+            <xmlelement>markupname</xmlelement>
+          </dt>
+          <dd>
+            <markupname>a-markupname</markupname>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>
+            <xmlelement>xmlpi</xmlelement>
+          </dt>
+          <dd>
+            <xmlpi>processing-instruction-name</xmlpi>
+          </dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section>
+      <title>New Highlight Domain Elements</title>
+      <dl>
+        <dlentry>
+          <dt>
+            <xmlelement>line-through</xmlelement>
+          </dt>
+          <dd>This is normal<line-through>line-though</line-through>more normal (no space around line-through).</dd>
+        </dlentry>
+        <dlentry>
+          <dt>
+            <xmlelement>overline</xmlelement>
+          </dt>
+          <dd>This is an <overline>overline</overline> after the overline.</dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section>
+      <title>Table Test</title>
+      <table frame="topbot" rowsep="1" colsep="1" >
+        <title>Test Table</title>
+        <tgroup cols="2" align="center">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+          <thead>
+            <row>
+              <entry char=".">test</entry>
+              <entry>test</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>test</entry>
+              <entry>test</entry>
+            </row>
+            <row>
+              <entry>test</entry>
+              <entry>test</entry>
+            </row>
+            <row>
+              <entry>test</entry>
+              <entry>test</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </conbody>
+</concept>

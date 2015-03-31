@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/technicalContent/rng/task.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<task id="task">
+    <title>Building a bird house</title>
+    <shortdesc>Building a birdhouse is a perfect activity 
+        for adults to share with their children or grandchildren. 
+        It can be used to teach about birds, as well as the proper use of tools.
+    </shortdesc>
+        <prolog><metadata>
+        </metadata>
+    <change-historylist>
+      <change-item>
+        <change-completed>Jan 14, 2014</change-completed>
+      </change-item>
+    </change-historylist></prolog>
+    <taskbody>
+        <prereq>To build a sound birdhouse, you will need a complete set of tools:
+            <ul><li>hand saw</li>
+                <li>hammer ... </li>
+            </ul></prereq>
+        <context>Birdhouses provide safe locations for birds to build nests and raise their young. They also provide shelter during cold and rainy spells.
+          <p>Test of draft comment: <codeph><draft-comment author="WEK">Draft comment in codeph.</draft-comment></codeph></p>
+        </context>
+        <steps>
+          <data>data</data>
+          <data-about><data>data-about</data></data-about>
+            <step><cmd>Lay out the dimensions for the birdhouse elements.</cmd>
+        <choices id="choices_hkb_lvt_jn">
+          <data>data</data>
+          <data-about>
+            <data>data-about</data>
+          </data-about>
+          <choice/>
+        </choices></step>
+            <step><cmd>Cut the elements to size.</cmd></step>
+            <step><cmd>Drill a 1 1/2" diameter hole for the bird entrance on the front.</cmd>
+                <info>You need to look at the drawing for the correct placement of the 
+                    hole.</info>
+               <steptroubleshooting>
+      <p>If an error message displays during the system backup,
+        locate the error ID in the <cite>Troubleshooting Guide
+        </cite> and follow the instructions there.</p>
+                 <note type="trouble">This is a trouble note.</note>
+    </steptroubleshooting>
+            </step>
+        </steps>
+        <result>You now have a beautiful new birdhouse!</result>
+      <tasktroubleshooting>
+      <p>This is the task troubleshooting section.</p>
+    </tasktroubleshooting>
+        <postreq>Now find a good place to mount it.</postreq>
+    </taskbody>
+  <task id="task_r4j_xvt_jn">
+    <title>Steps Unordered Task</title>
+    <taskbody>
+      <steps-unordered id="steps-unordered_ipf_yvt_jn">
+        <data>data</data>
+        <data-about>
+          <data>data-about</data>
+        </data-about>
+        <step>
+          <cmd/>
+          <substeps id="substeps_qrh_1wt_jn">
+            <data>data</data>
+            <data-about>
+              <data>data-about</data>
+            </data-about>
+            <substep>
+              <cmd/>
+            </substep>
+          </substeps>
+        </step>
+      </steps-unordered>
+    </taskbody>
+  </task>
+</task>

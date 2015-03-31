@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map shellPackage="learning" shellName="learningGroupMap">
+  <!-- NOTE: The root element should be learningGroupMap, not map. This
+       document will validate with DTD and XSD but correctly fail
+       with RNG/RNC.
+    -->
+ <title>Learning Group Map</title>
+  <learningGroup href="learningGroup-01.dita">
+    <topicmeta><navtitle>Learning Group 01</navtitle></topicmeta>
+  </learningGroup>
+</map>

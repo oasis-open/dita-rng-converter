@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task id="task_xtt_t2z_2n" shellPackage="machineryIndustry" shellName="machineryTask">
+    <title>Machinery Task</title>
+    <shortdesc/>
+  <taskbody>
+    <prelreqs>
+      <reqconds>
+        <reqcond>Required condition 1</reqcond>
+        <reqcond>Required condition 1</reqcond>
+      </reqconds>
+      <reqpers>
+        <personnel>Personnel</personnel>
+        <perscat>Person category</perscat>
+        <perskill>Person skill</perskill>
+        <esttime>Estimated time</esttime>
+        <personnel>Personnel2</personnel>
+        <esttime>Estimated time</esttime>
+      </reqpers>
+    </prelreqs>
+    <context>
+      <p>Context for the current task</p>
+      <hazardstatement>
+        <messagepanel>
+          <typeofhazard>Some hazard</typeofhazard>
+          <consequence>Something bad happens</consequence>
+          <howtoavoid>Don't do that</howtoavoid>
+        </messagepanel>
+        <hazardsymbol keyref="hazard-symbol-01">
+          <alt>Hazard symbol 01 (keyref only)</alt>
+        </hazardsymbol>
+        <hazardsymbol href="hazard-symbol-01.svg">
+          <alt>Hazard symbol 01 (href only)</alt>
+        </hazardsymbol>
+      </hazardstatement>
+    </context>
+    <steps>
+      <step>
+        <cmd>Task step.</cmd>
+        <info>
+          <fig>
+            <title>SVG Test</title>
+            <svg-container>
+              <svg:svg xmlns:svg="http://www.w3.org/2000/svg"/>
+            </svg-container>
+          </fig>                
+        </info>
+      </step>
+    </steps>
+    <closereqs>
+      <reqconds>
+        <reqcond>A close condition</reqcond>
+      </reqconds>
+    </closereqs>
+  </taskbody>
+</task>

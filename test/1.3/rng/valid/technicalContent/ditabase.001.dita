@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/technicalContent/rng/ditabase.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<dita>
+  <concept id="batintro"><title>title</title><conbody><p>text</p></conbody></concept>
+  <reference id="batparts"><title>title</title><refbody><!-- ... --></refbody></reference>
+  <task id="batfeeding"><title>title</title><taskbody><!-- ... --></taskbody></task>
+  <task id="battraining"><title>title</title><taskbody><!-- ... --></taskbody></task>
+  <topic id="batcleanup"><title>title</title><body><!-- ... --></body></topic>
+</dita>

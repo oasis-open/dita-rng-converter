@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../../src/1.3/rng/bookmap/rng/bookmap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<bookmap id="taskbook">
+    <booktitle>
+        <mainbooktitle>Product tasks</mainbooktitle>
+        <booktitlealt>Tasks and what they do</booktitlealt>
+    </booktitle>
+    <bookmeta>
+        <author>John Doe</author>
+        <authorinformation>          
+            <personinfo>
+                <namedetails><personname>
+                    <firstname>Derek</firstname>
+                    <middlename>L.</middlename>
+                    <lastname>Singleton</lastname>
+                    <generationidentifier>Jr.</generationidentifier>
+                    <otherinfo>noted psychologist</otherinfo>
+                </personname></namedetails>
+                <addressdetails>
+                    <thoroughfare>123 Yellow Brick Road</thoroughfare>
+                    <locality>Emerald City</locality>
+                    <administrativearea>Kansas</administrativearea>
+                    <country>USA</country>
+                </addressdetails>
+                <contactnumbers><contactnumber>123-555-4678</contactnumber></contactnumbers>
+                <emailaddresses><emailaddress>wizard@example.org</emailaddress></emailaddresses>
+            </personinfo>
+        </authorinformation>
+        <prodinfo>
+            <prodname>Some Product</prodname>
+            <vrmlist><vrm version="1"/></vrmlist>
+            <brand>eServer</brand>
+            <series>iSeries</series>
+        </prodinfo>
+      <ux-window name="window-01"
+        top="10"
+        left="10"
+        height="300"
+        width="400"
+        full-screen="yes"
+        on-top="yes"
+        relative="yes"
+      />
+            <bookid>
+              <edition><text>text in edition</text></edition>
+              <isbn><text>text in isbn</text></isbn>
+            </bookid>
+<bookchangehistory>
+  <reviewed>
+    <started>
+      <year><text>Text in year</text></year>
+      <month><text>text in month</text></month>
+      <day><text>text in day</text></day>
+    </started>
+  </reviewed>
+</bookchangehistory>
+        <bookrights>
+            <copyrfirst>
+                <year>2006</year>
+            </copyrfirst>
+            <bookowner>
+                <person href="task_preface.dita">Jane Doe</person>
+            </bookowner>
+            <bookrestriction value="unclassified"/>
+        </bookrights>     
+    </bookmeta>
+    <frontmatter>
+        <preface/>
+        <booklists>          
+            <abbrevlist href="abbrev.dita"/>
+        </booklists>
+    </frontmatter>
+    <chapter format="ditamap" href="installing.ditamap"/>
+    <chapter href="configuring.dita" deliveryTarget="print"/>
+    <chapter href="maintaining.dita">
+        <topicref href="maintainstorage.dita"/>
+        <topicref href="maintainserver.dita"/>
+        <topicref href="maintaindatabase.dita"/>
+    </chapter>
+    <appendices toc="yes" print="no">
+        <topicmeta>
+            <navtitle>Appendices</navtitle>
+        </topicmeta>
+        <appendix href="return-codes.dita"/>
+        <appendix href="messages.dita"/>
+        <appendix href="extra-info.dita"/>
+    </appendices>
+</bookmap>

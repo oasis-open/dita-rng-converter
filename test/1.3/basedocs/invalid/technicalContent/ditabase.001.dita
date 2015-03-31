@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dita shellPackage="technicalContent" shellName="ditabase">
+  <concept id="batintro">
+    <title>title</title>
+    <conbody>
+      <p>text</p>
+    </conbody>
+    <topic id="st1">
+      <title>Subtopic within concept</title>
+    </topic>
+    <reference id="sr1">
+      <title>Reference within concept</title>
+    </reference>
+    <glossentry id="sge1">
+      <glossterm>Glossentry within concept</glossterm>
+    </glossentry>
+    <glossgroup id="sgg1">
+      <title>Glossgroup within concept</title>
+    </glossgroup>
+    <task id="stask1">
+      <title>Task within concept</title>
+    </task>
+    <concept id="sc1">
+      <title>Concept within concept</title>
+    </concept>
+  </concept>
+  <reference id="batparts">
+    <title>title</title>
+    <refbody><!-- ... --></refbody>
+    <topic id="st2">
+      <title>Subtopic within reference</title>
+    </topic>
+    <reference id="sr2">
+      <title>Reference within reference</title>
+    </reference>
+    <glossentry id="sge2">
+      <glossterm>Glossentry within reference</glossterm>
+    </glossentry>
+    <glossgroup id="sgg2">
+      <title>Glossgroup within reference</title>
+    </glossgroup>
+    <task id="stask2">
+      <title>Task within reference</title>
+    </task>
+    <concept id="sc2">
+      <title>Concept within reference</title>
+    </concept>
+  </reference>
+  <task id="batfeeding">
+    <title>title</title>
+    <taskbody>
+      <prereq/>
+      <section><!-- Not allowed here in constrained task --></section>
+      <context/>
+      <steps>
+        <step>
+          <cmd/>
+        </step>
+      </steps>
+      <result/>
+      <tasktroubleshooting/>
+      <example/>
+      <postreq/>
+    </taskbody>
+    <topic id="st3">
+      <title>Subtopic within task</title>
+    </topic>
+    <reference id="sr3">
+      <title>Reference within task</title>
+    </reference>
+    <glossentry id="sge3">
+      <glossterm>Glossentry within task</glossterm>
+    </glossentry>
+    <glossgroup id="sgg3">
+      <title>Glossgroup within task</title>
+    </glossgroup>
+    <task id="stask3">
+      <title>Task within task</title>
+    </task>
+    <concept id="sc3">
+      <title>Concept within task</title>
+    </concept>
+  </task>
+  <glossentry id="battraining">
+    <glossterm>glossterm</glossterm>
+    <glossdef>Definition</glossdef>
+    <!-- <no-topic-nesting/> The element no-topic-nesting should never actually be used in documents. -->
+  </glossentry>
+  <glossgroup id="glossgroup">
+    <title>Gloss group</title>
+    <glossentry id="sge4">
+      <glossterm>Glossentry within glossgroup</glossterm>
+    </glossentry>
+    <glossgroup id="sgg4">
+      <title>Glossgroup within glossgroup</title>
+    </glossgroup>
+  </glossgroup>
+  <topic id="batcleanup">
+    <title>title</title>
+    <body><!-- ... --></body>
+    <topic id="st5">
+      <title>Subtopic within task</title>
+    </topic>
+    <reference id="sr5">
+      <title>Reference within task</title>
+    </reference>
+    <glossentry id="sge5">
+      <glossterm>Glossentry within task</glossterm>
+    </glossentry>
+    <glossgroup id="sgg5">
+      <title>Glossgroup within task</title>
+    </glossgroup>
+    <task id="stask5">
+      <title>Task within task</title>
+    </task>
+    <concept id="sc5">
+      <title>Concept within task</title>
+    </concept>
+  </topic>
+</dita>

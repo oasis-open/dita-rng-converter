@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<learningGroupMap shellPackage="learning" shellName="learningGroupMap">
+ <title>Learning Group Map</title>
+  <topicmeta>
+    <change-historylist>
+      <change-item>
+        <change-completed>2014-08-20</change-completed>
+        <change-summary audience="internal">This is the change summary
+        </change-summary>
+        <change-summary audience="external">It's all good.</change-summary>
+      </change-item>
+    </change-historylist>  
+  </topicmeta>
+  <learningGroup href="learningGroup-01.dita">
+    <topicmeta><navtitle>Learning Group 01</navtitle></topicmeta>
+  </learningGroup>
+</learningGroupMap>

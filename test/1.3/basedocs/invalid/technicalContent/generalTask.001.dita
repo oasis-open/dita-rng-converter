@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task id="task" shellPackage="technicalContent" shellName="generalTask">
+    <title>Building a bird house</title>
+    <shortdesc>Building a birdhouse is a perfect activity 
+        for adults to share with their children or grandchildren. 
+        It can be used to teach about birds, as well as the proper use of tools.
+    </shortdesc>
+        <prolog><metadata>
+            <exportanchors>
+                <anchorid id="step1"/>
+                <anchorid id="step2"/>
+                <anchorid id="step3"/>
+            </exportanchors>
+        </metadata></prolog>
+    <taskbody>
+        <context>Birdhouses provide safe locations for birds to build nests and raise their young. They also provide shelter during cold and rainy spells.</context>
+        <prereq>To build a sound birdhouse, you will need a complete set of tools:
+            <ul><li>hand saw</li>
+                <li>hammer ... </li>
+            </ul></prereq>
+        <steps>
+            <step><cmd>Lay out the dimensions for the birdhouse elements.</cmd></step>
+            <step><cmd>Cut the elements to size.</cmd></step>
+            <step><cmd>Drill a 1 1/2" diameter hole for the bird entrance on the front.</cmd>
+                <info>You need to look at the drawing for the correct placement of the 
+                    hole.</info></step>
+        </steps>
+        <result>You now have a beautiful new birdhouse!</result>
+        <postreq>Now find a good place to mount it.</postreq>
+    </taskbody>
+</task>
