@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  
+  <import file="build_transtype-rng2all.xml"/>
+  <import file="build_transtype-rng2dtd.xml"/>
+
+</project>

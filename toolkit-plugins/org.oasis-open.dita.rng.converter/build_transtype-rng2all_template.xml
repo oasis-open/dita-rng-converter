@@ -1,0 +1,76 @@
+<project name="rng2all" default="dita2rng2all"
+  xmlns:dita="http://dita-ot.sourceforge.net"
+  >
+  
+  <!--
+    Generate all grammar types and catalogs from RELAX NG grammars.
+    -->
+  
+
+	<target name="dita2rng2all"
+    xmlns:dita="http://dita-ot.sourceforge.net"
+		dita:depends="rng.generate-all"
+    dita:extension="depends org.dita.dost.platform.InsertDependsAction">
+  </target>
+  
+  <target name="rng.generate-all">
+    <!-- Use the base build.xml Ant script (which is not imported into 
+         this script since it's not designed to work with the OT)
+         to run the transform.
+      -->
+    <property name="debug" value="false"/>
+    <property name="javaLibDir" location="${dita.dir}/lib"/>
+    <property name="saxonDir" location="${javaLibDir}/saxon"/>
+    <property name="verSpecificOutDir" location="${output.dir}"/>
+    <property name="src"
+      value="${dita.plugin.org.oasis-open.dita.dita13.doctypes.dir}/doctypes"/>    
+    <property name="foreignsrc" location="${src}/foreign"/>
+    <property name="xslsrc" 
+      location="${dita.plugin.org.oasis-open.dita.rng.converter.dir}/xsl"/>
+    
+    <property name="catalog.dir" value="${output.dir}"/>
+    <property name="usePublicIDsInShell" value="true"/>
+    <property name="generateModules" value="false"/>
+    <property name="generateCatalogs" value="true"/>
+    <condition property="debug">
+      <istrue value="${args.debug}"/>
+    </condition>
+    <property name="masterCatalog" value="${dita.dir}/catalog-dita.xml"/>
+    
+    <dirname property="parentDir" file="${args.input}"/>
+    <property name="rngsrc" location="${parentDir}"/>
+    <makeurl property="rngsrcUrl" file="${rngsrc}"/>
+        
+    <mkdir dir="${output.dir}/generationManifests"/>
+    <mkdir dir="${output.dir}/dtd"/>
+    
+    <echo></echo>
+  
+    <ant antfile="${dita.plugin.org.oasis-open.dita.rng.converter.dir}/build.xml"
+      target="generate-all"
+      >
+      <property name="rngscr" value="${rngsrc}"/>
+      <property name="outdir" value="${output.dir}"/>
+      <property name="catalogDir" value="${catalog.dir}"/>
+      <property name="javaLibDir" value="${dita.dir}/lib"/>
+      <property name="dtdGenerationXsl" 
+    location="${dita.plugin.org.oasis-open.dita.rng.converter.dir}/xsl/rng2ditadtd/rng2ditadtd-plugin-shell.xsl"/>
+      <property name="catalogGenerationXsl" 
+        location="${dita.plugin.org.oasis-open.dita.rng.converter.dir}/xsl/rng2catalogs/rng2catalogs-plugin-shell.xsl"/>
+      <property name="rncGenerationXsl"
+       location="${dita.plugin.org.oasis-open.dita.rng.converter.dir}/xsl/rng2ditarnc/rng2ditarnc-plugin-shell.xsl"/>
+      <property name="xsdGenerationXsl"
+        location="${dita.plugin.org.oasis-open.dita.rng.converter.dir}/xsl/rng2ditaxsd/rng2ditaxsd-plugin-shell.xsl"/>
+
+      <property name="ditaver" value="1.3"/>
+      <property name="usePublicIDsInShell" value="${usePublicIDsInShell}"/>
+      <property name="generateModules" value="${generateModules}"/>
+      <property name="generateCatalogs" value="${generateCatalogs}"/>
+      <property name="debug" value="${debug}"/>
+      <property name="catalogPath" value="${dita.dir}/catalog-dita.xml"/>
+    </ant>
+    <!-- NOTE: generate-all in the base build script does the catalog generation. -->
+  </target>
+  
+
+</project>
