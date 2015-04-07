@@ -1,0 +1,31 @@
+<!-- 
+  This plugin packages the DITA RNG-to-X transforms for use
+  within the DITA Open Toolkit. These transforms have no
+  general dependency on the Open Toolkit, they are simply packaged
+  as a plugin for convenience. Their only dependency is on Saxon 9 or
+  newer or an equivalent XSLT 2 engine.
+  
+  Copyright (c) 2014 OASIS Open
+  
+  -->
+<plugin id="org.oasis-open.dita.rng.converter">
+  
+  <require plugin="org.dita-community.com.dita-rng-converter.doctypes"/>
+  
+  <extension id="xsl.transtype-rng2dtd"/>
+  <extension id="xsl.transtype-rng2all"/>
+  
+  <template file="build_transtype-rng2dtd_template.xml"/>
+  <template file="build_transtype-rng2all_template.xml"/>
+  
+  <template file="xsl/rng2catalogs/rng2catalogs-plugin-shell_template.xsl"/>
+  <template file="xsl/rng2ditadtd/rng2ditadtd-plugin-shell_template.xsl"/>
+  <template file="xsl/rng2ditarnc/rng2ditarnc-plugin-shell_template.xsl"/>
+  <template file="xsl/rng2ditaxsd/rng2ditaxsd-plugin-shell_template.xsl"/>
+  
+  <feature extension="dita.conductor.transtype.check" value="rng2dtd" type="txt"/>
+  <feature extension="dita.conductor.transtype.check" value="rng2all" type="txt"/>
+  <feature extension="dita.conductor.target.relative" file="plugin-build.xml"/>
+  
+
+</plugin>

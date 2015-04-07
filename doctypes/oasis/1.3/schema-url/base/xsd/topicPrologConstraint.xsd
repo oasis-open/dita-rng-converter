@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:redefine schemaLocation="topicMod.xsd">
+    <xs:group name="prolog.content">
+      <xs:sequence>
+        <xs:group ref="author" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:group ref="source" minOccurs="0"/>
+        <xs:group ref="publisher" minOccurs="0"/>
+        <xs:group ref="copyright" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:group ref="critdates" minOccurs="0"/>
+        <xs:group ref="permissions" minOccurs="0"/>
+        <xs:group ref="metadata" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:group ref="resourceid" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:group ref="newDataElem" minOccurs="1"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:group ref="data.elements.incl"/>
+          <xs:group ref="foreign.unknown.incl"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:group>
+    
+    
+  </xs:redefine>
+
+  <xs:group name="newDataElem">
+    <xs:choice>
+      <xs:element ref="newDataElem"/>
+    </xs:choice>
+  </xs:group>
+  
+  <xs:element name="newDataElem">
+  </xs:element>
+  
+  
+</xs:schema>

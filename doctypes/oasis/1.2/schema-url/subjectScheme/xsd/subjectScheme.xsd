@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--=============================================================-->
+<!--                   HEADER                                    -->
+<!--=============================================================-->
+<!-- MODULE:    DITA Subject Scheme Map DTD                      -->
+<!-- VERSION:   1.2                                              -->
+<!-- DATE:      November 2009                                    -->
+<!--                                                             -->
+<!--=============================================================-->
+<!--=============================================================-->
+<!--                   PUBLIC DOCUMENT TYPE DEFINITION           -->
+<!--                       TYPICAL INVOCATION                    -->
+<!--                                                             -->
+<!--Refer to this file by the following public identifier or an  -->
+<!--     appropriate system identifier:                          -->
+<!--PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN"           -->
+<!--     Delivered as file "subjectScheme.dtd"                        -->
+<!--The public ID above refers to the latest version of this DTD.-->
+<!--     To refer to this specific version, you may use this value:-->
+<!--PUBLIC "-//OASIS//DTD DITA 1.2  Subject Scheme Map//EN"            -->
+<!--=============================================================-->
+<!--SYSTEM:     Darwin Information Typing Architecture (DITA)    -->
+<!--                                                             -->
+<!--PURPOSE:    DTD to describe DITA Subject Scheme maps         -->
+<!--                                                             -->
+<!--ORIGINAL CREATION DATE:                                      -->
+<!--            February 2008                                    -->
+<!--                                                             -->
+<!--            (C) Copyright OASIS Open 2008, 2009.             -->
+<!--            (C) Copyright IBM Corporation 2005, 2007.        -->
+<!--            All Rights Reserved.                             -->
+<!--                                                             -->
+<!-- UPDATES:                                                    -->
+<!--   2008.02.13 RDA: Created file based upon prototype from IBM-->
+<!--   2010.09.21 RDA: Added base topic domains                  -->
+<!--=============================================================-->
+<!--                                                             -->
+<xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:include schemaLocation="../../base/xsd/mapGroupMod.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/hazardstatementDomain.xsd"/>
+
+   <!-- ================ GROUP DEFINITIONS ===================== -->
+   <xs:include schemaLocation="../../base/xsd/metaDeclGrp.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/tblDeclGrp.xsd"/>
+   <xs:include schemaLocation="./subjectSchemeGrp.xsd"/>
+
+   <!-- =================  MODULE INCLUDE DEFINITION  ================== -->
+   <xs:include schemaLocation="../../base/xsd/commonElementMod.xsd"/>
+
+   <!-- ======== Table elements ======== -->
+   <xs:include schemaLocation="../../base/xsd/tblDeclMod.xsd"/>
+
+   <!-- ======= MetaData elements, plus keyword and indexterm ======= -->
+   <xs:include schemaLocation="../../base/xsd/metaDeclMod.xsd"/>
+
+   <xs:redefine schemaLocation="../../base/xsd/mapGrp.xsd">
+      <xs:group name="topicref">
+         <xs:choice>
+            <xs:group ref="topicref"/>
+            <xs:group ref="mapgroup-d-topicref"/>
+         </xs:choice>
+      </xs:group>
+   </xs:redefine>
+   <xs:redefine schemaLocation="../../base/xsd/commonElementGrp.xsd">
+      <xs:group name="note">
+         <xs:choice>
+            <xs:group ref="note"/>
+            <xs:group ref="hazard-d-note"/>
+         </xs:choice>
+      </xs:group>
+      <xs:group name="fig">
+         <xs:choice>
+            <xs:group ref="fig"/>
+            <xs:group ref="ut-d-fig"/>
+         </xs:choice>
+      </xs:group>
+      <xs:group name="ph">
+         <xs:choice>
+            <xs:group ref="ph"/>
+            <xs:group ref="hi-d-ph"/>
+         </xs:choice>
+      </xs:group>
+   </xs:redefine>
+
+   <xs:include schemaLocation="../../base/xsd/mapMod.xsd"/>
+   <xs:include schemaLocation="./subjectSchemeMod.xsd"/>
+
+   <xs:attributeGroup name="domains-att">
+      <xs:attribute name="domains"
+                    type="xs:string"
+                    default="(map subjectScheme) (map mapgroup-d) (topic hazard-d) (topic hi-d) (topic ut-d)"/>
+   </xs:attributeGroup>
+</xs:schema>

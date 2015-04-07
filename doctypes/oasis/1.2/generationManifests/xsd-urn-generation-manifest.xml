@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rng2ditaxsd:conversionManifest xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                xmlns:rng2ditaxsd="http://dita.org/rng2ditadtd"
+                                timestamp="2015-01-24T08:50:56.457-06:00"
+                                processor="rng2ditaxsd.xsl"
+                                ditaVersion="1.2"
+                                useURNsInShell="true">
+   <generatedShells xmlns="http://dita.org/rng2ditadtd"/>
+   <generatedModules xmlns="http://dita.org/rng2ditadtd"/>
+</rng2ditaxsd:conversionManifest>

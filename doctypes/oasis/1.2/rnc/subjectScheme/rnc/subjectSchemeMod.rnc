@@ -1,0 +1,315 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Subject Scheme Map                          
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Subject Scheme Map//EN"
+#       Delivered as file "subjectScheme.mod"                       
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Declaring the elements and specialization        
+#             attributes for DITA Subject Scheme Maps          
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             February 2008                                    
+#                                                              
+#             (C) Copyright OASIS Open 2008, 2009.             
+#             (C) Copyright IBM Corporation 2005, 2007.        
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2008.02.13 RDA: Created file based upon prototype from IBM
+# =============================================================
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+schemeref = schemeref.element
+hasNarrower = hasNarrower.element
+hasKind = hasKind.element
+hasPart = hasPart.element
+hasInstance = hasInstance.element
+hasRelated = hasRelated.element
+subjectdef = subjectdef.element
+subjectHead = subjectHead.element
+subjectHeadMeta = subjectHeadMeta.element
+enumerationdef = enumerationdef.element
+elementdef = elementdef.element
+attributedef = attributedef.element
+defaultSubject = defaultSubject.element
+relatedSubjects = relatedSubjects.element
+subjectRelTable = subjectRelTable.element
+subjectRelHeader = subjectRelHeader.element
+subjectRel = subjectRel.element
+subjectRole = subjectRole.element
+topicref-atts-for-subjectScheme = 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute locktitle {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, 
+attribute toc {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute print {("no" | "printonly" | "yes" | "-dita-use-conref-target")}?, 
+attribute search {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute chunk { text}?
+subjectScheme.content = title?, topicmeta?, (anchor | data.elements.incl | enumerationdef | hasInstance | hasKind | hasNarrower | hasPart | hasRelated | navref | relatedSubjects | reltable | schemeref | subjectdef | subjectHead | subjectRelTable | topicref)*
+subjectScheme.attributes = 
+attribute id { xsd:ID}?, conref-atts, 
+attribute anchorref { text}?, 
+attribute outputclass { text}?, localization-atts, topicref-atts-for-subjectScheme, select-atts
+subjectScheme.element = 
+element subjectScheme {subjectScheme.attlist, subjectScheme.content}
+subjectScheme.attlist &= subjectScheme.attributes, arch-atts, 
+attribute domains { text}?
+schemeref.content = topicmeta?, data.elements.incl*
+schemeref.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute query { text}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute format { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, univ-atts
+schemeref.element = 
+element schemeref {schemeref.attlist, schemeref.content}
+schemeref.attlist &= schemeref.attributes
+hasNarrower.content = topicmeta?, (data.elements.incl | subjectdef | subjectHead | topicref)*
+hasNarrower.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute type { text}?, univ-atts
+hasNarrower.element = 
+element hasNarrower {hasNarrower.attlist, hasNarrower.content}
+hasNarrower.attlist &= hasNarrower.attributes
+hasKind.content = topicmeta?, (data.elements.incl | subjectdef | subjectHead | topicref)*
+hasKind.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute type { text}?, univ-atts
+hasKind.element = 
+element hasKind {hasKind.attlist, hasKind.content}
+hasKind.attlist &= hasKind.attributes
+hasPart.content = topicmeta?, (data.elements.incl | subjectdef | subjectHead | topicref)*
+hasPart.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute type { text}?, univ-atts
+hasPart.element = 
+element hasPart {hasPart.attlist, hasPart.content}
+hasPart.attlist &= hasPart.attributes
+hasInstance.content = topicmeta?, (data.elements.incl | subjectdef | subjectHead | topicref)*
+hasInstance.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute type { text}?, univ-atts
+hasInstance.element = 
+element hasInstance {hasInstance.attlist, hasInstance.content}
+hasInstance.attlist &= hasInstance.attributes
+hasRelated.content = topicmeta?, (data.elements.incl | subjectdef | subjectHead | topicref)*
+hasRelated.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute collection-type {("choice" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute type { text}?, univ-atts
+hasRelated.element = 
+element hasRelated {hasRelated.attlist, hasRelated.content}
+hasRelated.attlist &= hasRelated.attributes
+subjectdef.content = topicmeta?, (data.elements.incl | hasInstance | hasKind | hasNarrower | hasPart | hasRelated | subjectdef | subjectHead | topicref)*
+subjectdef.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute query { text}?, 
+attribute copy-to { text}?, 
+attribute outputclass { text}?, 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute locktitle {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, 
+attribute toc {("no" | "yes" | "-dita-use-conref-target")}?, univ-atts
+subjectdef.element = 
+element subjectdef {subjectdef.attlist, subjectdef.content}
+subjectdef.attlist &= subjectdef.attributes
+subjectHead.content = subjectHeadMeta?, (data.elements.incl | subjectdef | subjectHead | topicref)*
+subjectHead.attributes = 
+attribute navtitle { text}?, 
+attribute collection-type {("sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute linking {("normal")}?, 
+attribute toc {("no" | "yes" | "-dita-use-conref-target")}?, univ-atts
+subjectHead.element = 
+element subjectHead {subjectHead.attlist, subjectHead.content}
+subjectHead.attlist &= subjectHead.attributes
+subjectHeadMeta.content = navtitle?, shortdesc?
+subjectHeadMeta.attributes = 
+attribute lockmeta {("no" | "yes" | "-dita-use-conref-target")}?, univ-atts
+subjectHeadMeta.element = 
+element subjectHeadMeta {subjectHeadMeta.attlist, subjectHeadMeta.content}
+subjectHeadMeta.attlist &= subjectHeadMeta.attributes
+enumerationdef.content = elementdef?, attributedef, subjectdef+, defaultSubject?, data.elements.incl*
+enumerationdef.attributes = id-atts, 
+attribute outputclass { text}?, 
+attribute status {("changed" | "deleted" | "new" | "unchanged" | "-dita-use-conref-target")}?, 
+attribute base { text}?, base-attribute-extensions
+enumerationdef.element = 
+element enumerationdef {enumerationdef.attlist, enumerationdef.content}
+enumerationdef.attlist &= enumerationdef.attributes
+elementdef.content = data.elements.incl*
+elementdef.attributes = id-atts, 
+attribute name { text}, 
+attribute outputclass { text}?, 
+attribute status {("changed" | "deleted" | "new" | "unchanged" | "-dita-use-conref-target")}?, 
+attribute translate {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute base { text}?, base-attribute-extensions
+elementdef.element = 
+element elementdef {elementdef.attlist, elementdef.content}
+elementdef.attlist &= elementdef.attributes
+attributedef.content = data.elements.incl*
+attributedef.attributes = id-atts, 
+attribute name { text}, 
+attribute outputclass { text}?, 
+attribute status {("changed" | "deleted" | "new" | "unchanged" | "-dita-use-conref-target")}?, 
+attribute translate {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute base { text}?, base-attribute-extensions
+attributedef.element = 
+element attributedef {attributedef.attlist, attributedef.content}
+attributedef.attlist &= attributedef.attributes
+defaultSubject.content = data.elements.incl*
+defaultSubject.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute query { text}?, 
+attribute copy-to { text}?, 
+attribute outputclass { text}?, 
+attribute type { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute locktitle {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, 
+attribute toc {("no" | "yes" | "-dita-use-conref-target")}?, univ-atts
+defaultSubject.element = 
+element defaultSubject {defaultSubject.attlist, defaultSubject.content}
+defaultSubject.attlist &= defaultSubject.attributes
+relatedSubjects.content = (data.elements.incl | subjectdef | topicref)*
+relatedSubjects.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute query { text}?, 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, univ-atts
+relatedSubjects.element = 
+element relatedSubjects {relatedSubjects.attlist, relatedSubjects.content}
+relatedSubjects.attlist &= relatedSubjects.attributes
+subjectRelTable.content = title?, topicmeta?, subjectRelHeader?, subjectRel+
+subjectRelTable.attributes = topicref-atts-no-toc, univ-atts
+subjectRelTable.element = 
+element subjectRelTable {subjectRelTable.attlist, subjectRelTable.content}
+subjectRelTable.attlist &= subjectRelTable.attributes
+subjectRelHeader.content = subjectRole+
+subjectRelHeader.attributes = univ-atts
+subjectRelHeader.element = 
+element subjectRelHeader {subjectRelHeader.attlist, subjectRelHeader.content}
+subjectRelHeader.attlist &= subjectRelHeader.attributes
+subjectRel.content = subjectRole+
+subjectRel.attributes = univ-atts
+subjectRel.element = 
+element subjectRel {subjectRel.attlist, subjectRel.content}
+subjectRel.attlist &= subjectRel.attributes
+subjectRole.content = (data.elements.incl | subjectdef | topicref)*
+subjectRole.attributes = topicref-atts, univ-atts
+subjectRole.element = 
+element subjectRole {subjectRole.attlist, subjectRole.content}
+subjectRole.attlist &= subjectRole.attributes
+subjectScheme.attlist &= global-atts, 
+attribute class { text}?
+schemeref.attlist &= global-atts, 
+attribute class { text}?
+hasNarrower.attlist &= global-atts, 
+attribute class { text}?
+hasKind.attlist &= global-atts, 
+attribute class { text}?
+hasPart.attlist &= global-atts, 
+attribute class { text}?
+hasInstance.attlist &= global-atts, 
+attribute class { text}?
+hasRelated.attlist &= global-atts, 
+attribute class { text}?
+enumerationdef.attlist &= global-atts, 
+attribute class { text}?
+elementdef.attlist &= global-atts, 
+attribute class { text}?
+attributedef.attlist &= global-atts, 
+attribute class { text}?
+defaultSubject.attlist &= global-atts, 
+attribute class { text}?
+subjectHead.attlist &= global-atts, 
+attribute class { text}?
+subjectHeadMeta.attlist &= global-atts, 
+attribute class { text}?
+subjectdef.attlist &= global-atts, 
+attribute class { text}?
+relatedSubjects.attlist &= global-atts, 
+attribute class { text}?
+subjectRelTable.attlist &= global-atts, 
+attribute class { text}?
+subjectRelHeader.attlist &= global-atts, 
+attribute class { text}?
+subjectRel.attlist &= global-atts, 
+attribute class { text}?
+subjectRole.attlist &= global-atts, 
+attribute class { text}?

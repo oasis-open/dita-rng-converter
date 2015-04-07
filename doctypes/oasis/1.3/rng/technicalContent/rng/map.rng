@@ -84,7 +84,7 @@ ORIGINAL CREATION DATE:
                          (topic abbrev-d)
                          (topic delay-d)
                          (map ditavalref-d)
-                         (topic glossref-d)
+                         (map glossref-d)
                          (topic hazard-d)
                          (topic hi-d)
                          (topic indexing-d)

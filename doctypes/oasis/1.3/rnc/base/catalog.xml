@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Base Map Shell-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:oasis:names:tc:dita:rnc:basemap.rnc:1.3"
+              uri="rnc/basemap.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:basemap.rnc"
+              uri="rnc/basemap.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:basetopic.rnc:1.3"
+              uri="rnc/basetopic.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:basetopic.rnc"
+              uri="rnc/basetopic.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:commonElementsMod.rnc:1.3"
+              uri="rnc/commonElementsMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:commonElementsMod.rnc"
+              uri="rnc/commonElementsMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:delayResolutionDomain.rnc:1.3"
+              uri="rnc/delayResolutionDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:delayResolutionDomain.rnc"
+              uri="rnc/delayResolutionDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:deliveryTargetAttDomainMod.rnc:1.3"
+              uri="rnc/deliveryTargetAttDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:deliveryTargetAttDomainMod.rnc"
+              uri="rnc/deliveryTargetAttDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:ditavalrefDomainMod.rnc:1.3"
+              uri="rnc/ditavalrefDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:ditavalrefDomainMod.rnc"
+              uri="rnc/ditavalrefDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:hazardDomain.rnc:1.3"
+              uri="rnc/hazardstatementDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:hazardDomain.rnc"
+              uri="rnc/hazardstatementDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:highlightDomainMod.rnc:1.3"
+              uri="rnc/highlightDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:highlightDomainMod.rnc"
+              uri="rnc/highlightDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:indexingDomain.rnc:1.3"
+              uri="rnc/indexingDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:indexingDomain.rnc"
+              uri="rnc/indexingDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:mapGroupMod.rnc:1.3"
+              uri="rnc/mapGroupDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:mapGroupMod.rnc"
+              uri="rnc/mapGroupDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:mapMod.rnc:1.3"
+              uri="rnc/mapMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:mapMod.rnc" uri="rnc/mapMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:metaDeclMod.rnc:1.3"
+              uri="rnc/metaDeclMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:metaDeclMod.rnc"
+              uri="rnc/metaDeclMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:tblDeclMod.rnc:1.3"
+              uri="rnc/tblDeclMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:tblDeclMod.rnc"
+              uri="rnc/tblDeclMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:topicMod.rnc:1.3"
+              uri="rnc/topicMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:topicMod.rnc"
+              uri="rnc/topicMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:utilitiesDomainMod.rnc:1.3"
+              uri="rnc/utilitiesDomainMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:utilitiesDomainMod.rnc"
+              uri="rnc/utilitiesDomainMod.rnc"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:oasis:names:tc:dita:rnc:basemap.rnc:1.3"
+           uri="rnc/basemap.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:basemap.rnc" uri="rnc/basemap.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:basetopic.rnc:1.3"
+           uri="rnc/basetopic.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:basetopic.rnc"
+           uri="rnc/basetopic.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:commonElementsMod.rnc:1.3"
+           uri="rnc/commonElementsMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:commonElementsMod.rnc"
+           uri="rnc/commonElementsMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:delayResolutionDomain.rnc:1.3"
+           uri="rnc/delayResolutionDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:delayResolutionDomain.rnc"
+           uri="rnc/delayResolutionDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:deliveryTargetAttDomainMod.rnc:1.3"
+           uri="rnc/deliveryTargetAttDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:deliveryTargetAttDomainMod.rnc"
+           uri="rnc/deliveryTargetAttDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:ditavalrefDomainMod.rnc:1.3"
+           uri="rnc/ditavalrefDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:ditavalrefDomainMod.rnc"
+           uri="rnc/ditavalrefDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:hazardDomain.rnc:1.3"
+           uri="rnc/hazardstatementDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:hazardDomain.rnc"
+           uri="rnc/hazardstatementDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:highlightDomainMod.rnc:1.3"
+           uri="rnc/highlightDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:highlightDomainMod.rnc"
+           uri="rnc/highlightDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:indexingDomain.rnc:1.3"
+           uri="rnc/indexingDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:indexingDomain.rnc"
+           uri="rnc/indexingDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:mapGroupMod.rnc:1.3"
+           uri="rnc/mapGroupDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:mapGroupMod.rnc"
+           uri="rnc/mapGroupDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:mapMod.rnc:1.3" uri="rnc/mapMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:mapMod.rnc" uri="rnc/mapMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:metaDeclMod.rnc:1.3"
+           uri="rnc/metaDeclMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:metaDeclMod.rnc"
+           uri="rnc/metaDeclMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:tblDeclMod.rnc:1.3"
+           uri="rnc/tblDeclMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:tblDeclMod.rnc"
+           uri="rnc/tblDeclMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:topicMod.rnc:1.3"
+           uri="rnc/topicMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:topicMod.rnc" uri="rnc/topicMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:utilitiesDomainMod.rnc:1.3"
+           uri="rnc/utilitiesDomainMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:utilitiesDomainMod.rnc"
+           uri="rnc/utilitiesDomainMod.rnc"/>
+   </group>
+</catalog>

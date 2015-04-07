@@ -1,0 +1,64 @@
+# 
+#  =============================================================
+#                    HEADER                                     
+# ============================================================= 
+#  MODULE:    DITA Glossary Group                               
+#  VERSION:   1.2                                               
+#  DATE:      November 2009                                     
+#                                                               
+# ============================================================= 
+# 
+# ============================================================= 
+#                    PUBLIC DOCUMENT TYPE DEFINITION            
+#                    TYPICAL INVOCATION                         
+#                                                               
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Glossary Group//EN"
+#       Delivered as file "glossgroup.mod"                           
+# 
+# ============================================================= 
+# SYSTEM:     Darwin Information Typing Architecture (DITA)     
+#                                                               
+# PURPOSE:    Define elements and specialization atttributes    
+#             for Glossary Group topics                         
+#                                                               
+# ORIGINAL CREATION DATE:                                       
+#             June 2008                                         
+#                                                               
+#             (C) Copyright OASIS Open 2008, 2009.              
+#             All Rights Reserved.                              
+#                                                               
+#  UPDATES:                                                     
+# ============================================================= 
+#   
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+start = glossgroup.element
+
+}
+div {
+domains-att &= 
+attribute domains { text}?
+}
+div {
+include "../../base/rnc/topicMod.rnc"
+include "conceptMod.rnc"
+include "glossentryMod.rnc"
+include "glossgroupMod.rnc"
+include "../../base/rnc/highlightDomainMod.rnc"
+include "../../base/rnc/utilitiesDomainMod.rnc"
+include "../../base/rnc/indexingDomainMod.rnc"
+include "../../base/rnc/hazardstatementDomainMod.rnc"
+include "abbreviateDomainMod.rnc"
+include "uiDomainMod.rnc"
+include "programmingDomainMod.rnc"
+include "softwareDomainMod.rnc"
+}
+div {
+any = (idElements | 
+element  * - (topic | concept | glossgroup | glossentry) {
+attribute  * { text}*, any} |  text )*
+}

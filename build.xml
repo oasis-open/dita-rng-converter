@@ -90,6 +90,7 @@
        For non-TC stuff the scripts use the DITA OT catalog -->
   <property name="catalogPath" location="../../src/${ditaver}/catalog.xml"/>
   
+  
   <makeurl property="catalogPathUrl" file="${catalogPath}"/>
 
   

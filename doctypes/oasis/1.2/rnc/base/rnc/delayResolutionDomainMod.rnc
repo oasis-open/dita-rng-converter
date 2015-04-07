@@ -1,0 +1,58 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Delayed Resolution Domain                   
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Define elements and specialization attributes    
+#             for Delayed Resolution Domain                    
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             February 2008                                    
+#                                                              
+#             (C) Copyright OASIS Open 2008, 2009.             
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+# =============================================================
+#     
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+delay-d-keywords = exportanchors.element
+keywords |= delay-d-keywords
+exportanchors = exportanchors.element
+anchorid = anchorid.element
+anchorkey = anchorkey.element
+exportanchors.content = (anchorid | anchorkey)*
+exportanchors.attributes = univ-atts
+exportanchors.element = 
+element exportanchors {exportanchors.attlist, exportanchors.content}
+exportanchors.attlist &= exportanchors.attributes
+anchorid.content =  empty 
+anchorid.attributes = 
+attribute keyref { text}?, 
+attribute id { xsd:NMTOKEN}, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+anchorid.element = 
+element anchorid {anchorid.attlist, anchorid.content}
+anchorid.attlist &= anchorid.attributes
+anchorkey.content =  empty 
+anchorkey.attributes = 
+attribute keyref { text}, univ-atts, 
+attribute outputclass { text}?
+anchorkey.element = 
+element anchorkey {anchorkey.attlist, anchorkey.content}
+anchorkey.attlist &= anchorkey.attributes
+exportanchors.attlist &= global-atts, 
+attribute class { text}?
+anchorid.attlist &= global-atts, 
+attribute class { text}?
+anchorkey.attlist &= global-atts, 
+attribute class { text}?

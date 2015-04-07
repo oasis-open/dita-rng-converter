@@ -1,0 +1,327 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Learning 2 Domain                             
+#  VERSION:   1.3                                              
+#  DATE:      March 2014                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identfier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Learning 2 Domain//EN"
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Declaring the elements and specialization        
+#             attributes for Learning Domain                   
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             March 2014                                         
+#                                                              
+#             (C) Copyright OASIS Open 2014             
+#             All Rights Reserved.                             
+#                                                              
+# =============================================================  
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+learning2-d-div = (lcTrueFalse2.element | lcSingleSelect2.element | lcMultipleSelect2.element | lcSequencing2.element | lcMatching2.element | lcHotspot2.element | lcOpenQuestion2.element)
+\div |= learning2-d-div
+learning2-d-lcInteractionBase2 = (lcTrueFalse2.element | lcSingleSelect2.element | lcMultipleSelect2.element | lcSequencing2.element | lcMatching2.element | lcHotspot2.element | lcOpenQuestion2.element)
+lcInteractionBase2 |= learning2-d-lcInteractionBase2
+learning2-d-note = lcInstructornote2.element
+note |= learning2-d-note
+lcInstructorNote2 = lcInstructornote2.element
+lcQuestion2 = lcQuestion2.element
+lcOpenAnswer2 = lcOpenAnswer2.element
+lcAnswerOptionGroup2 = lcAnswerOptionGroup2.element
+lcAsset2 = lcAsset2.element
+lcFeedbackCorrect2 = lcFeedbackCorrect2.element
+lcFeedbackIncorrect2 = lcFeedbackIncorrect2.element
+lcAnswerOption2 = lcAnswerOption2.element
+lcAnswerContent2 = lcAnswerContent2.element
+lcSequenceOptionGroup2 = lcSequenceOptionGroup2.element
+lcSequenceOption2 = lcSequenceOption2.element
+lcSequence2 = lcSequence2.element
+lcMatchTable2 = lcMatchTable2.element
+lcMatchingHeader2 = lcMatchingHeader2.element
+lcMatchingPair2 = lcMatchingPair2.element
+lcItem2 = lcItem2.element
+lcMatchingItem2 = lcMatchingItem2.element
+lcMatchingItemFeedback2 = lcMatchingItemFeedback2.element
+lcHotspotMap2 = lcHotspotMap2.element
+lcArea2 = lcArea2.element
+lcAreaShape2 = lcAreaShape2.element
+lcAreaCoords2 = lcAreaCoords2.element
+lcCorrectResponse2 = lcCorrectResponse2.element
+lcFeedback2 = lcFeedback2.element
+lcInstructornote2.content = note.cnt*
+lcInstructornote2.attributes = 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcInstructornote2.element = 
+element lcInstructornote2 {lcInstructornote2.attlist, lcInstructornote2.content}
+lcInstructornote2.attlist &= lcInstructornote2.attributes
+lcTrueFalse2.content = lcInteractionLabel2?, lcQuestion2, lcAsset2*, lcAnswerOptionGroup2, lcFeedbackIncorrect2?, lcFeedbackCorrect2?, data*
+lcTrueFalse2.attributes = 
+attribute id { xsd:NMTOKEN}?, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+lcTrueFalse2.element = 
+element lcTrueFalse2 {lcTrueFalse2.attlist, lcTrueFalse2.content}
+lcTrueFalse2.attlist &= lcTrueFalse2.attributes
+lcSingleSelect2.content = lcInteractionLabel2?, lcQuestion2, lcAsset2*, lcAnswerOptionGroup2, lcFeedbackIncorrect2?, lcFeedbackCorrect2?, data*
+lcSingleSelect2.attributes = 
+attribute id { xsd:NMTOKEN}?, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+lcSingleSelect2.element = 
+element lcSingleSelect2 {lcSingleSelect2.attlist, lcSingleSelect2.content}
+lcSingleSelect2.attlist &= lcSingleSelect2.attributes
+lcMultipleSelect2.content = lcInteractionLabel2?, lcQuestion2, lcAsset2*, lcAnswerOptionGroup2, lcFeedbackIncorrect2?, lcFeedbackCorrect2?, data*
+lcMultipleSelect2.attributes = 
+attribute id { xsd:NMTOKEN}?, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+lcMultipleSelect2.element = 
+element lcMultipleSelect2 {lcMultipleSelect2.attlist, lcMultipleSelect2.content}
+lcMultipleSelect2.attlist &= lcMultipleSelect2.attributes
+lcSequencing2.content = lcInteractionLabel2?, lcQuestion2, lcAsset2*, lcSequenceOptionGroup2, lcFeedbackIncorrect2?, lcFeedbackCorrect2?, data*
+lcSequencing2.attributes = 
+attribute id { xsd:NMTOKEN}?, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+lcSequencing2.element = 
+element lcSequencing2 {lcSequencing2.attlist, lcSequencing2.content}
+lcSequencing2.attlist &= lcSequencing2.attributes
+lcMatching2.content = lcInteractionLabel2?, lcQuestion2, lcAsset2*, lcMatchTable2, lcFeedbackIncorrect2?, lcFeedbackCorrect2?, data*
+lcMatching2.attributes = 
+attribute id { xsd:NMTOKEN}?, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+lcMatching2.element = 
+element lcMatching2 {lcMatching2.attlist, lcMatching2.content}
+lcMatching2.attlist &= lcMatching2.attributes
+lcHotspot2.content = lcInteractionLabel2?, lcQuestion2, lcHotspotMap2, lcFeedbackIncorrect2?, lcFeedbackCorrect2?, data*
+lcHotspot2.attributes = 
+attribute id { xsd:NMTOKEN}?, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+lcHotspot2.element = 
+element lcHotspot2 {lcHotspot2.attlist, lcHotspot2.content}
+lcHotspot2.attlist &= lcHotspot2.attributes
+lcOpenQuestion2.content = lcInteractionLabel2?, lcQuestion2, lcAsset2*, lcOpenAnswer2?, lcFeedbackIncorrect2?, lcFeedbackCorrect2?, data*
+lcOpenQuestion2.attributes = 
+attribute id { xsd:NMTOKEN}?, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+lcOpenQuestion2.element = 
+element lcOpenQuestion2 {lcOpenQuestion2.attlist, lcOpenQuestion2.content}
+lcOpenQuestion2.attlist &= lcOpenQuestion2.attributes
+lcQuestion2.content = div.cnt*
+lcQuestion2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcQuestion2.element = 
+element lcQuestion2 {lcQuestion2.attlist, lcQuestion2.content}
+lcQuestion2.attlist &= lcQuestion2.attributes
+lcOpenAnswer2.content = div.cnt*
+lcOpenAnswer2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcOpenAnswer2.element = 
+element lcOpenAnswer2 {lcOpenAnswer2.attlist, lcOpenAnswer2.content}
+lcOpenAnswer2.attlist &= lcOpenAnswer2.attributes
+lcAnswerOptionGroup2.content = (data | data-about)*, lcAnswerOption2+
+lcAnswerOptionGroup2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcAnswerOptionGroup2.element = 
+element lcAnswerOptionGroup2 {lcAnswerOptionGroup2.attlist, lcAnswerOptionGroup2.content}
+lcAnswerOptionGroup2.attlist &= lcAnswerOptionGroup2.attributes
+lcSequenceOptionGroup2.content = (data | data-about)*, lcSequenceOption2+
+lcSequenceOptionGroup2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcSequenceOptionGroup2.element = 
+element lcSequenceOptionGroup2 {lcSequenceOptionGroup2.attlist, lcSequenceOptionGroup2.content}
+lcSequenceOptionGroup2.attlist &= lcSequenceOptionGroup2.attributes
+lcAsset2.content = (imagemap | image | object)*
+lcAsset2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcAsset2.element = 
+element lcAsset2 {lcAsset2.attlist, lcAsset2.content}
+lcAsset2.attlist &= lcAsset2.attributes
+lcSequenceOption2.content = lcAnswerContent2, lcSequence2
+lcSequenceOption2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcSequenceOption2.element = 
+element lcSequenceOption2 {lcSequenceOption2.attlist, lcSequenceOption2.content}
+lcSequenceOption2.attlist &= lcSequenceOption2.attributes
+lcFeedback2.content = div.cnt*
+lcFeedback2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcFeedback2.element = 
+element lcFeedback2 {lcFeedback2.attlist, lcFeedback2.content}
+lcFeedback2.attlist &= lcFeedback2.attributes
+lcFeedbackCorrect2.content = div.cnt*
+lcFeedbackCorrect2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcFeedbackCorrect2.element = 
+element lcFeedbackCorrect2 {lcFeedbackCorrect2.attlist, lcFeedbackCorrect2.content}
+lcFeedbackCorrect2.attlist &= lcFeedbackCorrect2.attributes
+lcFeedbackIncorrect2.content = div.cnt*
+lcFeedbackIncorrect2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcFeedbackIncorrect2.element = 
+element lcFeedbackIncorrect2 {lcFeedbackIncorrect2.attlist, lcFeedbackIncorrect2.content}
+lcFeedbackIncorrect2.attlist &= lcFeedbackIncorrect2.attributes
+lcAnswerOption2.content = lcAnswerContent2, lcCorrectResponse2?, lcFeedback2?
+lcAnswerOption2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcAnswerOption2.element = 
+element lcAnswerOption2 {lcAnswerOption2.attlist, lcAnswerOption2.content}
+lcAnswerOption2.attlist &= lcAnswerOption2.attributes
+lcAnswerContent2.content = div.cnt*
+lcAnswerContent2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcAnswerContent2.element = 
+element lcAnswerContent2 {lcAnswerContent2.attlist, lcAnswerContent2.content}
+lcAnswerContent2.attlist &= lcAnswerContent2.attributes
+lcMatchTable2.content = lcMatchingHeader2?, lcMatchingPair2+
+lcMatchTable2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcMatchTable2.element = 
+element lcMatchTable2 {lcMatchTable2.attlist, lcMatchTable2.content}
+lcMatchTable2.attlist &= lcMatchTable2.attributes
+lcMatchingHeader2.content = lcItem2, lcMatchingItem2
+lcMatchingHeader2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcMatchingHeader2.element = 
+element lcMatchingHeader2 {lcMatchingHeader2.attlist, lcMatchingHeader2.content}
+lcMatchingHeader2.attlist &= lcMatchingHeader2.attributes
+lcMatchingPair2.content = lcItem2, lcMatchingItem2, lcMatchingItemFeedback2?
+lcMatchingPair2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcMatchingPair2.element = 
+element lcMatchingPair2 {lcMatchingPair2.attlist, lcMatchingPair2.content}
+lcMatchingPair2.attlist &= lcMatchingPair2.attributes
+lcItem2.content = div.cnt*
+lcItem2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcItem2.element = 
+element lcItem2 {lcItem2.attlist, lcItem2.content}
+lcItem2.attlist &= lcItem2.attributes
+lcMatchingItem2.content = div.cnt*
+lcMatchingItem2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcMatchingItem2.element = 
+element lcMatchingItem2 {lcMatchingItem2.attlist, lcMatchingItem2.content}
+lcMatchingItem2.attlist &= lcMatchingItem2.attributes
+lcMatchingItemFeedback2.content = (lcFeedback2 | lcFeedbackCorrect2 | lcFeedbackIncorrect2)*
+lcMatchingItemFeedback2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcMatchingItemFeedback2.element = 
+element lcMatchingItemFeedback2 {lcMatchingItemFeedback2.attlist, lcMatchingItemFeedback2.content}
+lcMatchingItemFeedback2.attlist &= lcMatchingItemFeedback2.attributes
+lcHotspotMap2.content = image, lcArea2+
+lcHotspotMap2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcHotspotMap2.element = 
+element lcHotspotMap2 {lcHotspotMap2.attlist, lcHotspotMap2.content}
+lcHotspotMap2.attlist &= lcHotspotMap2.attributes
+lcArea2.content = lcAreaShape2, lcAreaCoords2, xref?, lcCorrectResponse2?, lcFeedback2?
+lcArea2.attributes = univ-atts, 
+attribute outputclass { text}?
+lcArea2.element = 
+element lcArea2 {lcArea2.attlist, lcArea2.content}
+lcArea2.attlist &= lcArea2.attributes
+lcAreaShape2.content = ( text  | \text)*
+lcAreaShape2.attributes = 
+attribute keyref { text}?, univ-atts-translate-no, 
+attribute outputclass { text}?
+lcAreaShape2.element = 
+element lcAreaShape2 {lcAreaShape2.attlist, lcAreaShape2.content}
+lcAreaShape2.attlist &= lcAreaShape2.attributes
+lcAreaCoords2.content = words.cnt*
+lcAreaCoords2.attributes = 
+attribute keyref { text}?, univ-atts-translate-no, 
+attribute outputclass { text}?
+lcAreaCoords2.element = 
+element lcAreaCoords2 {lcAreaCoords2.attlist, lcAreaCoords2.content}
+lcAreaCoords2.attlist &= lcAreaCoords2.attributes
+lcCorrectResponse2.content =  empty 
+lcCorrectResponse2.attributes = 
+attribute name { text}?, 
+attribute value { text}?, univ-atts, 
+attribute outputclass { text}?
+lcCorrectResponse2.element = 
+element lcCorrectResponse2 {lcCorrectResponse2.attlist, lcCorrectResponse2.content}
+lcCorrectResponse2.attlist &= lcCorrectResponse2.attributes
+lcSequence2.content =  empty 
+lcSequence2.attributes = 
+attribute name { text}?, 
+attribute value { text}, univ-atts, 
+attribute outputclass { text}?
+lcSequence2.element = 
+element lcSequence2 {lcSequence2.attlist, lcSequence2.content}
+lcSequence2.attlist &= lcSequence2.attributes
+lcInstructornote2.attlist &= global-atts, 
+attribute class { text}?
+lcTrueFalse2.attlist &= global-atts, 
+attribute class { text}?
+lcSingleSelect2.attlist &= global-atts, 
+attribute class { text}?
+lcMultipleSelect2.attlist &= global-atts, 
+attribute class { text}?
+lcSequencing2.attlist &= global-atts, 
+attribute class { text}?
+lcMatching2.attlist &= global-atts, 
+attribute class { text}?
+lcHotspot2.attlist &= global-atts, 
+attribute class { text}?
+lcOpenQuestion2.attlist &= global-atts, 
+attribute class { text}?
+lcQuestion2.attlist &= global-atts, 
+attribute class { text}?
+lcOpenAnswer2.attlist &= global-atts, 
+attribute class { text}?
+lcAsset2.attlist &= global-atts, 
+attribute class { text}?
+lcFeedback2.attlist &= global-atts, 
+attribute class { text}?
+lcFeedbackCorrect2.attlist &= global-atts, 
+attribute class { text}?
+lcFeedbackIncorrect2.attlist &= global-atts, 
+attribute class { text}?
+lcAnswerOption2.attlist &= global-atts, 
+attribute class { text}?
+lcAnswerOptionGroup2.attlist &= global-atts, 
+attribute class { text}?
+lcAnswerContent2.attlist &= global-atts, 
+attribute class { text}?
+lcMatchTable2.attlist &= global-atts, 
+attribute class { text}?
+lcMatchingHeader2.attlist &= global-atts, 
+attribute class { text}?
+lcMatchingPair2.attlist &= global-atts, 
+attribute class { text}?
+lcItem2.attlist &= global-atts, 
+attribute class { text}?
+lcMatchingItem2.attlist &= global-atts, 
+attribute class { text}?
+lcMatchingItemFeedback2.attlist &= global-atts, 
+attribute class { text}?
+lcSequenceOptionGroup2.attlist &= global-atts, 
+attribute class { text}?
+lcSequenceOption2.attlist &= global-atts, 
+attribute class { text}?
+lcSequence2.attlist &= global-atts, 
+attribute class { text}?
+lcCorrectResponse2.attlist &= global-atts, 
+attribute class { text}?
+lcHotspotMap2.attlist &= global-atts, 
+attribute class { text}?
+lcArea2.attlist &= global-atts, 
+attribute class { text}?
+lcAreaShape2.attlist &= global-atts, 
+attribute class { text}?
+lcAreaCoords2.attlist &= global-atts, 
+attribute class { text}?

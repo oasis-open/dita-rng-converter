@@ -1,0 +1,55 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA learningContent                             
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identfier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Learning Content//EN"
+#       Delivered as file "learningContent.mod                      
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Declaring the elements and specialization        
+#             attributes for Learning Content                  
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             May 2007                                         
+#                                                              
+#             (C) Copyright OASIS Open 2007, 2009.             
+#             All Rights Reserved.                             
+# =============================================================
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+learningContent-info-types |=  empty 
+learningContent = learningContent.element
+learningContentbody = learningContentbody.element
+learningContent.content = title, titlealts?, (shortdesc | abstract)?, prolog?, learningContentbody, related-links?, learningContent-info-types*
+learningContent.attributes = 
+attribute id { xsd:ID}, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+learningContent.element = 
+element learningContent {learningContent.attlist, learningContent.content}
+learningContent.attlist &= learningContent.attributes, arch-atts, domains-att
+learningContentbody.content = (lcIntro | lcDuration | lcObjectives)*, lcChallenge?, lcInstruction?, section*
+learningContentbody.attributes = univ-atts, 
+attribute outputclass { text}?
+learningContentbody.element = 
+element learningContentbody {learningContentbody.attlist, learningContentbody.content}
+learningContentbody.attlist &= learningContentbody.attributes
+learningContent.attlist &= global-atts, 
+attribute class { text}?
+learningContentbody.attlist &= global-atts, 
+attribute class { text}?

@@ -1,0 +1,126 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Software Domain                             
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Software Domain//EN"
+#       Delivered as file "softwareDomain.mod"                      
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Declaring the elements and specialization        
+#             attributes for the Software Domain               
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             March 2001                                       
+#                                                              
+#             (C) Copyright OASIS Open 2005, 2009.             
+#             (C) Copyright IBM Corporation 2001, 2004.        
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2005.11.15 RDA: Corrected the PURPOSE in this comment     
+#    2005.11.15 RDA: Corrected the "Delivered as" system ID    
+#    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
+#    2008.02.12 RDA: Add text to msgnum, cmdname, varname      
+#    2008.02.13 RDA: Create .content and .attributes entities  
+# =============================================================  
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+sw-d-pre = msgblock.element
+sw-d-ph = (filepath.element | msgph.element | systemoutput.element | userinput.element)
+sw-d-keyword = (cmdname.element | msgnum.element | varname.element)
+pre |= sw-d-pre
+ph |= sw-d-ph
+keyword |= sw-d-keyword
+cmdname = cmdname.element
+filepath = filepath.element
+msgblock = msgblock.element
+msgnum = msgnum.element
+msgph = msgph.element
+systemoutput = systemoutput.element
+userinput = userinput.element
+varname = varname.element
+msgph.content = words.cnt*
+msgph.attributes = univ-atts, 
+attribute outputclass { text}?
+msgph.element = 
+element msgph {msgph.attlist, msgph.content}
+msgph.attlist &= msgph.attributes
+msgblock.content = (words.cnt | msgph)*
+msgblock.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?, 
+attribute xml:space {"preserve"}?
+msgblock.element = 
+element msgblock {msgblock.attlist, msgblock.content}
+msgblock.attlist &= msgblock.attributes
+msgnum.content = ( text  | \text)*
+msgnum.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+msgnum.element = 
+element msgnum {msgnum.attlist, msgnum.content}
+msgnum.attlist &= msgnum.attributes
+cmdname.content = ( text  | \text)*
+cmdname.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+cmdname.element = 
+element cmdname {cmdname.attlist, cmdname.content}
+cmdname.attlist &= cmdname.attributes
+varname.content = ( text  | \text)*
+varname.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+varname.element = 
+element varname {varname.attlist, varname.content}
+varname.attlist &= varname.attributes
+filepath.content = words.cnt*
+filepath.attributes = univ-atts, 
+attribute outputclass { text}?
+filepath.element = 
+element filepath {filepath.attlist, filepath.content}
+filepath.attlist &= filepath.attributes
+userinput.content = words.cnt*
+userinput.attributes = univ-atts, 
+attribute outputclass { text}?
+userinput.element = 
+element userinput {userinput.attlist, userinput.content}
+userinput.attlist &= userinput.attributes
+systemoutput.content = words.cnt*
+systemoutput.attributes = univ-atts, 
+attribute outputclass { text}?
+systemoutput.element = 
+element systemoutput {systemoutput.attlist, systemoutput.content}
+systemoutput.attlist &= systemoutput.attributes
+cmdname.attlist &= global-atts, 
+attribute class { text}?
+filepath.attlist &= global-atts, 
+attribute class { text}?
+msgblock.attlist &= global-atts, 
+attribute class { text}?
+msgnum.attlist &= global-atts, 
+attribute class { text}?
+msgph.attlist &= global-atts, 
+attribute class { text}?
+systemoutput.attlist &= global-atts, 
+attribute class { text}?
+userinput.attlist &= global-atts, 
+attribute class { text}?
+varname.attlist &= global-atts, 
+attribute class { text}?

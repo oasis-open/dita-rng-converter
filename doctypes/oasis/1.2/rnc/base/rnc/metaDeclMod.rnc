@@ -1,0 +1,281 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Metadata                                    
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Metadata//EN"
+#       Delivered as file "metaDecl.mod"                            
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Declaring the elements and specialization        
+#             attributes for the DITA XML Metadata             
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             March 2001                                       
+#                                                              
+#             (C) Copyright OASIS Open 2005, 2009.             
+#             (C) Copyright IBM Corporation 2001, 2004.        
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2005.11.15 RDA: Corrected the "Delivered as" system ID    
+#    2006.06.06 RDA: Move indexterm into commonElements        
+#    2006.06.07 RDA: Make universal attributes universal       
+#                      (DITA 1.1 proposal #12)                 
+#    2006.11.30 RDA: Add -dita-use-conref-target to enumerated 
+#                      attributes                              
+#    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
+#    2008.01.28 RDA: Removed enumerations for attributes:      
+#                    author/@type, copyright/@type,            
+#                    permissions/@view, audience/@type,        
+#                    audience/@job, audience/@experiencelevel  
+#    2008.01.28 RDA: Moved <metadata> defn. here from topic.mod
+#    2008.01.30 RDA: Replace @conref defn. with %conref-atts;  
+#    2008.02.12 RDA: Add ph to source                          
+#    2008.02.12 RDA: Add @format, @scope, and @type to         
+#                    publisher, source                         
+#    2008.02.12 RDA: Add @format, @scope, to author            
+#    2008.02.13 RDA: Create .content and .attributes entities  
+#    2009.03.09 RDA: Corrected public ID in comments to use    
+#                    ELEMENTS instead of ENTITIES              
+# =============================================================
+#    
+#  
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+date-format =  xsd:string
+author.content = words.cnt*
+author.attributes = univ-atts, 
+attribute href { text}?, 
+attribute format { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute keyref { text}?, 
+attribute type { text}?
+author.element = 
+element author {author.attlist, author.content}
+author.attlist &= author.attributes
+source.content = (words.cnt | ph)*
+source.attributes = univ-atts, 
+attribute href { text}?, 
+attribute format { text}?, 
+attribute type { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute keyref { text}?
+source.element = 
+element source {source.attlist, source.content}
+source.attlist &= source.attributes
+publisher.content = words.cnt*
+publisher.attributes = 
+attribute href { text}?, 
+attribute format { text}?, 
+attribute type { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute keyref { text}?, univ-atts
+publisher.element = 
+element publisher {publisher.attlist, publisher.content}
+publisher.attlist &= publisher.attributes
+copyright.content = copyryear+, copyrholder
+copyright.attributes = univ-atts, 
+attribute type { text}?
+copyright.element = 
+element copyright {copyright.attlist, copyright.content}
+copyright.attlist &= copyright.attributes
+copyryear.content =  empty 
+copyryear.attributes = 
+attribute year {date-format}, univ-atts
+copyryear.element = 
+element copyryear {copyryear.attlist, copyryear.content}
+copyryear.attlist &= copyryear.attributes
+copyrholder.content = words.cnt*
+copyrholder.attributes = univ-atts
+copyrholder.element = 
+element copyrholder {copyrholder.attlist, copyrholder.content}
+copyrholder.attlist &= copyrholder.attributes
+critdates.content = created?, revised*
+critdates.attributes = univ-atts
+critdates.element = 
+element critdates {critdates.attlist, critdates.content}
+critdates.attlist &= critdates.attributes
+created.content =  empty 
+created.attributes = 
+attribute date {date-format}, 
+attribute golive {date-format}?, 
+attribute expiry {date-format}?, univ-atts
+created.element = 
+element created {created.attlist, created.content}
+created.attlist &= created.attributes
+revised.content =  empty 
+revised.attributes = 
+attribute modified {date-format}, 
+attribute golive {date-format}?, 
+attribute expiry {date-format}?, univ-atts
+revised.element = 
+element revised {revised.attlist, revised.content}
+revised.attlist &= revised.attributes
+permissions.content =  empty 
+permissions.attributes = univ-atts, 
+attribute view { text}
+permissions.element = 
+element permissions {permissions.attlist, permissions.content}
+permissions.attlist &= permissions.attributes
+category.content = words.cnt*
+category.attributes = univ-atts
+category.element = 
+element category {category.attlist, category.content}
+category.attlist &= category.attributes
+metadata.content = audience*, category*, keywords*, prodinfo*, othermeta*, (data.elements.incl | foreign.unknown.incl)*
+metadata.attributes = univ-atts, 
+attribute mapkeyref { text}?
+metadata.element = 
+element metadata {metadata.attlist, metadata.content}
+metadata.attlist &= metadata.attributes
+audience.content =  empty 
+audience.attributes = 
+attribute type { text}?, 
+attribute othertype { text}?, 
+attribute job { text}?, 
+attribute otherjob { text}?, 
+attribute experiencelevel { text}?, 
+attribute name { xsd:NMTOKEN}?, univ-atts
+audience.element = 
+element audience {audience.attlist, audience.content}
+audience.attlist &= audience.attributes
+keywords.content = (indexterm | keyword)*
+keywords.attributes = univ-atts
+keywords.element = 
+element keywords {keywords.attlist, keywords.content}
+keywords.attlist &= keywords.attributes
+prodinfo.content = prodname, vrmlist, (brand | component | featnum | platform | prognum | series)*
+prodinfo.attributes = univ-atts
+prodinfo.element = 
+element prodinfo {prodinfo.attlist, prodinfo.content}
+prodinfo.attlist &= prodinfo.attributes
+prodname.content = words.cnt*
+prodname.attributes = univ-atts
+prodname.element = 
+element prodname {prodname.attlist, prodname.content}
+prodname.attlist &= prodname.attributes
+vrmlist.content = vrm+
+vrmlist.attributes = univ-atts
+vrmlist.element = 
+element vrmlist {vrmlist.attlist, vrmlist.content}
+vrmlist.attlist &= vrmlist.attributes
+vrm.content =  empty 
+vrm.attributes = 
+attribute version { text}, 
+attribute release { text}?, 
+attribute modification { text}?, univ-atts
+vrm.element = 
+element vrm {vrm.attlist, vrm.content}
+vrm.attlist &= vrm.attributes
+brand.content = words.cnt*
+brand.attributes = univ-atts
+brand.element = 
+element brand {brand.attlist, brand.content}
+brand.attlist &= brand.attributes
+series.content = words.cnt*
+series.attributes = univ-atts
+series.element = 
+element series {series.attlist, series.content}
+series.attlist &= series.attributes
+platform.content = words.cnt*
+platform.attributes = univ-atts
+platform.element = 
+element platform {platform.attlist, platform.content}
+platform.attlist &= platform.attributes
+prognum.content = words.cnt*
+prognum.attributes = univ-atts
+prognum.element = 
+element prognum {prognum.attlist, prognum.content}
+prognum.attlist &= prognum.attributes
+featnum.content = words.cnt*
+featnum.attributes = univ-atts
+featnum.element = 
+element featnum {featnum.attlist, featnum.content}
+featnum.attlist &= featnum.attributes
+component.content = words.cnt*
+component.attributes = univ-atts
+component.element = 
+element component {component.attlist, component.content}
+component.attlist &= component.attributes
+othermeta.content =  empty 
+othermeta.attributes = 
+attribute name { text}, 
+attribute content { text}, 
+attribute translate-content {("no" | "yes" | "-dita-use-conref-target")}?, univ-atts
+othermeta.element = 
+element othermeta {othermeta.attlist, othermeta.content}
+othermeta.attlist &= othermeta.attributes
+resourceid.content =  empty 
+resourceid.attributes = select-atts, localization-atts, 
+attribute id { text}, conref-atts, 
+attribute appname { text}?
+resourceid.element = 
+element resourceid {resourceid.attlist, resourceid.content}
+resourceid.attlist &= resourceid.attributes
+author.attlist &= global-atts, 
+attribute class { text}?
+source.attlist &= global-atts, 
+attribute class { text}?
+publisher.attlist &= global-atts, 
+attribute class { text}?
+copyright.attlist &= global-atts, 
+attribute class { text}?
+copyryear.attlist &= global-atts, 
+attribute class { text}?
+copyrholder.attlist &= global-atts, 
+attribute class { text}?
+critdates.attlist &= global-atts, 
+attribute class { text}?
+created.attlist &= global-atts, 
+attribute class { text}?
+revised.attlist &= global-atts, 
+attribute class { text}?
+permissions.attlist &= global-atts, 
+attribute class { text}?
+category.attlist &= global-atts, 
+attribute class { text}?
+metadata.attlist &= global-atts, 
+attribute class { text}?
+audience.attlist &= global-atts, 
+attribute class { text}?
+keywords.attlist &= global-atts, 
+attribute class { text}?
+prodinfo.attlist &= global-atts, 
+attribute class { text}?
+prodname.attlist &= global-atts, 
+attribute class { text}?
+vrmlist.attlist &= global-atts, 
+attribute class { text}?
+vrm.attlist &= global-atts, 
+attribute class { text}?
+brand.attlist &= global-atts, 
+attribute class { text}?
+series.attlist &= global-atts, 
+attribute class { text}?
+platform.attlist &= global-atts, 
+attribute class { text}?
+prognum.attlist &= global-atts, 
+attribute class { text}?
+featnum.attlist &= global-atts, 
+attribute class { text}?
+component.attlist &= global-atts, 
+attribute class { text}?
+othermeta.attlist &= global-atts, 
+attribute class { text}?
+resourceid.attlist &= global-atts, 
+attribute class { text}?

@@ -1,0 +1,140 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Subject Classification Domain               
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Map Subject Classification Domain//EN"
+#       Delivered as file "classifyDomain.mod"                      
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Define elements and specialization attributes    
+#             for Map Subject Classification Domain            
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             February 2008                                    
+#                                                              
+#             (C) Copyright OASIS Open 2008, 2009.             
+#             (C) Copyright IBM Corporation 2005, 2007.        
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2008.02.13 RDA: Created file based upon prototype from IBM
+#    2010.01.21 RDA: Update subjectCell content to remove      
+#                    duplicate element inclusion               
+# =============================================================
+#     
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+classify-d-topicref = (topicsubject.element | topicapply.element)
+topicref |= classify-d-topicref
+classify-d-reltable = topicSubjectTable.element
+reltable |= classify-d-reltable
+subjectref = subjectref.element
+topicSubjectHeader = topicSubjectHeader.element
+topicSubjectRow = topicSubjectRow.element
+topicCell = topicCell.element
+subjectCell = subjectCell.element
+topicsubject.content = topicmeta?, (data.elements.incl | subjectref | topicref)*
+topicsubject.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute query { text}?, 
+attribute type { text}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute toc {("no" | "yes" | "-dita-use-conref-target")}?, univ-atts
+topicsubject.element = 
+element topicsubject {topicsubject.attlist, topicsubject.content}
+topicsubject.attlist &= topicsubject.attributes
+topicapply.content = topicmeta?, (data.elements.incl | subjectref | topicref)*
+topicapply.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute query { text}?, 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, 
+attribute toc {("no" | "yes" | "-dita-use-conref-target")}?, univ-atts
+topicapply.element = 
+element topicapply {topicapply.attlist, topicapply.content}
+topicapply.attlist &= topicapply.attributes
+subjectref.content = topicmeta?, data.elements.incl*
+subjectref.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute query { text}?, 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, 
+attribute toc {("no" | "yes" | "-dita-use-conref-target")}?, univ-atts
+subjectref.element = 
+element subjectref {subjectref.attlist, subjectref.content}
+subjectref.attlist &= subjectref.attributes
+topicSubjectTable.content = title, topicmeta?, topicSubjectHeader?, topicSubjectRow+
+topicSubjectTable.attributes = topicref-atts-no-toc, univ-atts
+topicSubjectTable.element = 
+element topicSubjectTable {topicSubjectTable.attlist, topicSubjectTable.content}
+topicSubjectTable.attlist &= topicSubjectTable.attributes
+topicSubjectHeader.content = topicCell, subjectCell+
+topicSubjectHeader.attributes = univ-atts
+topicSubjectHeader.element = 
+element topicSubjectHeader {topicSubjectHeader.attlist, topicSubjectHeader.content}
+topicSubjectHeader.attlist &= topicSubjectHeader.attributes
+topicSubjectRow.content = topicCell, subjectCell+
+topicSubjectRow.attributes = univ-atts
+topicSubjectRow.element = 
+element topicSubjectRow {topicSubjectRow.attlist, topicSubjectRow.content}
+topicSubjectRow.attlist &= topicSubjectRow.attributes
+topicCell.content = (data.elements.incl | topicref)+
+topicCell.attributes = univ-atts, topicref-atts
+topicCell.element = 
+element topicCell {topicCell.attlist, topicCell.content}
+topicCell.attlist &= topicCell.attributes
+subjectCell.content = (data.elements.incl | subjectref | topicref)*
+subjectCell.attributes = univ-atts, topicref-atts
+subjectCell.element = 
+element subjectCell {subjectCell.attlist, subjectCell.content}
+subjectCell.attlist &= subjectCell.attributes
+topicsubject.attlist &= global-atts, 
+attribute class { text}?
+topicapply.attlist &= global-atts, 
+attribute class { text}?
+subjectref.attlist &= global-atts, 
+attribute class { text}?
+topicSubjectTable.attlist &= global-atts, 
+attribute class { text}?
+topicSubjectHeader.attlist &= global-atts, 
+attribute class { text}?
+topicSubjectRow.attlist &= global-atts, 
+attribute class { text}?
+topicCell.attlist &= global-atts, 
+attribute class { text}?
+subjectCell.attlist &= global-atts, 
+attribute class { text}?

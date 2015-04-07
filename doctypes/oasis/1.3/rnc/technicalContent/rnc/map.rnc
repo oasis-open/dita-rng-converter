@@ -1,0 +1,84 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA MAP Shell                              
+#  VERSION:   1.3
+#  DATE:      March 2014                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                        TYPICAL INVOCATION                    
+#                                                              
+# Refer to this file by the following public identifier or an
+#      appropriate system identifier:
+# 
+# PUBLIC "-//OASIS//DTD DITA Map//EN"
+# 
+# The public ID above refers to the latest version of this DTD.
+#      To refer to this specific version, you may use this value:
+#      
+# PUBLIC "-//OASIS//DTD DITA 1.3 Map//EN"                           
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Document type shell for DITA maps with all technical-
+#             content-related domains integrated.
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             March 2001                                       
+#                                                              
+#             (C) Copyright OASIS Open 2005, 2014.             
+#             (C) Copyright IBM Corporation 2001, 2004.        
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2005.11.15 RDA: Corrected public ID for map.mod           
+#    2005.11.15 RDA: Updated these comments to match template  
+#    2006.06.07 RDA: Added indexing domain                     
+#    2006.06.21 RDA: Added props attribute extensions          
+#    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
+#    2008.02.01 RDA: Added Delayed Resolution domain           
+#    2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
+#    2010.09.20 RDA: Add topic-based domains                   
+#    2014.04.12 WEK: Updated for DITA 1.3, defined as RELAX NG                    
+# =============================================================   
+#   
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+start = map.element
+
+}
+div {
+domains-att = 
+attribute domains { text}?
+}
+div {
+include "../../base/rnc/mapMod.rnc"
+include "../../base/rnc/mapGroupDomainMod.rnc"
+include "abbreviateDomainMod.rnc"
+include "../../base/rnc/delayResolutionDomainMod.rnc"
+include "../../base/rnc/deliveryTargetAttDomainMod.rnc"
+include "../../base/rnc/ditavalrefDomainMod.rnc"
+include "glossrefDomainMod.rnc"
+include "../../base/rnc/hazardstatementDomainMod.rnc"
+include "../../base/rnc/highlightDomainMod.rnc"
+include "../../base/rnc/indexingDomainMod.rnc"
+include "markupDomainMod.rnc"
+include "programmingDomainMod.rnc"
+include "releaseManagementDomainMod.rnc"
+include "softwareDomainMod.rnc"
+include "uiDomainMod.rnc"
+include "../../base/rnc/utilitiesDomainMod.rnc"
+include "xmlDomainMod.rnc"
+}
+div {
+any = (idElements | 
+element  * - (map | anchor) {
+attribute  * { text}*, any} |  text )*
+}

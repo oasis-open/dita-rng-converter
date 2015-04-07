@@ -1,0 +1,47 @@
+#  
+# ============================================================= 
+# MODULE:    DITA MathML Domain - RNG              
+# VERSION:   1.3                                                
+# DATE:      May 2013                                       
+# ============================================================= 
+# 
+# 
+# ============================================================= 
+# SYSTEM:     Darwin Information Typing Architecture (DITA)     
+# PURPOSE:    Provides elements for including MathML Markup
+#            in DITA documents.
+# ORIGINAL CREATION DATE:  
+# May 2013                                                
+# (C) Copyright OASIS Open 2013                                
+# All Rights Reserved.                                          
+# =============================================================    
+#     
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+mathml-d-foreign = mathml.element
+foreign |= mathml-d-foreign
+mathml = mathml.element
+mathmlref = mathmlref.element
+mathmlref.content =  empty 
+mathmlref.attributes = 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute type { text}?, 
+attribute format { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, univ-atts, 
+attribute outputclass { text}?
+mathmlref.element = 
+element mathmlref {mathmlref.attlist, mathmlref.content}
+mathmlref.attlist &= mathmlref.attributes
+mathml.content = (
+external "mathmlDomainProxy.rnc" | mathmlref | data | data-about)*
+mathml.attributes = univ-atts, 
+attribute outputclass { text}?
+mathml.element = 
+element mathml {mathml.attlist, mathml.content}
+mathml.attlist &= mathml.attributes
+mathml.attlist &= global-atts, 
+attribute class { text}?
+mathmlref.attlist &= global-atts, 
+attribute class { text}?

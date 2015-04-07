@@ -1,0 +1,64 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Machinery Task DTD                          
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+# PUBLIC "-//OASIS//DTD DITA Machinery Task//EN"
+#       Delivered as file "machineryTask.dtd"                       
+# 
+# The public ID above refers to the latest version of this DTD.
+#      To refer to this specific version, you may use this value:
+# PUBLIC "-//OASIS//DTD DITA 1.2  Machinery Task//EN"                
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    DTD to describe DITA Machinery Tasks             
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             April 2008                                       
+#                                                              
+#             (C) Copyright OASIS Open 2008, 2009.             
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+# =============================================================
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+start = task.element
+
+}
+div {
+domains-att &= 
+attribute domains { text}?
+}
+div {
+include "machineryTaskbodyConstraintMod.rnc"
+}
+div {
+include "../../base/rnc/topicMod.rnc"
+include "../../technicalContent/rnc/taskreqDomainMod.rnc"
+include "../../base/rnc/hazardstatementDomainMod.rnc"
+include "../../base/rnc/highlightDomainMod.rnc"
+include "../../base/rnc/utilitiesDomainMod.rnc"
+include "../../base/rnc/indexingDomainMod.rnc"
+include "../../technicalContent/rnc/uiDomainMod.rnc"
+}
+div {
+any = (task.element | 
+element  * - (task) {
+attribute  * { text}*, any} |  text )*
+}

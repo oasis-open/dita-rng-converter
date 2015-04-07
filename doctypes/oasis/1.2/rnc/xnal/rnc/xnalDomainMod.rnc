@@ -1,0 +1,274 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    XNAL Domain                                      
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identfier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA XNAL Domain//EN"
+#       Delivered as file "xnalDomain.mod"                          
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Define elements and specialization atttributed   
+#             for the XNAL Domain                              
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             June 2006                                        
+#                                                              
+#             (C) Copyright OASIS Open 2006, 2009.             
+#             All Rights Reserved.                             
+#  UPDATES:                                                    
+#    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
+#    2008.01.28 RDA: Removed enumerations for attributes:      
+#                    authorinformation/@type                   
+#    2008.02.12 RDA: Add keyword to data specializations       
+#    2008.02.12 RDA: Add @format, @scope to authorinformation  
+#    2008.02.13 RDA: Create .content and .attributes entities  
+# =============================================================  
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+xnal-d-author = authorinformation.element
+author |= xnal-d-author
+addressdetails = addressdetails.element
+administrativearea = administrativearea.element
+contactnumber = contactnumber.element
+contactnumbers = contactnumbers.element
+country = country.element
+emailaddress = emailaddress.element
+emailaddresses = emailaddresses.element
+firstname = firstname.element
+generationidentifier = generationidentifier.element
+honorific = honorific.element
+lastname = lastname.element
+locality = locality.element
+localityname = localityname.element
+middlename = middlename.element
+namedetails = namedetails.element
+organizationinfo = organizationinfo.element
+organizationname = organizationname.element
+organizationnamedetails = organizationnamedetails.element
+otherinfo = otherinfo.element
+personinfo = personinfo.element
+personname = personname.element
+postalcode = postalcode.element
+thoroughfare = thoroughfare.element
+url = url.element
+urls = urls.element
+authorinformation.content = (organizationinfo | personinfo)*
+authorinformation.attributes = univ-atts, 
+attribute href { text}?, 
+attribute format { text}?, 
+attribute type { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute keyref { text}?
+authorinformation.element = 
+element authorinformation {authorinformation.attlist, authorinformation.content}
+authorinformation.attlist &= authorinformation.attributes
+namedetails.content = (organizationnamedetails | personname)*
+namedetails.attributes = data-element-atts
+namedetails.element = 
+element namedetails {namedetails.attlist, namedetails.content}
+namedetails.attlist &= namedetails.attributes
+organizationnamedetails.content = organizationname?, otherinfo*
+organizationnamedetails.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+organizationnamedetails.element = 
+element organizationnamedetails {organizationnamedetails.attlist, organizationnamedetails.content}
+organizationnamedetails.attlist &= organizationnamedetails.attributes
+organizationname.content = ph.cnt*
+organizationname.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+organizationname.element = 
+element organizationname {organizationname.attlist, organizationname.content}
+organizationname.attlist &= organizationname.attributes
+personname.content = honorific?, firstname*, middlename*, lastname*, generationidentifier?, otherinfo*
+personname.attributes = data-element-atts
+personname.element = 
+element personname {personname.attlist, personname.content}
+personname.attlist &= personname.attributes
+honorific.content = ( text  | keyword)*
+honorific.attributes = data-element-atts
+honorific.element = 
+element honorific {honorific.attlist, honorific.content}
+honorific.attlist &= honorific.attributes
+firstname.content = ( text  | keyword)*
+firstname.attributes = data-element-atts
+firstname.element = 
+element firstname {firstname.attlist, firstname.content}
+firstname.attlist &= firstname.attributes
+middlename.content = ( text  | keyword)*
+middlename.attributes = data-element-atts
+middlename.element = 
+element middlename {middlename.attlist, middlename.content}
+middlename.attlist &= middlename.attributes
+lastname.content = ( text  | keyword)*
+lastname.attributes = data-element-atts
+lastname.element = 
+element lastname {lastname.attlist, lastname.content}
+lastname.attlist &= lastname.attributes
+generationidentifier.content = ( text  | keyword)*
+generationidentifier.attributes = data-element-atts
+generationidentifier.element = 
+element generationidentifier {generationidentifier.attlist, generationidentifier.content}
+generationidentifier.attlist &= generationidentifier.attributes
+otherinfo.content = words.cnt*
+otherinfo.attributes = data-element-atts
+otherinfo.element = 
+element otherinfo {otherinfo.attlist, otherinfo.content}
+otherinfo.attlist &= otherinfo.attributes
+addressdetails.content = (words.cnt | administrativearea | country | locality | thoroughfare)*
+addressdetails.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+addressdetails.element = 
+element addressdetails {addressdetails.attlist, addressdetails.content}
+addressdetails.attlist &= addressdetails.attributes
+locality.content = (words.cnt | localityname | postalcode)*
+locality.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+locality.element = 
+element locality {locality.attlist, locality.content}
+locality.attlist &= locality.attributes
+localityname.content = words.cnt*
+localityname.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+localityname.element = 
+element localityname {localityname.attlist, localityname.content}
+localityname.attlist &= localityname.attributes
+administrativearea.content = words.cnt*
+administrativearea.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+administrativearea.element = 
+element administrativearea {administrativearea.attlist, administrativearea.content}
+administrativearea.attlist &= administrativearea.attributes
+thoroughfare.content = words.cnt*
+thoroughfare.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+thoroughfare.element = 
+element thoroughfare {thoroughfare.attlist, thoroughfare.content}
+thoroughfare.attlist &= thoroughfare.attributes
+postalcode.content = ( text  | keyword)*
+postalcode.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+postalcode.element = 
+element postalcode {postalcode.attlist, postalcode.content}
+postalcode.attlist &= postalcode.attributes
+country.content = ( text  | keyword)*
+country.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+country.element = 
+element country {country.attlist, country.content}
+country.attlist &= country.attributes
+personinfo.content = namedetails?, addressdetails?, contactnumbers?, emailaddresses?
+personinfo.attributes = data-element-atts
+personinfo.element = 
+element personinfo {personinfo.attlist, personinfo.content}
+personinfo.attlist &= personinfo.attributes
+organizationinfo.content = namedetails?, addressdetails?, contactnumbers?, emailaddresses?, urls?
+organizationinfo.attributes = data-element-atts
+organizationinfo.element = 
+element organizationinfo {organizationinfo.attlist, organizationinfo.content}
+organizationinfo.attlist &= organizationinfo.attributes
+contactnumbers.content = contactnumber*
+contactnumbers.attributes = data-element-atts
+contactnumbers.element = 
+element contactnumbers {contactnumbers.attlist, contactnumbers.content}
+contactnumbers.attlist &= contactnumbers.attributes
+contactnumber.content = ( text  | keyword)*
+contactnumber.attributes = data-element-atts
+contactnumber.element = 
+element contactnumber {contactnumber.attlist, contactnumber.content}
+contactnumber.attlist &= contactnumber.attributes
+emailaddresses.content = emailaddress*
+emailaddresses.attributes = data-element-atts
+emailaddresses.element = 
+element emailaddresses {emailaddresses.attlist, emailaddresses.content}
+emailaddresses.attlist &= emailaddresses.attributes
+emailaddress.content = words.cnt*
+emailaddress.attributes = data-element-atts
+emailaddress.element = 
+element emailaddress {emailaddress.attlist, emailaddress.content}
+emailaddress.attlist &= emailaddress.attributes
+urls.content = url*
+urls.attributes = data-element-atts
+urls.element = 
+element urls {urls.attlist, urls.content}
+urls.attlist &= urls.attributes
+url.content = words.cnt*
+url.attributes = data-element-atts
+url.element = 
+element url {url.attlist, url.content}
+url.attlist &= url.attributes
+addressdetails.attlist &= global-atts, 
+attribute class { text}?
+administrativearea.attlist &= global-atts, 
+attribute class { text}?
+authorinformation.attlist &= global-atts, 
+attribute class { text}?
+contactnumber.attlist &= global-atts, 
+attribute class { text}?
+contactnumbers.attlist &= global-atts, 
+attribute class { text}?
+country.attlist &= global-atts, 
+attribute class { text}?
+emailaddress.attlist &= global-atts, 
+attribute class { text}?
+emailaddresses.attlist &= global-atts, 
+attribute class { text}?
+firstname.attlist &= global-atts, 
+attribute class { text}?
+generationidentifier.attlist &= global-atts, 
+attribute class { text}?
+honorific.attlist &= global-atts, 
+attribute class { text}?
+lastname.attlist &= global-atts, 
+attribute class { text}?
+locality.attlist &= global-atts, 
+attribute class { text}?
+localityname.attlist &= global-atts, 
+attribute class { text}?
+middlename.attlist &= global-atts, 
+attribute class { text}?
+namedetails.attlist &= global-atts, 
+attribute class { text}?
+organizationinfo.attlist &= global-atts, 
+attribute class { text}?
+organizationname.attlist &= global-atts, 
+attribute class { text}?
+organizationnamedetails.attlist &= global-atts, 
+attribute class { text}?
+otherinfo.attlist &= global-atts, 
+attribute class { text}?
+personinfo.attlist &= global-atts, 
+attribute class { text}?
+personname.attlist &= global-atts, 
+attribute class { text}?
+postalcode.attlist &= global-atts, 
+attribute class { text}?
+thoroughfare.attlist &= global-atts, 
+attribute class { text}?
+url.attlist &= global-atts, 
+attribute class { text}?
+urls.attlist &= global-atts, 
+attribute class { text}?

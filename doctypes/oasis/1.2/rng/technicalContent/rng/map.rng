@@ -77,7 +77,7 @@ ORIGINAL CREATION DATE:
                        a:defaultValue="(map map)
                          (topic abbrev-d)
                          (topic delay-d)
-                         (topic glossref-d)
+                         (map glossref-d)
                          (topic hazard-d)
                          (topic hi-d)
                          (topic indexing-d)

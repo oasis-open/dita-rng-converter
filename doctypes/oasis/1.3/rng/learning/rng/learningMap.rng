@@ -61,7 +61,7 @@ UPDATES:
                          (topic hazard-d)
                          (topic hi-d)
                          (topic indexing-d)
-                         (topic learningmap-d)
+                         (map learningmap-d)
                          (topic learningmeta-d)
                          (map mapgroup-d)
                          (topic relmgmt-d)

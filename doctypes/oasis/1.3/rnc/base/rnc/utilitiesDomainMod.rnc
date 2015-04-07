@@ -1,0 +1,99 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Utilities Domain                            
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Utilities Domain//EN"
+#       Delivered as file "utilitiesDomain.mod"                     
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Declaring the elements and specialization        
+#             attributes for the DITA Utilities Domain         
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             March 2001                                       
+#                                                              
+#             (C) Copyright OASIS Open 2005, 2009.             
+#             (C) Copyright IBM Corporation 2001, 2004.        
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2005.11.15 RDA: Updated these comments to match template  
+#    2005.11.15 RDA: Corrected the "Delivered as" system ID    
+#    2006.06.07 RDA: Make universal attributes universal       
+#                      (DITA 1.1 proposal #12)                 
+#    2006.06.14 RDA: Move univ-atts-translate-no into topic.mod
+#    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+#    2008.02.12 RDA: Add text to shape                         
+#    2008.02.13 RDA: Create .content and .attributes entities  
+# =============================================================
+#     
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+ut-d-fig = imagemap.element
+fig |= ut-d-fig
+ut-d-data = sort-as.element
+data |= ut-d-data
+imagemap = imagemap.element
+area = area.element
+shape = shape.element
+coords = coords.element
+sort-as = sort-as.element
+imagemap.content = image, area+
+imagemap.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+imagemap.element = 
+element imagemap {imagemap.attlist, imagemap.content}
+imagemap.attlist &= imagemap.attributes
+area.content = shape, coords, xref
+area.attributes = univ-atts, 
+attribute outputclass { text}?
+area.element = 
+element area {area.attlist, area.content}
+area.attlist &= area.attributes
+shape.content = ( text  | \text)*
+shape.attributes = 
+attribute keyref { text}?, univ-atts-translate-no, 
+attribute outputclass { text}?
+shape.element = 
+element shape {shape.attlist, shape.content}
+shape.attlist &= shape.attributes
+coords.content = words.cnt*
+coords.attributes = 
+attribute keyref { text}?, univ-atts-translate-no, 
+attribute outputclass { text}?
+coords.element = 
+element coords {coords.attlist, coords.content}
+coords.attlist &= coords.attributes
+sort-as.content = ( text  | \text | keyword)*
+sort-as.attributes = univ-atts, 
+attribute name { text}?, 
+attribute value { text}?
+sort-as.element = 
+element sort-as {sort-as.attlist, sort-as.content}
+sort-as.attlist &= sort-as.attributes
+imagemap.attlist &= global-atts, 
+attribute class { text}?
+area.attlist &= global-atts, 
+attribute class { text}?
+shape.attlist &= global-atts, 
+attribute class { text}?
+coords.attlist &= global-atts, 
+attribute class { text}?
+sort-as.attlist &= global-atts, 
+attribute class { text}?

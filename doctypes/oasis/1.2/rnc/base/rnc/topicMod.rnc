@@ -1,0 +1,258 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA DITA Topic                                  
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Topic//EN"
+#       Delivered as file "topic.mod"                               
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Declaring the elements and specialization        
+#             attributes for the base Topic type               
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             March 2001                                       
+#                                                              
+#             (C) Copyright OASIS Open 2005, 2009.             
+#             (C) Copyright IBM Corporation 2001, 2004.        
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2005.11.15 RDA: Corrected the public ID for tblDecl.mod   
+#    2005.11.15 RDA: Removed old declaration for topicreftypes 
+#                    entity                                    
+#    2005.11.15 RDA: Corrected the PURPOSE in this comment     
+#    2005.11.15 RDA: Corrected Long Names for alt, indextermref
+#    2006.06.06 RDA: Bug fixes:                                
+#                    Added xref and fn to fig.cnt              
+#                    Remove xmlns="" from global-atts          
+#    2006.06.06 RDA: Moved shared items to commonElements file 
+#    2006.06.07 RDA: Added abstract> element                  
+#    2006.06.07 RDA: Make universal attributes universal       
+#                      (DITA 1.1 proposal #12)                 
+#    2006.06.14 RDA: Add dir attribute to localization-atts    
+#    2006.06.20 RDA: defn.cnt now explicitly sets its content  
+#    2006.07.06 RDA: Moved class attributes in from topicAttr  
+#    2006.11.30 RDA: Add -dita-use-conref-target to enumerated 
+#                      attributes                              
+#    2006.11.30 RDA: Remove #FIXED from DITAArchVersion        
+#    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
+#    2008.01.28 RDA: Add draft-comment to body.cnt             
+#    2008.01.28 RDA: Moved <metadata> defn. to metaDecl.mod    
+#    2008.01.30 RDA: Replace @conref defn. with %conref-atts;  
+#    2008.02.12 RDA: Add ph to linktext, navtitle, searchtitle 
+#    2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
+#    2008.02.12 RDA: Move navtitle to commonElements.mod       
+#    2008.02.13 RDA: Add bodydiv and sectiondiv                
+#    2008.02.13 RDA: Create .content and .attributes entities  
+#    2008.05.06 RDA: Moved sectiondiv to section.cnt; created  
+#                    example.cnt for use by example element    
+# =============================================================
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+arch-atts = 
+attribute dita:DITAArchVersion { text}?
+topic-info-types = info-types
+info-types = topic.element
+abstract = abstract.element
+body = body.element
+bodydiv = bodydiv.element
+example = example.element
+link = link.element
+linkinfo = linkinfo.element
+linklist = linklist.element
+linkpool = linkpool.element
+linktext = linktext.element
+prolog = prolog.element
+related-links = related-links.element
+searchtitle = searchtitle.element
+section = section.element
+sectiondiv = sectiondiv.element
+shortdesc = shortdesc.element
+titlealts = titlealts.element
+include "commonElementsMod.rnc"
+include "metaDeclMod.rnc"
+abstract.cnt = ( text  | basic.block | basic.ph | data.elements.incl | foreign.unknown.incl | shortdesc | txt.incl)
+body.cnt = (basic.block | data.elements.incl | draft-comment | foreign.unknown.incl | required-cleanup)
+bodydiv.cnt = ( text  | basic.block | basic.ph | data.elements.incl | foreign.unknown.incl | txt.incl)
+example.cnt = ( text  | basic.block | basic.ph | data.elements.incl | foreign.unknown.incl | title | txt.incl)
+section.cnt = ( text  | basic.block | basic.ph | data.elements.incl | foreign.unknown.incl | sectiondiv | title | txt.incl)
+section.notitle.cnt = ( text  | basic.block | basic.ph | data.elements.incl | foreign.unknown.incl | sectiondiv | txt.incl)
+sectiondiv.cnt = ( text  | basic.block | basic.ph | data.elements.incl | foreign.unknown.incl | txt.incl)
+relational-atts = 
+attribute type { text}?, 
+attribute format { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute role {("ancestor" | "child" | "cousin" | "descendant" | "external" | "friend" | "next" | "other" | "parent" | "previous" | "sample" | "sibling" | "-dita-use-conref-target")}?, 
+attribute otherrole { text}?
+rel-atts = 
+attribute type { text}?, 
+attribute role {("ancestor" | "child" | "cousin" | "descendant" | "external" | "friend" | "next" | "other" | "parent" | "previous" | "sample" | "sibling" | "-dita-use-conref-target")}?, 
+attribute otherrole { text}?
+topic.content = title, titlealts?, (shortdesc | abstract)?, prolog?, body?, related-links?, topic-info-types*
+topic.attributes = 
+attribute id { xsd:ID}, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+topic.element = 
+element topic {topic.attlist, topic.content}
+topic.attlist &= topic.attributes, arch-atts, domains-att
+idElements |= topic.element
+titlealts.content = navtitle?, searchtitle?
+titlealts.attributes = univ-atts
+titlealts.element = 
+element titlealts {titlealts.attlist, titlealts.content}
+titlealts.attlist &= titlealts.attributes
+searchtitle.content = (words.cnt | ph)*
+searchtitle.attributes = univ-atts
+searchtitle.element = 
+element searchtitle {searchtitle.attlist, searchtitle.content}
+searchtitle.attlist &= searchtitle.attributes
+shortdesc.content = (title.cnt | draft-comment)*
+shortdesc.attributes = univ-atts, 
+attribute outputclass { text}?
+shortdesc.element = 
+element shortdesc {shortdesc.attlist, shortdesc.content}
+shortdesc.attlist &= shortdesc.attributes
+abstract.content = abstract.cnt*
+abstract.attributes = univ-atts, 
+attribute outputclass { text}?
+abstract.element = 
+element abstract {abstract.attlist, abstract.content}
+abstract.attlist &= abstract.attributes
+body.content = (body.cnt | bodydiv | example | section)*
+body.attributes = univ-atts, 
+attribute outputclass { text}?
+body.element = 
+element body {body.attlist, body.content}
+body.attlist &= body.attributes
+bodydiv.content = (bodydiv.cnt | bodydiv | section)*
+bodydiv.attributes = univ-atts, 
+attribute outputclass { text}?
+bodydiv.element = 
+element bodydiv {bodydiv.attlist, bodydiv.content}
+bodydiv.attlist &= bodydiv.attributes
+no-topic-nesting.content =  empty 
+no-topic-nesting.attributes =  empty 
+no-topic-nesting.element = 
+element no-topic-nesting {no-topic-nesting.attlist, no-topic-nesting.content}
+no-topic-nesting.attlist &= no-topic-nesting.attributes
+section.content = section.cnt*
+section.attributes = 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+section.element = 
+element section {section.attlist, section.content}
+section.attlist &= section.attributes
+sectiondiv.content = (sectiondiv.cnt | sectiondiv)*
+sectiondiv.attributes = univ-atts, 
+attribute outputclass { text}?
+sectiondiv.element = 
+element sectiondiv {sectiondiv.attlist, sectiondiv.content}
+sectiondiv.attlist &= sectiondiv.attributes
+example.content = example.cnt*
+example.attributes = 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+example.element = 
+element example {example.attlist, example.content}
+example.attlist &= example.attributes
+prolog.content = author*, source?, publisher?, copyright*, critdates?, permissions?, metadata*, resourceid*, (data.elements.incl | foreign.unknown.incl)*
+prolog.attributes = univ-atts
+prolog.element = 
+element prolog {prolog.attlist, prolog.content}
+prolog.attlist &= prolog.attributes
+related-links.content = (link | linklist | linkpool)*
+related-links.attributes = relational-atts, univ-atts, 
+attribute outputclass { text}?
+related-links.element = 
+element related-links {related-links.attlist, related-links.content}
+related-links.attlist &= related-links.attributes
+link.content = linktext?, desc?
+link.attributes = 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute query { text}?, relational-atts, univ-atts, 
+attribute outputclass { text}?
+link.element = 
+element link {link.attlist, link.content}
+link.attlist &= link.attributes
+linktext.content = (words.cnt | ph)*
+linktext.attributes = univ-atts
+linktext.element = 
+element linktext {linktext.attlist, linktext.content}
+linktext.attlist &= linktext.attributes
+linklist.content = title?, desc?, (linklist | link)*, linkinfo?
+linklist.attributes = 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute duplicates {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute mapkeyref { text}?, relational-atts, univ-atts, 
+attribute spectitle { text}?, 
+attribute outputclass { text}?
+linklist.element = 
+element linklist {linklist.attlist, linklist.content}
+linklist.attlist &= linklist.attributes
+linkinfo.content = desc.cnt*
+linkinfo.attributes = univ-atts
+linkinfo.element = 
+element linkinfo {linkinfo.attlist, linkinfo.content}
+linkinfo.attlist &= linkinfo.attributes
+linkpool.content = (linkpool | link)*
+linkpool.attributes = 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute duplicates {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute mapkeyref { text}?, relational-atts, univ-atts, 
+attribute outputclass { text}?
+linkpool.element = 
+element linkpool {linkpool.attlist, linkpool.content}
+linkpool.attlist &= linkpool.attributes
+abstract.attlist &= global-atts, 
+attribute class { text}?
+body.attlist &= global-atts, 
+attribute class { text}?
+bodydiv.attlist &= global-atts, 
+attribute class { text}?
+example.attlist &= global-atts, 
+attribute class { text}?
+link.attlist &= global-atts, 
+attribute class { text}?
+linkinfo.attlist &= global-atts, 
+attribute class { text}?
+linklist.attlist &= global-atts, 
+attribute class { text}?
+linkpool.attlist &= global-atts, 
+attribute class { text}?
+linktext.attlist &= global-atts, 
+attribute class { text}?
+no-topic-nesting.attlist &= global-atts, 
+attribute class { text}?
+prolog.attlist &= global-atts, 
+attribute class { text}?
+related-links.attlist &= global-atts, 
+attribute class { text}?
+searchtitle.attlist &= global-atts, 
+attribute class { text}?
+section.attlist &= global-atts, 
+attribute class { text}?
+sectiondiv.attlist &= global-atts, 
+attribute class { text}?
+titlealts.attlist &= global-atts, 
+attribute class { text}?
+topic.attlist &= global-atts, 
+attribute class { text}?
+shortdesc.attlist &= global-atts, 
+attribute class { text}?

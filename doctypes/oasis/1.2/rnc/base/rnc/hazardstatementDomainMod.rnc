@@ -1,0 +1,121 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Hazard Statement Domain                     
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Hazard Statement Domain//EN"
+#       Delivered as file "hazardstatementDomain.mod"               
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Declaring the elements and specialization        
+#             attributes for the Hazard Statement Domain       
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             February 2008                                    
+#                                                              
+#             (C) Copyright OASIS Open 2008, 2009.             
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2007.02.20 Chris Kravogel, SeicoDyne GmbH: Created domain 
+#    2007.03.06 Chris Kravogel, SeicoDyne GmbH: Add howtoavoid 
+#                    entity                                    
+#    2007.11.20 Chris Kravogel, SeicoDyne GmbH: Reduced ATTLIST
+#                    of hazardstatement to ATTLIST of note     
+#    2008.02.05 Chris Kravogel, SeicoDyne GmbH: Renamed symbol 
+#                    to hazardsymbol, added %words.cnt; and    
+#                    %trademark; to consequences, typeofhazard 
+#    2008.02.05 RDA: Reformatted for DITA 1.2 ; removed @alt    
+#                    and added @scalefit on hazardsymbol       
+#    2008.02.13 RDA: Create .content and .attributes entities  
+#    2009.12.03 RDA: Removed caution1 and caution2 values to   
+#                    match the revised note/@type values       
+# =============================================================
+#     
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+hazard-d-note = hazardstatement.element
+note |= hazard-d-note
+hazardstatement = hazardstatement.element
+messagepanel = messagepanel.element
+hazardsymbol = hazardsymbol.element
+typeofhazard = typeofhazard.element
+consequence = consequence.element
+howtoavoid = howtoavoid.element
+hazard.cnt = ( text  | basic.ph | sl | simpletable)
+hazardstatement.content = messagepanel+, hazardsymbol*
+hazardstatement.attributes = 
+attribute type {("attention" | "caution" | "danger" | "fastpath" | "important" | "note" | "notice" | "other" | "remember" | "restriction" | "tip" | "warning" | "-dita-use-conref-target")}?, 
+attribute spectitle { text}?, 
+attribute othertype { text}?, univ-atts, 
+attribute outputclass { text}?
+hazardstatement.element = 
+element hazardstatement {hazardstatement.attlist, hazardstatement.content}
+hazardstatement.attlist &= hazardstatement.attributes
+hazardsymbol.content = alt?, longdescref?
+hazardsymbol.attributes = 
+attribute href { text}, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute keyref { text}?, 
+attribute longdescref { text}?, 
+attribute height { xsd:NMTOKEN}?, 
+attribute width { xsd:NMTOKEN}?, 
+attribute align { text}?, 
+attribute scale { xsd:NMTOKEN}?, 
+attribute scalefit {("yes" | "no" | "-dita-use-conref-target")}?, 
+attribute placement {("break" | "inline" | "-dita-use-conref-target")}?, univ-atts, 
+attribute outputclass { text}?
+hazardsymbol.element = 
+element hazardsymbol {hazardsymbol.attlist, hazardsymbol.content}
+hazardsymbol.attlist &= hazardsymbol.attributes
+messagepanel.content = typeofhazard, consequence*, howtoavoid+
+messagepanel.attributes = 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+messagepanel.element = 
+element messagepanel {messagepanel.attlist, messagepanel.content}
+messagepanel.attlist &= messagepanel.attributes
+typeofhazard.content = (words.cnt | ph | tm)*
+typeofhazard.attributes = univ-atts, 
+attribute outputclass { text}?
+typeofhazard.element = 
+element typeofhazard {typeofhazard.attlist, typeofhazard.content}
+typeofhazard.attlist &= typeofhazard.attributes
+consequence.content = (words.cnt | ph | tm)*
+consequence.attributes = univ-atts, 
+attribute outputclass { text}?
+consequence.element = 
+element consequence {consequence.attlist, consequence.content}
+consequence.attlist &= consequence.attributes
+howtoavoid.content = hazard.cnt*
+howtoavoid.attributes = univ-atts, 
+attribute outputclass { text}?
+howtoavoid.element = 
+element howtoavoid {howtoavoid.attlist, howtoavoid.content}
+howtoavoid.attlist &= howtoavoid.attributes
+hazardstatement.attlist &= global-atts, 
+attribute class { text}?
+messagepanel.attlist &= global-atts, 
+attribute class { text}?
+hazardsymbol.attlist &= global-atts, 
+attribute class { text}?
+typeofhazard.attlist &= global-atts, 
+attribute class { text}?
+consequence.attlist &= global-atts, 
+attribute class { text}?
+howtoavoid.attlist &= global-atts, 
+attribute class { text}?

@@ -1,0 +1,61 @@
+# 
+#  =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Learning Plan DTD                           
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//DTD DITA Learning Plan//EN"
+#       Delivered as file "learningPlan.dtd"                      
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    DTD to describe DITA learning Plan topic         
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             May 2007                                         
+#                                                              
+#             (C) Copyright OASIS Open 2007, 2009.             
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2007.05.01 JPH: Original creation                         
+# =============================================================
+#   
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+start = learningPlan.element
+
+}
+div {
+domains-att &= 
+attribute domains { text}?
+}
+div {
+include "../../base/rnc/topicMod.rnc"
+include "learningBaseMod.rnc"
+include "learningPlanMod.rnc"
+include "../../base/rnc/highlightDomainMod.rnc"
+include "../../base/rnc/utilitiesDomainMod.rnc"
+include "../../base/rnc/indexingDomainMod.rnc"
+include "learningInteractionBaseDomainMod.rnc"
+include "learningDomainMod.rnc"
+include "learningMetadataDomainMod.rnc"
+}
+div {
+any = (idElements | 
+element  * - (learningPlan | topic) {
+attribute  * { text}*, any} |  text )*
+}

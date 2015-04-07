@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA Learning Plan DTD                            -->
+<!--  VERSION:   1.2                                               -->
+<!--  DATE:      November 2009                                     -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identifier or an  -->
+<!--       appropriate system identifier                           -->
+<!-- PUBLIC "-//OASIS//DTD DITA Learning Plan//EN"                 -->
+<!--       Delivered as file "learningPlan.dtd"                       -->
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    DTD to describe DITA learning Plan topic          -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             May 2007                                          -->
+<!--                                                               -->
+<!--             (C) Copyright OASIS Open 2007, 2009.              -->
+<!--             All Rights Reserved.                              -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!--    2007.05.01 JPH: Original creation                          -->
+<!-- ============================================================= -->
+<!--                                                               -->
+
+<!-- ============================================================= -->
+<!--              TOPIC ENTITY DECLARATIONS                        -->
+<!-- ============================================================= -->
+
+<!ENTITY % learningBase-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Base//EN"
+         "learningBase.ent"
+>%learningBase-dec;
+
+<!ENTITY % learningPlan-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Plan//EN"
+         "learningPlan.ent"
+>%learningPlan-dec;
+
+<!-- ============================================================= -->
+<!--             DOMAIN ENTITY DECLARATIONS                        -->
+<!-- ============================================================= -->
+
+<!ENTITY % hi-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Highlight Domain//EN"
+         "../../base/dtd/highlightDomain.ent"
+>%hi-d-dec;
+
+<!ENTITY % ut-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Utilities Domain//EN"
+         "../../base/dtd/utilitiesDomain.ent"
+>%ut-d-dec;
+
+<!ENTITY % indexing-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Indexing Domain//EN"
+         "../../base/dtd/indexingDomain.ent"
+>%indexing-d-dec;
+
+<!ENTITY % learningInteractionBase-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Interaction Base Domain//EN"
+         "learningInteractionBaseDomain.ent"
+>%learningInteractionBase-d-dec;
+
+<!ENTITY % learning-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Domain//EN"
+         "learningDomain.ent"
+>%learning-d-dec;
+
+<!ENTITY % learningmeta-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Metadata Domain//EN"
+         "learningMetadataDomain.ent"
+>%learningmeta-d-dec;
+
+<!-- ============================================================= -->
+<!--             DOMAIN ATTRIBUTES DECLARATIONS                    -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+
+<!ENTITY % ph           "ph |
+                         %hi-d-ph;
+                        ">
+<!ENTITY % index-base   "index-base |
+                         %indexing-d-index-base;
+                        ">
+<!ENTITY % fig          "fig |
+                         %ut-d-fig; |
+                         %learning-d-fig; |
+                         %learningInteractionBase-d-fig;
+                        ">
+<!ENTITY % note         "note |
+                         %learning-d-note;
+                        ">
+<!ENTITY % lcInteractionBase "lcInteractionBase |
+                         %learning-d-lcInteractionBase;
+                        ">
+<!ENTITY % metadata     "metadata |
+                         %learningmeta-d-metadata;
+                        ">
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+
+<!ENTITY % props-attribute-extensions
+  ""
+>
+<!ENTITY % base-attribute-extensions
+  ""
+>
+
+<!-- ============================================================= -->
+<!--                    TOPIC NESTING OVERRIDE                     -->
+<!-- ============================================================= -->
+
+<!ENTITY % learningPlan-info-types
+              "no-topic-nesting"
+>
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+
+<!ENTITY included-domains
+                          "&learningBase-att;
+                           &learningPlan-att;
+                           &hi-d-att;
+                           &ut-d-att;
+                           &indexing-d-att;
+                           &learningInteractionBase-d-att;
+                           &learning-d-att;
+                           &learningmeta-d-att;
+  "
+>
+
+<!-- ============================================================= -->
+<!--                    CONTENT CONSTRAINT INTEGRATION             -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    TOPIC ELEMENT INTEGRATION                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % topic-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Topic//EN"
+         "../../base/dtd/topic.mod"
+>%topic-type;
+
+<!ENTITY % learningBase-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Base//EN"
+         "learningBase.mod"
+>%learningBase-type;
+
+<!ENTITY % learningPlan-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Plan//EN"
+         "learningPlan.mod"
+>%learningPlan-type;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % hi-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Highlight Domain//EN"
+         "../../base/dtd/highlightDomain.mod"
+>%hi-d-def;
+
+<!ENTITY % ut-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Utilities Domain//EN"
+         "../../base/dtd/utilitiesDomain.mod"
+>%ut-d-def;
+
+<!ENTITY % indexing-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN"
+         "../../base/dtd/indexingDomain.mod"
+>%indexing-d-def;
+
+<!ENTITY % learningInteractionBase-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Interaction Base Domain//EN"
+         "learningInteractionBaseDomain.mod"
+>%learningInteractionBase-d-def;
+
+<!ENTITY % learning-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Domain//EN"
+         "learningDomain.mod"
+>%learning-d-def;
+
+<!ENTITY % learningmeta-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Metadata Domain//EN"
+         "learningMetadataDomain.mod"
+>%learningmeta-d-def;
+
+<!-- ================= End of DITA Learning Plan Shell ================= -->

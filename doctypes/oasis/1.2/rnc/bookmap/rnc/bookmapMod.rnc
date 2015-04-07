@@ -1,0 +1,607 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Bookmap                                     
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA BookMap//EN" 
+#       Delivered as file "bookmap.mod"                             
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Define elements and specialization atttributes   
+#             for Book Maps                                    
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             March 2004                                       
+#                                                              
+#             (C) Copyright OASIS Open 2005, 2009.             
+#             (C) Copyright IBM Corporation 2004, 2005.        
+#             All Rights Reserved.                             
+#  UPDATES:                                                    
+#    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
+#    2008.01.28 RDA: Removed enumerations for attributes:      
+#                    publishtype/@value, bookrestriction/@value
+#    2008.01.28 RDA: Added <metadata> to <bookmeta>            
+#    2008.01.30 RDA: Replace @conref defn. with %conref-atts;  
+#    2008.02.01 RDA: Added keys attributes, more keyref attrs  
+#    2008.02.12 RDA: Add keyword to many data specializations  
+#    2008.02.12 RDA: Add @format, @scope, and @type to         
+#                    publisherinformation                      
+#    2008.02.13 RDA: Create .content and .attributes entities  
+#    2008.03.17 RDA: Add appendices element                    
+# =============================================================
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+abbrevlist = abbrevlist.element
+bookabstract = bookabstract.element
+amendments = amendments.element
+appendices = appendices.element
+appendix = appendix.element
+approved = approved.element
+backmatter = backmatter.element
+bibliolist = bibliolist.element
+bookchangehistory = bookchangehistory.element
+bookevent = bookevent.element
+bookeventtype = bookeventtype.element
+bookid = bookid.element
+booklibrary = booklibrary.element
+booklist = booklist.element
+booklists = booklists.element
+bookmeta = bookmeta.element
+booknumber = booknumber.element
+bookowner = bookowner.element
+bookpartno = bookpartno.element
+bookrestriction = bookrestriction.element
+bookrights = bookrights.element
+booktitle = booktitle.element
+booktitlealt = booktitlealt.element
+chapter = chapter.element
+colophon = colophon.element
+completed = completed.element
+copyrfirst = copyrfirst.element
+copyrlast = copyrlast.element
+day = day.element
+dedication = dedication.element
+draftintro = draftintro.element
+edited = edited.element
+edition = edition.element
+figurelist = figurelist.element
+frontmatter = frontmatter.element
+glossarylist = glossarylist.element
+indexlist = indexlist.element
+isbn = isbn.element
+mainbooktitle = mainbooktitle.element
+maintainer = maintainer.element
+month = month.element
+notices = notices.element
+organization = organization.element
+part = part.element
+person = person.element
+preface = preface.element
+printlocation = printlocation.element
+published = published.element
+publisherinformation = publisherinformation.element
+publishtype = publishtype.element
+reviewed = reviewed.element
+revisionid = revisionid.element
+started = started.element
+summary = summary.element
+tablelist = tablelist.element
+tested = tested.element
+trademarklist = trademarklist.element
+toc = toc.element
+volume = volume.element
+year = year.element
+chapter-atts = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute copy-to { text}?, 
+attribute outputclass { text}?, topicref-atts, univ-atts
+bookmap.content = (title | booktitle)?, bookmeta?, frontmatter?, chapter*, part*, (appendices? | appendix*), backmatter?, reltable*
+bookmap.attributes = 
+attribute id { xsd:ID}?, conref-atts, 
+attribute anchorref { text}?, 
+attribute outputclass { text}?, localization-atts, topicref-atts, select-atts
+bookmap.element = 
+element bookmap {bookmap.attlist, bookmap.content}
+bookmap.attlist &= bookmap.attributes, arch-atts, domains-att
+bookmeta.content = linktext?, searchtitle?, shortdesc?, author*, source?, publisherinformation*, critdates?, permissions?, metadata*, audience*, category*, keywords*, prodinfo*, othermeta*, resourceid*, bookid?, bookchangehistory*, bookrights*, data*
+bookmeta.attributes = 
+attribute lockmeta {("no" | "yes" | "-dita-use-conref-target")}?, univ-atts
+bookmeta.element = 
+element bookmeta {bookmeta.attlist, bookmeta.content}
+bookmeta.attlist &= bookmeta.attributes
+frontmatter.content = (bookabstract | booklists | colophon | dedication | draftintro | notices | preface | topicref)*
+frontmatter.attributes = 
+attribute keyref { text}?, 
+attribute query { text}?, 
+attribute outputclass { text}?, topicref-atts, univ-atts
+frontmatter.element = 
+element frontmatter {frontmatter.attlist, frontmatter.content}
+frontmatter.attlist &= frontmatter.attributes
+backmatter.content = (amendments | booklists | colophon | dedication | notices | topicref)*
+backmatter.attributes = 
+attribute keyref { text}?, 
+attribute query { text}?, 
+attribute outputclass { text}?, topicref-atts, univ-atts
+backmatter.element = 
+element backmatter {backmatter.attlist, backmatter.content}
+backmatter.attlist &= backmatter.attributes
+publisherinformation.content = (person | organization)*, printlocation*, published*, data*
+publisherinformation.attributes = 
+attribute href { text}?, 
+attribute format { text}?, 
+attribute type { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute keyref { text}?, univ-atts
+publisherinformation.element = 
+element publisherinformation {publisherinformation.attlist, publisherinformation.content}
+publisherinformation.attlist &= publisherinformation.attributes
+person.content = words.cnt*
+person.attributes = data-element-atts
+person.element = 
+element person {person.attlist, person.content}
+person.attlist &= person.attributes
+organization.content = words.cnt*
+organization.attributes = data-element-atts
+organization.element = 
+element organization {organization.attlist, organization.content}
+organization.attlist &= organization.attributes
+bookchangehistory.content = reviewed*, edited*, tested*, approved*, bookevent*
+bookchangehistory.attributes = data-element-atts
+bookchangehistory.element = 
+element bookchangehistory {bookchangehistory.attlist, bookchangehistory.content}
+bookchangehistory.attlist &= bookchangehistory.attributes
+bookid.content = bookpartno*, edition?, isbn?, booknumber?, volume*, maintainer?
+bookid.attributes = data-element-atts
+bookid.element = 
+element bookid {bookid.attlist, bookid.content}
+bookid.attlist &= bookid.attributes
+summary.content = words.cnt*
+summary.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+summary.element = 
+element summary {summary.attlist, summary.content}
+summary.attlist &= summary.attributes
+printlocation.content = words.cnt*
+printlocation.attributes = data-element-atts
+printlocation.element = 
+element printlocation {printlocation.attlist, printlocation.content}
+printlocation.attlist &= printlocation.attributes
+published.content = (person | organization)*, publishtype?, revisionid?, started?, completed?, summary?, data*
+published.attributes = data-element-atts
+published.element = 
+element published {published.attlist, published.content}
+published.attlist &= published.attributes
+publishtype.content =  empty 
+publishtype.attributes = univ-atts, 
+attribute name { text}?, 
+attribute datatype { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute format { text}?, 
+attribute type { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute outputclass { text}?, 
+attribute value { text}
+publishtype.element = 
+element publishtype {publishtype.attlist, publishtype.content}
+publishtype.attlist &= publishtype.attributes
+revisionid.content = ( text  | keyword)*
+revisionid.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+revisionid.element = 
+element revisionid {revisionid.attlist, revisionid.content}
+revisionid.attlist &= revisionid.attributes
+started.content = ((year, month, day??) | (month, day?, year) | (day, month, year))
+started.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+started.element = 
+element started {started.attlist, started.content}
+started.attlist &= started.attributes
+completed.content = ((year, month, day??) | (month, day?, year) | (day, month, year))
+completed.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+completed.element = 
+element completed {completed.attlist, completed.content}
+completed.attlist &= completed.attributes
+year.content = ( text  | keyword)*
+year.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+year.element = 
+element year {year.attlist, year.content}
+year.attlist &= year.attributes
+month.content = ( text  | keyword)*
+month.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+month.element = 
+element month {month.attlist, month.content}
+month.attlist &= month.attributes
+day.content = ( text  | keyword)*
+day.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+day.element = 
+element day {day.attlist, day.content}
+day.attlist &= day.attributes
+reviewed.content = (organization | person)*, revisionid?, started?, completed?, summary?, data*
+reviewed.attributes = data-element-atts
+reviewed.element = 
+element reviewed {reviewed.attlist, reviewed.content}
+reviewed.attlist &= reviewed.attributes
+edited.content = (organization | person)*, revisionid?, started?, completed?, summary?, data*
+edited.attributes = data-element-atts
+edited.element = 
+element edited {edited.attlist, edited.content}
+edited.attlist &= edited.attributes
+tested.content = (organization | person)*, revisionid?, started?, completed?, summary?, data*
+tested.attributes = data-element-atts
+tested.element = 
+element tested {tested.attlist, tested.content}
+tested.attlist &= tested.attributes
+approved.content = (organization | person)*, revisionid?, started?, completed?, summary?, data*
+approved.attributes = data-element-atts
+approved.element = 
+element approved {approved.attlist, approved.content}
+approved.attlist &= approved.attributes
+bookevent.content = bookeventtype?, ((organization | person)*, revisionid?, started?, completed?, summary?, data*)
+bookevent.attributes = data-element-atts
+bookevent.element = 
+element bookevent {bookevent.attlist, bookevent.content}
+bookevent.attlist &= bookevent.attributes
+bookeventtype.content =  empty 
+bookeventtype.attributes = 
+attribute name { text}, 
+attribute datatype { text}?, 
+attribute value { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute format { text}?, 
+attribute type { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, univ-atts, 
+attribute outputclass { text}?
+bookeventtype.element = 
+element bookeventtype {bookeventtype.attlist, bookeventtype.content}
+bookeventtype.attlist &= bookeventtype.attributes
+bookpartno.content = words.cnt*
+bookpartno.attributes = data-element-atts
+bookpartno.element = 
+element bookpartno {bookpartno.attlist, bookpartno.content}
+bookpartno.attlist &= bookpartno.attributes
+edition.content = ( text  | keyword)*
+edition.attributes = data-element-atts
+edition.element = 
+element edition {edition.attlist, edition.content}
+edition.attlist &= edition.attributes
+isbn.content = ( text  | keyword)*
+isbn.attributes = data-element-atts
+isbn.element = 
+element isbn {isbn.attlist, isbn.content}
+isbn.attlist &= isbn.attributes
+booknumber.content = words.cnt*
+booknumber.attributes = data-element-atts
+booknumber.element = 
+element booknumber {booknumber.attlist, booknumber.content}
+booknumber.attlist &= booknumber.attributes
+volume.content = ( text  | keyword)*
+volume.attributes = data-element-atts
+volume.element = 
+element volume {volume.attlist, volume.content}
+volume.attlist &= volume.attributes
+maintainer.content = (person | organization)*, data*
+maintainer.attributes = data-element-atts
+maintainer.element = 
+element maintainer {maintainer.attlist, maintainer.content}
+maintainer.attlist &= maintainer.attributes
+bookrights.content = copyrfirst?, copyrlast?, bookowner, bookrestriction?, summary?
+bookrights.attributes = data-element-atts
+bookrights.element = 
+element bookrights {bookrights.attlist, bookrights.content}
+bookrights.attlist &= bookrights.attributes
+copyrfirst.content = year
+copyrfirst.attributes = data-element-atts
+copyrfirst.element = 
+element copyrfirst {copyrfirst.attlist, copyrfirst.content}
+copyrfirst.attlist &= copyrfirst.attributes
+copyrlast.content = year
+copyrlast.attributes = data-element-atts
+copyrlast.element = 
+element copyrlast {copyrlast.attlist, copyrlast.content}
+copyrlast.attlist &= copyrlast.attributes
+bookowner.content = (organization | person)*
+bookowner.attributes = data-element-atts
+bookowner.element = 
+element bookowner {bookowner.attlist, bookowner.content}
+bookowner.attlist &= bookowner.attributes
+bookrestriction.content =  empty 
+bookrestriction.attributes = univ-atts, 
+attribute name { text}?, 
+attribute datatype { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute format { text}?, 
+attribute type { text}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute outputclass { text}?, 
+attribute value { text}
+bookrestriction.element = 
+element bookrestriction {bookrestriction.attlist, bookrestriction.content}
+bookrestriction.attlist &= bookrestriction.attributes
+booktitle.content = booklibrary?, mainbooktitle, booktitlealt*
+booktitle.attributes = id-atts, localization-atts, 
+attribute base { text}?, base-attribute-extensions, 
+attribute outputclass { text}?
+booktitle.element = 
+element booktitle {booktitle.attlist, booktitle.content}
+booktitle.attlist &= booktitle.attributes
+booklibrary.content = ( text  | basic.ph.noxref | image)*
+booklibrary.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+booklibrary.element = 
+element booklibrary {booklibrary.attlist, booklibrary.content}
+booklibrary.attlist &= booklibrary.attributes
+mainbooktitle.content = ( text  | basic.ph.noxref | image)*
+mainbooktitle.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+mainbooktitle.element = 
+element mainbooktitle {mainbooktitle.attlist, mainbooktitle.content}
+mainbooktitle.attlist &= mainbooktitle.attributes
+booktitlealt.content = ( text  | basic.ph.noxref | image)*
+booktitlealt.attributes = 
+attribute keyref { text}?, univ-atts, 
+attribute outputclass { text}?
+booktitlealt.element = 
+element booktitlealt {booktitlealt.attlist, booktitlealt.content}
+booktitlealt.attlist &= booktitlealt.attributes
+draftintro.content = topicmeta?, topicref*
+draftintro.attributes = chapter-atts
+draftintro.element = 
+element draftintro {draftintro.attlist, draftintro.content}
+draftintro.attlist &= draftintro.attributes
+bookabstract.content =  empty 
+bookabstract.attributes = chapter-atts
+bookabstract.element = 
+element bookabstract {bookabstract.attlist, bookabstract.content}
+bookabstract.attlist &= bookabstract.attributes
+dedication.content =  empty 
+dedication.attributes = chapter-atts
+dedication.element = 
+element dedication {dedication.attlist, dedication.content}
+dedication.attlist &= dedication.attributes
+preface.content = topicmeta?, topicref*
+preface.attributes = chapter-atts
+preface.element = 
+element preface {preface.attlist, preface.content}
+preface.attlist &= preface.attributes
+chapter.content = topicmeta?, topicref*
+chapter.attributes = chapter-atts
+chapter.element = 
+element chapter {chapter.attlist, chapter.content}
+chapter.attlist &= chapter.attributes
+part.content = topicmeta?, (chapter | topicref)*
+part.attributes = chapter-atts
+part.element = 
+element part {part.attlist, part.content}
+part.attlist &= part.attributes
+appendix.content = topicmeta?, topicref*
+appendix.attributes = chapter-atts
+appendix.element = 
+element appendix {appendix.attlist, appendix.content}
+appendix.attlist &= appendix.attributes
+appendices.content = topicmeta?, appendix*
+appendices.attributes = chapter-atts
+appendices.element = 
+element appendices {appendices.attlist, appendices.content}
+appendices.attlist &= appendices.attributes
+notices.content = topicmeta?, topicref*
+notices.attributes = chapter-atts
+notices.element = 
+element notices {notices.attlist, notices.content}
+notices.attlist &= notices.attributes
+amendments.content =  empty 
+amendments.attributes = chapter-atts
+amendments.element = 
+element amendments {amendments.attlist, amendments.content}
+amendments.attlist &= amendments.attributes
+colophon.content =  empty 
+colophon.attributes = chapter-atts
+colophon.element = 
+element colophon {colophon.attlist, colophon.content}
+colophon.attlist &= colophon.attributes
+booklists.content = (abbrevlist | bibliolist | booklist | figurelist | glossarylist | indexlist | tablelist | trademarklist | toc)*
+booklists.attributes = 
+attribute keyref { text}?, topicref-atts, id-atts, select-atts, localization-atts
+booklists.element = 
+element booklists {booklists.attlist, booklists.content}
+booklists.attlist &= booklists.attributes
+toc.content =  empty 
+toc.attributes = chapter-atts
+toc.element = 
+element toc {toc.attlist, toc.content}
+toc.attlist &= toc.attributes
+figurelist.content =  empty 
+figurelist.attributes = chapter-atts
+figurelist.element = 
+element figurelist {figurelist.attlist, figurelist.content}
+figurelist.attlist &= figurelist.attributes
+tablelist.content =  empty 
+tablelist.attributes = chapter-atts
+tablelist.element = 
+element tablelist {tablelist.attlist, tablelist.content}
+tablelist.attlist &= tablelist.attributes
+abbrevlist.content =  empty 
+abbrevlist.attributes = chapter-atts
+abbrevlist.element = 
+element abbrevlist {abbrevlist.attlist, abbrevlist.content}
+abbrevlist.attlist &= abbrevlist.attributes
+trademarklist.content =  empty 
+trademarklist.attributes = chapter-atts
+trademarklist.element = 
+element trademarklist {trademarklist.attlist, trademarklist.content}
+trademarklist.attlist &= trademarklist.attributes
+bibliolist.content =  empty 
+bibliolist.attributes = chapter-atts
+bibliolist.element = 
+element bibliolist {bibliolist.attlist, bibliolist.content}
+bibliolist.attlist &= bibliolist.attributes
+glossarylist.content = topicmeta?, topicref*
+glossarylist.attributes = chapter-atts
+glossarylist.element = 
+element glossarylist {glossarylist.attlist, glossarylist.content}
+glossarylist.attlist &= glossarylist.attributes
+indexlist.content =  empty 
+indexlist.attributes = chapter-atts
+indexlist.element = 
+element indexlist {indexlist.attlist, indexlist.content}
+indexlist.attlist &= indexlist.attributes
+booklist.content =  empty 
+booklist.attributes = chapter-atts
+booklist.element = 
+element booklist {booklist.attlist, booklist.content}
+booklist.attlist &= booklist.attributes
+bookmap.attlist &= global-atts, 
+attribute class { text}?
+abbrevlist.attlist &= global-atts, 
+attribute class { text}?
+amendments.attlist &= global-atts, 
+attribute class { text}?
+appendices.attlist &= global-atts, 
+attribute class { text}?
+appendix.attlist &= global-atts, 
+attribute class { text}?
+approved.attlist &= global-atts, 
+attribute class { text}?
+backmatter.attlist &= global-atts, 
+attribute class { text}?
+bibliolist.attlist &= global-atts, 
+attribute class { text}?
+bookabstract.attlist &= global-atts, 
+attribute class { text}?
+bookchangehistory.attlist &= global-atts, 
+attribute class { text}?
+bookevent.attlist &= global-atts, 
+attribute class { text}?
+bookeventtype.attlist &= global-atts, 
+attribute class { text}?
+bookid.attlist &= global-atts, 
+attribute class { text}?
+booklibrary.attlist &= global-atts, 
+attribute class { text}?
+booklist.attlist &= global-atts, 
+attribute class { text}?
+booklists.attlist &= global-atts, 
+attribute class { text}?
+bookmeta.attlist &= global-atts, 
+attribute class { text}?
+booknumber.attlist &= global-atts, 
+attribute class { text}?
+bookowner.attlist &= global-atts, 
+attribute class { text}?
+bookpartno.attlist &= global-atts, 
+attribute class { text}?
+bookrestriction.attlist &= global-atts, 
+attribute class { text}?
+bookrights.attlist &= global-atts, 
+attribute class { text}?
+booktitle.attlist &= global-atts, 
+attribute class { text}?
+booktitlealt.attlist &= global-atts, 
+attribute class { text}?
+chapter.attlist &= global-atts, 
+attribute class { text}?
+colophon.attlist &= global-atts, 
+attribute class { text}?
+completed.attlist &= global-atts, 
+attribute class { text}?
+copyrfirst.attlist &= global-atts, 
+attribute class { text}?
+copyrlast.attlist &= global-atts, 
+attribute class { text}?
+day.attlist &= global-atts, 
+attribute class { text}?
+dedication.attlist &= global-atts, 
+attribute class { text}?
+draftintro.attlist &= global-atts, 
+attribute class { text}?
+edited.attlist &= global-atts, 
+attribute class { text}?
+edition.attlist &= global-atts, 
+attribute class { text}?
+figurelist.attlist &= global-atts, 
+attribute class { text}?
+frontmatter.attlist &= global-atts, 
+attribute class { text}?
+glossarylist.attlist &= global-atts, 
+attribute class { text}?
+indexlist.attlist &= global-atts, 
+attribute class { text}?
+isbn.attlist &= global-atts, 
+attribute class { text}?
+mainbooktitle.attlist &= global-atts, 
+attribute class { text}?
+maintainer.attlist &= global-atts, 
+attribute class { text}?
+month.attlist &= global-atts, 
+attribute class { text}?
+notices.attlist &= global-atts, 
+attribute class { text}?
+organization.attlist &= global-atts, 
+attribute class { text}?
+part.attlist &= global-atts, 
+attribute class { text}?
+person.attlist &= global-atts, 
+attribute class { text}?
+preface.attlist &= global-atts, 
+attribute class { text}?
+printlocation.attlist &= global-atts, 
+attribute class { text}?
+published.attlist &= global-atts, 
+attribute class { text}?
+publisherinformation.attlist &= global-atts, 
+attribute class { text}?
+publishtype.attlist &= global-atts, 
+attribute class { text}?
+reviewed.attlist &= global-atts, 
+attribute class { text}?
+revisionid.attlist &= global-atts, 
+attribute class { text}?
+started.attlist &= global-atts, 
+attribute class { text}?
+summary.attlist &= global-atts, 
+attribute class { text}?
+tablelist.attlist &= global-atts, 
+attribute class { text}?
+tested.attlist &= global-atts, 
+attribute class { text}?
+toc.attlist &= global-atts, 
+attribute class { text}?
+trademarklist.attlist &= global-atts, 
+attribute class { text}?
+volume.attlist &= global-atts, 
+attribute class { text}?
+year.attlist &= global-atts, 
+attribute class { text}?
