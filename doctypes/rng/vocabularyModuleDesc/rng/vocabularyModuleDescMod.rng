@@ -149,7 +149,7 @@
   </define>
   <define name="moduleDesc.attlist" combine="interleave">
     <ref name="moduleDesc.attributes"/>
-    <ref name="arch-atts"/>
+<!--    <ref name="arch-atts"/>-->
     <optional>
       <attribute name="domains" a:defaultValue="(topic moduleDesc)"/>
     </optional>
@@ -203,7 +203,13 @@
       <choice>
         <group>
           <ref name="modulePublicIds"/>
-          <ref name="domainsContribution"/>
+          <oneOrMore>
+            <ref name="domainsContribution">
+              <a:documentation>The domains contribution can be empty for base map and topic types 
+              that do not specify a @domains contribution. All other modules must specify
+              a @domains contribution.</a:documentation>
+            </ref>
+          </oneOrMore>
         </group>
         <ref name="shellPublicIds"/>
       </choice>
@@ -274,14 +280,14 @@
 
   <define name="modulePublicIds.content">
     <interleave>
-      <oneOrMore>
-        <ref name="dtdMod"/>
-      </oneOrMore>
       <zeroOrMore>
-        <a:documentation>As attribute domains and constraint modules do not have .ent files, dtdEnt can be omitted for those module types. It must be specified for other module types and for document
+        <a:documentation>As attribute domains and constraint modules do not have .mod files, dtdMod can be omitted for those module types. It must be specified for other module types and for document
           type shells.</a:documentation>
-        <ref name="dtdEnt"/>
+        <ref name="dtdMod"/>
       </zeroOrMore>
+      <oneOrMore>
+        <ref name="dtdEnt"/>
+      </oneOrMore>
       <oneOrMore>
         <ref name="rncMod"/>
       </oneOrMore>
@@ -344,7 +350,12 @@
   </define>
 
   <define name="dtdMod.content">
-    <text/>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="var.element"/>
+      </choice>
+    </zeroOrMore>
   </define>
   <define name="dtdMod.attributes">
     <empty/>
@@ -358,7 +369,12 @@
   </define>
 
   <define name="dtdEnt.content">
-    <text/>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="var.element"/>
+      </choice>
+    </zeroOrMore>
   </define>
   <define name="dtdEnt.attributes">
     <empty/>
@@ -370,9 +386,27 @@
       <ref name="dtdEnt.attributes"/>
     </element>
   </define>
+  
+  <define name="var.element">
+    <a:documentation>Defines a named variable that will be replaced at generation time.</a:documentation>
+    <element name="dita:var">
+      <text/>
+      <attribute name="name">
+        <a:documentation>The variable name, e.g., "ditaver"</a:documentation>
+      </attribute>
+      <attribute name="presep">
+        <a:documentation>"Preceding separator: Text to put before the variable when it has a value.</a:documentation>
+      </attribute>
+    </element>
+  </define>
 
   <define name="dtdShell.content">
-    <text/>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="var.element"/>
+      </choice>
+    </zeroOrMore>
   </define>
   <define name="dtdShell.attributes">
     <empty/>
@@ -386,7 +420,12 @@
   </define>
 
   <define name="rncMod.content">
-    <text/>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="var.element"/>
+      </choice>
+    </zeroOrMore>
   </define>
   <define name="rncMod.attributes">
     <empty/>
@@ -400,7 +439,12 @@
   </define>
 
   <define name="rncShell.content">
-    <text/>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="var.element"/>
+      </choice>
+    </zeroOrMore>
   </define>
   <define name="rncShell.attributes">
     <empty/>
@@ -414,7 +458,12 @@
   </define>
 
   <define name="rngMod.content">
-    <text/>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="var.element"/>
+      </choice>
+    </zeroOrMore>
   </define>
   <define name="rngMod.attributes">
     <empty/>
@@ -428,7 +477,12 @@
   </define>
 
   <define name="rngShell.content">
-    <text/>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="var.element"/>
+      </choice>
+    </zeroOrMore>
   </define>
   <define name="rngShell.attributes">
     <empty/>
@@ -442,7 +496,12 @@
   </define>
 
   <define name="xsdMod.content">
-    <text/>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="var.element"/>
+      </choice>
+    </zeroOrMore>
   </define>
   <define name="xsdMod.attributes">
     <empty/>
@@ -457,7 +516,12 @@
   </define>
 
   <define name="xsdGrp.content">
-    <text/>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="var.element"/>
+      </choice>
+    </zeroOrMore>
   </define>
   <define name="xsdGrp.attributes">
     <empty/>
@@ -471,7 +535,12 @@
   </define>
 
   <define name="xsdShell.content">
-    <text/>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="var.element"/>
+      </choice>
+    </zeroOrMore>
   </define>
   <define name="xsdShell.attributes">
     <empty/>
@@ -485,6 +554,9 @@
   </define>
 
   <!-- Specialization attributes. Global attributes and class defaults -->
+  <define name="global-atts">
+    <empty/>
+  </define>
 
   <define name="moduleDesc.attlist" combine="interleave">
     <ref name="global-atts"/>
