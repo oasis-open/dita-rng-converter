@@ -77,7 +77,7 @@
   <xsl:template mode="dtdFile" match="rng:grammar[rngfunc:getModuleShortName(.) = 'glossary']" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="dtdFilename" tunnel="yes" as="xs:string" />
-    <xsl:param name="dtdDir" tunnel="yes" as="xs:string" />
+    <xsl:param name="dtdOutputDir" tunnel="yes" as="xs:string" />
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*" />
     
 
@@ -133,7 +133,7 @@
   <xsl:template mode="entityFile" match="rng:grammar[rngfunc:getModuleShortName(.) = 'glossary']" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="dtdFilename" tunnel="yes" as="xs:string" />
-    <xsl:param name="dtdDir" tunnel="yes" as="xs:string" />
+    <xsl:param name="dtdOutputDir" tunnel="yes" as="xs:string" />
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*" />
     
     
@@ -189,7 +189,7 @@
   <xsl:template mode="moduleFile" match="rng:grammar[rngfunc:getModuleShortName(.) = 'glossary']" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="dtdFilename" tunnel="yes" as="xs:string" />
-    <xsl:param name="dtdDir" tunnel="yes" as="xs:string" />
+    <xsl:param name="dtdOutputDir" tunnel="yes" as="xs:string" />
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*" />
     
     
@@ -281,11 +281,11 @@
   <xsl:template match="rng:grammar[rngfunc:getModuleShortName(.) = 'ditaval']" mode="dtdFile" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="dtdFilename" tunnel="yes" as="xs:string" />
-    <xsl:param name="dtdDir" tunnel="yes" as="xs:string" />
+    <xsl:param name="dtdOutputDir" tunnel="yes" as="xs:string" />
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*" />
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] dtdFile: rng:grammar: dtdDir="<xsl:sequence select="$dtdDir"/>"</xsl:message>
+      <xsl:message> + [DEBUG] dtdFile: rng:grammar: dtdDir="<xsl:sequence select="$dtdOutputDir"/>"</xsl:message>
     </xsl:if>    
     <xsl:variable name="firstStart" as="element()?"
       select="(//rng:start/rng:ref)[1]"

@@ -19,16 +19,13 @@
     </condition>
   </fail>
   
-  <!-- This is relative to the location of this Ant script and reflects
-       the organization of the DITA TC-managed source repository.
-    -->
-  <property name="doctypesDir" location="${basedir}../../../../doctypes"/>
+  <property name="doctypesDir" location="${dita-ot-dir}/plugins/org.oasis-open.dita.dita13.doctypes/doctypes"/>
 	
 	<!-- This is the tools/ dir under the doctypes DIR in the TC-managed
 	     source repository.
 	  -->
   <property name="toolsDir" location="${basedir}/../../tools"/>
-  <property name="javaLibDir" location="${toolsDir}/lib"/>
+  <property name="javaLibDir" location="${dita-ot-dir}/lib"/>
   <property name="saxonDir" location="${javaLibDir}/saxon"/>
   <property name="catalogType" value="'all'"/>
   <!-- The catalogType parameter specifies the type of catlaog
@@ -76,31 +73,24 @@
   
   <property name="xslsrc" location="${basedir}/xsl"/>
   <property name="src" description="root source directory for the doctypes"
-      location="${basedir}/../../src"
+    location="${doctypesDir}"
   />  
   <property name="rngsrc" description="Parent source dir for all RNG files" 
-    location="${src}/${ditaver}/rng"
+    location="${src}/rng"
   />
   <property name="foreignsrc" description="Directory containing foreign vocabulary declarations"
-    location="${src}/${ditaver}/foreign"
+    location="${src}/foreign"
   />
   
   <property name="usePublicIDsInShell" value="true"/><!-- For testing. True for production -->
   
-  <!-- Catalog used by Saxon process to resolve URNs to RNG components. 
-  
-       The default is appropriate for the TC-managed source repository. 
-  -->
-  <property name="masterCatalog" location="${doctypesDir}/src/${ditaver}/catalog.xml"/>
+  <property name="masterCatalog" location="${dita-ot-dir}/catalog-dita.xml"/>
   
   <property name="dtdGenerationXsl" location="${xslsrc}/rng2ditadtd/rng2ditadtd.xsl"/>
   <property name="catalogGenerationXsl" location="${xslsrc}/rng2catalogs/rng2catalogs.xsl"/>
   <property name="rncGenerationXsl" location="${xslsrc}/rng2ditarnc/rng2ditarnc.xsl"/>
   <property name="xsdGenerationXsl" location="${xslsrc}/rng2ditaxsd/rng2ditaxsd.xsl"/>
   
-  <!-- This is the default for TC-defined vocabulary. 
-       For non-TC stuff the scripts use the DITA OT catalog -->
-  <echo>dita-ot-dir="${dita-ot-dir}</echo>
   <property name="catalogPath" location="${dita-ot-dir}/catalog-dita.xml"/>
   
   

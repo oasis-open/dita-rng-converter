@@ -1096,6 +1096,8 @@
   
   <xsl:template match="rng:include" mode="element-decls">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="dtdOutputDir" as="xs:string" tunnel="yes"/>
+    <xsl:message> + [DEBUG] rng:include, element-decls: dtdOutputDir="<xsl:value-of select="$dtdOutputDir"/>"</xsl:message>
     <xsl:variable name="thisModuleURI" as="xs:string"
       select="rngfunc:getGrammarUri(root(.)/*)"
     />

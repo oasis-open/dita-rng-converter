@@ -266,14 +266,13 @@
                  else relpath:getAbsolutePath($outdir)"
     />
 
-    <xsl:message> + [INFO] Generating DTD files...</xsl:message>
+    <xsl:message> + [INFO] Generating DTD files in output directory "<xsl:sequence select="$dtdOutputDir"/>"...</xsl:message>
     
     <rng2ditadtd:conversionManifest xmlns="http://dita.org/rng2ditadtd"
       timestamp="{current-dateTime()}"
       processor="{'rng2ditadtd.xsl'}"
       >
       <generatedShells>
-        <xsl:message> + [INFO] Generating shell DTDs...</xsl:message>
         <xsl:apply-templates 
           select="$shellDocs[($doGenerateStandardModules) or
                                    not(rngfunc:isStandardModule(.))]" 
@@ -289,7 +288,7 @@
       </generatedShells>
       <xsl:if test="$doGenerateModules">
         <xsl:message> + [INFO] =================================</xsl:message>
-        <xsl:message> + [INFO] Generating .mod and .ent files...</xsl:message>
+        <xsl:message> + [INFO] Generating .mod and .ent files in directory "<xsl:sequence select="$dtdOutputDir"/>"...</xsl:message>
         <generatedModules>
           <xsl:apply-templates 
             select="$modulesNoDivs[($doGenerateStandardModules) or
@@ -465,7 +464,9 @@
       </xsl:if>
       <xsl:if test="not($moduleType = ('constraint'))">
         <xsl:result-document href="{$entResultUrl}" format="dtd">
-          <xsl:apply-templates mode="entityFile"/>        
+          <xsl:apply-templates mode="entityFile">
+            <xsl:with-param name="dtdFilename" as="xs:string" tunnel="yes" select="$entFilename"/>
+          </xsl:apply-templates>        
         </xsl:result-document>
       </xsl:if>
     </xsl:if>
@@ -476,6 +477,7 @@
       </xsl:if>
       <xsl:result-document href="{$modResultUrl}" format="dtd">
         <xsl:apply-templates mode="moduleFile" >
+          <xsl:with-param name="dtdFilename" as="xs:string" tunnel="yes" select="$modFilename"/>
         </xsl:apply-templates>
       </xsl:result-document>
     </xsl:if>

@@ -278,10 +278,10 @@
     <xsl:sequence select="$domainsAttValue"/>
   </xsl:function>
   
-  <xsl:function name="rngfunc:getDomainsContribution" as="xs:string">
+  <xsl:function name="rngfunc:getDomainsContribution" as="xs:string*">
     <xsl:param name="grammar" as="element(rng:grammar)"/>
-    <xsl:variable name="domainValue" as="xs:string?" 
-      select="$grammar/dita:moduleDesc/dita:moduleMetadata/dita:domainsContribution"/>
+    <xsl:variable name="domainValue" as="xs:string*" 
+      select="for $value in $grammar/dita:moduleDesc/dita:moduleMetadata/dita:domainsContribution return $value"/>
     <xsl:sequence select="$domainValue"/>
   </xsl:function>
   

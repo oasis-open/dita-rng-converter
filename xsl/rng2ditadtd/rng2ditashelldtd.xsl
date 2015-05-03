@@ -93,7 +93,7 @@
       <xsl:result-document href="{$dtdResultUrl}" format="dtd">
         <xsl:apply-templates mode="dtdFile">
           <xsl:with-param name="dtdFilename" select="$dtdFilename" tunnel="yes" as="xs:string" />
-          <xsl:with-param name="dtdDir" select="$dtdOutputDir" tunnel="yes" as="xs:string" />
+          <xsl:with-param name="dtdOutputDir" select="$dtdOutputDir" tunnel="yes" as="xs:string" />
           <xsl:with-param name="modulesToProcess"  select="$referencedModules" tunnel="yes" as="document-node()*" />
           <xsl:with-param name="rngShellUrl" select="$rngShellUrl" tunnel="yes" as="xs:string"/>
         </xsl:apply-templates>
@@ -112,11 +112,11 @@
   <xsl:template match="rng:grammar" mode="dtdFile">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="dtdFilename" tunnel="yes" as="xs:string" />
-    <xsl:param name="dtdDir" tunnel="yes" as="xs:string" />
+    <xsl:param name="dtdOutputDir" tunnel="yes" as="xs:string" />
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*" />
     
       <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] dtdFile: rng:grammar: dtdDir="<xsl:sequence select="$dtdDir"/>"</xsl:message>
+        <xsl:message> + [DEBUG] dtdFile: rng:grammar: dtdDir="<xsl:sequence select="$dtdOutputDir"/>"</xsl:message>
       </xsl:if>    
     <xsl:variable name="firstStart" as="element()?"
       select="(//rng:start/rng:ref)[1]"
@@ -717,7 +717,7 @@
            constructing filenames because topic and map
            modules use an entity name of *-type.
     -->
-    <xsl:param name="dtdDir" tunnel="yes" as="xs:string" />
+    <xsl:param name="dtdOutputDir" tunnel="yes" as="xs:string" />
     <xsl:param name="rngShellUrl" tunnel="yes" as="xs:string"/>
     
     <xsl:variable name="rngShellParent" as="xs:string"
