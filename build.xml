@@ -2,11 +2,23 @@
 <project basedir="." default="help" name="dita-rng2dtdxsd">
    
 <!--  <property environment="env"/> -->
+  <property file=".build.properties"/>
+  <property file="build.properties"/>
+  <property file="${user.home}/.build.properties"/>
+  <property file="${user.home}/build.properties"/>
   
   <property name="ditaver" description="The DITA version to generate (1.2, 1.3, etc.)"
      value="1.3"
   />
-
+  
+  <fail message="- [ERROR]&#x0a;  Required property dita-ot-dir is not set.&#x0a;  It should be set in your build.properties or&#x0a;  .build.properties file or on the command line&#x0a;  using -Ddita-ot-dir={location of DITA OT}">
+    <condition>
+      <not>
+        <isset property="dita-ot-dir"/>
+      </not>
+    </condition>
+  </fail>
+  
   <!-- This is relative to the location of this Ant script and reflects
        the organization of the DITA TC-managed source repository.
     -->
@@ -88,7 +100,8 @@
   
   <!-- This is the default for TC-defined vocabulary. 
        For non-TC stuff the scripts use the DITA OT catalog -->
-  <property name="catalogPath" location="../../src/${ditaver}/catalog.xml"/>
+  <echo>dita-ot-dir="${dita-ot-dir}</echo>
+  <property name="catalogPath" location="${dita-ot-dir}/catalog-dita.xml"/>
   
   
   <makeurl property="catalogPathUrl" file="${catalogPath}"/>
