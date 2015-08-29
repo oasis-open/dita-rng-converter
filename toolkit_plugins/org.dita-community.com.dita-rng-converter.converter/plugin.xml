@@ -20,12 +20,13 @@
   
   <template file="xsl/rng2catalogs/rng2catalogs-plugin-shell_template.xsl"/>
   <template file="xsl/rng2ditadtd/rng2ditadtd-plugin-shell_template.xsl"/>
-  <template file="xsl/rng2ditarnc/rng2ditarnc-plugin-shell_template.xsl"/>
+  <!-- RNC generation not yet working fully -->
+<!--  <template file="xsl/rng2ditarnc/rng2ditarnc-plugin-shell_template.xsl"/>-->
   <template file="xsl/rng2ditaxsd/rng2ditaxsd-plugin-shell_template.xsl"/>
   
   <feature extension="dita.conductor.transtype.check" value="rng2dtd" type="txt"/>
   <feature extension="dita.conductor.transtype.check" value="rng2all" type="txt"/>
-  <feature extension="dita.conductor.target.relative" file="plugin-build.xml"/>
+  <feature extension="dita.conductor.target.relative" file="build.xml"/>
   
 
 </plugin>

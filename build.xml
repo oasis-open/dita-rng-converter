@@ -7,6 +7,13 @@
   <property file="${user.home}/.build.properties"/>
   <property file="${user.home}/build.properties"/>
   
+  <property name="xsl.src" location="${basedir}/xsl"/>
+  <property name="doctypes.src" location="${basedir}/doctypes"/>
+  <property name="plugin.src" location="${basedir}/toolkit_plugins"/>
+	<property name="dist"  location="${basedir}/dist"/>
+	<property name="plugin.dist"  location="${basedir}/dist/plugins"/>
+	<property name="package.dist"  location="${basedir}/dist/package"/>
+
   <property name="ditaver" description="The DITA version to generate (1.2, 1.3, etc.)"
      value="1.3"
   />
@@ -368,5 +375,5 @@
     </java>
   </target>
   
-  
+
 </project>

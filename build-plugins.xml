@@ -7,11 +7,11 @@
   <property file="${user.home}/.build.properties"/>
   <property file="${user.home}/build.properties"/>  
   
+  <property name="xsl.src" location="${basedir}/xsl"/>
   <property name="doctypes.src" location="${basedir}/doctypes"/>
   <property name="plugin.src" location="${basedir}/toolkit_plugins"/>
   <property name="dist" location="${basedir}/dist"/>
   <property name="plugin.dist" location="${dist}/plugins"/>
-  <property name="doctypes.plugin-dist" location="${plugin.dist}/org.dita-community.com.dita-rng-converter.doctypes"/>
   <property name="package.dist" location="${dist}/dita-rng-converters"/>
   <property name="plugin-deploy_target" location="${dita-ot-dir}/plugins"/>
   
@@ -29,34 +29,40 @@
   </target>
   
   
-  <target name="dist-toolkit-plugins" 
-    description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
-    depends="
-    dist-init
-    "
-    >
-    <delete includeEmptyDirs="true" failonerror="false">
-      <fileset dir="${plugin.dist}"  includes="org.dita-community.dita-rng-converter.*/**"/>
-    </delete>
-    <copy todir="${plugin.dist}">
-      <fileset dir="${basedir}">
-        <include name="LICENSE"/>
-      </fileset>
-    </copy>
-    <copy todir="${plugin.dist}">
-      <fileset dir="${plugin.src}">
-        <include name="**/*"/>
-        <exclude name="*.zip"/> 
-      </fileset>
-    </copy>
-    <copy todir="${doctypes.plugin-dist}/doctypes">
-      <fileset dir="${doctypes.src}">
-        <include name="catalog.xml"/>
-        <include name="rng/**/*"/>
-      </fileset>
-    </copy>
-    
+	<target name="dist-toolkit-plugins" 
+	   description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
+		 depends="
+		dist-init,
+		dist-license-info
+		"
+		>
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+				<include name="org.dita-community.com.dita-rng-converter.converter/**"/> 
+				<include name="org.dita-community.com.dita-rng-converter.doctypes/**"/> 
+				<exclude name="*.zip"/> 
+			  <!-- FIXME: Reinstate this when it's implemented properly: -->
+			  <exclude name="**/rng2ditarnc/"/>
+			</fileset>
+		</copy>
+		<copy todir="${plugin.dist}/org.dita-community.com.dita-rng-converter.converter/xsl">
+			<fileset dir="${xsl.src}">
+			  <include name="**/*"/>
+			  <exclude name="**/out/"/>
+			  <exclude name="rng2single-rng/"/>
+			  <!-- FIXME: Reinstate this when it's implemented properly: -->
+			  <exclude name="rng2ditarnc/"/>
+			</fileset>
+		</copy>
+		<copy todir="${plugin.dist}/org.dita-community.com.dita-rng-converter.doctypes">
+			<fileset dir="${doctypes.src}">
+			  <include name="**/*"/>
+			</fileset>
+		</copy>
+		
   </target>
+  
+    
   
   <target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
     description="Deploy plugins to local DITA Open Toolkit">
@@ -75,5 +81,12 @@
     
   </target>
   
-  
+ 	<target name="dist-license-info" depends="dist-init">
+    <copy todir="${plugin.dist}">
+      <fileset dir="${basedir}">
+        <include name="LICENSE"/>
+      </fileset>
+    </copy>
+	</target>	
+ 
 </project>
