@@ -39,14 +39,14 @@
            attributeFormDefault="unqualified">
    <xs:include schemaLocation="../../base/xsd/mapGroupMod.xsd"/>
    <xs:include schemaLocation="../../base/xsd/delayResolutionDomain.xsd"/>
-   <xs:include schemaLocation="../../base/xsd/deliveryTargetAttDomainMod.xsd"/>
-   <xs:include schemaLocation="../../base/xsd/ditavalrefDomainMod.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/deliveryTargetAttDomain.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/ditavalrefDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/hazardstatementDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/indexingDomain.xsd"/>
    <xs:include schemaLocation="./learningMapDomain.xsd"/>
    <xs:include schemaLocation="./learningMetadataDomain.xsd"/>
-   <xs:include schemaLocation="../../technicalContent/xsd/releaseManagementDomainMod.xsd"/>
+   <xs:include schemaLocation="../../technicalContent/xsd/releaseManagementDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
    <xs:include schemaLocation="../../xnal/xsd/xnalDomain.xsd"/>
 
@@ -137,6 +137,6 @@
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(map bookmap) (map map) (topic delay-d) (map ditavalref-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (map learningmap-d) (topic learningmeta-d) (map mapgroup-d) (topic relmgmt-d) (topic ut-d) (topic xnal-d) a(props deliveryTarget)"/>
+                    default="(map bookmap) (topic delay-d) (map ditavalref-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (map learningmap-d) (topic learningmeta-d) (map mapgroup-d) (topic relmgmt-d) (topic ut-d) (topic xnal-d) a(props deliveryTarget)"/>
    </xs:attributeGroup>
 </xs:schema>

@@ -90,10 +90,6 @@
       <xs:attributeGroup ref="domains-att"/>
       <xs:attributeGroup ref="global-atts"/>
    </xs:attributeGroup>
-   <xs:attributeGroup name="learningOverview.attlist">
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
-      <xs:attributeGroup ref="domains-att"/>
-   </xs:attributeGroup>
    <xs:element name="learningOverviewbody">
       <xs:annotation>
          <xs:documentation>The &lt;learningOverviewbody&gt; element is the main body-level element in a learningOverview topic. A learningOverviewbody has a very specific structure, with the following elements in this order: &lt;lcIntro&gt;, &lt;lcAudience&gt;, &lt;lcDuration&gt;, &lt;lcPrereqs&gt;, &lt;lcObjectives&gt;, &lt;lcResources&gt;, followed by one or more &lt;section&gt; elements. Each of the learningOverviewbody sections are optional. </xs:documentation>

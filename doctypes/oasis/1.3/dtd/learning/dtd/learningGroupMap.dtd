@@ -2,6 +2,13 @@
 <!-- ============================================================= -->
 <!--                    HEADER                                     -->
 <!-- ============================================================= -->
+<!-- Darwin Information Typing Architecture (DITA) Version 1.3     -->
+<!-- ^SPEC_RELEASE_TYPE^                                           -->
+<!-- ^DOC_APPROVAL_DATE^                                           -->
+<!-- Copyright (c) OASIS Open 2015. All rights reserved.           -->
+<!-- Source: ^GRAMMAR_FILE_ZIP_URL^                                -->
+<!--                                                               -->
+<!-- ============================================================= -->
 <!--  MODULE:    DITA learningGroupMap                              -->
 <!--  VERSION:   1.3                                               -->
 <!--  DATE:      March 2014                                        -->
@@ -27,6 +34,10 @@
   PUBLIC "-//OASIS//ENTITIES DITA 1.3 Learning Group Map//EN"
          "learningGroupMap.ent"
 >%learningGroupMap-dec;
+
+<!-- ============================================================= -->
+<!--             DOMAIN CONSTRAINT INTEGRATION                     -->
+<!-- ============================================================= -->
 
 <!-- ============================================================= -->
 <!--             DOMAIN ENTITY DECLARATIONS                        -->
@@ -98,22 +109,22 @@
                         the name of the domain(s) in which the
                         extension was declared                     -->
 
+<!ENTITY % topicref     "topicref |
+                         %mapgroup-d-topicref; |
+                         %ditavalref-d-topicref; |
+                         %learningmap-d-topicref;
+                        ">
 <!ENTITY % keywords     "keywords |
                          %delay-d-keywords;
                         ">
-<!ENTITY % topicref     "topicref |
-                         %ditavalref-d-topicref; |
-                         %mapgroup-d-topicref; |
-                         %learningmap-d-topicref;
+<!ENTITY % index-base   "index-base |
+                         %indexing-d-index-base;
                         ">
 <!ENTITY % note         "note |
                          %hazard-d-note;
                         ">
 <!ENTITY % ph           "ph |
                          %hi-d-ph;
-                        ">
-<!ENTITY % index-base   "index-base |
-                         %indexing-d-index-base;
                         ">
 <!ENTITY % fig          "fig |
                          %ut-d-fig;
@@ -122,8 +133,8 @@
                          %ut-d-data;
                         ">
 <!ENTITY % metadata     "metadata |
-                         %learningmeta-d-metadata; |
-                         %relmgmt-d-metadata;
+                         %relmgmt-d-metadata; |
+                         %learningmeta-d-metadata;
                         ">
 
 <!-- ============================================================= -->

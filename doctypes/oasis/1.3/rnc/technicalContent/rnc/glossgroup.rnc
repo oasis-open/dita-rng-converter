@@ -1,0 +1,71 @@
+# 
+#  =============================================================
+#                    HEADER                                     
+# ============================================================= 
+#  MODULE:    DITA Glossary Group Shell                         
+#  VERSION:   1.3                                       
+#  DATE:      March 2014                                     
+#                                                               
+# ============================================================= 
+# 
+# ============================================================= 
+#                    PUBLIC DOCUMENT TYPE DEFINITION            
+#                    TYPICAL INVOCATION                         
+#                                                               
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+#       
+# PUBLIC "-//OASIS//ELEMENTS DITA Glossary Group//EN"
+# 
+# ============================================================= 
+# SYSTEM:     Darwin Information Typing Architecture (DITA)     
+#                                                               
+# PURPOSE:    Define elements and specialization atttributes    
+#             for Glossary Group topics                         
+#                                                               
+# ORIGINAL CREATION DATE:                                       
+#             June 2008                                         
+#                                                               
+#             (C) Copyright OASIS Open 2008, 2014.              
+#             All Rights Reserved.                              
+#                                                               
+#  UPDATES:                                                     
+# ============================================================= 
+#   
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+start = glossgroup.element
+
+}
+div {
+domains-att &= 
+attribute domains { text}?
+}
+div {
+include "../../base/rnc/topicMod.rnc"
+include "conceptMod.rnc"
+include "glossentryMod.rnc"
+include "glossgroupMod.rnc"
+include "../../base/rnc/deliveryTargetAttDomain.rnc"
+include "equationDomain.rnc"
+include "../../base/rnc/hazardstatementDomain.rnc"
+include "../../base/rnc/highlightDomain.rnc"
+include "../../base/rnc/indexingDomain.rnc"
+include "abbreviateDomain.rnc"
+include "markupDomain.rnc"
+include "mathmlDomain.rnc"
+include "programmingDomain.rnc"
+include "releaseManagementDomain.rnc"
+include "softwareDomain.rnc"
+include "svgDomain.rnc"
+include "uiDomain.rnc"
+include "../../base/rnc/utilitiesDomain.rnc"
+include "xmlDomain.rnc"
+}
+div {
+any = (idElements | 
+element  * - (topic | concept | glossgroup | glossentry) {
+attribute  * { text}*, any} |  text )*
+}

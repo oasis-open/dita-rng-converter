@@ -1,0 +1,67 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Learning Bookmap DTD                        
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//DTD DITA Learning BookMap//EN"
+#       Delivered as file "learningBookmap.dtd"                     
+# 
+# The public ID above refers to the latest version of this DTD.
+#      To refer to this specific version, you may use this value:
+# PUBLIC "-//OASIS//DTD DITA 1.2  Learning BookMap//EN"              
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    DTD to describe DITA Learning Book Maps          
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             April 2008                                       
+#                                                              
+#             (C) Copyright OASIS Open 2008, 2009.             
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2010.09.21 RDA: Added base topic domains                  
+# =============================================================
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+start = bookmap.element
+
+}
+div {
+domains-att &= 
+attribute domains { text}?
+}
+div {
+include "../../base/rnc/mapMod.rnc"
+include "../../bookmap/rnc/bookmapMod.rnc"
+include "../../base/rnc/mapGroupDomain.rnc"
+include "../../base/rnc/indexingDomain.rnc"
+include "../../base/rnc/delayResolutionDomain.rnc"
+include "../../xnal/rnc/xnalDomain.rnc"
+include "learningMapDomain.rnc"
+include "learningMetadataDomain.rnc"
+include "../../base/rnc/highlightDomain.rnc"
+include "../../base/rnc/utilitiesDomain.rnc"
+include "../../base/rnc/hazardstatementDomain.rnc"
+}
+div {
+any = (idElements | 
+element  * - (map | bookmap | anchor) {
+attribute  * { text}*, any} |  text )*
+}

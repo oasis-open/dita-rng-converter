@@ -1,0 +1,26 @@
+# 
+# =============================================================
+#                    HEADER
+# =============================================================
+#  MODULE:    DITA Glossary Entity
+#  VERSION:   1.2
+#  DATE:      November 2009
+#                                                               
+# =============================================================
+#  
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION
+#                    TYPICAL INVOCATION
+#                                                              
+# Refer to this file by the following public identifier or an 
+# appropriate system identifier 
+#  
+# PUBLIC "-//OASIS//ENTITIES DITA Glossary//EN"
+#  
+# Delivered as file "glossary.ent"
+#  
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+include "glossentryMod.rnc"

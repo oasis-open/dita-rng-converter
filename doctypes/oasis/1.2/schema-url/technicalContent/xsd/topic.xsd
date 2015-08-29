@@ -142,6 +142,6 @@ It must be declared in topic-type shells.
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(topic topic) (topic abbrev-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic pr-d) (topic sw-d) (topic ui-d) (topic ut-d) (topic xml-d)"/>
+                    default="(topic abbrev-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic pr-d) (topic sw-d) (topic ui-d) (topic ut-d) (topic xml-d)"/>
    </xs:attributeGroup>
 </xs:schema>

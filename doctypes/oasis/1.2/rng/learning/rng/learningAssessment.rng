@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
          xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
          xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
@@ -45,9 +47,9 @@ ORIGINAL CREATION DATE:
          <moduleShortName>learningAssessment</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//OASIS//DTD DITA<var presep=" " name="ditaver"/> Learning Assessment//EN</dtdShell>
-            <rncShell>urn:oasis:names:tc:dita:rnc:learningAssessment.rnc<var presep=":" name="ditaver"/></rncShell>
-            <rngShell>urn:oasis:names:tc:dita:rng:learningAssessment.rng<var presep=":" name="ditaver"/></rngShell>
-            <xsdShell>urn:oasis:names:tc:dita:xsd:learningAssessment.xsd<var presep=":" name="ditaver"/></xsdShell>
+            <rncShell>urn:oasis:names:tc:dita:spec:learning:rnc:learningAssessment.rnc<var presep=":" name="ditaver"/></rncShell>
+            <rngShell>urn:oasis:names:tc:dita:spec:learning:rng:learningAssessment.rng<var presep=":" name="ditaver"/></rngShell>
+            <xsdShell>urn:oasis:names:tc:dita:spec:learning:xsd:learningAssessment.xsd<var presep=":" name="ditaver"/></xsdShell>
          </shellPublicIds>
       </moduleMetadata>
   </moduleDesc>
@@ -70,7 +72,6 @@ ORIGINAL CREATION DATE:
                          (topic learningInteractionBase-d learning-d)
                          (topic learningInteractionBase-d)
                          (topic learningmeta-d)
-                         (topic topic)
                          (topic ut-d)"/>
          </optional>
       </define>
@@ -85,12 +86,12 @@ ORIGINAL CREATION DATE:
          </define>      
       </include>
       <include href="../../base/rng/topicMod.rng"/>
-      <include href="../../base/rng/highlightDomainMod.rng"/>
-      <include href="../../base/rng/utilitiesDomainMod.rng"/>
-      <include href="../../base/rng/indexingDomainMod.rng"/>
-      <include href="learningInteractionBaseDomainMod.rng"/>
-      <include href="learningDomainMod.rng"/>
-      <include href="learningMetadataDomainMod.rng"/>
+      <include href="../../base/rng/highlightDomain.rng"/>
+      <include href="../../base/rng/utilitiesDomain.rng"/>
+      <include href="../../base/rng/indexingDomain.rng"/>
+      <include href="learningInteractionBaseDomain.rng"/>
+      <include href="learningDomain.rng"/>
+      <include href="learningMetadataDomain.rng"/>
   </div>
   <div>
       <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>

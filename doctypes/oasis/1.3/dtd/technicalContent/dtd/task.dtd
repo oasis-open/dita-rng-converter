@@ -2,6 +2,13 @@
 <!-- ============================================================= -->
 <!--                    HEADER                                     -->
 <!-- ============================================================= -->
+<!-- Darwin Information Typing Architecture (DITA) Version 1.3     -->
+<!-- ^SPEC_RELEASE_TYPE^                                           -->
+<!-- ^DOC_APPROVAL_DATE^                                           -->
+<!-- Copyright (c) OASIS Open 2015. All rights reserved.           -->
+<!-- Source: ^GRAMMAR_FILE_ZIP_URL^                                -->
+<!--                                                               -->
+<!-- ============================================================= -->
 <!--  MODULE:    DITA Task Shell                                   -->
 <!--  VERSION:   1.3                                               -->
 <!--  DATE:      March 2014                                        -->
@@ -48,6 +55,10 @@
   PUBLIC "-//OASIS//ENTITIES DITA 1.3 Task//EN"
          "task.ent"
 >%task-dec;
+
+<!-- ============================================================= -->
+<!--             DOMAIN CONSTRAINT INTEGRATION                     -->
+<!-- ============================================================= -->
 
 <!-- ============================================================= -->
 <!--             DOMAIN ENTITY DECLARATIONS                        -->
@@ -139,23 +150,23 @@
                         the name of the domain(s) in which the
                         extension was declared                     -->
 
+<!ENTITY % index-base   "index-base |
+                         %indexing-d-index-base;
+                        ">
 <!ENTITY % note         "note |
                          %hazard-d-note;
                         ">
 <!ENTITY % ph           "ph |
                          %hi-d-ph; |
-                         %equation-d-ph; |
                          %pr-d-ph; |
                          %sw-d-ph; |
-                         %ui-d-ph;
-                        ">
-<!ENTITY % index-base   "index-base |
-                         %indexing-d-index-base;
+                         %ui-d-ph; |
+                         %equation-d-ph;
                         ">
 <!ENTITY % fig          "fig |
                          %ut-d-fig; |
-                         %equation-d-fig; |
-                         %pr-d-fig;
+                         %pr-d-fig; |
+                         %equation-d-fig;
                         ">
 <!ENTITY % data         "data |
                          %ut-d-data;
@@ -163,19 +174,12 @@
 <!ENTITY % term         "term |
                          %abbrev-d-term;
                         ">
-<!ENTITY % div          "div |
-                         %equation-d-div;
-                        ">
 <!ENTITY % keyword      "keyword |
                          %markup-d-keyword; |
                          %pr-d-keyword; |
                          %sw-d-keyword; |
                          %ui-d-keyword; |
                          %xml-d-keyword;
-                        ">
-<!ENTITY % foreign      "foreign |
-                         %mathml-d-foreign; |
-                         %svg-d-foreign;
                         ">
 <!ENTITY % pre          "pre |
                          %pr-d-pre; |
@@ -187,6 +191,13 @@
                         ">
 <!ENTITY % metadata     "metadata |
                          %relmgmt-d-metadata;
+                        ">
+<!ENTITY % foreign      "foreign |
+                         %svg-d-foreign; |
+                         %mathml-d-foreign;
+                        ">
+<!ENTITY % div          "div |
+                         %equation-d-div;
                         ">
 
 <!-- ============================================================= -->

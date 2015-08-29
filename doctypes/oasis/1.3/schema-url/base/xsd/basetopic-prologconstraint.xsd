@@ -33,11 +33,11 @@
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
 <!-- ================ TOPIC DOMAINS ===================== -->
-   <xs:include schemaLocation="deliveryTargetAttDomainMod.xsd"/>
-   <xs:include schemaLocation="hazardstatementDomainMod.xsd"/>
-   <xs:include schemaLocation="highlightDomainMod.xsd"/>
-   <xs:include schemaLocation="indexingDomainMod.xsd"/>
-   <xs:include schemaLocation="utilitiesDomainMod.xsd"/>
+   <xs:include schemaLocation="deliveryTargetAttDomain.xsd"/>
+   <xs:include schemaLocation="hazardstatementDomain.xsd"/>
+   <xs:include schemaLocation="highlightDomain.xsd"/>
+   <xs:include schemaLocation="indexingDomain.xsd"/>
+   <xs:include schemaLocation="utilitiesDomain.xsd"/>
 
    <!-- ================ GROUP DEFINITIONS ===================== -->
    <xs:include schemaLocation="metaDeclGrp.xsd"/>
@@ -99,6 +99,6 @@
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(topic hazard-d) (topic hi-d) (topic indexing-d) (topic topic) (topic ut-d) a(props deliveryTarget)"/>
+                    default="(topic hazard-d) (topic hi-d) (topic indexing-d) (topic ut-d) a(props deliveryTarget)"/>
    </xs:attributeGroup>
 </xs:schema>

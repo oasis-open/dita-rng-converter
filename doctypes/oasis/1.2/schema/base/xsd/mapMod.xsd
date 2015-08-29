@@ -8,12 +8,6 @@
    <xs:import namespace="http://dita.oasis-open.org/architecture/2005/"
               schemaLocation="urn:oasis:names:tc:dita:xsd:ditaarch.xsd:1.2"/>
 
-   <xs:annotation>
-      <xs:appinfo>
-         <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(map map)</dita:domainsModule>
-      </xs:appinfo>
-   </xs:annotation>
-
    <xs:attributeGroup name="topicref-atts">
       <xs:attribute name="collection-type">
          <xs:simpleType>
@@ -150,7 +144,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="toc">
+      <xs:attribute name="toc" default="no">
          <xs:simpleType>
             <xs:restriction base="xs:string">
                <xs:enumeration value="no"/>
@@ -305,10 +299,6 @@
       <xs:attribute ref="ditaarch:DITAArchVersion"/>
       <xs:attributeGroup ref="domains-att"/>
       <xs:attributeGroup ref="global-atts"/>
-   </xs:attributeGroup>
-   <xs:attributeGroup name="map.attlist">
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
-      <xs:attributeGroup ref="domains-att"/>
    </xs:attributeGroup>
    <xs:element name="navref">
       <xs:annotation>

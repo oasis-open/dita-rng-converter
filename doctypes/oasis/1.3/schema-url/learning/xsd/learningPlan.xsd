@@ -1,50 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- =============================================================-->
-<!--                   HEADER                                    -->
-<!--=============================================================-->
-<!-- MODULE:    DITA Learning Plan DTD                           -->
-<!-- VERSION:   1.3                                              -->
-<!-- DATE:      March 2014                                       -->
-<!--                                                             -->
-<!--=============================================================-->
-<!--=============================================================-->
-<!--                   PUBLIC DOCUMENT TYPE DEFINITION           -->
-<!--                   TYPICAL INVOCATION                        -->
-<!--                                                             -->
-<!-- Refer to this file by the following public identifier or an -->
-<!--      appropriate system identifier                          -->
-<!--                                                             -->
-<!--PUBLIC "-//OASIS//DTD DITA Learning Plan//EN"                -->
-<!--=============================================================-->
-<!--SYSTEM:     Darwin Information Typing Architecture (DITA)    -->
-<!--                                                             -->
-<!--PURPOSE:    DTD to describe DITA learning Plan topic         -->
-<!--                                                             -->
-<!--ORIGINAL CREATION DATE:                                      -->
-<!--            May 2007                                         -->
-<!--                                                             -->
-<!--            (C) Copyright OASIS Open 2007, 2014              -->
-<!--            All Rights Reserved.                             -->
-<!--                                                             -->
-<!-- UPDATES:                                                    -->
-<!--   2007.05.01 JPH: Original creation                         -->
-<!--   2014.03.13 WEK: Updated for DITA 1.3, reimplemented as RNG-->
-<!--=============================================================-->
-<!--                                                             -->
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!-- Darwin Information Typing Architecture (DITA) Version 1.3     -->
+<!-- ^SPEC_RELEASE_TYPE^                                           -->
+<!-- ^DOC_APPROVAL_DATE^                                           -->
+<!-- Copyright (c) OASIS Open 2015. All rights reserved.           -->
+<!-- Source: ^GRAMMAR_FILE_ZIP_URL^                                -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- MODULE:    DITA learningPlan XSD                              -->
+<!-- VERSION:   1.3                                                -->
+<!-- DATE:      March 2014                                         -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    W3C XML Schema to describe DITA Learning Base     -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             October 2007                                      -->
+<!--                                                               -->
+<!-- UPDATES:                                                      -->
+<!-- ============================================================= -->
 <xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
 <!-- ================ TOPIC DOMAINS ===================== -->
-   <xs:include schemaLocation="../../base/xsd/deliveryTargetAttDomainMod.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/deliveryTargetAttDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/indexingDomain.xsd"/>
-   <xs:include schemaLocation="../../technicalContent/xsd/releaseManagementDomainMod.xsd"/>
+   <xs:include schemaLocation="../../technicalContent/xsd/releaseManagementDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
    <xs:include schemaLocation="./learningInteractionBaseDomain.xsd"/>
-   <xs:include schemaLocation="./learningInteractionBase2DomainMod.xsd"/>
+   <xs:include schemaLocation="./learningInteractionBase2Domain.xsd"/>
    <xs:include schemaLocation="./learningDomain.xsd"/>
-   <xs:include schemaLocation="./learning2DomainMod.xsd"/>
+   <xs:include schemaLocation="./learning2Domain.xsd"/>
    <xs:include schemaLocation="./learningMetadataDomain.xsd"/>
 
    <!-- ================ GROUP DEFINITIONS ===================== -->
@@ -144,6 +136,6 @@ It must be declared in topic-type shells.
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(topic hi-d) (topic indexing-d) (topic learningBase learningPlan) (topic learningBase+learningInteractionBase-d+learningInteractionBase2) (topic learningInteractionBase-d learning-d) (topic learningInteractionBase-d) (topic learningInteractionBase2-d learning2-d) (topic learningInteractionBase2-d) (topic learningmeta-d) (topic relmgmt-d) (topic topic) (topic ut-d) a(props deliveryTarget)"/>
+                    default="(topic hi-d) (topic indexing-d) (topic learningBase learningPlan) (topic learningBase+learningInteractionBase-d+learningInteractionBase2) (topic learningInteractionBase-d learning-d) (topic learningInteractionBase-d) (topic learningInteractionBase2-d learning2-d) (topic learningInteractionBase2-d) (topic learningmeta-d) (topic relmgmt-d) (topic ut-d) a(props deliveryTarget)"/>
    </xs:attributeGroup>
 </xs:schema>

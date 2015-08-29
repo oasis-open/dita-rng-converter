@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
@@ -45,9 +47,9 @@ ORIGINAL CREATION DATE:
     <modulePublicIds>
       <dtdMod>-//OASIS//ELEMENTS DITA<var presep=" " name="ditaver"/> Taskbody Constraint//EN</dtdMod>
       <dtdEnt>-//OASIS//ENTITIES DITA<var presep=" " name="ditaver"/> Taskbody Constraint//EN</dtdEnt>
-      <xsdMod>urn:oasis:names:tc:dita:xsd:machineryTaskbodyConstraintMod.xsd<var presep=":" name="ditaver"/></xsdMod>
-      <rncMod>urn:oasis:names:tc:dita:rnc:machineryTaskbodyConstraintMod.rnc<var presep=":" name="ditaver"/></rncMod>
-      <rngMod>urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng<var presep=":" name="ditaver"/></rngMod>
+      <xsdMod>urn:oasis:names:tc:dita:spec:machinery:xsd:machineryTaskbodyConstraintMod.xsd<var presep=":" name="ditaver"/></xsdMod>
+      <rncMod>urn:oasis:names:tc:dita:spec:machinery:rnc:machineryTaskbodyConstraintMod.rnc<var presep=":" name="ditaver"/></rncMod>
+      <rngMod>urn:oasis:names:tc:dita:spec:machinery:rng:machineryTaskbodyConstraintMod.rng<var presep=":" name="ditaver"/></rngMod>
     </modulePublicIds>
     <domainsContribution>(topic task+taskreq-d machineryTaskbody-c)</domainsContribution>
   </moduleMetadata>

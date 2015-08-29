@@ -1,0 +1,72 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Reference DTD                               
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//DTD DITA Reference//EN"
+#       Delivered as file "reference.dtd"                           
+# 
+# The public ID above refers to the latest version of this DTD.
+#      To refer to this specific version, you may use this value:
+# PUBLIC "-//OASIS//DTD DITA 1.2  Reference//EN"                     
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    DTD to describe DITA References                  
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             March 2001                                       
+#                                                              
+#             (C) Copyright OASIS Open 2005, 2009.             
+#             (C) Copyright IBM Corporation 2001, 2004.        
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2006.06.07 RDA: Added indexing domain                     
+#    2006.06.21 RDA: Added props attribute extensions          
+#    2008.02.01 RDA: Added reference to reference.ent          
+#    2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
+#    2008.04.15 RDA: Added hazard domain                       
+# =============================================================
+#     
+#   
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+start = reference.element
+
+}
+div {
+domains-att &= 
+attribute domains { text}?
+}
+div {
+include "../../base/rnc/topicMod.rnc"
+include "referenceMod.rnc"
+include "../../base/rnc/highlightDomain.rnc"
+include "../../base/rnc/utilitiesDomain.rnc"
+include "../../base/rnc/indexingDomain.rnc"
+include "../../base/rnc/hazardstatementDomain.rnc"
+include "abbreviateDomain.rnc"
+include "uiDomain.rnc"
+include "programmingDomain.rnc"
+include "softwareDomain.rnc"
+}
+div {
+any = (idElements | 
+element  * - (topic | reference) {
+attribute  * { text}*, any} |  text )*
+}

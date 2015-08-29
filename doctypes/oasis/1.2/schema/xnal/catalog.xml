@@ -3,15 +3,15 @@
 <!--DITA XNAL Domain-->
 
    <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:oasis:names:tc:dita:xsd:xnalDomainMod.xsd:1.2"
+      <system systemId="urn:oasis:names:tc:dita:xsd:xnalDomain.xsd:1.2"
               uri="xsd/xnalDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:xnalDomainMod.xsd"
+      <system systemId="urn:oasis:names:tc:dita:xsd:xnalDomain.xsd"
               uri="xsd/xnalDomain.xsd"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:oasis:names:tc:dita:xsd:xnalDomainMod.xsd:1.2"
+      <uri name="urn:oasis:names:tc:dita:xsd:xnalDomain.xsd:1.2"
            uri="xsd/xnalDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:xnalDomainMod.xsd"
+      <uri name="urn:oasis:names:tc:dita:xsd:xnalDomain.xsd"
            uri="xsd/xnalDomain.xsd"/>
    </group>
 </catalog>

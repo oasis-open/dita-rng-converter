@@ -653,7 +653,7 @@
       <xs:annotation>
          <xs:documentation>This pattern should be used when defaulting a new element to translate="no", so that other (or new) localization attributes will always be included.</xs:documentation>
       </xs:annotation>
-      <xs:attribute name="translate">
+      <xs:attribute name="translate" default="no">
          <xs:simpleType>
             <xs:restriction base="xs:string">
                <xs:enumeration value="no"/>
@@ -1990,7 +1990,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="placement">
+      <xs:attribute name="placement" default="inline">
          <xs:simpleType>
             <xs:restriction base="xs:string">
                <xs:enumeration value="break"/>

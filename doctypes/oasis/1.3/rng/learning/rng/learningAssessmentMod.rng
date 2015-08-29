@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
@@ -41,14 +43,13 @@ ORIGINAL CREATION DATE:
       <modulePublicIds>
         <dtdMod>-//OASIS//ELEMENTS DITA<var presep=" " name="ditaver"/> Learning Assessment//EN</dtdMod>
         <dtdEnt>-//OASIS//ENTITIES DITA<var presep=" " name="ditaver"/> Learning Assessment//EN</dtdEnt>
-        <xsdMod>urn:oasis:names:tc:dita:xsd:learningAssessmentMod.xsd<var presep=":" name="ditaver"/></xsdMod>
-        <xsdGrp>urn:oasis:names:tc:dita:xsd:learningAssessmentGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
-        <rncMod>urn:oasis:names:tc:dita:rnc:learningAssessmentMod.rnc<var presep=":" name="ditaver"/></rncMod>
-        <rngMod>urn:oasis:names:tc:dita:rng:learningAssessmentMod.rng<var presep=":" name="ditaver"/></rngMod>
+        <xsdMod>urn:oasis:names:tc:dita:spec:learning:xsd:learningAssessmentMod.xsd<var presep=":" name="ditaver"/></xsdMod>
+        <xsdGrp>urn:oasis:names:tc:dita:spec:learning:xsd:learningAssessmentGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
+        <rncMod>urn:oasis:names:tc:dita:spec:learning:rnc:learningAssessmentMod.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:oasis:names:tc:dita:spec:learning:rng:learningAssessmentMod.rng<var presep=":" name="ditaver"/></rngMod>
       </modulePublicIds>
-      <domainsContribution>
-(topic learningBase+learningInteractionBase-d)
-(topic learningBase+learningInteractionBase-d learningAssessment)</domainsContribution>
+      <domainsContribution>(topic learningBase+learningInteractionBase-d)</domainsContribution>
+      <domainsContribution>(topic learningBase+learningInteractionBase-d learningAssessment)</domainsContribution>
     </moduleMetadata>
   </moduleDesc>
   <div>

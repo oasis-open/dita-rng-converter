@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
@@ -67,7 +69,7 @@ ORIGINAL CREATION DATE:
         <xsdGrp>urn:oasis:names:tc:dita:xsd:taskGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
         <xsdMod>urn:oasis:names:tc:dita:xsd:taskMod.xsd<var presep=":" name="ditaver"/></xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:taskMod.rnc<var presep=":" name="ditaver"/></rncMod>
-        <rngMod>urn:oasis:names:tc:dita:rng:taksMod.rng<var presep=":" name="ditaver"/></rngMod>
+        <rngMod>urn:oasis:names:tc:dita:rng:taskMod.rng<var presep=":" name="ditaver"/></rngMod>
       </modulePublicIds>
       <domainsContribution>(topic task)</domainsContribution>
     </moduleMetadata>

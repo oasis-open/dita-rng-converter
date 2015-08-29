@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../vocabularyModuleDesc/rng/vocabularyModuleDesc.rng"
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
@@ -7,14 +7,76 @@
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Map Module</moduleTitle>
-    <headerComment> 
-      MODULE: DITA Map RNG 
-      VERSION: 1.3 DATE: November 2013 
-</headerComment>
+    <headerComment><![CDATA[ 
+=============================================================
+                   HEADER                                    
+============================================================
+Darwin Information Typing Architecture (DITA) Version 1.3
+^SPEC_RELEASE_TYPE^
+^DOC_APPROVAL_DATE^ 
+Copyright (c) OASIS Open 2015. All rights reserved. 
+Source: ^GRAMMAR_FILE_ZIP_URL^
+=============================================================
+ MODULE:    DITA Map                                         
+ VERSION:   1.3                                              
+ DATE:      March 2014                                    
+                                                             
+=============================================================
+
+=============================================================
+                   PUBLIC DOCUMENT TYPE DEFINITION           
+                   TYPICAL INVOCATION                        
+                                                             
+ Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ELEMENTS DITA Map//EN"
+      Delivered as file "map.mod"                                 
+
+=============================================================
+SYSTEM:     Darwin Information Typing Architecture (DITA)    
+                                                             
+PURPOSE:    Declaring the elements and specialization        
+            attributes for the DITA Maps                     
+                                                             
+ORIGINAL CREATION DATE:                                      
+            March 2001                                       
+                                                             
+            (C) Copyright OASIS Open 2005, 2009.             
+            (C) Copyright IBM Corporation 2001, 2004.        
+            All Rights Reserved.                             
+                                                             
+ UPDATES:                                                    
+   2005.11.15 RDA: Corrected public ID in the comment above  
+   2005.11.15 RDA: Removed old declaration for topicreftypes 
+                     entity                                  
+   2006.06.06 RDA: Removed default locktitle="yes" from      
+                     %topicref-atts-no-toc;                  
+                   Remove keyword declaration                
+                   Add reference to commonElements           
+                   Add title element to map                  
+                   Add data element to topicmeta             
+                   Remove shortdesc declaration              
+   2006.06.07 RDA: Make universal attributes universal       
+                     (DITA 1.1 proposal #12)                 
+   2006.06.14 RDA: Add dir attribute to localization-atts    
+   2006.06.14 RDA: Add outputclass attribute to most elemetns
+   2006.11.30 RDA: Add -dita-use-conref-target to enumerated 
+                     attributes                              
+   2006.11.30 RDA: Remove #FIXED from DITAArchVersion        
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2008.01.28 RDA: Added <metadata> to <topicmeta>           
+   2008.01.30 RDA: Replace @conref defn. with %conref-atts;  
+   2008.02.01 RDA: Added keys attributes, more keyref attrs  
+   2008.02.12 RDA: Expand relcolspec content model           
+   2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
+   2008.02.12 RDA: Add navtitle to topicmeta                 
+   2008.02.13 RDA: Create .content and .attributes entities  
+   2010.09.20 RDA: Bring linktext content in sync with topic 
+=============================================================
+]]></headerComment>
     <moduleMetadata>
       <moduleType>map</moduleType>
       <moduleShortName>map</moduleShortName>
-      <domainsContribution>(map map)</domainsContribution>
       <modulePublicIds>
         <dtdEnt>-//OASIS//ENTITIES DITA<var presep=" " name="ditaver"/> Map//EN</dtdEnt>
         <dtdMod>-//OASIS//ELEMENTS DITA<var presep=" " name="ditaver"/> Map//EN</dtdMod>
@@ -281,6 +343,98 @@
       </optional>
       <optional>
         <attribute name="keyscope" dita:since="1.3"/>
+      </optional>
+    </define>
+    <define name="topicref-atts-no-toc-no-keyscope" dita:since="1.3">
+      <optional>
+        <attribute name="collection-type">
+          <choice>
+            <value>choice</value>
+            <value>family</value>
+            <value>sequence</value>
+            <value>unordered</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="type"/>
+      </optional>
+      <optional>
+        <attribute name="cascade" dita:since="1.3"/>
+      </optional>
+      <optional>        
+        <attribute name="processing-role"  a:defaultValue="resource-only">
+          <a:documentation>Default set to resource-only since DITA 1.3</a:documentation>
+          <choice>
+            <value>normal</value>
+            <value>resource-only</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="scope">
+          <choice>
+            <value>external</value>
+            <value>local</value>
+            <value>peer</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="locktitle">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="format"/>
+      </optional>
+      <optional>
+        <attribute name="linking">
+          <choice>
+            <value>none</value>
+            <value>normal</value>
+            <value>sourceonly</value>
+            <value>targetonly</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="toc" a:defaultValue="no">
+          <choice>
+            <value>no</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="print">
+          <choice>
+            <value>no</value>
+            <value>printonly</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="search">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chunk"/>
       </optional>
     </define>
     <define name="topicref-atts-without-format">
@@ -579,7 +733,7 @@
         <optional>
           <attribute name="outputclass"/>
         </optional>
-        <ref name="topicref-atts-no-toc"/>
+        <ref name="topicref-atts-no-toc-no-keyscope"/>
         <ref name="univ-atts"/>
       </define>
       <define name="reltable.element">
@@ -637,7 +791,7 @@
         <optional>
           <attribute name="outputclass"/>
         </optional>
-        <ref name="topicref-atts"/>
+        <ref name="topicref-atts-no-toc-no-keyscope"/>
         <ref name="univ-atts"/>
       </define>
       <define name="relcolspec.element">
@@ -693,7 +847,7 @@
         <optional>
           <attribute name="outputclass"/>
         </optional>
-        <ref name="topicref-atts"/>
+        <ref name="topicref-atts-no-toc-no-keyscope"/>
         <ref name="univ-atts"/>
       </define>
       <define name="relcell.element">

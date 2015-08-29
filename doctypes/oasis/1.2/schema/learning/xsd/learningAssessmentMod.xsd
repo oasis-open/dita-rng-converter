@@ -96,10 +96,6 @@
       <xs:attributeGroup ref="domains-att"/>
       <xs:attributeGroup ref="global-atts"/>
    </xs:attributeGroup>
-   <xs:attributeGroup name="learningAssessment.attlist">
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
-      <xs:attributeGroup ref="domains-att"/>
-   </xs:attributeGroup>
    <xs:element name="learningAssessmentbody">
       <xs:annotation>
          <xs:documentation>The &lt;learningAssessmentbody&gt; element is the main body-level element in a

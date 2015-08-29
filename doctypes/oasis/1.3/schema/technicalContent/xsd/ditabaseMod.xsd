@@ -5,7 +5,7 @@
            attributeFormDefault="unqualified">
    <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
    <xs:import namespace="http://dita.oasis-open.org/architecture/2005/"
-              schemaLocation="urn:oasis:names:tc:dita:xsd:ditaarch.xsd:1.2"/>
+              schemaLocation="urn:oasis:names:tc:dita:xsd:ditaarch.xsd:1.3"/>
    <xs:annotation>
       <xs:documentation>The &lt;<keyword>dita</keyword>&gt; element provides a top-level container
             for multiple topics when you create documents using the ditabase XSD. The

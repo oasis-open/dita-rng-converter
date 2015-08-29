@@ -3,23 +3,23 @@
 <!---->
 
    <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:oasis:names:tc:dita:rng:machinerytask.rng:1.2"
+      <system systemId="urn:oasis:names:tc:dita:spec:machinery:rng:machinerytask.rng:1.2"
               uri="rng/machineryTask.rng"/>
-      <system systemId="urn:oasis:names:tc:dita:rng:machinerytask.rng"
+      <system systemId="urn:oasis:names:tc:dita:spec:machinery:rng:machinerytask.rng"
               uri="rng/machineryTask.rng"/>
-      <system systemId="urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng:1.2"
+      <system systemId="urn:oasis:names:tc:dita:spec:machinery:rng:machineryTaskbodyConstraintMod.rng:1.2"
               uri="rng/machineryTaskbodyConstraintMod.rng"/>
-      <system systemId="urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng"
+      <system systemId="urn:oasis:names:tc:dita:spec:machinery:rng:machineryTaskbodyConstraintMod.rng"
               uri="rng/machineryTaskbodyConstraintMod.rng"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:oasis:names:tc:dita:rng:machinerytask.rng:1.2"
+      <uri name="urn:oasis:names:tc:dita:spec:machinery:rng:machinerytask.rng:1.2"
            uri="rng/machineryTask.rng"/>
-      <uri name="urn:oasis:names:tc:dita:rng:machinerytask.rng"
+      <uri name="urn:oasis:names:tc:dita:spec:machinery:rng:machinerytask.rng"
            uri="rng/machineryTask.rng"/>
-      <uri name="urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng:1.2"
+      <uri name="urn:oasis:names:tc:dita:spec:machinery:rng:machineryTaskbodyConstraintMod.rng:1.2"
            uri="rng/machineryTaskbodyConstraintMod.rng"/>
-      <uri name="urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng"
+      <uri name="urn:oasis:names:tc:dita:spec:machinery:rng:machineryTaskbodyConstraintMod.rng"
            uri="rng/machineryTaskbodyConstraintMod.rng"/>
    </group>
 </catalog>

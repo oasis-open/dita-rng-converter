@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Topic Base Shell (only base domains)</moduleTitle>
@@ -62,16 +62,17 @@ UPDATES:
   <div>
     <a:documentation>DOMAINS ATTRIBUTE</a:documentation>
     <define name="domains-att">
-      <attribute name="domains"
-        a:defaultValue="
-        (topic topic)
-        (topic hazard-d)
-        (topic hi-d)
-        (topic indexing-d)
-        (topic ut-d)
-        (topic hazard-d)
-        "
-      />
+      <optional>
+        <attribute name="domains"
+          a:defaultValue="
+          (topic hazard-d)
+          (topic hi-d)
+          (topic indexing-d)
+          (topic ut-d)
+          (topic hazard-d)
+          "
+        />
+      </optional>
     </define>
   </div>
   <div>
@@ -81,10 +82,10 @@ UPDATES:
         <ref name="topic.element"/>
       </define>
     </include>
-    <include href="hazardstatementDomainMod.rng"/>
-    <include href="highlightDomainMod.rng"/>
-    <include href="indexingDomainMod.rng"/>
-    <include href="utilitiesDomainMod.rng"/>
+    <include href="hazardstatementDomain.rng"/>
+    <include href="highlightDomain.rng"/>
+    <include href="indexingDomain.rng"/>
+    <include href="utilitiesDomain.rng"/>
   </div>
   <div>
     <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>

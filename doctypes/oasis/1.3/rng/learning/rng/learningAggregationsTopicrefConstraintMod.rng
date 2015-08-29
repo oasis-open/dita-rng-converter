@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   >
@@ -26,10 +28,10 @@ All Rights Reserved.
       <moduleShortName>learningAggregationsTopicref</moduleShortName>
       <modulePublicIds>
         <dtdMod>-//OASIS//ELEMENTS DITA<var presep=" " name="ditaver"/> Learning Aggregations Topicref Constraint//EN</dtdMod>
-        <xsdMod>urn:oasis:names:tc:dita:xsd:learningAggregationsTopicrefConstraintMod.xsd<var presep=":" name="ditaver"/></xsdMod>
-        <xsdGrp>urn:oasis:names:tc:dita:xsd:learningAggregationsTopicrefConstraintGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
-        <rncMod>urn:oasis:names:tc:dita:rnc:learningAggregationsTopicrefConstraintMod.rnc<var presep=":" name="ditaver"/></rncMod>
-        <rngMod>urn:oasis:names:tc:dita:rng:learningAggregationsTopicrefConstraintMod.rng<var presep=":" name="ditaver"/></rngMod>
+        <xsdMod>urn:oasis:names:tc:dita:spec:learning:xsd:learningAggregationsTopicrefConstraintMod.xsd<var presep=":" name="ditaver"/></xsdMod>
+        <xsdGrp>urn:oasis:names:tc:dita:spec:learning:xsd:learningAggregationsTopicrefConstraintGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
+        <rncMod>urn:oasis:names:tc:dita:spec:learning:rnc:learningAggregationsTopicrefConstraintMod.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:oasis:names:tc:dita:spec:learning:rng:learningAggregationsTopicrefConstraintMod.rng<var presep=":" name="ditaver"/></rngMod>
       </modulePublicIds>
       <domainsContribution>(map learningAggregationsTopicref-c)</domainsContribution>
     </moduleMetadata>
@@ -40,7 +42,7 @@ All Rights Reserved.
       <ref name="mapgroup-d-topicref"/>
     </define>    
   </include>
-  <include href="../../base/rng/mapGroupDomainMod.rng">
+  <include href="../../base/rng/mapGroupDomain.rng">
     <define name="mapgroup-d-topicref">
       <zeroOrMore>
         <choice>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!---->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:oasis:names:tc:dita:spec:machinery:rnc:machinerytask.rnc:1.2"
+              uri="rnc/machineryTask.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:spec:machinery:rnc:machinerytask.rnc"
+              uri="rnc/machineryTask.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:spec:machinery:rnc:machineryTaskbodyConstraintMod.rnc:1.2"
+              uri="rnc/machineryTaskbodyConstraintMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:spec:machinery:rnc:machineryTaskbodyConstraintMod.rnc"
+              uri="rnc/machineryTaskbodyConstraintMod.rnc"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:oasis:names:tc:dita:spec:machinery:rnc:machinerytask.rnc:1.2"
+           uri="rnc/machineryTask.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:spec:machinery:rnc:machinerytask.rnc"
+           uri="rnc/machineryTask.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:spec:machinery:rnc:machineryTaskbodyConstraintMod.rnc:1.2"
+           uri="rnc/machineryTaskbodyConstraintMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:spec:machinery:rnc:machineryTaskbodyConstraintMod.rnc"
+           uri="rnc/machineryTaskbodyConstraintMod.rnc"/>
+   </group>
+</catalog>

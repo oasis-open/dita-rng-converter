@@ -23,21 +23,21 @@
               uri="xsd/delayResolutionDomain.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:delayResolutionDomain.xsd"
               uri="xsd/delayResolutionDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomainMod.xsd:1.3"
-              uri="xsd/deliveryTargetAttDomainMod.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomainMod.xsd"
-              uri="xsd/deliveryTargetAttDomainMod.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:ditavalrefDomainMod.xsd:1.3"
-              uri="xsd/ditavalrefDomainMod.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:ditavalrefDomainMod.xsd"
-              uri="xsd/ditavalrefDomainMod.xsd"/>
+      <system systemId="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd:1.3"
+              uri="xsd/deliveryTargetAttDomain.xsd"/>
+      <system systemId="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd"
+              uri="xsd/deliveryTargetAttDomain.xsd"/>
+      <system systemId="urn:oasis:names:tc:dita:xsd:ditavalrefDomain.xsd:1.3"
+              uri="xsd/ditavalrefDomain.xsd"/>
+      <system systemId="urn:oasis:names:tc:dita:xsd:ditavalrefDomain.xsd"
+              uri="xsd/ditavalrefDomain.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:hazardDomain.xsd:1.3"
               uri="xsd/hazardstatementDomain.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:hazardDomain.xsd"
               uri="xsd/hazardstatementDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd:1.3"
+      <system systemId="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd:1.3"
               uri="xsd/highlightDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd"
+      <system systemId="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd"
               uri="xsd/highlightDomain.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:indexingDomain.xsd:1.3"
               uri="xsd/indexingDomain.xsd"/>
@@ -77,9 +77,9 @@
               uri="xsd/topicGrp.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:topicGrp.xsd"
               uri="xsd/topicGrp.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:utilitiesDomainMod.xsd:1.3"
+      <system systemId="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd:1.3"
               uri="xsd/utilitiesDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:utilitiesDomainMod.xsd"
+      <system systemId="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd"
               uri="xsd/utilitiesDomain.xsd"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
@@ -102,21 +102,21 @@
            uri="xsd/delayResolutionDomain.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:delayResolutionDomain.xsd"
            uri="xsd/delayResolutionDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomainMod.xsd:1.3"
-           uri="xsd/deliveryTargetAttDomainMod.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomainMod.xsd"
-           uri="xsd/deliveryTargetAttDomainMod.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:ditavalrefDomainMod.xsd:1.3"
-           uri="xsd/ditavalrefDomainMod.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:ditavalrefDomainMod.xsd"
-           uri="xsd/ditavalrefDomainMod.xsd"/>
+      <uri name="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd:1.3"
+           uri="xsd/deliveryTargetAttDomain.xsd"/>
+      <uri name="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd"
+           uri="xsd/deliveryTargetAttDomain.xsd"/>
+      <uri name="urn:oasis:names:tc:dita:xsd:ditavalrefDomain.xsd:1.3"
+           uri="xsd/ditavalrefDomain.xsd"/>
+      <uri name="urn:oasis:names:tc:dita:xsd:ditavalrefDomain.xsd"
+           uri="xsd/ditavalrefDomain.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:hazardDomain.xsd:1.3"
            uri="xsd/hazardstatementDomain.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:hazardDomain.xsd"
            uri="xsd/hazardstatementDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd:1.3"
+      <uri name="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd:1.3"
            uri="xsd/highlightDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd"
+      <uri name="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd"
            uri="xsd/highlightDomain.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:indexingDomain.xsd:1.3"
            uri="xsd/indexingDomain.xsd"/>
@@ -152,9 +152,9 @@
       <uri name="urn:oasis:names:tc:dita:xsd:topicGrp.xsd:1.3"
            uri="xsd/topicGrp.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:topicGrp.xsd" uri="xsd/topicGrp.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:utilitiesDomainMod.xsd:1.3"
+      <uri name="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd:1.3"
            uri="xsd/utilitiesDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:utilitiesDomainMod.xsd"
+      <uri name="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd"
            uri="xsd/utilitiesDomain.xsd"/>
       <system systemId="ditaarch.xsd" uri="xsd/ditaarch.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:ditaarch.xsd"

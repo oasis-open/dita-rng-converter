@@ -241,7 +241,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="type" type="xs:string"/>
+      <xs:attribute name="type" type="xs:string" default="anchor"/>
       <xs:attribute name="cascade" type="xs:string"/>
       <xs:attribute name="scope">
          <xs:simpleType>
@@ -262,7 +262,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="format" type="xs:string"/>
+      <xs:attribute name="format" type="xs:string" default="ditamap"/>
       <xs:attribute name="linking">
          <xs:simpleType>
             <xs:restriction base="xs:string">
@@ -302,7 +302,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="chunk" type="xs:string"/>
+      <xs:attribute name="chunk" type="xs:string" default="to-navigation"/>
       <xs:attributeGroup ref="univ-atts"/>
       <xs:attributeGroup ref="global-atts"/>
    </xs:attributeGroup>
@@ -340,7 +340,7 @@
       <xs:attribute name="query" type="xs:string"/>
       <xs:attribute name="copy-to" type="xs:string"/>
       <xs:attribute name="outputclass" type="xs:string"/>
-      <xs:attribute name="format" type="xs:string"/>
+      <xs:attribute name="format" type="xs:string" default="ditamap"/>
       <xs:attributeGroup ref="topicref-atts-without-format"/>
       <xs:attributeGroup ref="univ-atts"/>
       <xs:attributeGroup ref="global-atts"/>
@@ -466,7 +466,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="chunk" type="xs:string"/>
+      <xs:attribute name="chunk" type="xs:string" default="to-navigation"/>
       <xs:attribute name="id" use="required" type="xs:NMTOKEN"/>
       <xs:attributeGroup ref="conref-atts"/>
       <xs:attributeGroup ref="select-atts"/>
@@ -529,7 +529,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="type" type="xs:string"/>
+      <xs:attribute name="type" type="xs:string" default="topicset"/>
       <xs:attribute name="cascade" type="xs:string"/>
       <xs:attribute name="scope">
          <xs:simpleType>
@@ -550,7 +550,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="format" type="xs:string"/>
+      <xs:attribute name="format" type="xs:string" default="ditamap"/>
       <xs:attribute name="linking">
          <xs:simpleType>
             <xs:restriction base="xs:string">
@@ -645,7 +645,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="processing-role">
+      <xs:attribute name="processing-role" default="resource-only">
          <xs:simpleType>
             <xs:restriction base="xs:string">
                <xs:enumeration value="normal"/>

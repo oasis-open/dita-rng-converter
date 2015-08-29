@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../vocabularyModuleDesc/rng/vocabularyModuleDesc.rng"
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
@@ -75,7 +75,6 @@ ORIGINAL CREATION DATE:
     <moduleMetadata>
       <moduleType>map</moduleType>
       <moduleShortName>map</moduleShortName>
-      <domainsContribution>(map map)</domainsContribution>
       <modulePublicIds>
         <dtdEnt>-//OASIS//ENTITIES DITA<var presep=" " name="ditaver"/> Map//EN</dtdEnt>
         <dtdMod>-//OASIS//ELEMENTS DITA<var presep=" " name="ditaver"/> Map//EN</dtdMod>
@@ -84,6 +83,7 @@ ORIGINAL CREATION DATE:
         <rncMod>urn:oasis:names:tc:dita:rnc:mapMod.rnc<var presep=":" name="ditaver"/></rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:mapMod.rng<var presep=":" name="ditaver"/></rngMod>
       </modulePublicIds>
+      <domainsContribution/><!-- NOTE: could be "(map)". TC decision is to omit entirely -->
     </moduleMetadata>
   </moduleDesc>
 

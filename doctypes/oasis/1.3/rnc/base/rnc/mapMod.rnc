@@ -1,0 +1,210 @@
+#  
+#       MODULE: DITA Map RNG 
+#       VERSION: 1.3 DATE: November 2013 
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+arch-atts = 
+attribute dita:DITAArchVersion { text}?
+include "commonElementsMod.rnc"
+include "metaDeclMod.rnc"
+topicref = topicref.element
+anchor = anchor.element
+linktext = linktext.element
+navref = navref.element
+relcell = relcell.element
+relcolspec = relcolspec.element
+relheader = relheader.element
+relrow = relrow.element
+reltable = reltable.element
+searchtitle = searchtitle.element
+shortdesc = shortdesc.element
+topicmeta = topicmeta.element
+ux-window = ux-window.element
+topicref-atts = 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute cascade { text}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute locktitle {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, 
+attribute toc {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute print {("no" | "printonly" | "yes" | "-dita-use-conref-target")}?, 
+attribute search {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute chunk { text}?, 
+attribute keyscope { text}?
+topicref-atts-no-toc = 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute cascade { text}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute locktitle {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, 
+attribute print {("no" | "printonly" | "yes" | "-dita-use-conref-target")}?, 
+attribute search {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute chunk { text}?, 
+attribute keyscope { text}?
+topicref-atts-no-toc-no-keyscope = 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute cascade { text}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute locktitle {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, 
+attribute print {("no" | "printonly" | "yes" | "-dita-use-conref-target")}?, 
+attribute search {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute chunk { text}?
+topicref-atts-without-format = 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute cascade { text}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute locktitle {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, 
+attribute toc {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute print {("no" | "printonly" | "yes" | "-dita-use-conref-target")}?, 
+attribute search {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute chunk { text}?, 
+attribute keyscope { text}?
+map.content = title?, topicmeta?, (anchor | data.elements.incl | navref | reltable | topicref)*
+map.attributes = 
+attribute title { text}?, 
+attribute id { xsd:ID}?, conref-atts, 
+attribute anchorref { text}?, 
+attribute outputclass { text}?, localization-atts, topicref-atts, select-atts
+map.element = 
+element map {map.attlist, map.content}
+map.attlist &= map.attributes, arch-atts, domains-att
+idElements |= map.element
+navref.content =  empty 
+navref.attributes = univ-atts, 
+attribute keyref { text}?, 
+attribute mapref { text}?, 
+attribute outputclass { text}?
+navref.element = 
+element navref {navref.attlist, navref.content}
+navref.attlist &= navref.attributes
+topicref.content = topicmeta?, (anchor | data.elements.incl | navref | topicref)*
+topicref.attributes = 
+attribute navtitle { text}?, 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute keys { text}?, 
+attribute query { text}?, 
+attribute copy-to { text}?, 
+attribute outputclass { text}?, topicref-atts, univ-atts
+topicref.element = 
+element topicref {topicref.attlist, topicref.content}
+topicref.attlist &= topicref.attributes
+anchor.content =  empty 
+anchor.attributes = 
+attribute outputclass { text}?, localization-atts, 
+attribute id { xsd:ID}, conref-atts, select-atts
+anchor.element = 
+element anchor {anchor.attlist, anchor.content}
+anchor.attlist &= anchor.attributes
+idElements |= anchor.element
+reltable.content = title?, topicmeta?, relheader?, relrow+
+reltable.attributes = 
+attribute title { text}?, 
+attribute outputclass { text}?, topicref-atts-no-toc-no-keyscope, univ-atts
+reltable.element = 
+element reltable {reltable.attlist, reltable.content}
+reltable.attlist &= reltable.attributes
+relheader.content = relcolspec+
+relheader.attributes = univ-atts
+relheader.element = 
+element relheader {relheader.attlist, relheader.content}
+relheader.attlist &= relheader.attributes
+relcolspec.content = title?, topicmeta?, topicref*
+relcolspec.attributes = 
+attribute outputclass { text}?, topicref-atts-no-toc-no-keyscope, univ-atts
+relcolspec.element = 
+element relcolspec {relcolspec.attlist, relcolspec.content}
+relcolspec.attlist &= relcolspec.attributes
+relrow.content = relcell*
+relrow.attributes = 
+attribute outputclass { text}?, univ-atts
+relrow.element = 
+element relrow {relrow.attlist, relrow.content}
+relrow.attlist &= relrow.attributes
+relcell.content = (topicref | data.elements.incl)*
+relcell.attributes = 
+attribute outputclass { text}?, topicref-atts-no-toc-no-keyscope, univ-atts
+relcell.element = 
+element relcell {relcell.attlist, relcell.content}
+relcell.attlist &= relcell.attributes
+topicmeta.content = navtitle?, linktext?, searchtitle?, shortdesc?, author*, source?, publisher?, copyright*, critdates?, permissions?, metadata*, audience*, category*, keywords*, prodinfo*, othermeta*, resourceid*, ux-window*, (data.elements.incl | foreign.unknown.incl)*
+topicmeta.attributes = 
+attribute lockmeta {("no" | "yes" | "-dita-use-conref-target")}?, univ-atts
+topicmeta.element = 
+element topicmeta {topicmeta.attlist, topicmeta.content}
+topicmeta.attlist &= topicmeta.attributes
+shortdesc.content = (title.cnt | xref)*
+shortdesc.attributes = univ-atts, 
+attribute outputclass { text}?
+shortdesc.element = 
+element shortdesc {shortdesc.attlist, shortdesc.content}
+shortdesc.attlist &= shortdesc.attributes
+linktext.content = (words.cnt | ph)*
+linktext.attributes = 
+attribute outputclass { text}?, univ-atts
+linktext.element = 
+element linktext {linktext.attlist, linktext.content}
+linktext.attlist &= linktext.attributes
+searchtitle.content = words.cnt*
+searchtitle.attributes = 
+attribute outputclass { text}?, univ-atts
+searchtitle.element = 
+element searchtitle {searchtitle.attlist, searchtitle.content}
+searchtitle.attlist &= searchtitle.attributes
+ux-window.content =  empty 
+ux-window.attributes = 
+attribute name { text}, 
+attribute top { text}?, 
+attribute left { text}?, 
+attribute height { text}?, 
+attribute width { text}?, 
+attribute on-top {("yes" | "no" | "-dita-use-conref-target")}?, 
+attribute features { text}?, 
+attribute relative {("yes" | "no" | "-dita-use-conref-target")}?, 
+attribute full-screen {("yes" | "no" | "-dita-use-conref-target")}?, id-atts, select-atts
+ux-window.element = 
+element ux-window {ux-window.attlist, ux-window.content}
+ux-window.attlist &= ux-window.attributes
+map.attlist &= global-atts, 
+attribute class { text}?
+navref.attlist &= global-atts, 
+attribute class { text}?
+topicref.attlist &= global-atts, 
+attribute class { text}?
+anchor.attlist &= global-atts, 
+attribute class { text}?
+reltable.attlist &= global-atts, 
+attribute class { text}?
+relheader.attlist &= global-atts, 
+attribute class { text}?
+relcolspec.attlist &= global-atts, 
+attribute class { text}?
+relrow.attlist &= global-atts, 
+attribute class { text}?
+relcell.attlist &= global-atts, 
+attribute class { text}?
+topicmeta.attlist &= global-atts, 
+attribute class { text}?
+linktext.attlist &= global-atts, 
+attribute class { text}?
+searchtitle.attlist &= global-atts, 
+attribute class { text}?
+shortdesc.attlist &= global-atts, 
+attribute class { text}?
+ux-window.attlist &= global-atts, 
+attribute class { text}?

@@ -1,0 +1,50 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA learningMap DTD                             
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    DTD to describe DITA Learning Map                
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             May 2007                                         
+#                                                              
+#             (C) Copyright OASIS Open 2007, 2009.             
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2007.05.01 JPH: Original creation                         
+#    2010.09.21 RDA: Added base topic domains                  
+# =============================================================  
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+start = map.element
+
+}
+div {
+domains-att &= 
+attribute domains { text}?
+}
+div {
+include "../../base/rnc/mapMod.rnc"
+include "../../base/rnc/mapGroupDomain.rnc"
+include "../../base/rnc/indexingDomain.rnc"
+include "../../base/rnc/delayResolutionDomain.rnc"
+include "learningMapDomain.rnc"
+include "learningMetadataDomain.rnc"
+include "../../base/rnc/highlightDomain.rnc"
+include "../../base/rnc/utilitiesDomain.rnc"
+include "../../base/rnc/hazardstatementDomain.rnc"
+}
+div {
+any = (idElements | 
+element  * - (map | anchor) {
+attribute  * { text}*, any} |  text )*
+}

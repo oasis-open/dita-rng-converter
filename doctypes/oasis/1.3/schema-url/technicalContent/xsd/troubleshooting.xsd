@@ -1,56 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--=============================================================-->
-<!--                   HEADER                                    -->
-<!--=============================================================-->
-<!-- MODULE:    DITA Troubleshooting Shell                                  -->
-<!-- VERSION:   1.3                                              -->
-<!-- DATE:      March 2014                                       -->
-<!--                                                             -->
-<!--=============================================================-->
-<!--=============================================================-->
-<!--                   PUBLIC DOCUMENT TYPE DEFINITION           -->
-<!--                   TYPICAL INVOCATION                        -->
-<!--                                                             -->
-<!-- Refer to this file by the following public identifier or an -->
-<!--      appropriate system identifier:                         -->
-<!--                                                             -->
-<!--PUBLIC "-//OASIS//DTD DITA Troubleshooting//EN"              -->
-<!--The public ID above refers to the latest version of this DTD.-->
-<!--     To refer to this specific version, you may use this value:-->
-<!--                                                             -->
-<!--PUBLIC "-//OASIS//DTD DITA 1.3 Troubleshooting//EN"                          -->
-<!--=============================================================-->
-<!--SYSTEM:     Darwin Information Typing Architecture (DITA)    -->
-<!--                                                             -->
-<!--PURPOSE:    DTD to describe DITA troubleshooting tasks                       -->
-<!--                                                             -->
-<!--ORIGINAL CREATION DATE:                                      -->
-<!--            March 2014                                       -->
-<!--                                                             -->
-<!--            (C) Copyright OASIS Open 2014                    -->
-<!--            All Rights Reserved.                             -->
-<!--                                                             -->
-<!--=============================================================-->
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!-- Darwin Information Typing Architecture (DITA) Version 1.3     -->
+<!-- ^SPEC_RELEASE_TYPE^                                           -->
+<!-- ^DOC_APPROVAL_DATE^                                           -->
+<!-- Copyright (c) OASIS Open 2015. All rights reserved.           -->
+<!-- Source: ^GRAMMAR_FILE_ZIP_URL^                                -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- MODULE:    DITA Troubleshooting Shell                         -->
+<!-- VERSION:   1.3                                                -->
+<!-- DATE:      March 2014                                         -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    DTD to describe DITA troubleshooting tasks        -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--            March 2014                                         -->
+<!--                                                               -->
+<!-- ============================================================= -->
 <xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
 <!-- ================ TOPIC DOMAINS ===================== -->
    <xs:include schemaLocation="./abbreviateDomain.xsd"/>
-   <xs:include schemaLocation="../../base/xsd/deliveryTargetAttDomainMod.xsd"/>
-   <xs:include schemaLocation="./equationDomainMod.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/deliveryTargetAttDomain.xsd"/>
+   <xs:include schemaLocation="./equationDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/hazardstatementDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/indexingDomain.xsd"/>
-   <xs:include schemaLocation="./markupDomainMod.xsd"/>
-   <xs:include schemaLocation="./mathmlDomainMod.xsd"/>
+   <xs:include schemaLocation="./markupDomain.xsd"/>
+   <xs:include schemaLocation="./mathmlDomain.xsd"/>
    <xs:include schemaLocation="./programmingDomain.xsd"/>
-   <xs:include schemaLocation="./releaseManagementDomainMod.xsd"/>
+   <xs:include schemaLocation="./releaseManagementDomain.xsd"/>
    <xs:include schemaLocation="./softwareDomain.xsd"/>
-   <xs:include schemaLocation="./svgDomainMod.xsd"/>
+   <xs:include schemaLocation="./svgDomain.xsd"/>
    <xs:include schemaLocation="./uiDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
-   <xs:include schemaLocation="./xmlDomainMod.xsd"/>
+   <xs:include schemaLocation="./xmlDomain.xsd"/>
 
    <!-- ================ GROUP DEFINITIONS ===================== -->
    <xs:include schemaLocation="../../base/xsd/tblDeclGrp.xsd"/>
@@ -163,24 +154,39 @@
 
 
    <xs:include schemaLocation="../../base/xsd/topicMod.xsd"/>
-   <xs:include schemaLocation="./strictTaskbodyConstraintMod.xsd"/>
-   <xs:include schemaLocation="./troubleshootingMod.xsd"/>
+   <xs:redefine schemaLocation="./strictTaskbodyConstraintMod.xsd">
+      <!-- Remove task-info-types from the group so we don't have collidng task elements -->
+      <xs:group name="task-info-types">
+         <xs:choice>
+            <xs:group ref="info-types"/>
+         </xs:choice>
+      </xs:group>
+   </xs:redefine>
+   <xs:redefine schemaLocation="./troubleshootingMod.xsd">
+      <!-- Remove troubleshooting element from the group since we prefer task as the embedable topic type-->
+      <xs:group name="troubleshooting-info-types">
+         <xs:choice>
+            <xs:group ref="info-types"/>
+         </xs:choice>
+      </xs:group>
+   </xs:redefine>   
    <!--  ================ INFO-TYPES DEFINITION =====================  -->
    <xs:group name="info-types">
       <xs:annotation>
          <xs:documentation>
-This group is referenced in all topic modules but not defined there.
-It must be declared in topic-type shells.
-</xs:documentation>
+            This group is referenced in all topic modules but not defined there.
+            It must be declared in topic-type shells.
+         </xs:documentation>
       </xs:annotation>
-      <xs:choice>
-         <xs:element ref="no-topic-nesting" maxOccurs="0" minOccurs="0"/>
-      </xs:choice>
+      <!-- Add Task type as preferred embedable element-->
+      <xs:sequence>
+         <xs:group  ref="task" />
+      </xs:sequence>
    </xs:group>
 
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(topic abbrev-d) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d xml-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic svg-d) (topic sw-d) (topic task strictTaskbody-c) (topic topic) (topic troubleshooting++task) (topic task) (topic ui-d) (topic ut-d) a(props deliveryTarget)"/>
+                    default="(topic abbrev-d) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d xml-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic svg-d) (topic sw-d) (topic task strictTaskbody-c) (topic troubleshooting++task) (topic task) (topic ui-d) (topic ut-d) a(props deliveryTarget)"/>
    </xs:attributeGroup>
 </xs:schema>

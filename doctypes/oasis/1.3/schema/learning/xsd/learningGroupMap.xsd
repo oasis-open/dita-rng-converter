@@ -23,19 +23,19 @@
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:delayResolutionDomain.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:ditavalrefDomainMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:ditavalrefDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:hazardDomain.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:indexingDomain.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:learningMapDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:learningMetadataDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:releaseManagementDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomainMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:spec:learning:xsd:learningMapDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:spec:learning:xsd:learningMetadataDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:releaseManagementDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd:1.3"/>
 
    <!-- ================ GROUP DEFINITIONS ===================== -->
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:tblDeclGrp.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:learningGroupMapGrp.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:spec:learning:xsd:learningGroupMapGrp.xsd:1.3"/>
 
    <!-- =================  MODULE INCLUDE DEFINITION  ================== -->
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:commonElementMod.xsd:1.3"/>
@@ -109,7 +109,7 @@
    </xs:redefine>
 
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:mapGroupMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:learningGroupMapMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:spec:learning:xsd:learningGroupMapMod.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:mapMod.xsd:1.3"/>
 
    <xs:attributeGroup name="domains-att">

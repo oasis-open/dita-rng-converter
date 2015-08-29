@@ -1,0 +1,124 @@
+# 
+# DITA Release Management Metadata Domain
+#      
+# Defines element types for capturing change details within
+# topics or maps.
+# 
+# DITA 1.3
+# 
+# Copyright (c) 2013 OASIS Open
+# =============================================================
+#                     PUBLIC DOCUMENT TYPE DEFINITION           
+#                     TYPICAL INVOCATION                        
+#                                                               
+# Refer to this file by the following public identifier or an 
+# appropriate system identifier 
+# 
+# PUBLIC "-//OASIS//ENTITIES DITA Release Management Domain//EN"
+# =============================================================
+#     
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+relmgmt-d-metadata = (change-historylist.element)
+metadata |= relmgmt-d-metadata
+change-item = change-item.element
+change-person = change-person.element
+change-organization = change-organization.element
+change-revisionid = change-revisionid.element
+change-request-reference = change-request-reference.element
+change-started = change-started.element
+change-completed = change-completed.element
+change-summary = change-summary.element
+change-request-system = change-request-system.element
+change-request-id = change-request-id.element
+changehistory.data.atts = univ-atts, 
+attribute datatype { text}?, 
+attribute outputclass { text}?
+change-historylist.content = change-item*
+change-historylist.attributes = changehistory.data.atts
+change-historylist.element = 
+element change-historylist {change-historylist.attlist, change-historylist.content}
+change-historylist.attlist &= change-historylist.attributes
+change-item.content = (change-person | change-organization)*, change-revisionid?, change-request-reference?, change-started?, change-completed, change-summary*, data*
+change-item.attributes = changehistory.data.atts, 
+attribute name { text}?
+change-item.element = 
+element change-item {change-item.attlist, change-item.content}
+change-item.attlist &= change-item.attributes
+change-person.content = ( text  | \text)*
+change-person.attributes = changehistory.data.atts, 
+attribute name { text}?
+change-person.element = 
+element change-person {change-person.attlist, change-person.content}
+change-person.attlist &= change-person.attributes
+change-organization.content = ( text  | \text)*
+change-organization.attributes = changehistory.data.atts, 
+attribute name { text}?
+change-organization.element = 
+element change-organization {change-organization.attlist, change-organization.content}
+change-organization.attlist &= change-organization.attributes
+change-revisionid.content = data.cnt*
+change-revisionid.attributes = changehistory.data.atts, 
+attribute name { text}?
+change-revisionid.element = 
+element change-revisionid {change-revisionid.attlist, change-revisionid.content}
+change-revisionid.attlist &= change-revisionid.attributes
+change-request-reference.content = change-request-system?, change-request-id?
+change-request-reference.attributes = changehistory.data.atts, 
+attribute name { text}?
+change-request-reference.element = 
+element change-request-reference {change-request-reference.attlist, change-request-reference.content}
+change-request-reference.attlist &= change-request-reference.attributes
+change-request-system.content = data.cnt*
+change-request-system.attributes = changehistory.data.atts, 
+attribute name { text}?
+change-request-system.element = 
+element change-request-system {change-request-system.attlist, change-request-system.content}
+change-request-system.attlist &= change-request-system.attributes
+change-request-id.content = data.cnt*
+change-request-id.attributes = changehistory.data.atts, 
+attribute name { text}?
+change-request-id.element = 
+element change-request-id {change-request-id.attlist, change-request-id.content}
+change-request-id.attlist &= change-request-id.attributes
+change-started.content = ( text  | \text)*
+change-started.attributes = changehistory.data.atts, 
+attribute name { text}?
+change-started.element = 
+element change-started {change-started.attlist, change-started.content}
+change-started.attlist &= change-started.attributes
+change-completed.content = ( text  | \text)*
+change-completed.attributes = changehistory.data.atts, 
+attribute name { text}?
+change-completed.element = 
+element change-completed {change-completed.attlist, change-completed.content}
+change-completed.attlist &= change-completed.attributes
+change-summary.content = data.cnt*
+change-summary.attributes = changehistory.data.atts, 
+attribute name { text}?
+change-summary.element = 
+element change-summary {change-summary.attlist, change-summary.content}
+change-summary.attlist &= change-summary.attributes
+change-historylist.attlist &= global-atts, 
+attribute class { text}?
+change-item.attlist &= global-atts, 
+attribute class { text}?
+change-person.attlist &= global-atts, 
+attribute class { text}?
+change-organization.attlist &= global-atts, 
+attribute class { text}?
+change-revisionid.attlist &= global-atts, 
+attribute class { text}?
+change-request-reference.attlist &= global-atts, 
+attribute class { text}?
+change-request-system.attlist &= global-atts, 
+attribute class { text}?
+change-request-id.attlist &= global-atts, 
+attribute class { text}?
+change-started.attlist &= global-atts, 
+attribute class { text}?
+change-completed.attlist &= global-atts, 
+attribute class { text}?
+change-summary.attlist &= global-atts, 
+attribute class { text}?

@@ -150,6 +150,6 @@
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(map map) (topic abbrev-d) (topic delay-d) (map glossref-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic mapgroup-d) (topic pr-d) (topic sw-d) (topic ui-d) (topic ut-d)"/>
+                    default="(topic abbrev-d) (topic delay-d) (map glossref-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (map mapgroup-d) (topic pr-d) (topic sw-d) (topic ui-d) (topic ut-d)"/>
    </xs:attributeGroup>
 </xs:schema>

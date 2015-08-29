@@ -1,48 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--=============================================================-->
-<!--                   HEADER                                    -->
-<!--=============================================================-->
-<!-- MODULE:    DITA MAP Shell                                   -->
-<!-- VERSION:   1.3                                              -->
-<!-- DATE:      March 2014                                       -->
-<!--                                                             -->
-<!--=============================================================-->
-<!--=============================================================-->
-<!--                   PUBLIC DOCUMENT TYPE DEFINITION           -->
-<!--                       TYPICAL INVOCATION                    -->
-<!--                                                             -->
-<!--Refer to this file by the following public identifier or an  -->
-<!--     appropriate system identifier:                          -->
-<!--PUBLIC "-//OASIS//DTD DITA Map//EN"                          -->
-<!--The public ID above refers to the latest version of this DTD.-->
-<!--     To refer to this specific version, you may use this value:-->
-<!--                                                             -->
-<!--PUBLIC "-//OASIS//DTD DITA 1.3 Map//EN"                           -->
-<!--=============================================================-->
-<!--SYSTEM:     Darwin Information Typing Architecture (DITA)    -->
-<!--                                                             -->
-<!--PURPOSE:    Document type shell for DITA maps with all technical- -->
-<!--            content-related domains integrated.              -->
-<!--                                                             -->
-<!--ORIGINAL CREATION DATE:                                      -->
-<!--            March 2001                                       -->
-<!--                                                             -->
-<!--            (C) Copyright OASIS Open 2005, 2014.             -->
-<!--            (C) Copyright IBM Corporation 2001, 2004.        -->
-<!--            All Rights Reserved.                             -->
-<!--                                                             -->
-<!-- UPDATES:                                                    -->
-<!--   2005.11.15 RDA: Corrected public ID for map.mod           -->
-<!--   2005.11.15 RDA: Updated these comments to match template  -->
-<!--   2006.06.07 RDA: Added indexing domain                     -->
-<!--   2006.06.21 RDA: Added props attribute extensions          -->
-<!--   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       -->
-<!--   2008.02.01 RDA: Added Delayed Resolution domain           -->
-<!--   2008.02.12 RDA: Modify imbeds to use specific 1.2 version -->
-<!--   2010.09.20 RDA: Add topic-based domains                   -->
-<!--   2014.04.12 WEK: Updated for DITA 1.3, defined as RELAX NG                    -->
-<!--=============================================================   -->
-<!--                                                             -->
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!-- Darwin Information Typing Architecture (DITA) Version 1.3     -->
+<!-- ^SPEC_RELEASE_TYPE^                                           -->
+<!-- ^DOC_APPROVAL_DATE^                                           -->
+<!-- Copyright (c) OASIS Open 2015. All rights reserved.           -->
+<!-- Source: ^GRAMMAR_FILE_ZIP_URL^                                -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- MODULE:    DITA MAP XSD                                       -->
+<!-- VERSION:   1.3                                                -->
+<!-- DATE:      March 2014                                         -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    W3C XML Schema to describe DITA maps              -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             March 2001                                        -->
+<!--                                                               -->
+<!-- UPDATES:                                                      -->
+<!--    2005.11.15 EAS: Moved domains attribute definition here    -->
+<!--                    from mapMod.xsd:1.2                        -->
+<!--   TBD EAS:Added deleay resolution domain.                     -->
+<!-- ============================================================= -->
 <xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified"
@@ -50,19 +34,19 @@
    <xs:include schemaLocation="../../base/xsd/mapGroupMod.xsd"/>
    <xs:include schemaLocation="./abbreviateDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/delayResolutionDomain.xsd"/>
-   <xs:include schemaLocation="../../base/xsd/deliveryTargetAttDomainMod.xsd"/>
-   <xs:include schemaLocation="../../base/xsd/ditavalrefDomainMod.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/deliveryTargetAttDomain.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/ditavalrefDomain.xsd"/>
    <xs:include schemaLocation="./glossrefDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/hazardstatementDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/indexingDomain.xsd"/>
-   <xs:include schemaLocation="./markupDomainMod.xsd"/>
+   <xs:include schemaLocation="./markupDomain.xsd"/>
    <xs:include schemaLocation="./programmingDomain.xsd"/>
-   <xs:include schemaLocation="./releaseManagementDomainMod.xsd"/>
+   <xs:include schemaLocation="./releaseManagementDomain.xsd"/>
    <xs:include schemaLocation="./softwareDomain.xsd"/>
    <xs:include schemaLocation="./uiDomain.xsd"/>
    <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
-   <xs:include schemaLocation="./xmlDomainMod.xsd"/>
+   <xs:include schemaLocation="./xmlDomain.xsd"/>
 
    <!-- ================ GROUP DEFINITIONS ===================== -->
    <xs:include schemaLocation="../../base/xsd/tblDeclGrp.xsd"/>
@@ -82,6 +66,7 @@
         <xs:group ref="topicref"/>
         <xs:group ref="mapgroup-d-topicref"/>
         <xs:group ref="ditavalref-d-topicref"/>
+        <xs:group ref="glossref-d-topicref"/>
       </xs:choice>
     </xs:group>
   </xs:redefine>
@@ -175,6 +160,6 @@
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(map map) (topic abbrev-d) (topic delay-d) (map ditavalref-d) (map glossref-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (map mapgroup-d) (topic markup-d xml-d) (topic markup-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic ui-d) (topic ut-d) a(props deliveryTarget)"/>
+                    default="(topic abbrev-d) (topic delay-d) (map ditavalref-d) (map glossref-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (map mapgroup-d) (topic markup-d xml-d) (topic markup-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic ui-d) (topic ut-d) a(props deliveryTarget)"/>
    </xs:attributeGroup>
 </xs:schema>

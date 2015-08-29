@@ -98,11 +98,7 @@
       <xs:attributeGroup ref="localization-atts"/>
       <xs:attribute name="outputclass" type="xs:string"/>
       <xs:attribute ref="ditaarch:DITAArchVersion"/>
-      <xs:attributeGroup ref="domains-att"/>
       <xs:attributeGroup ref="global-atts"/>
-   </xs:attributeGroup>
-   <xs:attributeGroup name="concept.attlist">
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
       <xs:attributeGroup ref="domains-att"/>
    </xs:attributeGroup>
    <xs:element name="conbody">

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Subject Classification Domain-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:oasis:names:tc:dita:spec:classification:rnc:classifyDomain.rnc:1.2"
+              uri="rnc/classifyDomain.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:spec:classification:rnc:classifyDomain.rnc"
+              uri="rnc/classifyDomain.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:spec:classification:rnc:classifyMap.rnc:1.2"
+              uri="rnc/classifyMap.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:spec:classification:rnc:classifyMap.rnc"
+              uri="rnc/classifyMap.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:subjectScheme.rnc:1.2"
+              uri="rnc/subjectScheme.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:subjectScheme.rnc"
+              uri="rnc/subjectScheme.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:subjectSchemeMod.rnc:1.2"
+              uri="rnc/subjectSchemeMod.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:rnc:subjectSchemeMod.rnc"
+              uri="rnc/subjectSchemeMod.rnc"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:oasis:names:tc:dita:spec:classification:rnc:classifyDomain.rnc:1.2"
+           uri="rnc/classifyDomain.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:spec:classification:rnc:classifyDomain.rnc"
+           uri="rnc/classifyDomain.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:spec:classification:rnc:classifyMap.rnc:1.2"
+           uri="rnc/classifyMap.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:spec:classification:rnc:classifyMap.rnc"
+           uri="rnc/classifyMap.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:subjectScheme.rnc:1.2"
+           uri="rnc/subjectScheme.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:subjectScheme.rnc"
+           uri="rnc/subjectScheme.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:subjectSchemeMod.rnc:1.2"
+           uri="rnc/subjectSchemeMod.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:rnc:subjectSchemeMod.rnc"
+           uri="rnc/subjectSchemeMod.rnc"/>
+   </group>
+</catalog>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="../../vocabularyModuleDesc/rng/vocabularyModuleDesc.rng"
+<?xml-model href="urn:oasis:names:tc:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
@@ -86,13 +86,13 @@ ORIGINAL CREATION DATE:
     <a:documentation>MODULE INCLUSIONS</a:documentation>
 
     <include href="mapMod.rng"/>
-    <include href="mapGroupDomainMod.rng"/>
+    <include href="mapGroupDomain.rng"/>
 
-    <include href="delayResolutionDomainMod.rng"/>
-    <include href="hazardstatementDomainMod.rng"/>
-    <include href="highlightDomainMod.rng"/>
-    <include href="indexingDomainMod.rng"/>
-    <include href="utilitiesDomainMod.rng"/>
+    <include href="delayResolutionDomain.rng"/>
+    <include href="hazardstatementDomain.rng"/>
+    <include href="highlightDomain.rng"/>
+    <include href="indexingDomain.rng"/>
+    <include href="utilitiesDomain.rng"/>
   </div>
   <div>
     <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>

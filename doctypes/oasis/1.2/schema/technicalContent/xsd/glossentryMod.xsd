@@ -97,10 +97,6 @@
       <xs:attributeGroup ref="domains-att"/>
       <xs:attributeGroup ref="global-atts"/>
    </xs:attributeGroup>
-   <xs:attributeGroup name="glossentry.attlist">
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
-      <xs:attributeGroup ref="domains-att"/>
-   </xs:attributeGroup>
    <xs:element name="glossterm">
       <xs:annotation>
          <xs:documentation>The &lt;glossterm&gt; element specifies the preferred term associated with a definition of a sense. If the same term has multiple senses, create a separate &lt;glossentry&gt;
@@ -612,7 +608,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="placement">
+      <xs:attribute name="placement" default="inline">
          <xs:simpleType>
             <xs:restriction base="xs:string">
                <xs:enumeration value="break"/>

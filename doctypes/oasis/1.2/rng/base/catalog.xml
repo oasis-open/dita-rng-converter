@@ -16,25 +16,25 @@
       <system systemId="urn:oasis:names:tc:dita:rng:commonElementsMod.rng"
               uri="rng/commonElementsMod.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng:1.2"
-              uri="rng/delayResolutionDomainMod.rng"/>
+              uri="rng/delayResolutionDomain.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng"
-              uri="rng/delayResolutionDomainMod.rng"/>
+              uri="rng/delayResolutionDomain.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:hazardDomain.rng:1.2"
-              uri="rng/hazardstatementDomainMod.rng"/>
+              uri="rng/hazardstatementDomain.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:hazardDomain.rng"
-              uri="rng/hazardstatementDomainMod.rng"/>
-      <system systemId="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng:1.2"
-              uri="rng/highlightDomainMod.rng"/>
-      <system systemId="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng"
-              uri="rng/highlightDomainMod.rng"/>
+              uri="rng/hazardstatementDomain.rng"/>
+      <system systemId="urn:oasis:names:tc:dita:rng:highlightDomain.rng:1.2"
+              uri="rng/highlightDomain.rng"/>
+      <system systemId="urn:oasis:names:tc:dita:rng:highlightDomain.rng"
+              uri="rng/highlightDomain.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:indexingDomain.rng:1.2"
-              uri="rng/indexingDomainMod.rng"/>
+              uri="rng/indexingDomain.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:indexingDomain.rng"
-              uri="rng/indexingDomainMod.rng"/>
+              uri="rng/indexingDomain.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:mapGroupMod.rng:1.2"
-              uri="rng/mapGroupDomainMod.rng"/>
+              uri="rng/mapGroupDomain.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:mapGroupMod.rng"
-              uri="rng/mapGroupDomainMod.rng"/>
+              uri="rng/mapGroupDomain.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:mapMod.rng:1.2"
               uri="rng/mapMod.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:mapMod.rng" uri="rng/mapMod.rng"/>
@@ -51,9 +51,9 @@
       <system systemId="urn:oasis:names:tc:dita:rng:topicMod.rng"
               uri="rng/topicMod.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng:1.2"
-              uri="rng/utilitiesDomainMod.rng"/>
+              uri="rng/utilitiesDomain.rng"/>
       <system systemId="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"
-              uri="rng/utilitiesDomainMod.rng"/>
+              uri="rng/utilitiesDomain.rng"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
       <uri name="urn:oasis:names:tc:dita:rng:basemap.rng:1.2"
@@ -68,25 +68,25 @@
       <uri name="urn:oasis:names:tc:dita:rng:commonElementsMod.rng"
            uri="rng/commonElementsMod.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng:1.2"
-           uri="rng/delayResolutionDomainMod.rng"/>
+           uri="rng/delayResolutionDomain.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng"
-           uri="rng/delayResolutionDomainMod.rng"/>
+           uri="rng/delayResolutionDomain.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:hazardDomain.rng:1.2"
-           uri="rng/hazardstatementDomainMod.rng"/>
+           uri="rng/hazardstatementDomain.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:hazardDomain.rng"
-           uri="rng/hazardstatementDomainMod.rng"/>
-      <uri name="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng:1.2"
-           uri="rng/highlightDomainMod.rng"/>
-      <uri name="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng"
-           uri="rng/highlightDomainMod.rng"/>
+           uri="rng/hazardstatementDomain.rng"/>
+      <uri name="urn:oasis:names:tc:dita:rng:highlightDomain.rng:1.2"
+           uri="rng/highlightDomain.rng"/>
+      <uri name="urn:oasis:names:tc:dita:rng:highlightDomain.rng"
+           uri="rng/highlightDomain.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:indexingDomain.rng:1.2"
-           uri="rng/indexingDomainMod.rng"/>
+           uri="rng/indexingDomain.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:indexingDomain.rng"
-           uri="rng/indexingDomainMod.rng"/>
+           uri="rng/indexingDomain.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:mapGroupMod.rng:1.2"
-           uri="rng/mapGroupDomainMod.rng"/>
+           uri="rng/mapGroupDomain.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:mapGroupMod.rng"
-           uri="rng/mapGroupDomainMod.rng"/>
+           uri="rng/mapGroupDomain.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:mapMod.rng:1.2" uri="rng/mapMod.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:mapMod.rng" uri="rng/mapMod.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:metaDeclMod.rng:1.2"
@@ -101,8 +101,8 @@
            uri="rng/topicMod.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:topicMod.rng" uri="rng/topicMod.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng:1.2"
-           uri="rng/utilitiesDomainMod.rng"/>
+           uri="rng/utilitiesDomain.rng"/>
       <uri name="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"
-           uri="rng/utilitiesDomainMod.rng"/>
+           uri="rng/utilitiesDomain.rng"/>
    </group>
 </catalog>

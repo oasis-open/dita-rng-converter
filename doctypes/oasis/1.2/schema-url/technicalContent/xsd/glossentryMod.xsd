@@ -612,7 +612,7 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="placement">
+      <xs:attribute name="placement" default="inline">
          <xs:simpleType>
             <xs:restriction base="xs:string">
                <xs:enumeration value="break"/>

@@ -1,56 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--=============================================================-->
-<!--                   HEADER                                    -->
-<!--=============================================================-->
-<!-- MODULE:    DITA Troubleshooting Shell                                  -->
-<!-- VERSION:   1.3                                              -->
-<!-- DATE:      March 2014                                       -->
-<!--                                                             -->
-<!--=============================================================-->
-<!--=============================================================-->
-<!--                   PUBLIC DOCUMENT TYPE DEFINITION           -->
-<!--                   TYPICAL INVOCATION                        -->
-<!--                                                             -->
-<!-- Refer to this file by the following public identifier or an -->
-<!--      appropriate system identifier:                         -->
-<!--                                                             -->
-<!--PUBLIC "-//OASIS//DTD DITA Troubleshooting//EN"              -->
-<!--The public ID above refers to the latest version of this DTD.-->
-<!--     To refer to this specific version, you may use this value:-->
-<!--                                                             -->
-<!--PUBLIC "-//OASIS//DTD DITA 1.3 Troubleshooting//EN"                          -->
-<!--=============================================================-->
-<!--SYSTEM:     Darwin Information Typing Architecture (DITA)    -->
-<!--                                                             -->
-<!--PURPOSE:    DTD to describe DITA troubleshooting tasks                       -->
-<!--                                                             -->
-<!--ORIGINAL CREATION DATE:                                      -->
-<!--            March 2014                                       -->
-<!--                                                             -->
-<!--            (C) Copyright OASIS Open 2014                    -->
-<!--            All Rights Reserved.                             -->
-<!--                                                             -->
-<!--=============================================================-->
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!-- Darwin Information Typing Architecture (DITA) Version 1.3     -->
+<!-- ^SPEC_RELEASE_TYPE^                                           -->
+<!-- ^DOC_APPROVAL_DATE^                                           -->
+<!-- Copyright (c) OASIS Open 2015. All rights reserved.           -->
+<!-- Source: ^GRAMMAR_FILE_ZIP_URL^                                -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- MODULE:    DITA Troubleshooting Shell                         -->
+<!-- VERSION:   1.3                                                -->
+<!-- DATE:      March 2014                                         -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    DTD to describe DITA troubleshooting tasks        -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--            March 2014                                         -->
+<!--                                                               -->
+<!-- ============================================================= -->
 <xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
 <!-- ================ TOPIC DOMAINS ===================== -->
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:abbreviateDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:equationDomainMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:abbreviateDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:equationDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:hazardDomain.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:indexingDomain.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:markupDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:mathmlDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:releaseManagementDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:svgDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:uiDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:xmlDomainMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:markupDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:mathmlDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:releaseManagementDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:svgDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:uiDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:xmlDomain.xsd:1.3"/>
 
    <!-- ================ GROUP DEFINITIONS ===================== -->
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:tblDeclGrp.xsd:1.3"/>
@@ -163,24 +154,39 @@
 
 
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:topicMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:strictTaskbodyConstraintMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:troubleshootingMod.xsd:1.3"/>
+   <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:strictTaskbodyConstraintMod.xsd:1.3">
+      <!-- Remove task-info-types from the group so we don't have collidng task elements -->
+      <xs:group name="task-info-types">
+         <xs:choice>
+            <xs:group ref="info-types"/>
+         </xs:choice>
+      </xs:group>
+   </xs:redefine>
+   <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:troubleshootingMod.xsd:1.3">
+      <!-- Remove troubleshooting element from the group since we prefer task as the embedable topic type-->
+      <xs:group name="troubleshooting-info-types">
+         <xs:choice>
+            <xs:group ref="info-types"/>
+         </xs:choice>
+      </xs:group>
+   </xs:redefine>   
    <!--  ================ INFO-TYPES DEFINITION =====================  -->
    <xs:group name="info-types">
       <xs:annotation>
          <xs:documentation>
-This group is referenced in all topic modules but not defined there.
-It must be declared in topic-type shells.
-</xs:documentation>
+            This group is referenced in all topic modules but not defined there.
+            It must be declared in topic-type shells.
+         </xs:documentation>
       </xs:annotation>
-      <xs:choice>
-         <xs:element ref="no-topic-nesting" maxOccurs="0" minOccurs="0"/>
-      </xs:choice>
+      <!-- Add Task type as preferred embedable element-->
+      <xs:sequence>
+         <xs:group  ref="task" />
+      </xs:sequence>
    </xs:group>
 
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(topic abbrev-d) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d xml-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic svg-d) (topic sw-d) (topic task strictTaskbody-c) (topic topic) (topic troubleshooting++task) (topic task) (topic ui-d) (topic ut-d) a(props deliveryTarget)"/>
+                    default="(topic abbrev-d) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d xml-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic svg-d) (topic sw-d) (topic task strictTaskbody-c) (topic troubleshooting++task) (topic task) (topic ui-d) (topic ut-d) a(props deliveryTarget)"/>
    </xs:attributeGroup>
 </xs:schema>

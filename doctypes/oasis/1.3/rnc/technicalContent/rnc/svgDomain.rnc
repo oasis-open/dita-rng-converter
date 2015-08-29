@@ -1,0 +1,34 @@
+#  
+# ============================================================= 
+# DITA SVG Domain
+# 
+# 
+# ============================================================= 
+#     
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+svg-d-foreign = svg-container.element
+foreign |= svg-d-foreign
+svg-container = svg-container.element
+svgref = svgref.element
+svg-container.content = (
+external "svg/svg11/svg11.rnc" | svgref | data | data-about)*
+svg-container.attributes = univ-atts, 
+attribute outputclass { text}?
+svg-container.element = 
+element svg-container {svg-container.attlist, svg-container.content}
+svg-container.attlist &= svg-container.attributes
+svgref.content =  empty 
+svgref.attributes = 
+attribute href { text}?, 
+attribute keyref { text}?, 
+attribute format { text}?, univ-atts, 
+attribute outputclass { text}?
+svgref.element = 
+element svgref {svgref.attlist, svgref.content}
+svgref.attlist &= svgref.attributes
+svg-container.attlist &= global-atts, 
+attribute class { text}?
+svgref.attlist &= global-atts, 
+attribute class { text}?

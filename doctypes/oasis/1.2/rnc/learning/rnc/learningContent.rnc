@@ -1,0 +1,70 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Learning Content DTD                        
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//DTD DITA Learning Content//EN"
+#       Delivered as file "learningContent.dtd"                     
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    DTD to describe DITA learning Content topic      
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             May 2007                                         
+#                                                              
+#             (C) Copyright OASIS Open 2007, 2009.             
+#             All Rights Reserved.                             
+#                                                              
+#  UPDATES:                                                    
+#    2007.05.01 JPH: Original creation                         
+# =============================================================
+# 
+# =============================================================
+#                    TOPIC ENTITY DECLARATIONS                 
+# =============================================================    
+#   
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+start = learningContent.element
+
+}
+div {
+domains-att &= 
+attribute domains { text}?
+}
+div {
+include "learningBaseMod.rnc"
+include "../../base/rnc/topicMod.rnc"
+include "../../technicalContent/rnc/taskMod.rnc"
+include "../../technicalContent/rnc/conceptMod.rnc"
+include "../../technicalContent/rnc/referenceMod.rnc"
+include "learningSummaryMod.rnc"
+include "learningAssessmentMod.rnc"
+include "learningContentMod.rnc"
+include "../../base/rnc/highlightDomain.rnc"
+include "../../base/rnc/utilitiesDomain.rnc"
+include "../../base/rnc/indexingDomain.rnc"
+include "learningInteractionBaseDomain.rnc"
+include "learningDomain.rnc"
+include "learningMetadataDomain.rnc"
+}
+div {
+any = (idElements | 
+element  * - (topic | learningContent | concept | learningSummary | learningAssessment | task | reference) {
+attribute  * { text}*, any} |  text )*
+}

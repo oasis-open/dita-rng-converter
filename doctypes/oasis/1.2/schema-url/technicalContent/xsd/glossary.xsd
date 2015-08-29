@@ -24,5 +24,5 @@
            attributeFormDefault="unqualified">
 <!-- NOTE: The glossary.xsd file was misnamed in DITA 1.1. For DITA 1.2+, it simply
     redirects to the correctly-named glossentry.xsd file.-->
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:glossentry.xsd:1.2"/>
+   <xs:include schemaLocation="./glossentry.xsd"/>
 </xs:schema>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Book Map Shell</moduleTitle>
@@ -91,17 +93,17 @@ ORIGINAL CREATION DATE:
     <a:documentation>MODULE INCLUSIONS</a:documentation>
     <include href="../../base/rng/mapMod.rng"/>
     <include href="bookmapMod.rng"/>
-    <include href="../../technicalContent/rng/abbreviateDomainMod.rng"/>
-    <include href="../../base/rng/delayResolutionDomainMod.rng"/>
-    <include href="../../base/rng/hazardstatementDomainMod.rng"/>
-    <include href="../../base/rng/highlightDomainMod.rng"/>
-    <include href="../../base/rng/indexingDomainMod.rng"/>
-    <include href="../../base/rng/mapGroupDomainMod.rng"/>
-    <include href="../../technicalContent/rng/programmingDomainMod.rng"/>
-    <include href="../../technicalContent/rng/softwareDomainMod.rng"/>
-    <include href="../../technicalContent/rng/uiDomainMod.rng"/>
-    <include href="../../base/rng/utilitiesDomainMod.rng"/>
-    <include href="../../xnal/rng/xnalDomainMod.rng"/>
+    <include href="../../technicalContent/rng/abbreviateDomain.rng"/>
+    <include href="../../base/rng/delayResolutionDomain.rng"/>
+    <include href="../../base/rng/hazardstatementDomain.rng"/>
+    <include href="../../base/rng/highlightDomain.rng"/>
+    <include href="../../base/rng/indexingDomain.rng"/>
+    <include href="../../base/rng/mapGroupDomain.rng"/>
+    <include href="../../technicalContent/rng/programmingDomain.rng"/>
+    <include href="../../technicalContent/rng/softwareDomain.rng"/>
+    <include href="../../technicalContent/rng/uiDomain.rng"/>
+    <include href="../../base/rng/utilitiesDomain.rng"/>
+    <include href="../../xnal/rng/xnalDomain.rng"/>
 
   </div>
   <div>

@@ -91,10 +91,6 @@
       <xs:attributeGroup ref="domains-att"/>
       <xs:attributeGroup ref="global-atts"/>
    </xs:attributeGroup>
-   <xs:attributeGroup name="learningPlan.attlist">
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
-      <xs:attributeGroup ref="domains-att"/>
-   </xs:attributeGroup>
    <xs:element name="learningPlanbody">
       <xs:annotation>
          <xs:documentation>The &lt;learningPlanbody&gt; element is the main body-level element in a learningPlan topic. </xs:documentation>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Glossary Group Shell</moduleTitle>
@@ -7,6 +9,13 @@
  =============================================================
                    HEADER                                     
 ============================================================= 
+Darwin Information Typing Architecture (DITA) Version 1.3
+^SPEC_RELEASE_TYPE^
+^DOC_APPROVAL_DATE^ 
+Copyright (c) OASIS Open 2015. All rights reserved. 
+Source: ^GRAMMAR_FILE_ZIP_URL^
+
+============================================================
  MODULE:    DITA Glossary Group Shell                         
  VERSION:   1.3                                       
  DATE:      March 2014                                     
@@ -40,12 +49,12 @@ ORIGINAL CREATION DATE:
     <moduleMetadata>
       <moduleType>topicshell</moduleType>
       <moduleShortName>glossgroup</moduleShortName>
-      <modulePublicIds>
+      <shellPublicIds>
         <dtdShell>-//OASIS//DTD DITA<var presep=" " name="ditaver"/> Glossary Group//EN</dtdShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:glossgroup.xsd<var presep=":" name="ditaver"/></xsdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:glossgroup.rnc<var presep=":" name="ditaver"/></rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:glossgroup.rng<var presep=":" name="ditaver"/></rngShell>
-      </modulePublicIds>
+      </shellPublicIds>
     </moduleMetadata>
   </moduleDesc>
   <div>
@@ -75,7 +84,6 @@ ORIGINAL CREATION DATE:
                          (topic relmgmt-d)
                          (topic svg-d)
                          (topic sw-d)
-                         (topic topic)
                          (topic ui-d)
                          (topic ut-d)
                          a(props deliveryTarget)"
@@ -90,21 +98,21 @@ ORIGINAL CREATION DATE:
     <include href="conceptMod.rng"/>
     <include href="glossentryMod.rng"/>
     <include href="glossgroupMod.rng"/>
-    <include href="../../base/rng/deliveryTargetAttDomainMod.rng" dita:since="1.3"/>
-    <include href="equationDomainMod.rng" dita:since="1.3"/>
-    <include href="../../base/rng/hazardstatementDomainMod.rng"/>
-    <include href="../../base/rng/highlightDomainMod.rng"/>
-    <include href="../../base/rng/indexingDomainMod.rng"/>
-    <include href="abbreviateDomainMod.rng"/>
-    <include href="markupDomainMod.rng" dita:since="1.3"/>
-    <include href="mathmlDomainMod.rng" dita:since="1.3"/>
-    <include href="programmingDomainMod.rng" dita:since="1.3"/>
-    <include href="releaseManagementDomainMod.rng" dita:since="1.3"/>
-    <include href="softwareDomainMod.rng"/>
-    <include href="svgDomainMod.rng" dita:since="1.3"/>
-    <include href="uiDomainMod.rng"/>
-    <include href="../../base/rng/utilitiesDomainMod.rng"/>
-    <include href="xmlDomainMod.rng" dita:since="1.3"/>
+    <include href="../../base/rng/deliveryTargetAttDomain.rng" dita:since="1.3"/>
+    <include href="equationDomain.rng" dita:since="1.3"/>
+    <include href="../../base/rng/hazardstatementDomain.rng"/>
+    <include href="../../base/rng/highlightDomain.rng"/>
+    <include href="../../base/rng/indexingDomain.rng"/>
+    <include href="abbreviateDomain.rng"/>
+    <include href="markupDomain.rng" dita:since="1.3"/>
+    <include href="mathmlDomain.rng" dita:since="1.3"/>
+    <include href="programmingDomain.rng" dita:since="1.3"/>
+    <include href="releaseManagementDomain.rng" dita:since="1.3"/>
+    <include href="softwareDomain.rng"/>
+    <include href="svgDomain.rng" dita:since="1.3"/>
+    <include href="uiDomain.rng"/>
+    <include href="../../base/rng/utilitiesDomain.rng"/>
+    <include href="xmlDomain.rng" dita:since="1.3"/>
 
   </div>
   <div>

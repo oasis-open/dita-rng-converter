@@ -2,6 +2,13 @@
 <!-- ============================================================= -->
 <!--                    HEADER                                     -->
 <!-- ============================================================= -->
+<!-- Darwin Information Typing Architecture (DITA) Version 1.3     -->
+<!-- ^SPEC_RELEASE_TYPE^                                           -->
+<!-- ^DOC_APPROVAL_DATE^                                           -->
+<!-- Copyright (c) OASIS Open 2015. All rights reserved.           -->
+<!-- Source: ^GRAMMAR_FILE_ZIP_URL^                                -->
+<!--                                                               -->
+<!-- ============================================================= -->
 <!--  MODULE:    DITA Machinery Task                               -->
 <!--  VERSION:   1.3                                               -->
 <!--  DATE:      March 2014                                        -->
@@ -40,6 +47,10 @@
   PUBLIC "-//OASIS//ENTITIES DITA 1.3 Task//EN"
          "../../technicalContent/dtd/task.ent"
 >%task-dec;
+
+<!-- ============================================================= -->
+<!--             DOMAIN CONSTRAINT INTEGRATION                     -->
+<!-- ============================================================= -->
 
 <!-- ============================================================= -->
 <!--             DOMAIN ENTITY DECLARATIONS                        -->
@@ -96,6 +107,9 @@
                         the name of the domain(s) in which the
                         extension was declared                     -->
 
+<!ENTITY % index-base   "index-base |
+                         %indexing-d-index-base;
+                        ">
 <!ENTITY % note         "note |
                          %hazard-d-note;
                         ">
@@ -103,14 +117,17 @@
                          %hi-d-ph; |
                          %ui-d-ph;
                         ">
-<!ENTITY % index-base   "index-base |
-                         %indexing-d-index-base;
-                        ">
 <!ENTITY % fig          "fig |
                          %ut-d-fig;
                         ">
 <!ENTITY % data         "data |
                          %ut-d-data;
+                        ">
+<!ENTITY % keyword      "keyword |
+                         %ui-d-keyword;
+                        ">
+<!ENTITY % pre          "pre |
+                         %ui-d-pre;
                         ">
 <!ENTITY % foreign      "foreign |
                          %svg-d-foreign;
@@ -120,12 +137,6 @@
                         ">
 <!ENTITY % postreq      "postreq |
                          %taskreq-d-postreq;
-                        ">
-<!ENTITY % keyword      "keyword |
-                         %ui-d-keyword;
-                        ">
-<!ENTITY % pre          "pre |
-                         %ui-d-pre;
                         ">
 
 <!-- ============================================================= -->

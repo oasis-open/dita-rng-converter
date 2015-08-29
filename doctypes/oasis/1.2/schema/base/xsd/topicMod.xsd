@@ -65,12 +65,6 @@
    <xs:import namespace="http://dita.oasis-open.org/architecture/2005/"
               schemaLocation="urn:oasis:names:tc:dita:xsd:ditaarch.xsd:1.2"/>
 
-   <xs:annotation>
-      <xs:appinfo>
-         <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic topic)</dita:domainsModule>
-      </xs:appinfo>
-   </xs:annotation>
-
    <xs:group name="topic-info-types">
       <xs:choice>
          <xs:group ref="topic"/>
@@ -261,10 +255,6 @@
       <xs:attribute ref="ditaarch:DITAArchVersion"/>
       <xs:attributeGroup ref="domains-att"/>
       <xs:attributeGroup ref="global-atts"/>
-   </xs:attributeGroup>
-   <xs:attributeGroup name="topic.attlist">
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
-      <xs:attributeGroup ref="domains-att"/>
    </xs:attributeGroup>
    <xs:element name="titlealts">
       <xs:annotation>

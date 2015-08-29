@@ -91,11 +91,9 @@
       <xs:attributeGroup ref="select-atts"/>
       <xs:attributeGroup ref="localization-atts"/>
       <xs:attribute name="outputclass" type="xs:string"/>
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
+      <xs:attribute ref="ditaarch:DITAArchVersion"/>     
+      <xs:attributeGroup ref="domains-att"/>
       <xs:attributeGroup ref="global-atts"/>
-   </xs:attributeGroup>
-   <xs:attributeGroup name="learningBase.attlist">
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
    </xs:attributeGroup>
    <xs:element name="learningBasebody">
       <xs:annotation>

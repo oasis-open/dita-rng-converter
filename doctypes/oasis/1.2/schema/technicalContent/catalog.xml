@@ -3,9 +3,9 @@
 <!--DITA Abbreviated Form Domain-->
 
    <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:oasis:names:tc:dita:xsd:abbreviateDomainMod.xsd:1.2"
+      <system systemId="urn:oasis:names:tc:dita:xsd:abbreviateDomain.xsd:1.2"
               uri="xsd/abbreviateDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:abbreviateDomainMod.xsd"
+      <system systemId="urn:oasis:names:tc:dita:xsd:abbreviateDomain.xsd"
               uri="xsd/abbreviateDomain.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:concept.xsd:1.2"
               uri="xsd/concept.xsd"/>
@@ -63,15 +63,15 @@
               uri="xsd/glossgroupGrp.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:glossgroupGrp.xsd"
               uri="xsd/glossgroupGrp.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:glossrefDomainMod.xsd:1.2"
+      <system systemId="urn:oasis:names:tc:dita:xsd:glossrefDomain.xsd:1.2"
               uri="xsd/glossrefDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:glossrefDomainMod.xsd"
+      <system systemId="urn:oasis:names:tc:dita:xsd:glossrefDomain.xsd"
               uri="xsd/glossrefDomain.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:map.xsd:1.2" uri="xsd/map.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:map.xsd" uri="xsd/map.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:programmingDomainMod.xsd:1.2"
+      <system systemId="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd:1.2"
               uri="xsd/programmingDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:programmingDomainMod.xsd"
+      <system systemId="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd"
               uri="xsd/programmingDomain.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:reference.xsd:1.2"
               uri="xsd/reference.xsd"/>
@@ -85,9 +85,9 @@
               uri="xsd/referenceGrp.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:referenceGrp.xsd"
               uri="xsd/referenceGrp.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:softwareDomainMod.xsd:1.2"
+      <system systemId="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd:1.2"
               uri="xsd/softwareDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:softwareDomainMod.xsd"
+      <system systemId="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd"
               uri="xsd/softwareDomain.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:strictTaskbodyConstraintMod.xsd:1.2"
               uri="xsd/strictTaskbodyConstraintMod.xsd"/>
@@ -103,22 +103,22 @@
               uri="xsd/taskMod.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:taskMod.xsd"
               uri="xsd/taskMod.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:taskreqDomainMod.xsd:1.2"
+      <system systemId="urn:oasis:names:tc:dita:xsd:taskreqDomain.xsd:1.2"
               uri="xsd/taskreqDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:taskreqDomainMod.xsd"
+      <system systemId="urn:oasis:names:tc:dita:xsd:taskreqDomain.xsd"
               uri="xsd/taskreqDomain.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:topic.xsd:1.2"
               uri="xsd/topic.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:topic.xsd" uri="xsd/topic.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:uiDomainMod.xsd:1.2"
+      <system systemId="urn:oasis:names:tc:dita:xsd:uiDomain.xsd:1.2"
               uri="xsd/uiDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:uiDomainMod.xsd"
+      <system systemId="urn:oasis:names:tc:dita:xsd:uiDomain.xsd"
               uri="xsd/uiDomain.xsd"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:oasis:names:tc:dita:xsd:abbreviateDomainMod.xsd:1.2"
+      <uri name="urn:oasis:names:tc:dita:xsd:abbreviateDomain.xsd:1.2"
            uri="xsd/abbreviateDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:abbreviateDomainMod.xsd"
+      <uri name="urn:oasis:names:tc:dita:xsd:abbreviateDomain.xsd"
            uri="xsd/abbreviateDomain.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:concept.xsd:1.2"
            uri="xsd/concept.xsd"/>
@@ -173,15 +173,15 @@
            uri="xsd/glossgroupGrp.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:glossgroupGrp.xsd"
            uri="xsd/glossgroupGrp.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:glossrefDomainMod.xsd:1.2"
+      <uri name="urn:oasis:names:tc:dita:xsd:glossrefDomain.xsd:1.2"
            uri="xsd/glossrefDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:glossrefDomainMod.xsd"
+      <uri name="urn:oasis:names:tc:dita:xsd:glossrefDomain.xsd"
            uri="xsd/glossrefDomain.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:map.xsd:1.2" uri="xsd/map.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:map.xsd" uri="xsd/map.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:programmingDomainMod.xsd:1.2"
+      <uri name="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd:1.2"
            uri="xsd/programmingDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:programmingDomainMod.xsd"
+      <uri name="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd"
            uri="xsd/programmingDomain.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:reference.xsd:1.2"
            uri="xsd/reference.xsd"/>
@@ -195,9 +195,9 @@
            uri="xsd/referenceGrp.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:referenceGrp.xsd"
            uri="xsd/referenceGrp.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:softwareDomainMod.xsd:1.2"
+      <uri name="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd:1.2"
            uri="xsd/softwareDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:softwareDomainMod.xsd"
+      <uri name="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd"
            uri="xsd/softwareDomain.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:strictTaskbodyConstraintMod.xsd:1.2"
            uri="xsd/strictTaskbodyConstraintMod.xsd"/>
@@ -211,15 +211,15 @@
       <uri name="urn:oasis:names:tc:dita:xsd:taskMod.xsd:1.2"
            uri="xsd/taskMod.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:taskMod.xsd" uri="xsd/taskMod.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:taskreqDomainMod.xsd:1.2"
+      <uri name="urn:oasis:names:tc:dita:xsd:taskreqDomain.xsd:1.2"
            uri="xsd/taskreqDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:taskreqDomainMod.xsd"
+      <uri name="urn:oasis:names:tc:dita:xsd:taskreqDomain.xsd"
            uri="xsd/taskreqDomain.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:topic.xsd:1.2" uri="xsd/topic.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:topic.xsd" uri="xsd/topic.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:uiDomainMod.xsd:1.2"
+      <uri name="urn:oasis:names:tc:dita:xsd:uiDomain.xsd:1.2"
            uri="xsd/uiDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:uiDomainMod.xsd"
+      <uri name="urn:oasis:names:tc:dita:xsd:uiDomain.xsd"
            uri="xsd/uiDomain.xsd"/>
       <system systemId="ditabaseMod.xsd" uri="ditabaseMod.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:ditabaseMod.xsd"

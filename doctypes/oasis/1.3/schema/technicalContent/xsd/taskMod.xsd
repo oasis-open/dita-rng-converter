@@ -132,12 +132,8 @@
       <xs:attributeGroup ref="localization-atts"/>
       <xs:attribute name="outputclass" type="xs:string"/>
       <xs:attribute ref="ditaarch:DITAArchVersion"/>
-      <xs:attribute name="domains" type="xs:string"/>
+      <xs:attributeGroup ref="domains-att"/>
       <xs:attributeGroup ref="global-atts"/>
-   </xs:attributeGroup>
-   <xs:attributeGroup name="task.attlist">
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
-      <xs:attribute name="domains" type="xs:string"/>
    </xs:attributeGroup>
    <xs:element name="taskbody">
       <xs:annotation>

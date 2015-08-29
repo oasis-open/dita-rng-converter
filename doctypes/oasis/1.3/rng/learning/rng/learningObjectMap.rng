@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
          xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
          xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
@@ -9,6 +11,13 @@
 =============================================================
                    HEADER                                    
 =============================================================
+Darwin Information Typing Architecture (DITA) Version 1.3
+^SPEC_RELEASE_TYPE^
+^DOC_APPROVAL_DATE^ 
+Copyright (c) OASIS Open 2015. All rights reserved. 
+Source: ^GRAMMAR_FILE_ZIP_URL^
+
+============================================================
  MODULE:    DITA learningObjectMap                             
  VERSION:   1.3                                              
  DATE:      March 2014                                    
@@ -30,11 +39,11 @@ ORIGINAL CREATION DATE:
          <moduleShortName>learningObjectMap</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//OASIS//DTD DITA<var presep=" " name="ditaver"/> Learning Object Map//EN</dtdShell>
-            <rncShell>urn:oasis:names:tc:dita:rnc:learningObjectMap.rnc<var presep=":" name="ditaver"/>
+            <rncShell>urn:oasis:names:tc:dita:spec:learning:rnc:learningObjectMap.rnc<var presep=":" name="ditaver"/>
             </rncShell>
-            <rngShell>urn:oasis:names:tc:dita:rng:learningObjectMap.rng<var presep=":" name="ditaver"/>
+            <rngShell>urn:oasis:names:tc:dita:spec:learning:rng:learningObjectMap.rng<var presep=":" name="ditaver"/>
             </rngShell>
-            <xsdShell>urn:oasis:names:tc:dita:xsd:learningObjectMap.xsd<var presep=":" name="ditaver"/>
+            <xsdShell>urn:oasis:names:tc:dita:spec:learning:xsd:learningObjectMap.xsd<var presep=":" name="ditaver"/>
             </xsdShell>
          </shellPublicIds>
       </moduleMetadata>
@@ -75,17 +84,17 @@ ORIGINAL CREATION DATE:
   <div>
       <a:documentation>MODULE INCLUSIONS</a:documentation>
       <include href="learningObjectMapMod.rng"/>
-      <include href="../../base/rng/delayResolutionDomainMod.rng"/>
-      <include href="../../base/rng/deliveryTargetAttDomainMod.rng"/>
-      <include href="../../base/rng/ditavalrefDomainMod.rng"/>
-      <include href="../../base/rng/hazardstatementDomainMod.rng"/>
-      <include href="../../base/rng/highlightDomainMod.rng"/>
-      <include href="../../base/rng/indexingDomainMod.rng"/>
-      <include href="learningMapDomainMod.rng"/>
-      <include href="learningMetadataDomainMod.rng"/>
-      <include href="../../technicalContent/rng/releaseManagementDomainMod.rng"
+      <include href="../../base/rng/delayResolutionDomain.rng"/>
+      <include href="../../base/rng/deliveryTargetAttDomain.rng"/>
+      <include href="../../base/rng/ditavalrefDomain.rng"/>
+      <include href="../../base/rng/hazardstatementDomain.rng"/>
+      <include href="../../base/rng/highlightDomain.rng"/>
+      <include href="../../base/rng/indexingDomain.rng"/>
+      <include href="learningMapDomain.rng"/>
+      <include href="learningMetadataDomain.rng"/>
+      <include href="../../technicalContent/rng/releaseManagementDomain.rng"
                dita:since="1.3"/>
-      <include href="../../base/rng/utilitiesDomainMod.rng"/>
+      <include href="../../base/rng/utilitiesDomain.rng"/>
   </div>
   <div>
       <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>

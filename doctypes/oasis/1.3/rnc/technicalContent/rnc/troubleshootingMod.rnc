@@ -1,0 +1,106 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA Troubleshooting Domain                                      
+#  VERSION:   1.3                                              
+#  DATE:      March 2014                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identifier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Troubleshooting//EN"
+#       Delivered as file "troubleshooting.mod"                                
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Declaring the elements and specialization        
+#             attributes for the DITA Troubleshootings                    
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             March 2014                                       
+#                                                              
+#             (C) Copyright OASIS Open 2014             
+#             All Rights Reserved.                             
+#                                                              
+# =============================================================
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+cause = cause.element
+condition = condition.element
+remedy = remedy.element
+responsibleParty = responsibleParty.element
+troublebody = troublebody.element
+troubleshooting = troubleshooting.element
+troubleSolution = troubleSolution.element
+section.blocks.only.cnt = title?, (basic.block | data.elements.incl | foreign.unknown.incl | sectiondiv | txt.incl)*
+troubleshooting-info-types = info-types
+troubleshooting.content = title, titlealts?, (abstract | shortdesc)?, prolog?, troublebody?, related-links?, troubleshooting-info-types*
+troubleshooting.attributes = 
+attribute id { xsd:ID}, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+troubleshooting.element = 
+element troubleshooting {troubleshooting.attlist, troubleshooting.content}
+troubleshooting.attlist &= troubleshooting.attributes, arch-atts, domains-att
+troublebody.content = condition?, troubleSolution+?
+troublebody.attributes = id-atts, localization-atts, 
+attribute base { text}?, base-attribute-extensions, 
+attribute outputclass { text}?
+troublebody.element = 
+element troublebody {troublebody.attlist, troublebody.content}
+troublebody.attlist &= troublebody.attributes
+cause.content = section.blocks.only.cnt?
+cause.attributes = univ-atts, 
+attribute spectitle { text}?, 
+attribute outputclass { text}?
+cause.element = 
+element cause {cause.attlist, cause.content}
+cause.attlist &= cause.attributes
+condition.content = section.blocks.only.cnt?
+condition.attributes = univ-atts, 
+attribute spectitle { text}?, 
+attribute outputclass { text}?
+condition.element = 
+element condition {condition.attlist, condition.content}
+condition.attlist &= condition.attributes
+remedy.content = title?, responsibleParty?, (steps | steps-unordered | steps-informal)
+remedy.attributes = 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+remedy.element = 
+element remedy {remedy.attlist, remedy.content}
+remedy.attlist &= remedy.attributes
+responsibleParty.content = para.cnt*
+responsibleParty.attributes = univ-atts, 
+attribute outputclass { text}?
+responsibleParty.element = 
+element responsibleParty {responsibleParty.attlist, responsibleParty.content}
+responsibleParty.attlist &= responsibleParty.attributes
+troubleSolution.content = (cause*, remedy*)
+troubleSolution.attributes = univ-atts, 
+attribute outputclass { text}?
+troubleSolution.element = 
+element troubleSolution {troubleSolution.attlist, troubleSolution.content}
+troubleSolution.attlist &= troubleSolution.attributes
+troubleshooting.attlist &= global-atts, 
+attribute class { text}?
+troublebody.attlist &= global-atts, 
+attribute class { text}?
+troubleSolution.attlist &= global-atts, 
+attribute class { text}?
+cause.attlist &= global-atts, 
+attribute class { text}?
+condition.attlist &= global-atts, 
+attribute class { text}?
+remedy.attlist &= global-atts, 
+attribute class { text}?
+responsibleParty.attlist &= global-atts, 
+attribute class { text}?

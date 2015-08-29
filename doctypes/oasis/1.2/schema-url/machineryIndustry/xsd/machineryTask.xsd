@@ -57,20 +57,6 @@
    <!-- ======= MetaData elements, plus keyword and indexterm ======= -->
    <xs:include schemaLocation="../../base/xsd/metaDeclMod.xsd"/>
 
-   <xs:redefine schemaLocation="../../technicalContent/xsd/taskGrp.xsd">
-      <xs:group name="prereq">
-         <xs:choice>
-            <xs:group ref="prereq"/>
-            <xs:group ref="taskreq-d-prereq"/>
-         </xs:choice>
-      </xs:group>
-      <xs:group name="postreq">
-         <xs:choice>
-            <xs:group ref="postreq"/>
-            <xs:group ref="taskreq-d-postreq"/>
-         </xs:choice>
-      </xs:group>
-   </xs:redefine>
    <xs:redefine schemaLocation="../../base/xsd/commonElementGrp.xsd">
       <xs:group name="note">
          <xs:choice>
@@ -130,6 +116,6 @@ It must be declared in topic-type shells.
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(topic hazard-d) (topic hi-d) (topic indexing-d) (topic task taskreq-d) (topic task) (topic task+taskreq-d machineryTaskbody-c) (topic topic) (topic ui-d) (topic ut-d)"/>
+                    default="(topic hazard-d) (topic hi-d) (topic indexing-d) (topic task taskreq-d) (topic task) (topic task+taskreq-d machineryTaskbody-c) (topic ui-d) (topic ut-d)"/>
    </xs:attributeGroup>
 </xs:schema>

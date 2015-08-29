@@ -1,69 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--=============================================================-->
-<!--                   HEADER                                    -->
-<!--=============================================================-->
-<!-- MODULE:    DITA BASE DTD                                    -->
-<!-- VERSION:   1.3                                              -->
-<!-- DATE:      March 2014                                       -->
-<!--                                                             -->
-<!--=============================================================-->
-<!--=============================================================-->
-<!--                   PUBLIC DOCUMENT TYPE DEFINITION           -->
-<!--                   TYPICAL INVOCATION                        -->
-<!--                                                             -->
-<!-- Refer to this file by the following public identifier or an -->
-<!--      appropriate system identifier                          -->
-<!--                                                             -->
-<!--PUBLIC "-//OASIS//DTD DITA Composite//EN"                    -->
-<!--The public ID above refers to the latest version of this DTD.-->
-<!--     To refer to this specific version, you may use this value:-->
-<!--                                                             -->
-<!--PUBLIC "-//OASIS//DTD DITA 1.3 Composite//EN"                     -->
-<!--                                                             -->
-<!--=============================================================-->
-<!--SYSTEM:     Darwin Information Typing Architecture (DITA)    -->
-<!--                                                             -->
-<!--PURPOSE:    Base DTD holds all the information types         -->
-<!--                                                             -->
-<!--ORIGINAL CREATION DATE:                                      -->
-<!--            March 2001                                       -->
-<!--                                                             -->
-<!--            (C) Copyright OASIS Open 2005, 2009.             -->
-<!--            (C) Copyright IBM Corporation 2001, 2004.        -->
-<!--            All Rights Reserved.                             -->
-<!--                                                             -->
-<!-- UPDATES:                                                    -->
-<!--   2005.11.15 RDA: Updated these comments to match template  -->
-<!--   2006.06.07 RDA: Added indexing domain                     -->
-<!--   2006.06.21 RDA: Added props attribute extensions          -->
-<!--   2008.01.25 RDA: Added xml:lang, DITAArchVersion to <dita> -->
-<!--   2008.02.01 RDA: Added references to topic ENT files       -->
-<!--   2008.02.12 RDA: Modify imbeds to use specific 1.2 version -->
-<!--   2008.04.15 RDA: Added hazard domain                       -->
-<!--   2009.11.10 RDA: Added taskbody constraint                 -->
-<!--   2009.11.10 RDA: Added glossgroup                          -->
-<!--   2014.03.16 WEK: Updated for DITA 1.3, reimplemented as RNG                          -->
-<!--=============================================================-->
+<!-- ============================================================= -->
+<!--                   HEADER                                      -->
+<!-- ============================================================= -->
+<!-- Darwin Information Typing Architecture (DITA) Version 1.3     -->
+<!-- ^SPEC_RELEASE_TYPE^                                           -->
+<!-- ^DOC_APPROVAL_DATE^                                           -->
+<!-- Copyright (c) OASIS Open 2015. All rights reserved.           -->
+<!-- Source: ^GRAMMAR_FILE_ZIP_URL^                                -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- MODULE:    DITA BASE XSD                                      -->
+<!-- VERSION:   1.3                                                -->
+<!-- DATE:      March 2014                                         -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Based W3C XML Schema holds all the information    -->
+<!--             types                                             -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--            March 2001                                         -->
+<!--                                                               -->
+<!-- UPDATES                                                       -->
+<!--  2009.03.20 EAS: Added xml:lang and DITAArchVersion attribute -->
+<!--                  to dita element                              -->
+<!-- ============================================================= -->
 <xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
 <!-- ================ TOPIC DOMAINS ===================== -->
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:abbreviateDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:equationDomainMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:abbreviateDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:equationDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:hazardDomain.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:indexingDomain.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:markupDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:mathmlDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:releaseManagementDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:svgDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:uiDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomainMod.xsd:1.3"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:xmlDomainMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:markupDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:mathmlDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:releaseManagementDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:svgDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:uiDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:xmlDomain.xsd:1.3"/>
 
    <!-- ================ GROUP DEFINITIONS ===================== -->
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:tblDeclGrp.xsd:1.3"/>
@@ -73,6 +56,8 @@
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:glossentryGrp.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:glossgroupGrp.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:referenceGrp.xsd:1.3"/>
+
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:troubleshootingGrp.xsd:1.3"/>
 
    <!-- =================  MODULE INCLUDE DEFINITION  ================== -->
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:commonElementMod.xsd:1.3"/>
@@ -177,6 +162,70 @@
       </xs:group>
    </xs:redefine>
 
+  <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:topicMod.xsd:1.3" >
+       
+    <xs:group name="topic-info-types">
+      <xs:choice>
+        <xs:group ref="info-types"/>
+      </xs:choice>
+    </xs:group>
+  </xs:redefine>
+
+  <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:conceptMod.xsd:1.3" >
+  
+    <xs:group name="concept-info-types">
+      <xs:choice>
+        <xs:group ref="info-types"/>
+      </xs:choice>
+    </xs:group>
+  </xs:redefine>
+
+  <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:strictTaskbodyConstraintMod.xsd:1.3">
+    <xs:group name="task-info-types">
+      <xs:choice>
+        <xs:group ref="info-types"/>
+      </xs:choice>
+    </xs:group>
+  </xs:redefine>
+
+  <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:referenceMod.xsd:1.3" >
+    
+    <xs:group name="reference-info-types">
+      <xs:choice>
+        <xs:group ref="info-types"/>
+      </xs:choice>
+    </xs:group>
+  </xs:redefine>
+  
+  <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:troubleshootingMod.xsd:1.3" >
+    
+    <xs:group name="troubleshooting-info-types">
+      <xs:choice>
+        <xs:group ref="info-types"/>
+      </xs:choice>
+    </xs:group>
+  </xs:redefine>
+  
+  <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:glossentryMod.xsd:1.3" >
+    
+    <xs:group name="glossentry-info-types">
+      <xs:choice>
+        <xs:group ref="no-topic-nesting"/>
+      </xs:choice>
+    </xs:group>
+    
+  </xs:redefine>
+  
+  <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:glossgroupMod.xsd:1.3">
+
+    <xs:group name="glossgroup-info-types">
+      <xs:choice>
+        <xs:group ref="glossgroup"/>
+        <xs:group ref="glossentry"/>
+      </xs:choice>
+    </xs:group>
+
+  </xs:redefine>
 
 
    <!--  ================ INFO-TYPES DEFINITION =====================  -->
@@ -194,12 +243,13 @@
          <xs:element ref="glossentry"/>
          <xs:element ref="glossgroup"/>
          <xs:element ref="reference"/>
+         <xs:element ref="troubleshooting"/>
       </xs:choice>
    </xs:group>
 
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(topic abbrev-d) (topic concept glossentry) (topic concept glossgroup) (topic concept) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d xml-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic reference) (topic relmgmt-d) (topic svg-d) (topic sw-d) (topic task strictTaskbody-c) (topic task) (topic topic) (topic ui-d) (topic ut-d) a(props deliveryTarget)"/>
+                    default="(topic abbrev-d) (topic concept glossentry) (topic concept glossgroup) (topic concept) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d xml-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic reference) (topic relmgmt-d) (topic svg-d) (topic sw-d) (topic task strictTaskbody-c) (topic task) (topic troubleshooting++task) (topic ui-d) (topic ut-d) a(props deliveryTarget)"/>
    </xs:attributeGroup>
 </xs:schema>

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Learning no learning1 constraint</moduleTitle>
@@ -31,9 +33,9 @@ ORIGINAL CREATION DATE:
       <moduleShortName>lcInteractionNoLearning2-constraint</moduleShortName>
       <modulePublicIds>
         <dtdMod>-//OASIS//ELEMENTS DITA<var presep=" " name="ditaver"/> Learning No Learning 2 Constraint//EN</dtdMod>
-        <xsdMod>urn:oasis:names:tc:dita:xsd:learningNoLearning2ConstraintMod.xsd<var presep=":" name="ditaver"/></xsdMod>
-        <rncMod>urn:oasis:names:tc:dita:rnc:learningNoLearning2ConstraintMod.rnc<var presep=":" name="ditaver"/></rncMod>
-        <rngMod>urn:oasis:names:tc:dita:rng:learningNoLearning2ConstraintMod.rng<var presep=":" name="ditaver"/></rngMod>
+        <xsdMod>urn:oasis:names:tc:dita:spec:learning:xsd:learningNoLearning2ConstraintMod.xsd<var presep=":" name="ditaver"/></xsdMod>
+        <rncMod>urn:oasis:names:tc:dita:spec:learning:rnc:learningNoLearning2ConstraintMod.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:oasis:names:tc:dita:spec:learning:rng:learningNoLearning2ConstraintMod.rng<var presep=":" name="ditaver"/></rngMod>
       </modulePublicIds>
       <domainsContribution>(topic lcInteraction learningNoLearning2-c)</domainsContribution>
     </moduleMetadata>

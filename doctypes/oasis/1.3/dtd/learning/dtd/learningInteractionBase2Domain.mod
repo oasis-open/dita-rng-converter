@@ -55,12 +55,7 @@
                           %txt.incl;)*)"
 >
 <!ENTITY % lcInteractionBase2.attributes
-              "id
-                          NMTOKEN
-                                    #REQUIRED
-               %conref-atts;
-               %select-atts;
-               %localization-atts;
+              "%univ-atts;
                outputclass
                           CDATA
                                     #IMPLIED"

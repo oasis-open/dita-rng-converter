@@ -191,6 +191,6 @@ It must be declared in topic-type shells.
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(topic concept) (topic hi-d) (topic indexing-d) (topic learningBase learningSummary) (topic learningBase+learningInteractionBase-d learningAssessment) (topic learningBase+learningInteractionBase-d learningContent) (topic learningBase+learningInteractionBase-d) (topic learningInteractionBase-d learning-d) (topic learningInteractionBase-d) (topic learningmeta-d) (topic reference) (topic task) (topic topic) (topic ut-d)"/>
+                    default="(topic concept) (topic hi-d) (topic indexing-d) (topic learningBase learningSummary) (topic learningBase+learningInteractionBase-d learningAssessment) (topic learningBase+learningInteractionBase-d learningContent) (topic learningBase+learningInteractionBase-d) (topic learningInteractionBase-d learning-d) (topic learningInteractionBase-d) (topic learningmeta-d) (topic reference) (topic task) (topic ut-d)"/>
    </xs:attributeGroup>
 </xs:schema>

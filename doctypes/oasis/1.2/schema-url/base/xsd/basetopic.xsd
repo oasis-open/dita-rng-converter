@@ -96,6 +96,6 @@ It must be declared in topic-type shells.
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
                     type="xs:string"
-                    default="(topic topic) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic ut-d) (topic hazard-d)"/>
+                    default="(topic hazard-d) (topic hi-d) (topic indexing-d) (topic ut-d) (topic hazard-d)"/>
    </xs:attributeGroup>
 </xs:schema>

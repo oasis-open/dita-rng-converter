@@ -1,0 +1,73 @@
+# 
+# ============================================================= 
+#                     HEADER                                     
+#  ============================================================= 
+#   MODULE:    DITA XML Mention Domain                             
+#   VERSION:   1.3                                                
+#   DATE:      November 2013                                      
+#                                                                
+#  ============================================================= 
+# 
+#  =============================================================      
+#  
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+xml-d-keyword = (numcharref.element | parameterentity.element | textentity.element | xmlatt.element | xmlelement.element | xmlnsname.element | xmlpi.element)
+keyword |= xml-d-keyword
+numcharref.content = ( text  | draft-comment | required-cleanup | \text)*
+numcharref.attributes = univ-atts, 
+attribute outputclass { text}?
+numcharref.element = 
+element numcharref {numcharref.attlist, numcharref.content}
+numcharref.attlist &= numcharref.attributes
+parameterentity.content = ( text  | draft-comment | required-cleanup | \text)*
+parameterentity.attributes = univ-atts, 
+attribute outputclass { text}?
+parameterentity.element = 
+element parameterentity {parameterentity.attlist, parameterentity.content}
+parameterentity.attlist &= parameterentity.attributes
+textentity.content = ( text  | draft-comment | required-cleanup | \text)*
+textentity.attributes = univ-atts, 
+attribute outputclass { text}?
+textentity.element = 
+element textentity {textentity.attlist, textentity.content}
+textentity.attlist &= textentity.attributes
+xmlatt.content = ( text  | draft-comment | required-cleanup | \text)*
+xmlatt.attributes = univ-atts, 
+attribute outputclass { text}?
+xmlatt.element = 
+element xmlatt {xmlatt.attlist, xmlatt.content}
+xmlatt.attlist &= xmlatt.attributes
+xmlelement.content = ( text  | draft-comment | required-cleanup | \text)*
+xmlelement.attributes = univ-atts, 
+attribute outputclass { text}?
+xmlelement.element = 
+element xmlelement {xmlelement.attlist, xmlelement.content}
+xmlelement.attlist &= xmlelement.attributes
+xmlnsname.content = ( text  | draft-comment | required-cleanup | \text)*
+xmlnsname.attributes = univ-atts, 
+attribute outputclass { text}?
+xmlnsname.element = 
+element xmlnsname {xmlnsname.attlist, xmlnsname.content}
+xmlnsname.attlist &= xmlnsname.attributes
+xmlpi.content = ( text  | draft-comment | required-cleanup | \text)*
+xmlpi.attributes = univ-atts, 
+attribute outputclass { text}?
+xmlpi.element = 
+element xmlpi {xmlpi.attlist, xmlpi.content}
+xmlpi.attlist &= xmlpi.attributes
+numcharref.attlist &= global-atts, 
+attribute class { text}?
+parameterentity.attlist &= global-atts, 
+attribute class { text}?
+textentity.attlist &= global-atts, 
+attribute class { text}?
+xmlatt.attlist &= global-atts, 
+attribute class { text}?
+xmlelement.attlist &= global-atts, 
+attribute class { text}?
+xmlnsname.attlist &= global-atts, 
+attribute class { text}?
+xmlpi.attlist &= global-atts, 
+attribute class { text}?

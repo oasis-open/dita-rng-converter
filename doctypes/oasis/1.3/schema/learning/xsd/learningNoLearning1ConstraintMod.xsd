@@ -31,7 +31,7 @@
    <xs:group name="lcInteractionBase">
       <xs:sequence/>
    </xs:group>
-   <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:learningBaseGrp.xsd:1.3">
+   <xs:redefine schemaLocation="urn:oasis:names:tc:dita:spec:learning:xsd:learningBaseGrp.xsd:1.3">
       <xs:group name="lcInteraction.content">
          <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">

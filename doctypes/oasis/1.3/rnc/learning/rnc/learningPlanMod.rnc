@@ -1,0 +1,591 @@
+# 
+# =============================================================
+#                    HEADER                                    
+# =============================================================
+#  MODULE:    DITA learningPlan                                
+#  VERSION:   1.2                                              
+#  DATE:      November 2009                                    
+#                                                              
+# =============================================================
+# 
+# =============================================================
+#                    PUBLIC DOCUMENT TYPE DEFINITION           
+#                    TYPICAL INVOCATION                        
+#                                                              
+#  Refer to this file by the following public identfier or an 
+#       appropriate system identifier 
+# PUBLIC "-//OASIS//ELEMENTS DITA Learning Plan//EN"
+#       Delivered as file "learningPlan.mod                         
+# 
+# =============================================================
+# SYSTEM:     Darwin Information Typing Architecture (DITA)    
+#                                                              
+# PURPOSE:    Declaring the elements and specialization        
+#             attributes for Learning Plan                     
+#                                                              
+# ORIGINAL CREATION DATE:                                      
+#             May 2007                                         
+#                                                              
+#             (C) Copyright OASIS Open 2007, 2009.             
+#             All Rights Reserved.                             
+# =============================================================
+#   
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+learningPlan-info-types |=  empty 
+learningPlanbody = learningPlanbody.element
+lcProject = lcProject.element
+lcNeedsAnalysis = lcNeedsAnalysis.element
+lcGapAnalysis = lcGapAnalysis.element
+lcIntervention = lcIntervention.element
+lcTechnical = lcTechnical.element
+lcClient = lcClient.element
+lcPlanTitle = lcPlanTitle.element
+lcCIN = lcCIN.element
+lcModDate = lcModDate.element
+lcDelivDate = lcDelivDate.element
+lcPlanSubject = lcPlanSubject.element
+lcPlanDescrip = lcPlanDescrip.element
+lcPlanPrereqs = lcPlanPrereqs.element
+lcOrganizational = lcOrganizational.element
+lcPlanAudience = lcPlanAudience.element
+lcWorkEnv = lcWorkEnv.element
+lcTask = lcTask.element
+lcGapItem = lcGapItem.element
+lcInterventionItem = lcInterventionItem.element
+lcLMS = lcLMS.element
+lcNoLMS = lcNoLMS.element
+lcHandouts = lcHandouts.element
+lcClassroom = lcClassroom.element
+lcOJT = lcOJT.element
+lcConstraints = lcConstraints.element
+lcW3C = lcW3C.element
+lcPlayers = lcPlayers.element
+lcGraphics = lcGraphics.element
+lcViewers = lcViewers.element
+lcResolution = lcResolution.element
+lcFileSizeLimitations = lcFileSizeLimitations.element
+lcDownloadTime = lcDownloadTime.element
+lcSecurity = lcSecurity.element
+lcGeneralDescription = lcGeneralDescription.element
+lcGoals = lcGoals.element
+lcNeeds = lcNeeds.element
+lcValues = lcValues.element
+lcOrgConstraints = lcOrgConstraints.element
+lcEdLevel = lcEdLevel.element
+lcAge = lcAge.element
+lcBackground = lcBackground.element
+lcSkills = lcSkills.element
+lcKnowledge = lcKnowledge.element
+lcMotivation = lcMotivation.element
+lcSpecChars = lcSpecChars.element
+lcWorkEnvDescription = lcWorkEnvDescription.element
+lcPlanResources = lcPlanResources.element
+lcProcesses = lcProcesses.element
+lcTaskItem = lcTaskItem.element
+lcAttitude = lcAttitude.element
+lcJtaItem = lcJtaItem.element
+lcGapItemDelta = lcGapItemDelta.element
+lcLearnStrat = lcLearnStrat.element
+lcPlanObjective = lcPlanObjective.element
+lcAssessment = lcAssessment.element
+lcDelivery = lcDelivery.element
+learningPlan.content = title, titlealts?, (shortdesc | abstract)?, prolog?, learningPlanbody, related-links?, learningPlan-info-types*
+learningPlan.attributes = 
+attribute id { xsd:ID}, conref-atts, select-atts, localization-atts, 
+attribute outputclass { text}?
+learningPlan.element = 
+element learningPlan {learningPlan.attlist, learningPlan.content}
+learningPlan.attlist &= learningPlan.attributes, arch-atts, domains-att
+learningPlanbody.content = lcProject?, lcNeedsAnalysis?, lcGapAnalysis?, lcIntervention?, lcTechnical?, section*
+learningPlanbody.attributes = univ-atts, 
+attribute outputclass { text}?
+learningPlanbody.element = 
+element learningPlanbody {learningPlanbody.attlist, learningPlanbody.content}
+learningPlanbody.attlist &= learningPlanbody.attributes
+lcProject.content = title?, lcClient?, lcPlanTitle?, lcCIN?, lcModDate?, lcDelivDate?, lcPlanSubject?, lcPlanDescrip?, lcPlanPrereqs?
+lcProject.attributes = univ-atts, 
+attribute spectitle { text}?, 
+attribute outputclass { text}?
+lcProject.element = 
+element lcProject {lcProject.attlist, lcProject.content}
+lcProject.attlist &= lcProject.attributes
+lcClient.content = title?, fig.cnt*
+lcClient.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcClient.element = 
+element lcClient {lcClient.attlist, lcClient.content}
+lcClient.attlist &= lcClient.attributes
+lcPlanTitle.content = title?, fig.cnt*
+lcPlanTitle.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcPlanTitle.element = 
+element lcPlanTitle {lcPlanTitle.attlist, lcPlanTitle.content}
+lcPlanTitle.attlist &= lcPlanTitle.attributes
+lcCIN.content = title?, fig.cnt*
+lcCIN.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcCIN.element = 
+element lcCIN {lcCIN.attlist, lcCIN.content}
+lcCIN.attlist &= lcCIN.attributes
+lcModDate.content = title?, fig.cnt*
+lcModDate.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcModDate.element = 
+element lcModDate {lcModDate.attlist, lcModDate.content}
+lcModDate.attlist &= lcModDate.attributes
+lcDelivDate.content = title?, fig.cnt*
+lcDelivDate.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcDelivDate.element = 
+element lcDelivDate {lcDelivDate.attlist, lcDelivDate.content}
+lcDelivDate.attlist &= lcDelivDate.attributes
+lcPlanSubject.content = title?, fig.cnt*
+lcPlanSubject.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcPlanSubject.element = 
+element lcPlanSubject {lcPlanSubject.attlist, lcPlanSubject.content}
+lcPlanSubject.attlist &= lcPlanSubject.attributes
+lcPlanDescrip.content = title?, fig.cnt*
+lcPlanDescrip.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcPlanDescrip.element = 
+element lcPlanDescrip {lcPlanDescrip.attlist, lcPlanDescrip.content}
+lcPlanDescrip.attlist &= lcPlanDescrip.attributes
+lcPlanPrereqs.content = title?, fig.cnt*
+lcPlanPrereqs.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcPlanPrereqs.element = 
+element lcPlanPrereqs {lcPlanPrereqs.attlist, lcPlanPrereqs.content}
+lcPlanPrereqs.attlist &= lcPlanPrereqs.attributes
+lcNeedsAnalysis.content = title?, lcOrganizational?, lcPlanAudience?, lcWorkEnv?, lcTask*
+lcNeedsAnalysis.attributes = univ-atts, 
+attribute spectitle { text}?, 
+attribute outputclass { text}?
+lcNeedsAnalysis.element = 
+element lcNeedsAnalysis {lcNeedsAnalysis.attlist, lcNeedsAnalysis.content}
+lcNeedsAnalysis.attlist &= lcNeedsAnalysis.attributes
+lcOrganizational.content = title?, lcGeneralDescription?, lcGoals?, lcNeeds?, lcValues?, lcOrgConstraints?
+lcOrganizational.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcOrganizational.element = 
+element lcOrganizational {lcOrganizational.attlist, lcOrganizational.content}
+lcOrganizational.attlist &= lcOrganizational.attributes
+lcGeneralDescription.content = para.cnt*
+lcGeneralDescription.attributes = univ-atts, 
+attribute outputclass { text}?
+lcGeneralDescription.element = 
+element lcGeneralDescription {lcGeneralDescription.attlist, lcGeneralDescription.content}
+lcGeneralDescription.attlist &= lcGeneralDescription.attributes
+lcGoals.content = para.cnt*
+lcGoals.attributes = univ-atts, 
+attribute outputclass { text}?
+lcGoals.element = 
+element lcGoals {lcGoals.attlist, lcGoals.content}
+lcGoals.attlist &= lcGoals.attributes
+lcNeeds.content = para.cnt*
+lcNeeds.attributes = univ-atts, 
+attribute outputclass { text}?
+lcNeeds.element = 
+element lcNeeds {lcNeeds.attlist, lcNeeds.content}
+lcNeeds.attlist &= lcNeeds.attributes
+lcValues.content = para.cnt*
+lcValues.attributes = univ-atts, 
+attribute outputclass { text}?
+lcValues.element = 
+element lcValues {lcValues.attlist, lcValues.content}
+lcValues.attlist &= lcValues.attributes
+lcOrgConstraints.content = para.cnt*
+lcOrgConstraints.attributes = univ-atts, 
+attribute outputclass { text}?
+lcOrgConstraints.element = 
+element lcOrgConstraints {lcOrgConstraints.attlist, lcOrgConstraints.content}
+lcOrgConstraints.attlist &= lcOrgConstraints.attributes
+lcPlanAudience.content = title?, lcGeneralDescription?, lcEdLevel?, lcAge?, lcBackground?, lcSkills?, lcKnowledge?, lcMotivation?, lcSpecChars?
+lcPlanAudience.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcPlanAudience.element = 
+element lcPlanAudience {lcPlanAudience.attlist, lcPlanAudience.content}
+lcPlanAudience.attlist &= lcPlanAudience.attributes
+lcEdLevel.content = para.cnt*
+lcEdLevel.attributes = univ-atts, 
+attribute outputclass { text}?
+lcEdLevel.element = 
+element lcEdLevel {lcEdLevel.attlist, lcEdLevel.content}
+lcEdLevel.attlist &= lcEdLevel.attributes
+lcAge.content = para.cnt*
+lcAge.attributes = univ-atts, 
+attribute outputclass { text}?
+lcAge.element = 
+element lcAge {lcAge.attlist, lcAge.content}
+lcAge.attlist &= lcAge.attributes
+lcBackground.content = para.cnt*
+lcBackground.attributes = univ-atts, 
+attribute outputclass { text}?
+lcBackground.element = 
+element lcBackground {lcBackground.attlist, lcBackground.content}
+lcBackground.attlist &= lcBackground.attributes
+lcSkills.content = para.cnt*
+lcSkills.attributes = univ-atts, 
+attribute outputclass { text}?
+lcSkills.element = 
+element lcSkills {lcSkills.attlist, lcSkills.content}
+lcSkills.attlist &= lcSkills.attributes
+lcKnowledge.content = para.cnt*
+lcKnowledge.attributes = univ-atts, 
+attribute outputclass { text}?
+lcKnowledge.element = 
+element lcKnowledge {lcKnowledge.attlist, lcKnowledge.content}
+lcKnowledge.attlist &= lcKnowledge.attributes
+lcMotivation.content = para.cnt*
+lcMotivation.attributes = univ-atts, 
+attribute outputclass { text}?
+lcMotivation.element = 
+element lcMotivation {lcMotivation.attlist, lcMotivation.content}
+lcMotivation.attlist &= lcMotivation.attributes
+lcSpecChars.content = para.cnt*
+lcSpecChars.attributes = univ-atts, 
+attribute outputclass { text}?
+lcSpecChars.element = 
+element lcSpecChars {lcSpecChars.attlist, lcSpecChars.content}
+lcSpecChars.attlist &= lcSpecChars.attributes
+lcWorkEnv.content = title?, lcWorkEnvDescription?, lcPlanResources?, lcProcesses?
+lcWorkEnv.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcWorkEnv.element = 
+element lcWorkEnv {lcWorkEnv.attlist, lcWorkEnv.content}
+lcWorkEnv.attlist &= lcWorkEnv.attributes
+lcWorkEnvDescription.content = para.cnt*
+lcWorkEnvDescription.attributes = univ-atts, 
+attribute outputclass { text}?
+lcWorkEnvDescription.element = 
+element lcWorkEnvDescription {lcWorkEnvDescription.attlist, lcWorkEnvDescription.content}
+lcWorkEnvDescription.attlist &= lcWorkEnvDescription.attributes
+lcPlanResources.content = para.cnt*
+lcPlanResources.attributes = univ-atts, 
+attribute outputclass { text}?
+lcPlanResources.element = 
+element lcPlanResources {lcPlanResources.attlist, lcPlanResources.content}
+lcPlanResources.attlist &= lcPlanResources.attributes
+lcProcesses.content = para.cnt*
+lcProcesses.attributes = univ-atts, 
+attribute outputclass { text}?
+lcProcesses.element = 
+element lcProcesses {lcProcesses.attlist, lcProcesses.content}
+lcProcesses.attlist &= lcProcesses.attributes
+lcTask.content = title?, lcTaskItem*, lcKnowledge?, lcSkills?, lcAttitude?
+lcTask.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcTask.element = 
+element lcTask {lcTask.attlist, lcTask.content}
+lcTask.attlist &= lcTask.attributes
+lcTaskItem.content = para.cnt*
+lcTaskItem.attributes = univ-atts, 
+attribute outputclass { text}?
+lcTaskItem.element = 
+element lcTaskItem {lcTaskItem.attlist, lcTaskItem.content}
+lcTaskItem.attlist &= lcTaskItem.attributes
+lcAttitude.content = para.cnt*
+lcAttitude.attributes = univ-atts, 
+attribute outputclass { text}?
+lcAttitude.element = 
+element lcAttitude {lcAttitude.attlist, lcAttitude.content}
+lcAttitude.attlist &= lcAttitude.attributes
+lcGapAnalysis.content = title?, lcGapItem*
+lcGapAnalysis.attributes = univ-atts, 
+attribute spectitle { text}?, 
+attribute outputclass { text}?
+lcGapAnalysis.element = 
+element lcGapAnalysis {lcGapAnalysis.attlist, lcGapAnalysis.content}
+lcGapAnalysis.attlist &= lcGapAnalysis.attributes
+lcGapItem.content = title?, lcPlanObjective?, lcJtaItem?, lcGapItemDelta?
+lcGapItem.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcGapItem.element = 
+element lcGapItem {lcGapItem.attlist, lcGapItem.content}
+lcGapItem.attlist &= lcGapItem.attributes
+lcPlanObjective.content = para.cnt*
+lcPlanObjective.attributes = univ-atts, 
+attribute outputclass { text}?
+lcPlanObjective.element = 
+element lcPlanObjective {lcPlanObjective.attlist, lcPlanObjective.content}
+lcPlanObjective.attlist &= lcPlanObjective.attributes
+lcJtaItem.content = para.cnt*
+lcJtaItem.attributes = univ-atts, 
+attribute outputclass { text}?
+lcJtaItem.element = 
+element lcJtaItem {lcJtaItem.attlist, lcJtaItem.content}
+lcJtaItem.attlist &= lcJtaItem.attributes
+lcGapItemDelta.content = para.cnt*
+lcGapItemDelta.attributes = univ-atts, 
+attribute outputclass { text}?
+lcGapItemDelta.element = 
+element lcGapItemDelta {lcGapItemDelta.attlist, lcGapItemDelta.content}
+lcGapItemDelta.attlist &= lcGapItemDelta.attributes
+lcIntervention.content = title?, lcInterventionItem*
+lcIntervention.attributes = univ-atts, 
+attribute spectitle { text}?, 
+attribute outputclass { text}?
+lcIntervention.element = 
+element lcIntervention {lcIntervention.attlist, lcIntervention.content}
+lcIntervention.attlist &= lcIntervention.attributes
+lcInterventionItem.content = title?, lcLearnStrat?, lcPlanObjective?, lcAssessment?, lcDelivery?
+lcInterventionItem.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcInterventionItem.element = 
+element lcInterventionItem {lcInterventionItem.attlist, lcInterventionItem.content}
+lcInterventionItem.attlist &= lcInterventionItem.attributes
+lcLearnStrat.content = para.cnt*
+lcLearnStrat.attributes = univ-atts, 
+attribute outputclass { text}?
+lcLearnStrat.element = 
+element lcLearnStrat {lcLearnStrat.attlist, lcLearnStrat.content}
+lcLearnStrat.attlist &= lcLearnStrat.attributes
+lcAssessment.content = para.cnt*
+lcAssessment.attributes = univ-atts, 
+attribute outputclass { text}?
+lcAssessment.element = 
+element lcAssessment {lcAssessment.attlist, lcAssessment.content}
+lcAssessment.attlist &= lcAssessment.attributes
+lcDelivery.content = para.cnt*
+lcDelivery.attributes = univ-atts, 
+attribute outputclass { text}?
+lcDelivery.element = 
+element lcDelivery {lcDelivery.attlist, lcDelivery.content}
+lcDelivery.attlist &= lcDelivery.attributes
+lcTechnical.content = title?, lcLMS?, lcNoLMS?, lcHandouts?, lcClassroom?, lcOJT?, lcConstraints?, lcW3C?, lcPlayers?, lcGraphics?, lcViewers?, lcResolution?, lcFileSizeLimitations?, lcDownloadTime?, lcSecurity?
+lcTechnical.attributes = univ-atts, 
+attribute spectitle { text}?, 
+attribute outputclass { text}?
+lcTechnical.element = 
+element lcTechnical {lcTechnical.attlist, lcTechnical.content}
+lcTechnical.attlist &= lcTechnical.attributes
+lcLMS.content = title?, fig.cnt*
+lcLMS.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcLMS.element = 
+element lcLMS {lcLMS.attlist, lcLMS.content}
+lcLMS.attlist &= lcLMS.attributes
+lcNoLMS.content = title?, fig.cnt*
+lcNoLMS.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcNoLMS.element = 
+element lcNoLMS {lcNoLMS.attlist, lcNoLMS.content}
+lcNoLMS.attlist &= lcNoLMS.attributes
+lcHandouts.content = title?, fig.cnt*
+lcHandouts.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcHandouts.element = 
+element lcHandouts {lcHandouts.attlist, lcHandouts.content}
+lcHandouts.attlist &= lcHandouts.attributes
+lcClassroom.content = title?, fig.cnt*
+lcClassroom.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcClassroom.element = 
+element lcClassroom {lcClassroom.attlist, lcClassroom.content}
+lcClassroom.attlist &= lcClassroom.attributes
+lcOJT.content = title?, fig.cnt*
+lcOJT.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcOJT.element = 
+element lcOJT {lcOJT.attlist, lcOJT.content}
+lcOJT.attlist &= lcOJT.attributes
+lcConstraints.content = title?, fig.cnt*
+lcConstraints.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcConstraints.element = 
+element lcConstraints {lcConstraints.attlist, lcConstraints.content}
+lcConstraints.attlist &= lcConstraints.attributes
+lcW3C.content = title?, fig.cnt*
+lcW3C.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcW3C.element = 
+element lcW3C {lcW3C.attlist, lcW3C.content}
+lcW3C.attlist &= lcW3C.attributes
+lcPlayers.content = title?, fig.cnt*
+lcPlayers.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcPlayers.element = 
+element lcPlayers {lcPlayers.attlist, lcPlayers.content}
+lcPlayers.attlist &= lcPlayers.attributes
+lcGraphics.content = title?, fig.cnt*
+lcGraphics.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcGraphics.element = 
+element lcGraphics {lcGraphics.attlist, lcGraphics.content}
+lcGraphics.attlist &= lcGraphics.attributes
+lcViewers.content = title?, fig.cnt*
+lcViewers.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcViewers.element = 
+element lcViewers {lcViewers.attlist, lcViewers.content}
+lcViewers.attlist &= lcViewers.attributes
+lcResolution.content = title?, fig.cnt*
+lcResolution.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcResolution.element = 
+element lcResolution {lcResolution.attlist, lcResolution.content}
+lcResolution.attlist &= lcResolution.attributes
+lcFileSizeLimitations.content = title?, fig.cnt*
+lcFileSizeLimitations.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcFileSizeLimitations.element = 
+element lcFileSizeLimitations {lcFileSizeLimitations.attlist, lcFileSizeLimitations.content}
+lcFileSizeLimitations.attlist &= lcFileSizeLimitations.attributes
+lcDownloadTime.content = title?, fig.cnt*
+lcDownloadTime.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcDownloadTime.element = 
+element lcDownloadTime {lcDownloadTime.attlist, lcDownloadTime.content}
+lcDownloadTime.attlist &= lcDownloadTime.attributes
+lcSecurity.content = title?, fig.cnt*
+lcSecurity.attributes = display-atts, 
+attribute spectitle { text}?, univ-atts, 
+attribute outputclass { text}?
+lcSecurity.element = 
+element lcSecurity {lcSecurity.attlist, lcSecurity.content}
+lcSecurity.attlist &= lcSecurity.attributes
+learningPlan.attlist &= global-atts, 
+attribute class { text}?
+learningPlanbody.attlist &= global-atts, 
+attribute class { text}?
+lcProject.attlist &= global-atts, 
+attribute class { text}?
+lcNeedsAnalysis.attlist &= global-atts, 
+attribute class { text}?
+lcGapAnalysis.attlist &= global-atts, 
+attribute class { text}?
+lcIntervention.attlist &= global-atts, 
+attribute class { text}?
+lcTechnical.attlist &= global-atts, 
+attribute class { text}?
+lcClient.attlist &= global-atts, 
+attribute class { text}?
+lcPlanTitle.attlist &= global-atts, 
+attribute class { text}?
+lcCIN.attlist &= global-atts, 
+attribute class { text}?
+lcModDate.attlist &= global-atts, 
+attribute class { text}?
+lcDelivDate.attlist &= global-atts, 
+attribute class { text}?
+lcPlanSubject.attlist &= global-atts, 
+attribute class { text}?
+lcPlanDescrip.attlist &= global-atts, 
+attribute class { text}?
+lcPlanPrereqs.attlist &= global-atts, 
+attribute class { text}?
+lcOrganizational.attlist &= global-atts, 
+attribute class { text}?
+lcGoals.attlist &= global-atts, 
+attribute class { text}?
+lcNeeds.attlist &= global-atts, 
+attribute class { text}?
+lcValues.attlist &= global-atts, 
+attribute class { text}?
+lcOrgConstraints.attlist &= global-atts, 
+attribute class { text}?
+lcPlanAudience.attlist &= global-atts, 
+attribute class { text}?
+lcGeneralDescription.attlist &= global-atts, 
+attribute class { text}?
+lcEdLevel.attlist &= global-atts, 
+attribute class { text}?
+lcAge.attlist &= global-atts, 
+attribute class { text}?
+lcBackground.attlist &= global-atts, 
+attribute class { text}?
+lcSkills.attlist &= global-atts, 
+attribute class { text}?
+lcKnowledge.attlist &= global-atts, 
+attribute class { text}?
+lcMotivation.attlist &= global-atts, 
+attribute class { text}?
+lcSpecChars.attlist &= global-atts, 
+attribute class { text}?
+lcWorkEnv.attlist &= global-atts, 
+attribute class { text}?
+lcWorkEnvDescription.attlist &= global-atts, 
+attribute class { text}?
+lcPlanResources.attlist &= global-atts, 
+attribute class { text}?
+lcProcesses.attlist &= global-atts, 
+attribute class { text}?
+lcTask.attlist &= global-atts, 
+attribute class { text}?
+lcTaskItem.attlist &= global-atts, 
+attribute class { text}?
+lcAttitude.attlist &= global-atts, 
+attribute class { text}?
+lcGapItem.attlist &= global-atts, 
+attribute class { text}?
+lcPlanObjective.attlist &= global-atts, 
+attribute class { text}?
+lcJtaItem.attlist &= global-atts, 
+attribute class { text}?
+lcGapItemDelta.attlist &= global-atts, 
+attribute class { text}?
+lcInterventionItem.attlist &= global-atts, 
+attribute class { text}?
+lcLearnStrat.attlist &= global-atts, 
+attribute class { text}?
+lcAssessment.attlist &= global-atts, 
+attribute class { text}?
+lcDelivery.attlist &= global-atts, 
+attribute class { text}?
+lcLMS.attlist &= global-atts, 
+attribute class { text}?
+lcNoLMS.attlist &= global-atts, 
+attribute class { text}?
+lcHandouts.attlist &= global-atts, 
+attribute class { text}?
+lcClassroom.attlist &= global-atts, 
+attribute class { text}?
+lcOJT.attlist &= global-atts, 
+attribute class { text}?
+lcConstraints.attlist &= global-atts, 
+attribute class { text}?
+lcW3C.attlist &= global-atts, 
+attribute class { text}?
+lcPlayers.attlist &= global-atts, 
+attribute class { text}?
+lcGraphics.attlist &= global-atts, 
+attribute class { text}?
+lcViewers.attlist &= global-atts, 
+attribute class { text}?
+lcResolution.attlist &= global-atts, 
+attribute class { text}?
+lcFileSizeLimitations.attlist &= global-atts, 
+attribute class { text}?
+lcDownloadTime.attlist &= global-atts, 
+attribute class { text}?
+lcSecurity.attlist &= global-atts, 
+attribute class { text}?

@@ -1,75 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--=============================================================-->
-<!--                   HEADER                                    -->
-<!--=============================================================-->
-<!-- MODULE:    DITA DITA Topic                                  -->
-<!-- VERSION:   1.2                                              -->
-<!-- DATE:      November 2009                                    -->
-<!--                                                             -->
-<!--=============================================================-->
-<!--=============================================================-->
-<!--                   PUBLIC DOCUMENT TYPE DEFINITION           -->
-<!--                   TYPICAL INVOCATION                        -->
-<!--                                                             -->
-<!-- Refer to this file by the following public identifier or an -->
-<!--      appropriate system identifier                          -->
-<!--PUBLIC "-//OASIS//ELEMENTS DITA Topic//EN"                   -->
-<!--      Delivered as file "topic.mod"                               -->
-<!--=============================================================-->
-<!--SYSTEM:     Darwin Information Typing Architecture (DITA)    -->
-<!--                                                             -->
-<!--PURPOSE:    Declaring the elements and specialization        -->
-<!--            attributes for the base Topic type               -->
-<!--                                                             -->
-<!--ORIGINAL CREATION DATE:                                      -->
-<!--            March 2001                                       -->
-<!--                                                             -->
-<!--            (C) Copyright OASIS Open 2005, 2009.             -->
-<!--            (C) Copyright IBM Corporation 2001, 2004.        -->
-<!--            All Rights Reserved.                             -->
-<!--                                                             -->
-<!-- UPDATES:                                                    -->
-<!--   2005.11.15 RDA: Corrected the public ID for tblDecl.mod   -->
-<!--   2005.11.15 RDA: Removed old declaration for topicreftypes -->
-<!--                   entity                                    -->
-<!--   2005.11.15 RDA: Corrected the PURPOSE in this comment     -->
-<!--   2005.11.15 RDA: Corrected Long Names for alt, indextermref-->
-<!--   2006.06.06 RDA: Bug fixes:                                -->
-<!--                   Added xref and fn to fig.cnt              -->
-<!--                   Remove xmlns="" from global-atts          -->
-<!--   2006.06.06 RDA: Moved shared items to commonElements file -->
-<!--   2006.06.07 RDA: Added abstract> element                   -->
-<!--   2006.06.07 RDA: Make universal attributes universal       -->
-<!--                     (DITA 1.1 proposal #12)                 -->
-<!--   2006.06.14 RDA: Add dir attribute to localization-atts    -->
-<!--   2006.06.20 RDA: defn.cnt now explicitly sets its content  -->
-<!--   2006.07.06 RDA: Moved class attributes in from topicAttr  -->
-<!--   2006.11.30 RDA: Add -dita-use-conref-target to enumerated -->
-<!--                     attributes                              -->
-<!--   2006.11.30 RDA: Remove #FIXED from DITAArchVersion        -->
-<!--   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       -->
-<!--   2008.01.28 RDA: Add draft-comment to body.cnt             -->
-<!--   2008.01.28 RDA: Moved <metadata> defn. to metaDecl.mod    -->
-<!--   2008.01.30 RDA: Replace @conref defn. with %conref-atts;  -->
-<!--   2008.02.12 RDA: Add ph to linktext, navtitle, searchtitle -->
-<!--   2008.02.12 RDA: Modify imbeds to use specific 1.2 version -->
-<!--   2008.02.12 RDA: Move navtitle to commonElements.mod       -->
-<!--   2008.02.13 RDA: Add bodydiv and sectiondiv                -->
-<!--   2008.02.13 RDA: Create .content and .attributes entities  -->
-<!--   2008.05.06 RDA: Moved sectiondiv to section.cnt; created  -->
-<!--                   example.cnt for use by example element    -->
-<!--=============================================================-->
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!-- Darwin Information Typing Architecture (DITA) Version 1.3     -->
+<!-- ^SPEC_RELEASE_TYPE^                                           -->
+<!-- ^DOC_APPROVAL_DATE^                                           -->
+<!-- Copyright (c) OASIS Open 2015. All rights reserved.           -->
+<!-- Source: ^GRAMMAR_FILE_ZIP_URL^                                -->
+<!--                                                               -->
+<!--  MODULE:    DITA Topic XSD Module                             -->
+<!--  VERSION:   1.3                                               -->
+<!--  DATE:      October 2014                                      -->
+<!--                                                               -->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Declaring the elements and specialization         -->
+<!--             attributes for the base Topic type                -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             March 2001                                        -->
+<!--                                                               -->
+<!-- UPDATES                                                       -->
+<!-- ============================================================= -->
 <xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <!-- ==================== Import Section ======================= -->
    <xs:import namespace="http://dita.oasis-open.org/architecture/2005/"
               schemaLocation="../../base/xsd/ditaarch.xsd"/>
-
-   <xs:annotation>
-      <xs:appinfo>
-         <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic topic)</dita:domainsModule>
-      </xs:appinfo>
-   </xs:annotation>
 
    <xs:group name="topic-info-types">
       <xs:choice>
@@ -305,7 +264,7 @@
       <xs:complexType>
          <xs:complexContent>
             <xs:extension base="searchtitle.class">
-               <xs:attribute ref="class" default="- map/searchtitle "/>
+               <xs:attribute ref="class" default="- topic/searchtitle "/>
             </xs:extension>
          </xs:complexContent>
       </xs:complexType>
@@ -338,7 +297,7 @@
       <xs:complexType>
          <xs:complexContent>
             <xs:extension base="shortdesc.class">
-               <xs:attribute ref="class" default="- map/shortdesc "/>
+               <xs:attribute ref="class" default="- topic/shortdesc "/>
             </xs:extension>
          </xs:complexContent>
       </xs:complexType>
@@ -703,7 +662,7 @@
       <xs:complexType>
          <xs:complexContent>
             <xs:extension base="linktext.class">
-               <xs:attribute ref="class" default="- map/linktext "/>
+               <xs:attribute ref="class" default="- topic/linktext "/>
             </xs:extension>
          </xs:complexContent>
       </xs:complexType>

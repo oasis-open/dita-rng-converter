@@ -65,12 +65,6 @@
    <xs:import namespace="http://dita.oasis-open.org/architecture/2005/"
               schemaLocation="../../base/xsd/ditaarch.xsd"/>
 
-   <xs:annotation>
-      <xs:appinfo>
-         <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic topic)</dita:domainsModule>
-      </xs:appinfo>
-   </xs:annotation>
-
    <xs:group name="topic-info-types">
       <xs:choice>
          <xs:group ref="topic"/>

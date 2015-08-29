@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!-- Darwin Information Typing Architecture (DITA) Version 1.3     -->
+<!-- ^SPEC_RELEASE_TYPE^                                           -->
+<!-- ^DOC_APPROVAL_DATE^                                           -->
+<!-- Copyright (c) OASIS Open 2015. All rights reserved.           -->
+<!-- Source: ^GRAMMAR_FILE_ZIP_URL^                                -->
 <!--                                                             -->
-<!--      MODULE: DITA Map RNG                                   -->
-<!--      VERSION: 1.3 DATE: November 2013                       -->
-<xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+<!-- ============================================================= -->
+<!--  MODULE:    DITA MAP XSD Module                               -->
+<!--  VERSION:   1.3                                               -->
+<!--  DATE:      March 2014                                        -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    W3C XML Schema to describe DITA maps              -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             March 2001                                        -->
+<!--                                                               -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!--    2005.11.15 EAS: Moved domains attribute definition to      -->
+<!--                    map.xsd                                    -->
+<!-- ============================================================= --><xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <!-- ==================== Import Section ======================= -->
    <xs:import namespace="http://dita.oasis-open.org/architecture/2005/"
@@ -10,7 +35,7 @@
 
    <xs:annotation>
       <xs:appinfo>
-         <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(map map)</dita:domainsModule>
+         <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/"/>
       </xs:appinfo>
    </xs:annotation>
 
@@ -156,16 +181,16 @@
             </xs:restriction>
          </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="toc">
-         <xs:simpleType>
-            <xs:restriction base="xs:string">
-               <xs:enumeration value="no"/>
-               <xs:enumeration value="yes"/>
-               <xs:enumeration value="-dita-use-conref-target"/>
-            </xs:restriction>
-         </xs:simpleType>
-      </xs:attribute>
-      <xs:attribute name="print">
+     <xs:attribute name="toc" default="no">
+       <xs:simpleType>
+         <xs:restriction base="xs:string">
+           <xs:enumeration value="no"/>
+           <xs:enumeration value="yes"/>
+           <xs:enumeration value="-dita-use-conref-target"/>
+         </xs:restriction>
+       </xs:simpleType>
+     </xs:attribute>
+     <xs:attribute name="print">
          <xs:simpleType>
             <xs:restriction base="xs:string">
                <xs:enumeration value="no"/>
@@ -186,6 +211,93 @@
       </xs:attribute>
       <xs:attribute name="chunk" type="xs:string"/>
       <xs:attribute name="keyscope" type="xs:string"/>
+   </xs:attributeGroup>
+   <xs:attributeGroup name="topicref-atts-no-toc-no-keyscope">
+      <xs:attribute name="collection-type">
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="choice"/>
+               <xs:enumeration value="family"/>
+               <xs:enumeration value="sequence"/>
+               <xs:enumeration value="unordered"/>
+               <xs:enumeration value="-dita-use-conref-target"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="type" type="xs:string"/>
+      <xs:attribute name="cascade" type="xs:string"/>
+      <xs:attribute name="processing-role">
+         <xs:annotation>
+            <xs:documentation>Default set to resource-only since DITA 1.3</xs:documentation>
+         </xs:annotation>
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="normal"/>
+               <xs:enumeration value="resource-only"/>
+               <xs:enumeration value="-dita-use-conref-target"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="scope">
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="external"/>
+               <xs:enumeration value="local"/>
+               <xs:enumeration value="peer"/>
+               <xs:enumeration value="-dita-use-conref-target"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="locktitle">
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="no"/>
+               <xs:enumeration value="yes"/>
+               <xs:enumeration value="-dita-use-conref-target"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="format" type="xs:string"/>
+      <xs:attribute name="linking">
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="none"/>
+               <xs:enumeration value="normal"/>
+               <xs:enumeration value="sourceonly"/>
+               <xs:enumeration value="targetonly"/>
+               <xs:enumeration value="-dita-use-conref-target"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+     <xs:attribute name="toc" default="no">
+       <xs:simpleType>
+         <xs:restriction base="xs:string">
+           <xs:enumeration value="no"/>
+           <xs:enumeration value="yes"/>
+           <xs:enumeration value="-dita-use-conref-target"/>
+         </xs:restriction>
+       </xs:simpleType>
+     </xs:attribute>
+     <xs:attribute name="print">
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="no"/>
+               <xs:enumeration value="printonly"/>
+               <xs:enumeration value="yes"/>
+               <xs:enumeration value="-dita-use-conref-target"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="search">
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="no"/>
+               <xs:enumeration value="yes"/>
+               <xs:enumeration value="-dita-use-conref-target"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="chunk" type="xs:string"/>
    </xs:attributeGroup>
    <xs:attributeGroup name="topicref-atts-without-format">
       <xs:attribute name="collection-type">
@@ -446,7 +558,7 @@
    <xs:attributeGroup name="reltable.attributes">
       <xs:attribute name="title" type="xs:string"/>
       <xs:attribute name="outputclass" type="xs:string"/>
-      <xs:attributeGroup ref="topicref-atts-no-toc"/>
+      <xs:attributeGroup ref="topicref-atts-no-toc-no-keyscope"/>
       <xs:attributeGroup ref="univ-atts"/>
       <xs:attributeGroup ref="global-atts"/>
    </xs:attributeGroup>
@@ -504,7 +616,7 @@
    </xs:group>
    <xs:attributeGroup name="relcolspec.attributes">
       <xs:attribute name="outputclass" type="xs:string"/>
-      <xs:attributeGroup ref="topicref-atts"/>
+      <xs:attributeGroup ref="topicref-atts-no-toc-no-keyscope"/>
       <xs:attributeGroup ref="univ-atts"/>
       <xs:attributeGroup ref="global-atts"/>
    </xs:attributeGroup>
@@ -564,7 +676,7 @@
    </xs:group>
    <xs:attributeGroup name="relcell.attributes">
       <xs:attribute name="outputclass" type="xs:string"/>
-      <xs:attributeGroup ref="topicref-atts"/>
+      <xs:attributeGroup ref="topicref-atts-no-toc-no-keyscope"/>
       <xs:attributeGroup ref="univ-atts"/>
       <xs:attributeGroup ref="global-atts"/>
    </xs:attributeGroup>

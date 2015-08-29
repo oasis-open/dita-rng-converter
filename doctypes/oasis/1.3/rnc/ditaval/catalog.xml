@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA BASE-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:oasis:names:tc:dita:xsd:ditaval.rnc:1.3"
+              uri="rnc/ditaval.rnc"/>
+      <system systemId="urn:oasis:names:tc:dita:xsd:ditaval.rnc"
+              uri="rnc/ditaval.rnc"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:oasis:names:tc:dita:xsd:ditaval.rnc:1.3"
+           uri="rnc/ditaval.rnc"/>
+      <uri name="urn:oasis:names:tc:dita:xsd:ditaval.rnc" uri="rnc/ditaval.rnc"/>
+   </group>
+</catalog>

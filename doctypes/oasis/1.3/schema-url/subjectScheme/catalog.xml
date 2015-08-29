@@ -3,13 +3,13 @@
 <!--DITA Subject Classification Domain-->
 
    <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:oasis:names:tc:dita:xsd:classifyDomain.xsd:1.3"
+      <system systemId="urn:oasis:names:tc:dita:spec:classification:xsd:classifyDomain.xsd:1.3"
               uri="xsd/classifyDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:classifyDomain.xsd"
+      <system systemId="urn:oasis:names:tc:dita:spec:classification:xsd:classifyDomain.xsd"
               uri="xsd/classifyDomain.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:classifyMap.xsd:1.3"
+      <system systemId="urn:oasis:names:tc:dita:spec:classification:xsd:classifyMap.xsd:1.3"
               uri="xsd/classifyMap.xsd"/>
-      <system systemId="urn:oasis:names:tc:dita:xsd:classifyMap.xsd"
+      <system systemId="urn:oasis:names:tc:dita:spec:classification:xsd:classifyMap.xsd"
               uri="xsd/classifyMap.xsd"/>
       <system systemId="urn:oasis:names:tc:dita:xsd:subjectScheme.xsd:1.3"
               uri="xsd/subjectScheme.xsd"/>
@@ -25,13 +25,13 @@
               uri="xsd/subjectSchemeMod.xsd"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:oasis:names:tc:dita:xsd:classifyDomain.xsd:1.3"
+      <uri name="urn:oasis:names:tc:dita:spec:classification:xsd:classifyDomain.xsd:1.3"
            uri="xsd/classifyDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:classifyDomain.xsd"
+      <uri name="urn:oasis:names:tc:dita:spec:classification:xsd:classifyDomain.xsd"
            uri="xsd/classifyDomain.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:classifyMap.xsd:1.3"
+      <uri name="urn:oasis:names:tc:dita:spec:classification:xsd:classifyMap.xsd:1.3"
            uri="xsd/classifyMap.xsd"/>
-      <uri name="urn:oasis:names:tc:dita:xsd:classifyMap.xsd"
+      <uri name="urn:oasis:names:tc:dita:spec:classification:xsd:classifyMap.xsd"
            uri="xsd/classifyMap.xsd"/>
       <uri name="urn:oasis:names:tc:dita:xsd:subjectScheme.xsd:1.3"
            uri="xsd/subjectScheme.xsd"/>

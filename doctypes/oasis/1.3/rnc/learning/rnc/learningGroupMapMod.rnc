@@ -1,0 +1,45 @@
+# 
+# ============================================================= 
+# MODULE:    DITA Learning Group Map             
+# VERSION:   1.3                                                
+# DATE:      June 2013                                       
+# =============================================================
+# Refer to the latest version of this file by the following URI:
+# urn:dita-ng:dita:rng:subjectScheme.mod.rng
+# To refer to this specific version, you may use this value:
+# urn:dita-ng:dita:rng:subjectScheme.mod.rng:1.2
+# ============================================================= 
+# SYSTEM:     Darwin Information Typing Architecture (DITA)     
+# PURPOSE:    Provides a map type for representing a single learning group.
+# ORIGINAL CREATION DATE:  
+# June 2013                                                
+# (C) Copyright OASIS Open                                 
+# All Rights Reserved.                                          
+# =============================================================
+#     
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+learningGroupMap = learningGroupMap.element
+topicref-atts-for-learningGroupMap = 
+attribute collection-type {("choice" | "family" | "sequence" | "unordered" | "-dita-use-conref-target")}?, 
+attribute type { text}?, 
+attribute processing-role {("normal" | "resource-only" | "-dita-use-conref-target")}?, 
+attribute scope {("external" | "local" | "peer" | "-dita-use-conref-target")}?, 
+attribute locktitle {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute format { text}?, 
+attribute linking {("none" | "normal" | "sourceonly" | "targetonly" | "-dita-use-conref-target")}?, 
+attribute toc {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute print {("no" | "printonly" | "yes" | "-dita-use-conref-target")}?, 
+attribute search {("no" | "yes" | "-dita-use-conref-target")}?, 
+attribute chunk { text}?
+learningGroupMap.content = title?, topicmeta?, (topicref)*, reltable*
+learningGroupMap.attributes = 
+attribute id { xsd:ID}?, conref-atts, 
+attribute anchorref { text}?, 
+attribute outputclass { text}?, localization-atts, topicref-atts-for-learningGroupMap, select-atts
+learningGroupMap.element = 
+element learningGroupMap {learningGroupMap.attlist, learningGroupMap.content}
+learningGroupMap.attlist &= learningGroupMap.attributes, arch-atts, domains-att
+learningGroupMap.attlist &= global-atts, 
+attribute class { text}?

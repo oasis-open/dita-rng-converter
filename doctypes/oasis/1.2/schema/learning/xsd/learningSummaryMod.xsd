@@ -92,10 +92,6 @@
       <xs:attributeGroup ref="domains-att"/>
       <xs:attributeGroup ref="global-atts"/>
    </xs:attributeGroup>
-   <xs:attributeGroup name="learningSummary.attlist">
-      <xs:attribute ref="ditaarch:DITAArchVersion"/>
-      <xs:attributeGroup ref="domains-att"/>
-   </xs:attributeGroup>
    <xs:element name="learningSummarybody">
       <xs:annotation>
          <xs:documentation>The &lt;learningSummarybody&gt; element is the main body-level element in a learningSummary topic. </xs:documentation>

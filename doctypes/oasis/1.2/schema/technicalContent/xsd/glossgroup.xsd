@@ -35,14 +35,14 @@
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
 <!-- ================ TOPIC DOMAINS ===================== -->
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd:1.2"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd:1.2"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd:1.2"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:indexingDomain.xsd:1.2"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:hazardDomain.xsd:1.2"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:abbreviateDomainMod.xsd:1.2"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:uiDomainMod.xsd:1.2"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomainMod.xsd:1.2"/>
-   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomainMod.xsd:1.2"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:abbreviateDomain.xsd:1.2"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:uiDomain.xsd:1.2"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd:1.2"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd:1.2"/>
 
    <!-- ================ GROUP DEFINITIONS ===================== -->
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:metaDeclGrp.xsd:1.2"/>
