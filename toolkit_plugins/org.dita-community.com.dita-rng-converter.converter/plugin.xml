@@ -26,7 +26,7 @@
   
   <feature extension="dita.conductor.transtype.check" value="rng2dtd" type="txt"/>
   <feature extension="dita.conductor.transtype.check" value="rng2all" type="txt"/>
-  <feature extension="dita.conductor.target.relative" file="build.xml"/>
+  <feature extension="dita.conductor.target.relative" file="plugin-build.xml"/>
   
 
 </plugin>

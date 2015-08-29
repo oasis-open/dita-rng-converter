@@ -45,6 +45,11 @@
 			  <exclude name="**/rng2ditarnc/"/>
 			</fileset>
 		</copy>
+		<copy todir="${plugin.dist}/org.dita-community.com.dita-rng-converter.converter">
+			<fileset dir="${basedir}">
+			  <include name="build.xml"/>
+			</fileset>
+		</copy>
 		<copy todir="${plugin.dist}/org.dita-community.com.dita-rng-converter.converter/xsl">
 			<fileset dir="${xsl.src}">
 			  <include name="**/*"/>

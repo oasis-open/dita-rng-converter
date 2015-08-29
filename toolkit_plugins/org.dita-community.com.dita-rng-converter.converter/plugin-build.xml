@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="dita-rng-converter">
+ 
+  <!-- This property is used by the main RNG converter build.xml file -->
+  <property name="dita-ot-dir" value="${ant.file.DOST.dir}"/>
   
   <import file="build_transtype-rng2all.xml"/>
   <import file="build_transtype-rng2dtd.xml"/>
