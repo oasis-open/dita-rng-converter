@@ -216,20 +216,20 @@
     <java classname="net.sf.saxon.Transform"
       classpathref="saxonClasspath"
      >
-      <arg line="-o:${manifestOutputDir}/dtd-generation-manifest.xml"/>
+      <arg line="-o:&quot;${manifestOutputDir}/dtd-generation-manifest.xml&quot;"/>
       <arg line="-it:processDir"/>
-      <arg line="-xsl:${dtdGenerationXsl}"/>
-      <arg line="-catalog:${catalogPathUrl}"/>
+      <arg line="-xsl:&quot;${dtdGenerationXsl}&quot;"/>
+      <arg line="-catalog:&quot;${catalogPathUrl}&quot;"/>
       <arg line="generateCatalogs=${doGenerateCatalogs}"/>
-      <arg line="outdir=${dtd-outdir}"/>
+      <arg line="outdir=&quot;${dtd-outdir}&quot;"/>
       <arg line="usePublicIDsInShell=${usePublicIDsInShell}"/>
       <arg line="ditaVersion=${ditaver}"/>
       <arg line="debug=${debug}"/>
-      <arg line="rootDir=${rngsrcUrl}"/>
+      <arg line="rootDir=&quot;${rngsrcUrl}&quot;"/>
       <arg line="generateModules=${doGenerateModules}"/>
       <arg line="generateStandardModules=${doGenerateStandardModules}"/>
       <arg line="generateCatalogs=${doGenerateCatalogs}"/>
-      <arg line="catalogs=${masterCatalog}"/>
+      <arg line="catalogs=&quot;${masterCatalog}&quot;"/>
     </java>        
     
     <antcall target="copy1.3ForeignVocabs"/>
@@ -365,12 +365,12 @@
     <java classname="net.sf.saxon.Transform"
       classpathref="saxonClasspath"
       >
-      <arg line="-xsl:${catalogGenerationXsl}"/>
+      <arg line="-xsl:&quot;${catalogGenerationXsl}&quot;"/>
       <arg line="-it:processDir"/>
-      <arg line="-catalog:${catalogPathUrl}"/>
-      <arg line="rootDir=${rngsrcUrl}"/>
+      <arg line="-catalog:&quot;${catalogPathUrl}&quot;"/>
+      <arg line="rootDir=&quot;${rngsrcUrl}&quot;"/>
       <arg line="ditaVersion=${ditaver}"/>
-      <arg line="outdir=${verSpecificOutDir}"/>
+      <arg line="outdir=&quot;${verSpecificOutDir}&quot;"/>
       <arg line="catalogType=${catalogType}"/>
     </java>
   </target>
