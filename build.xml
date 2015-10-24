@@ -213,7 +213,7 @@
          this use of Saxon requires a newer version, e.g., 9.6.
       -->
   	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
-    <java classname="net.sf.saxon.Transform"
+    <java classname="net.sf.saxon.Transform" failonerror="true"
       classpathref="saxonClasspath"
      >
       <arg line="-o:&quot;${manifestOutputDir}/dtd-generation-manifest.xml&quot;"/>
@@ -282,7 +282,7 @@
          URNs, e.g., the OT master catalog.
       -->
   	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
-    <java classname="net.sf.saxon.Transform"
+    <java classname="net.sf.saxon.Transform" failonerror="true"
       classpathref="saxonClasspath"
       >
       <arg line="-o:${manifestOutputDir}/xsd-url-generation-manifest.xml"/>
@@ -307,7 +307,7 @@
     >
   	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
 
-    <java classname="net.sf.saxon.Transform"
+    <java classname="net.sf.saxon.Transform" failonerror="true"
       classpathref="saxonClasspath"
       >
       <arg line="-o:${manifestOutputDir}/xsd-urn-generation-manifest.xml"/>
@@ -329,7 +329,7 @@
     >
   	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
 
-    <java classname="net.sf.saxon.Transform"
+    <java classname="net.sf.saxon.Transform" failonerror="true"
       classpathref="saxonClasspath"
       >
       <arg line="-o:${manifestOutputDir}/rnc-urn-generation-manifest.xml"/>
@@ -362,7 +362,7 @@
       </fileset>
     </delete>
 -->
-    <java classname="net.sf.saxon.Transform"
+    <java classname="net.sf.saxon.Transform" failonerror="true"
       classpathref="saxonClasspath"
       >
       <arg line="-xsl:&quot;${catalogGenerationXsl}&quot;"/>

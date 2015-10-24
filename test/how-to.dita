@@ -28,19 +28,13 @@
     </section>
     <section>
       <title>Running the tests</title>
-      <p>The run all the tests, do the following:<ol
+      <p>To run all the tests, do the following:<ol
         id="ol_rb3_prk_j4">
-        <li>In a command-line console, navigate to the <filepath>doctypes/test</filepath> directory:<codeblock>c:\ > cd dita-spec/doctypes/test
+        <li>In a command-line console, navigate to the <filepath>doctypes/test</filepath> directory:<codeblock>c:\ > cd dita-spec\doctypes\test
 c:\dita-spec/doctypes/test > _</codeblock></li>
-        <li>Run the ant command with parameters for the output directory, DITA version, and log
-              location:<codeblock>> ant run-all-tests -Doutdir=/Users/ekimber/temp/workspace/output 
-  -Dditaver=1.3 -l /dev/null</codeblock><p>For Windows you can use "nul" instead of
-              "/dev/null":<codeblock>> ant run-all-tests -Doutdir=c:/Users/ekimber/temp/workspace/output 
-  -Dditaver=1.3 -l nul</codeblock></p><p>This runs the DTD and XSD generation process,
-              generates working copies of the test documents, then validates the generated documents. The script will report failure if the generation process fails or if any document fails to
-              validate.</p><p>The log will be <filepath>test-all.log</filepath> in the same directory as the Ant script. Because this log is always generated, there's no need to also echo the log
-              messages to the console, thus the <codeph>-l /dev/null</codeph> or <codeph>-l nul</codeph>  parameter to suppress the console log.</p><p>You can inspect the log to see what worked and
-              what didn't.</p></li>
+        <li>Run the ant command with parameters for the output directory, DITA version, and log location:<codeblock>> ant run-all-tests -Doutdir=/Users/ekimber/temp/workspace/output 
+  -Dditaver=1.3 -l /dev/null</codeblock><p>For Windows you can use "nul" instead of "/dev/null":<codeblock>> ant run-all-tests -Doutdir=c:/Users/ekimber/temp/workspace/output 
+  -Dditaver=1.3 -l nul</codeblock></p><p>This runs the DTD and XSD generation process, generates working copies of the test documents, then validates the generated documents. The script will report failure if the generation process fails or if any document fails to validate.</p><p>The log will be <filepath>test-all.log</filepath> in the same directory as the Ant script. Because this log is always generated, there's no need to also echo the log messages to the console, thus the <codeph>-l /dev/null</codeph> or <codeph>-l nul</codeph> parameter to suppress the console log.</p><p>You can inspect the log to see what worked and what didn't.</p></li>
         </ol></p>
       <p>Each phase of the process is logged to a separate file in addition to the master <filepath>test-all.log</filepath>. This is intended to make it easier to inspect or automatically analyze the logs for a specific phase.</p>
     </section>
