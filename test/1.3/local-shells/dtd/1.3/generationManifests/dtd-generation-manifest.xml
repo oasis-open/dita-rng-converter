@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rng2ditadtd:conversionManifest xmlns:rng2ditadtd="http://dita.org/rng2ditadtd"
+                                timestamp="2015-10-24T14:38:44.684-05:00"
+                                processor="rng2ditadtd.xsl">
+   <generatedShells xmlns="http://dita.org/rng2ditadtd">
+      <shell xmlns="">
+         <inputDoc>file:/Users/ekimber/workspace-dita-community/dita-rng-converter/test/1.3/local-shells/rng/technicalContent/rng/concept.rng</inputDoc>
+         <dtdFile>/Users/ekimber/workspace-dita-community/dita-rng-converter/test/1.3/local-shells/dtd/1.3/dtd/technicalContent/dtd/concept.dtd</dtdFile>
+      </shell>
+   </generatedShells>
+</rng2ditadtd:conversionManifest>

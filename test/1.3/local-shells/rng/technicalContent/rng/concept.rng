@@ -4,7 +4,7 @@
          xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
          xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-      <moduleTitle>DITA Concept Shell</moduleTitle>
+      <moduleTitle>Example.com Local DITA Concept Shell</moduleTitle>
       <headerComment xml:space="preserve">
 ==============================================
 Test local shell for concept topic type
@@ -67,22 +67,22 @@ Adds xnal domain.
             <ref name="concept.element"/>
          </define>
       </include>
-      <include href="urn:oasis:names:tc:dita:rng:abbreviateDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:equationDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:hazardDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:indexingDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:markupDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:mathmlDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:programmingDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomainMod.rng"
+      <include href="urn:oasis:names:tc:dita:rng:abbreviateDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:equationDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:markupDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:mathmlDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:programmingDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng"
                dita:since="1.3"/>
-      <include href="urn:oasis:names:tc:dita:rng:softwareDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:svgDomainMod.rng" dita:since="1.3"/>
-      <include href="urn:oasis:names:tc:dita:rng:uiDomainMod.rng"/>                   
-      <include href="urn:oasis:names:tc:dita:rng:utilitiesDomainMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:xmlDomainMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:softwareDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:svgDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:uiDomain.rng"/>                   
+      <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:xmlDomain.rng"/>
     
   </div>
   <div>

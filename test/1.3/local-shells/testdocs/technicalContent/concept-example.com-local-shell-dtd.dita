@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept SYSTEM "../../dtd/1.3/dtd/technicalContent/dtd/concept.dtd">
+<concept id="concept_ozb_nld_5t">
+ <title>Concept Using Local Example.com Shell <cite>Cite in <xmlelement>title</xmlelement></cite></title>
+ <shortdesc>Short description <cite>Citation in short description</cite>. <xref
+    href="#./p1"
+    format="dita">Paragraph p1</xref></shortdesc>
+ <conbody>
+  <p
+      id="p1">Paragraph</p>
+   <div>
+     <p>This is within a DITA 1.3 <xmlelement>div</xmlelement> element.</p>
+   </div>
+ </conbody>
+</concept>
