@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
-<topic id="topic_pth_2vk_j4">
-  <title>DITA RNG-to-DTD and RNG-to-XSD Generator</title>
-  <body>
-    <p>The DITA RNG-to-DTD and RNG-to-XSD generators produce conforming document type shells and modules from conforming RNG shells.  Thes</p>
-  </body>
-</topic>

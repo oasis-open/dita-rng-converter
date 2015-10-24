@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+    <booktitle>
+        <mainbooktitle>DITA RNG Converter User Guide</mainbooktitle>
+    </booktitle>
+  <bookmeta>
+    <author>W. Eliot Kimber</author>
+    <critdates>
+      <created
+        date="2015-09-05"/>
+    </critdates>
+    <bookrights>
+      <bookowner>
+        <organization>DITA Community Project</organization>
+      </bookowner>
+    </bookrights>
+  </bookmeta>
+  <frontmatter>
+    <booklists>
+      <toc/>
+    </booklists>
+  </frontmatter>
+  <chapter
+    href="getting-started.dita"/>
+</bookmap>

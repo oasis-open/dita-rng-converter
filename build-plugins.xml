@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." name="dita-rng-converter plugin builder" default="deploy-toolkit-plugins">
   
+  <!-- =======================================
+       DITA RNG-to-DTD and XSD Converter
+       
+       Open Toolkit plugin builder
+       
+       This Ant script creates and packages the 
+       DITA Open Toolkit plugins that make the
+       RNG-to-X transforms available as DITA OT
+       transformation types as a convenience.
+       
+       Copyright (c) 2015 DITA Community Project
+       ======================================== -->
+  
   <property file="version.properties"/>
   <property file=".build.properties"/>
   <property file="build.properties"/>
