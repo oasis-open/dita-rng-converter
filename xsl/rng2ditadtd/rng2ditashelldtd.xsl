@@ -45,8 +45,13 @@
     <!-- For OASIS modules, any shell will be in rng/{package}/rng
          The output needs to be in dtd/{package}/dtd
       -->
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] processShell: Handling doc <xsl:value-of select="document-uri(root(.))"/></xsl:message>
+      <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
+    </xsl:if>
     
-<!--    <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>-->
+    
+<!--    -->
 
     
     <xsl:variable name="rngShellUrl" as="xs:string"
@@ -61,13 +66,21 @@
     />
     
     <xsl:variable name="referencedModules" as="document-node()*">
+      <xsl:if test="$doDebug">
+        <xsl:message> + [DEBUG] processShell: Applying templates in mode "getReferencedModules"...</xsl:message>
+      </xsl:if>
+      
       <xsl:apply-templates select="." mode="getReferencedModules">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="origModule" select="root(.)" as="document-node()" tunnel="yes"/>
         <xsl:with-param name="modulesToProcess" as="document-node()*" tunnel="yes"
           select="$modulesToProcess" 
         />
         
       </xsl:apply-templates>
+      <xsl:if test="$doDebug">
+        <xsl:message> + [DEBUG] processShell: Apply templates done.</xsl:message>
+      </xsl:if>
     </xsl:variable>
 
     <shell>
@@ -92,6 +105,7 @@
       </xsl:if>
       <xsl:result-document href="{$dtdResultUrl}" format="dtd">
         <xsl:apply-templates mode="dtdFile">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           <xsl:with-param name="dtdFilename" select="$dtdFilename" tunnel="yes" as="xs:string" />
           <xsl:with-param name="dtdOutputDir" select="$dtdOutputDir" tunnel="yes" as="xs:string" />
           <xsl:with-param name="modulesToProcess"  select="$referencedModules" tunnel="yes" as="document-node()*" />

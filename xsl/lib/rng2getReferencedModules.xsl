@@ -20,9 +20,15 @@
   
   <xsl:template match="rng:grammar" mode="getReferencedModules">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] getReferencedModules: rng:grammar - applying templates to rng:include and rng:div elements...</xsl:message>
+    </xsl:if>
     <xsl:apply-templates select="rng:include | rng:div" mode="#current" >
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     </xsl:apply-templates>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] getReferencedModules: rng:grammar - Done applying templates to rng:include and rng:div elements...</xsl:message>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="rng:include" mode="getReferencedModules">

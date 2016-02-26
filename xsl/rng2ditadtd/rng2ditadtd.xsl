@@ -272,7 +272,11 @@
       timestamp="{current-dateTime()}"
       processor="{'rng2ditadtd.xsl'}"
       >
+      <xsl:message> + [INFO] Generating shells...</xsl:message>
       <generatedShells>
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] applying templates to $shellDocs in mode processShell...</xsl:message>
+        </xsl:if>
         <xsl:apply-templates 
           select="$shellDocs[($doGenerateStandardModules) or
                                    not(rngfunc:isStandardModule(.))]" 
@@ -286,6 +290,7 @@
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>         
         </xsl:apply-templates>
       </generatedShells>
+      <xsl:message> + [INFO] Shells generated</xsl:message>
       <xsl:if test="$doGenerateModules">
         <xsl:message> + [INFO] =================================</xsl:message>
         <xsl:message> + [INFO] Generating .mod and .ent files in directory "<xsl:sequence select="$dtdOutputDir"/>"...</xsl:message>
