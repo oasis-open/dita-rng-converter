@@ -26,7 +26,28 @@
 
 <div><h2><a id="purposeClarifications">Additions to Statement of Purpose</a></h2>
 
-<p>Repository Maintainers may include here any clarifications &mdash; any additional sections, subsections, and paragraphs that the Maintainer(s) wish to add as descriptive text, reflecting (sub-) project status, milestones, releases, modifications to statement of purpose, etc.  The project Maintainers will create and maintain this content on behalf of the participants.</p>
+<div><h3>Development Plan</h3>
+
+<p>The code as added 24 March 2016 is still under development and requires more work to make it
+ready for general use. The latest code is on the develop branch.</p>
+<p>The current development plan is:
+<ol>
+<li>Fix bugs related to infinite looping of code when generating shells, as reported by 
+Toshihiko Makita on the DITA Community version of the repo (https://github.com/dita-community/dita-rng-converter/issues/2)</li>
+<li>Refine the Ant scripts to ensure that all parameters are appropriate and working.</li>
+<li>Finish documentation.</li> 
+</ol>
+<p>Schedule: Goal is to complete these actions by the end of April 2016.</p>
+<p>Additional implementation goals include:
+<ul>
+<li>Provide a simple interactive tool for creating new document type shells and generating DTD and XSD from them.</li>
+<li>Implement a FrameMaker EDD generation process to make it easier to use local shells, specializations, and 
+constraints with FrameMaker.</li>
+</ul>
+<p>Please use the project issue tracker to report any bugs or log feature requests.</p>
+<p>Please use the project Wiki for general discussion not related to specific bugs or features.</p>
+</div><!-- Dev plan -->
+
 </div>
 
 <div>
