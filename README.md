@@ -26,6 +26,20 @@
 
 <div><h2><a id="purposeClarifications">Additions to Statement of Purpose</a></h2>
 
+<div><h3>Tool Overview</h3>
+<p>
+This project provides the following transforms from RNG grammars that follow the coding conventions used by the DITA Technical Committee for the TC-defined modules and shells:
+<ul>
+<li>RNG-to-DTD: Generates conforming DTD-syntax document type shells and modules</li>
+<li>RNG-to-XSD: Generates conforming XSD-syntax document type shells and modules</li>
+<li>XML entity resolution catalog generator: Generates XML entity resolution catalogs for the RNG, DTD, and XSD modules processed or generated.</li>
+</ul>
+<p>The transforms are implemented as XSLT transforms and run through an Ant script. See the project documentation for details.</p>
+<p>The transforms can be run standalone or through an Open Toolkit plugin. The transforms have no dependency on the DITA Open Toolkit itself.</p>
+<p>You can use these transforms to generate both DITA 1.2 and DITA 1.3 shells and modules: RNG versions of the DITA 1.2 shells and vocabulary are included in the project (as developed by the DITA Technical Committee).</p>
+<p><b>NOTE:</b> At some point the OASIS-defined grammars will be removed from this project and you'll need to get the latest DITA Open Toolkit 
+distribution in order to minimize the number of copies of the OASIS-provided grammars.</p>
+</div>
 <div><h3>Development Plan</h3>
 
 <p>The code as added 24 March 2016 is still under development and requires more work to make it
