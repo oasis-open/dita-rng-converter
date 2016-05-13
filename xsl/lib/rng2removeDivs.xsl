@@ -35,7 +35,17 @@
     <xsl:copy>
       <xsl:if test="$origURI">
     <!--<xsl:message> + [DEBUG] removeDivs: Constructing @origURI attribute</xsl:message>-->
-        <xsl:attribute name="origURI" select="$origURI"/>
+        <!--xsl:attribute name="origURI" select="$origURI"/-->
+        <xsl:attribute name="origURI">
+          <xsl:choose>
+            <xsl:when test="starts-with($origURI,'urn:')">
+              <xsl:value-of xmlns:catu="http://local/catalog-utility" select="catu:getFileUriFromUrn($origURI)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$origURI"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
       </xsl:if>
       <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>

@@ -21,6 +21,8 @@
     </xd:desc>
   </xd:doc>
 
+  <xsl:include href="../lib/catalog_util.xsl" />
+
   <xsl:function name="rngfunc:getModuleType" as="xs:string">
     <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
     <xsl:sequence select="rngfunc:getModuleType($rngGrammar, true())"/>
@@ -264,7 +266,15 @@
     <xsl:variable name="result" select="if (document-uri(root($rngGrammar))) 
               then document-uri(root($rngGrammar))
               else $rngGrammar/@origURI"/>
-    <xsl:sequence select="$result"/>
+    <!--xsl:sequence select="$result"/-->
+    <xsl:choose>
+      <xsl:when test="starts-with($result,'urn:')">
+        <xsl:sequence xmlns:catu="http://local/catalog-utility" select="catu:getFileUriFromUrn($result)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$result"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:function>
   
   <xsl:function name="rngfunc:getDomainsAttValue" as="xs:string?">

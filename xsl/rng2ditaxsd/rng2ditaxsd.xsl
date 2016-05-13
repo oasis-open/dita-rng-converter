@@ -96,7 +96,12 @@
   <xsl:variable name="doUseURNsInShell" as="xs:boolean"
     select="matches($useURNsInShell, '(yes|true|1|no)', 'i')"
   />
-  
+
+  <xd:doc>
+    <xd:param>$catalogUrl: File URL of [DITA-OT]/catalog-dita.xml</xd:param>
+  </xd:doc>
+  <xsl:param name="catalogUrl" as="xs:string" required="yes"/>
+
   <!-- NOTE: The primary output of this transform is an XML 
        manifest file that lists all input files and their
        corresponding outputs.
@@ -185,7 +190,7 @@
                 return if (matches(string(document-uri($doc)), '.+Mod.rng'))
                           then $doc
                           else ()), 
-                $referencedModules except (rngDocs)
+                $referencedModules except ($rngDocs)
       "
     />
     <xsl:if test="$doDebug">
