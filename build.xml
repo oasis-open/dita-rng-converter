@@ -26,8 +26,9 @@
     </condition>
   </fail>
   
-  <property name="doctypesDir" location="${dita-ot-dir}/plugins/org.oasis-open.dita.dita13.doctypes/doctypes"/>
-	
+  <!--property name="doctypesDir" location="${dita-ot-dir}/plugins/org.oasis-open.dita.dita13.doctypes/doctypes"/-->
+  <property name="doctypesDir" location="${dita-ot-dir}/plugins/org.oasis-open.dita.v1_3"/>
+  
 	<!-- This is the tools/ dir under the doctypes DIR in the TC-managed
 	     source repository.
 	  -->
@@ -144,7 +145,8 @@
       <include name="saxon9*.jar"/>
     </fileset>
     <fileset dir="${javaLibDir}">
-      <include name="resolver.jar"/>
+      <!--include name="resolver.jar"/-->
+      <include name="xml-resolver-*.jar"/>
     </fileset>
   </path>
 
@@ -229,7 +231,7 @@
       <arg line="generateModules=${doGenerateModules}"/>
       <arg line="generateStandardModules=${doGenerateStandardModules}"/>
       <arg line="generateCatalogs=${doGenerateCatalogs}"/>
-      <arg line="catalogs=&quot;${masterCatalog}&quot;"/>
+      <arg line="catalogUrl=&quot;${catalogPathUrl}&quot;"/>
     </java>        
     
     <antcall target="copy1.3ForeignVocabs"/>
@@ -297,6 +299,7 @@
       <arg line="generateModules=${doGenerateModules}"/>
       <arg line="generateStandardModules=${doGenerateStandardModules}"/>
       <arg line="generateCatalogs=${doGenerateCatalogs}"/>
+      <arg line="catalogUrl=&quot;${catalogPathUrl}&quot;"/>
     </java>        
     
     <antcall target="copy1.3ForeignVocabs"/>
@@ -321,6 +324,7 @@
       <arg line="rootDir=${rngsrcUrl}"/>
       <arg line="generateModules=${doGenerateModules}"/>
       <arg line="generateStandardModules=${doGenerateStandardModules}"/>
+      <arg line="catalogUrl=&quot;${catalogPathUrl}&quot;"/>
     </java>        
   </target>
 
@@ -343,6 +347,7 @@
       <arg line="rootDir=${rngsrcUrl}"/>
       <arg line="generateModules=${doGenerateModules}"/>
       <arg line="generateStandardModules=${doGenerateStandardModules}"/>
+      <arg line="catalogUrl=&quot;${catalogPathUrl}&quot;"/>
     </java>        
   </target>
   
@@ -372,6 +377,7 @@
       <arg line="ditaVersion=${ditaver}"/>
       <arg line="outdir=&quot;${verSpecificOutDir}&quot;"/>
       <arg line="catalogType=${catalogType}"/>
+      <arg line="catalogUrl=&quot;${catalogPathUrl}&quot;"/>
     </java>
   </target>
   

@@ -38,7 +38,7 @@
     <xsl:choose>
       <xsl:when test="$rngModule">
         <xsl:variable name="gatheredModule" 
-          select="$modulesToProcess[local:isSameModule(string(/*/@origURI),
+          select="$modulesToProcess[local:isSameModule(if (string(/*/@origURI)) then string(/*/@origURI) else string(document-uri(.)),
                string(document-uri($rngModule)))][1]" as="document-node()?"
         />
         <xsl:choose>

@@ -69,6 +69,11 @@
        
     -->
   
+  <xd:doc>
+    <xd:param>$catalogUrl: File URL of [DITA-OT]/catalog-dita.xml</xd:param>
+  </xd:doc>
+  <xsl:param name="catalogUrl" as="xs:string" required="yes"/>
+  
   <xsl:output omit-xml-declaration="yes"/>
   
   <xsl:template name="processDir">

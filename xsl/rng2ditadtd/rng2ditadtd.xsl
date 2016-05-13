@@ -111,6 +111,10 @@
     select="matches($usePublicIDsInShell, 'yes|true|1|on', 'i')"
   />
   
+  <xd:doc>
+    <xd:param>$catalogUrl: File URL of [DITA-OT]/catalog-dita.xml</xd:param>
+  </xd:doc>
+  <xsl:param name="catalogUrl" as="xs:string" required="yes"/>
   
   <!-- NOTE: The primary output of this transform is an XML 
        manifest file that lists all input files and their
