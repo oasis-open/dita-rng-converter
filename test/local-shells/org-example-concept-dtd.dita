@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_brk_xpq_fw">
+ <title>Concept using example.org Generated DTD Shell</title>
+ <shortdesc></shortdesc>
+  <prolog/>
+ <conbody>
+  <p>The shell omits the software domain, so the <xmlelement>filepath</xmlelement> element should
+      not be allowed: <filepath>this is a file path</filepath>.</p>
+ </conbody>
+</concept>

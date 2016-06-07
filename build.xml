@@ -22,19 +22,6 @@
      value="1.3"
   />
   
-  <condition property="isOT1.8.5">
-    <equals arg1="${otversion}" arg2="1.8.5"/> 
-  </condition>
-  <condition property="isOT2">
-    <matches string="${otversion}" pattern="^2\."/> 
-  </condition>
-  <condition property="isOT2.2">
-    <matches string="${otversion}" pattern="^2\.2\."/> 
-  </condition>
-  <condition property="isOT2.3">
-    <matches string="${otversion}" pattern="^2\.3(\.)?"/> 
-  </condition>
-  
   
   <fail message="- [ERROR]&#x0a;  Required property dita-ot-dir is not set.&#x0a;  It should be set in your build.properties or&#x0a;  .build.properties file or on the command line&#x0a;  using -Ddita-ot-dir={location of DITA OT}">
     <condition>
@@ -43,7 +30,7 @@
       </not>
     </condition>
   </fail>
-  
+
   <property name="doctypesDir" location="${dita-ot-dir}/plugins/org.oasis-open.dita.v1_3"/>
 	
 	<!-- This is the tools/ dir under the doctypes DIR in the TC-managed
@@ -66,7 +53,7 @@
   
 		 
   <property name="outdir" description="Root output directory for the generated files"
-      location="${doctypesDir}/src"
+      location="${basedir}/build"
    />
   
   <property name="verSpecificOutDir" 
@@ -175,7 +162,7 @@
   
  <target name="help">
    <echo>
-[generate-all|generate-dtd]
+[generate-all|generate-dtd|generate-catalogs]
 
   -Drngsrc={directory containing the RELAX NG document type shells to process}
   
@@ -203,6 +190,9 @@
    -D debug=[true|FALSE]
    
       Turns on debug messages.
+      
+   NOTE: The generate-catalogs target only generates catalogs, it does not
+         generate any shells or modules.   
    </echo>
  </target>
 

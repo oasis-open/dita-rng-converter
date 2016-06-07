@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="generating_dtd_document_type_shells">
+  <title>Generating DTD Document Type Shells</title>
+  <body>
+    <p>To generate document type shells you use the Ant target "generate-dtd" and specify the
+      directory containing your RELAX NG document type
+      shells:<codeblock>c:\dita-rng-converter > ant generate-dtd -Drngsrc=test/local-shells/org.example</codeblock></p>
+    <p>By default, the output goes to the <filepath>build</filepath> directory under the directory
+      containing the <filepath>build.xml</filepath> file.</p>
+    <p>You can specify a different output directory using the <parmname>outdir</parmname>
+      parameter:<codeblock><b>-Doutdir=test/local-shells</b></codeblock></p>
+    <p>The <parmname>outdir</parmname> parameter specifies the top-level directory to put the files
+      in. The DTDs will actually be in a directory structure that reflects the DITA version, the
+      grammar type (e.g., "dtd"), and the containing directory for the input document type shells,
+      e.g. "<filepath>1.3/dtd/example.org/dtd/concept.dtd</filepath>". This directory structure
+      reflects the organizational scheme used by the OASIS-defined grammars.</p>
+    <p>If your source grammars are organized in a directory structure like the OASIS-defined
+      grammars, you can use the <parmname>doctypesDir</parmname> parameter to specify the top-level
+      directory. The RNG source files must be under a directory named <filepath>rng</filepath> under
+      the doct</p>
+  </body>
+</topic>

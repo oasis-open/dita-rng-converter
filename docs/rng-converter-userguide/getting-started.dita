@@ -14,5 +14,11 @@
       <li>For simple cases, generate XSD constraint modules from RNG constraint modules</li>
       </ul></p>
     <p>To use the transformer you need to have RNG document type shells and, if you are converting your own specialization or constraint modules, those modules as well. All the module references from the shells must be resolvable, presumably because you've packaged them into an Open Toolkit plugin that hooks up all the catalogs or otherwise created a local environment where all the references can be resolved using normal XML processing.</p>
+    <p>The Ant scripts require that a DITA Open Toolkit installation be available in order to have
+      access to the OASIS-defined RELAX NG modules. You should use the latest DITA Open Toolkit
+      version available in order to ensure you have the latest RELAX NG files.</p>
+    <p>Alternatively, you can get the RELAX NG files from the DITA Technical Committee materials as
+      provided through the OASIS Web site. However, the latest Open Toolkit should reflect the
+      most-current versions of the OASIS-provided RELAX NG grammars.</p>
   </body>
 </topic>
