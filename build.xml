@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." default="help" name="dita-rng2dtdxsd">
+  <!-- NOTE: This ant script is implemented against the 2.3 version
+       of the DITA Open Toolkit. It may need adjustment to work
+       with other Toolkit versions.
+    -->
    
 <!--  <property environment="env"/> -->
   <property file=".build.properties"/>
@@ -18,6 +22,20 @@
      value="1.3"
   />
   
+  <condition property="isOT1.8.5">
+    <equals arg1="${otversion}" arg2="1.8.5"/> 
+  </condition>
+  <condition property="isOT2">
+    <matches string="${otversion}" pattern="^2\."/> 
+  </condition>
+  <condition property="isOT2.2">
+    <matches string="${otversion}" pattern="^2\.2\."/> 
+  </condition>
+  <condition property="isOT2.3">
+    <matches string="${otversion}" pattern="^2\.3(\.)?"/> 
+  </condition>
+  
+  
   <fail message="- [ERROR]&#x0a;  Required property dita-ot-dir is not set.&#x0a;  It should be set in your build.properties or&#x0a;  .build.properties file or on the command line&#x0a;  using -Ddita-ot-dir={location of DITA OT}">
     <condition>
       <not>
@@ -26,14 +44,13 @@
     </condition>
   </fail>
   
-  <property name="doctypesDir" location="${dita-ot-dir}/plugins/org.oasis-open.dita.dita13.doctypes/doctypes"/>
+  <property name="doctypesDir" location="${dita-ot-dir}/plugins/org.oasis-open.dita.v1_3"/>
 	
 	<!-- This is the tools/ dir under the doctypes DIR in the TC-managed
 	     source repository.
 	  -->
   <property name="toolsDir" location="${basedir}/../../tools"/>
-  <property name="javaLibDir" location="${dita-ot-dir}/lib"/>
-  <property name="saxonDir" location="${javaLibDir}/saxon"/>
+  <property name="javaLibDir" location="${basedir}/lib"/>
   <property name="catalogType" value="'all'"/>
   <!-- The catalogType parameter specifies the type of catlaog
        to be produced:
@@ -128,7 +145,6 @@
   <target name="init">
     <echo>outdir=${outdir}</echo>
     <echo>catalogOutDir="${catalogOutDir}"</echo>
-    <echo>saxonDir="${saxonDir}"</echo>
 		<buildnumber/>
     <tstamp/>
   </target>
@@ -140,11 +156,10 @@
 	
   	
   <path id="saxonClasspath">
-    <fileset dir="${saxonDir}" >
-      <include name="saxon9*.jar"/>
-    </fileset>
     <fileset dir="${javaLibDir}">
-      <include name="resolver.jar"/>
+      <include name="**/saxon9*.jar"/>
+      <include name="**/xml-resolver*.jar"/>
+      <include name="**/resolver*.jar"/>
     </fileset>
   </path>
 
