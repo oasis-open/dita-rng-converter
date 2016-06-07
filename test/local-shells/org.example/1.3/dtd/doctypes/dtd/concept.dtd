@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!-- Example concept local shell                                   -->
+<!-- Omits software domain                                         -->
+<!-- Adds XNAL domain                                              -->
+<!-- ============================================================= -->
+<!--                                                               -->
+
+<!-- ============================================================= -->
+<!--              TOPIC ENTITY DECLARATIONS                        -->
+<!-- ============================================================= -->
+
+<!ENTITY % concept-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Concept//EN"
+         "urn:oasis:names:tc:dita:rng:concept.ent"
+>%concept-dec;
+
+<!-- ============================================================= -->
+<!--             DOMAIN ENTITY DECLARATIONS                        -->
+<!-- ============================================================= -->
+
+<!ENTITY % abbrev-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Abbreviated Form Domain//EN"
+         "urn:oasis:names:tc:dita:rng:abbreviateDomain.ent"
+>%abbrev-d-dec;
+
+<!ENTITY % equation-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Equation Domain//EN"
+         "urn:oasis:names:tc:dita:rng:equationDomain.ent"
+>%equation-d-dec;
+
+<!ENTITY % hazard-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Hazard Statement Domain//EN"
+         "urn:oasis:names:tc:dita:rng:hazardDomain.ent"
+>%hazard-d-dec;
+
+<!ENTITY % hi-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Highlight Domain//EN"
+         "urn:oasis:names:tc:dita:rng:highlightDomain.ent"
+>%hi-d-dec;
+
+<!ENTITY % indexing-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Indexing Domain//EN"
+         "urn:oasis:names:tc:dita:rng:indexingDomain.ent"
+>%indexing-d-dec;
+
+<!ENTITY % markup-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Markup Domain//EN"
+         "urn:oasis:names:tc:dita:rng:markupDomain.ent"
+>%markup-d-dec;
+
+<!ENTITY % mathml-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 MathML Domain//EN"
+         "urn:oasis:names:tc:dita:rng:mathmlDomain.ent"
+>%mathml-d-dec;
+
+<!ENTITY % pr-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Programming Domain//EN"
+         "urn:oasis:names:tc:dita:rng:programmingDomain.ent"
+>%pr-d-dec;
+
+<!ENTITY % relmgmt-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Release Management Domain//EN"
+         "urn:oasis:names:tc:dita:rng:releaseManagementDomain.ent"
+>%relmgmt-d-dec;
+
+<!ENTITY % svg-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 SVG Domain//EN"
+         "urn:oasis:names:tc:dita:rng:svgDomain.ent"
+>%svg-d-dec;
+
+<!ENTITY % ui-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 User Interface Domain//EN"
+         "urn:oasis:names:tc:dita:rng:uiDomain.ent"
+>%ui-d-dec;
+
+<!ENTITY % ut-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Utilities Domain//EN"
+         "urn:oasis:names:tc:dita:rng:utilitiesDomain.ent"
+>%ut-d-dec;
+
+<!ENTITY % xml-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 XML Domain//EN"
+         "urn:oasis:names:tc:dita:rng:xmlDomain.ent"
+>%xml-d-dec;
+
+<!ENTITY % xnal-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 XNAL Domain//EN"
+         "urn:oasis:names:tc:dita:rng:xnalDomain.ent"
+>%xnal-d-dec;
+
+<!-- ============================================================= -->
+<!--             DOMAIN ATTRIBUTES DECLARATIONS                    -->
+<!-- ============================================================= -->
+
+<!ENTITY % deliveryTargetAtt-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Delivery Target Attribute Domain//EN"
+         "urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.ent"
+>%deliveryTargetAtt-d-dec;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+
+<!ENTITY % term         "term |
+                         %abbrev-d-term;
+                        ">
+<!ENTITY % ph           "ph |
+                         %equation-d-ph; |
+                         %hi-d-ph; |
+                         %pr-d-ph; |
+                         %ui-d-ph;
+                        ">
+<!ENTITY % div          "div |
+                         %equation-d-div;
+                        ">
+<!ENTITY % fig          "fig |
+                         %equation-d-fig; |
+                         %pr-d-fig; |
+                         %ut-d-fig;
+                        ">
+<!ENTITY % note         "note |
+                         %hazard-d-note;
+                        ">
+<!ENTITY % index-base   "index-base |
+                         %indexing-d-index-base;
+                        ">
+<!ENTITY % keyword      "keyword |
+                         %markup-d-keyword; |
+                         %pr-d-keyword; |
+                         %ui-d-keyword; |
+                         %xml-d-keyword;
+                        ">
+<!ENTITY % foreign      "foreign |
+                         %mathml-d-foreign; |
+                         %svg-d-foreign;
+                        ">
+<!ENTITY % pre          "pre |
+                         %pr-d-pre; |
+                         %ui-d-pre;
+                        ">
+<!ENTITY % dl           "dl |
+                         %pr-d-dl;
+                        ">
+<!ENTITY % metadata     "metadata |
+                         %relmgmt-d-metadata;
+                        ">
+<!ENTITY % data         "data |
+                         %ut-d-data;
+                        ">
+<!ENTITY % author       "author |
+                         %xnal-d-author;
+                        ">
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+
+<!ENTITY % props-attribute-extensions
+  "%deliveryTargetAtt-d-attribute;"
+>
+<!ENTITY % base-attribute-extensions
+  ""
+>
+
+<!-- ============================================================= -->
+<!--                    TOPIC NESTING OVERRIDE                     -->
+<!-- ============================================================= -->
+
+<!ENTITY % concept-info-types
+              "concept
+"
+>
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+
+<!ENTITY included-domains
+                          "&concept-att;
+                           &abbrev-d-att;
+                           &deliveryTargetAtt-d-att;
+                           &equation-d-att;
+                           &hazard-d-att;
+                           &hi-d-att;
+                           &indexing-d-att;
+                           &markup-d-att;
+                           &mathml-d-att;
+                           &pr-d-att;
+                           &relmgmt-d-att;
+                           &svg-d-att;
+                           &ui-d-att;
+                           &ut-d-att;
+                           &xml-d-att;
+                           &xnal-d-att;
+  "
+>
+
+<!-- ============================================================= -->
+<!--                    CONTENT CONSTRAINT INTEGRATION             -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    TOPIC ELEMENT INTEGRATION                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % topic-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Topic//EN"
+         "urn:oasis:names:tc:dita:rng:topic.mod"
+>%topic-type;
+
+<!ENTITY % concept-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Concept//EN"
+         "urn:oasis:names:tc:dita:rng:concept.mod"
+>%concept-type;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % abbrev-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Abbreviated Form Domain//EN"
+         "urn:oasis:names:tc:dita:rng:abbreviateDomain.mod"
+>%abbrev-d-def;
+
+<!ENTITY % equation-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Equation Domain//EN"
+         "urn:oasis:names:tc:dita:rng:equationDomain.mod"
+>%equation-d-def;
+
+<!ENTITY % hazard-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Hazard Statement Domain//EN"
+         "urn:oasis:names:tc:dita:rng:hazardDomain.mod"
+>%hazard-d-def;
+
+<!ENTITY % hi-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Highlight Domain//EN"
+         "urn:oasis:names:tc:dita:rng:highlightDomain.mod"
+>%hi-d-def;
+
+<!ENTITY % indexing-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Indexing Domain//EN"
+         "urn:oasis:names:tc:dita:rng:indexingDomain.mod"
+>%indexing-d-def;
+
+<!ENTITY % markup-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Markup Domain//EN"
+         "urn:oasis:names:tc:dita:rng:markupDomain.mod"
+>%markup-d-def;
+
+<!ENTITY % mathml-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 MathML Domain//EN"
+         "urn:oasis:names:tc:dita:rng:mathmlDomain.mod"
+>%mathml-d-def;
+
+<!ENTITY % pr-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Programming Domain//EN"
+         "urn:oasis:names:tc:dita:rng:programmingDomain.mod"
+>%pr-d-def;
+
+<!ENTITY % relmgmt-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Release Management Domain//EN"
+         "urn:oasis:names:tc:dita:rng:releaseManagementDomain.mod"
+>%relmgmt-d-def;
+
+<!ENTITY % svg-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 SVG Domain//EN"
+         "urn:oasis:names:tc:dita:rng:svgDomain.mod"
+>%svg-d-def;
+
+<!ENTITY % ui-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 User Interface Domain//EN"
+         "urn:oasis:names:tc:dita:rng:uiDomain.mod"
+>%ui-d-def;
+
+<!ENTITY % ut-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Utilities Domain//EN"
+         "urn:oasis:names:tc:dita:rng:utilitiesDomain.mod"
+>%ut-d-def;
+
+<!ENTITY % xml-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 XML Domain//EN"
+         "urn:oasis:names:tc:dita:rng:xmlDomain.mod"
+>%xml-d-def;
+
+<!ENTITY % xnal-d-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 XNAL Domain//EN"
+         "urn:oasis:names:tc:dita:rng:xnalDomain.mod"
+>%xnal-d-def;
+
+<!-- ================= End of DITA Concept Shell ================= -->
