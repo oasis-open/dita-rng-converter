@@ -28,6 +28,7 @@
       "true:<codeblock>ant generate-dtd -DdoctypesDir=test/local-shells/org.example/1.3/doctypes \
   -Doutdir=test/local-shells/org.example \
   <b>-DgenerateCatalogs=true</b></codeblock></p>
-    <p/>
+    <p>By default, the catalogs are generated in the same output location as the generated grammar
+      files, following the Technical Committee's file organization pattern.</p>
   </body>
 </topic>
