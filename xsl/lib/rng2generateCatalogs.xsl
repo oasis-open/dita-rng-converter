@@ -357,12 +357,15 @@
            dita:dtdEnt | 
            dita:dtdShell">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:variable name="publidIdVars">
+    <xsl:variable name="publicIdVars"> 
       <xsl:apply-templates mode="expand-variables">
         <xsl:with-param name="doDebug" as="xs:boolean" select="$doDebug" tunnel="yes"/>        
       </xsl:apply-templates>
     </xsl:variable>
-    <xsl:variable name="publidIdNoVars">
+    <xsl:variable name="publicId1x" as="xs:string"
+      select="replace($publicIdVars, ' 1\.[1-3]', ' 1.x')"
+    />
+    <xsl:variable name="publicIdNoVars">
       <xsl:apply-templates mode="ignore-variables">
         <xsl:with-param name="doDebug" as="xs:boolean" select="$doDebug" tunnel="yes"/>        
       </xsl:apply-templates>
@@ -388,8 +391,9 @@
     <xsl:variable name="systemId" as="xs:string"
       select="concat('dtd', '/', $baseName, '.', $ext)"
     />
-    <public publicId="{normalize-space($publidIdVars)}" uri="{normalize-space($systemId)}"/>
-    <public publicId="{normalize-space($publidIdNoVars)}" uri="{normalize-space($systemId)}"/>
+    <public publicId="{normalize-space($publicIdNoVars)}" uri="{normalize-space($systemId)}"/>
+    <public publicId="{normalize-space($publicId1x)}" uri="{normalize-space($systemId)}"/>
+    <public publicId="{normalize-space($publicIdVars)}" uri="{normalize-space($systemId)}"/>
   </xsl:template>
   
   <xsl:template mode="generate-catalogs"
