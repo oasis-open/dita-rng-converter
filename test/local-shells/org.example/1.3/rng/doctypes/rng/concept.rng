@@ -20,7 +20,7 @@ Adds XNAL domain
          <moduleType>topicshell</moduleType>
          <moduleShortName>concept</moduleShortName>
          <shellPublicIds>
-            <dtdShell>urn:pubid:example.org:dita:dtd:<var presep=" " name="ditaver"/>concept.dtd</dtdShell>
+            <dtdShell>urn:pubid:example.org:dita:dtd<var presep=":" name="ditaver"/>:concept.dtd</dtdShell>
             <rncShell>urn:pubid:example.org:dita:rnc:concept.rnc<var presep=":" name="ditaver"/>
             </rncShell>
             <rngShell>urn:pubid:example.org:dita:rng:concept.rng<var presep=":" name="ditaver"/>

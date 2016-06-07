@@ -363,7 +363,7 @@
       </xsl:apply-templates>
     </xsl:variable>
     <xsl:variable name="publicId1x" as="xs:string"
-      select="replace($publicIdVars, ' 1\.[1-3]', ' 1.x')"
+      select="replace($publicIdVars, '([:\s])1\.[1-3]', '$11.x')"
     />
     <xsl:variable name="publicIdNoVars">
       <xsl:apply-templates mode="ignore-variables">

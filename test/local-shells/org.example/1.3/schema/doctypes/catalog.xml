@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Concept Shell-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:pubid:example.org:dita:xsd:concept.xsd"
+              uri="xsd/concept.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:concept.xsd:1.x"
+              uri="xsd/concept.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:concept.xsd:1.3"
+              uri="xsd/concept.xsd"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:pubid:example.org:dita:xsd:concept.xsd" uri="xsd/concept.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:concept.xsd:1.x"
+           uri="xsd/concept.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:concept.xsd:1.3"
+           uri="xsd/concept.xsd"/>
+   </group>
+</catalog>

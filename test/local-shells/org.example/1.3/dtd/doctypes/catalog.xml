@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Concept Shell-->
+
+   <public publicId="urn:pubid:example.org:dita:dtd:concept.dtd"
+           uri="dtd/concept.dtd"/>
+   <public publicId="urn:pubid:example.org:dita:dtd:1.x:concept.dtd"
+           uri="dtd/concept.dtd"/>
+   <public publicId="urn:pubid:example.org:dita:dtd:1.3:concept.dtd"
+           uri="dtd/concept.dtd"/>
+</catalog>

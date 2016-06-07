@@ -211,7 +211,7 @@
     -->
   
   <target name="generate-dtd" description="Generates the DTDs from the RNGs"
-    depends="init, clean"
+    depends="init, clean, generate-catalogs"
     >
 <!--  	<echoproperties regex="gen|out|debug|dir|Dir|ditaver|src|do"/>-->
     <!-- NOTE: the -catalog Saxon parameter is not available with Saxon 9.1, so
@@ -353,6 +353,7 @@
   
   <target name="generate-catalogs" description="Generate all the entity resolution catalogs for a specific DITA version"
     depends="init, clean"
+    if="${doGenerateCatalogs}"
     >
   	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
 
