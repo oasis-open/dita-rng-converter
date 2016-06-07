@@ -445,6 +445,9 @@
         <xsl:with-param name="doDebug" as="xs:boolean" select="$doDebug" tunnel="yes"/>        
       </xsl:apply-templates>
     </xsl:variable>
+    <xsl:variable name="urn1x" as="xs:string"
+      select="replace($urnVars, ':1\.[1-3]', ':1.x')"
+    />
     <xsl:variable name="urnNoVars">
       <xsl:apply-templates mode="ignore-variables">
         <xsl:with-param name="doDebug" as="xs:boolean" select="$doDebug" tunnel="yes"/>        
@@ -466,12 +469,14 @@
          aren't external parameter entities.
       -->
       <xsl:if test="$entryType = ('system', 'all')">        
-        <system systemId="{normalize-space($urnVars)}" uri="{normalize-space($systemId)}"/>
         <system systemId="{normalize-space($urnNoVars)}" uri="{normalize-space($systemId)}"/>
+        <system systemId="{normalize-space($urn1x)}" uri="{normalize-space($systemId)}"/>
+        <system systemId="{normalize-space($urnVars)}" uri="{normalize-space($systemId)}"/>
       </xsl:if>
       <xsl:if test="$entryType = ('urn', 'all')">
-        <uri name="{normalize-space($urnVars)}" uri="{normalize-space($systemId)}"/>
         <uri name="{normalize-space($urnNoVars)}" uri="{normalize-space($systemId)}"/>
+        <uri name="{normalize-space($urn1x)}" uri="{normalize-space($systemId)}"/>
+        <uri name="{normalize-space($urnVars)}" uri="{normalize-space($systemId)}"/>
       </xsl:if>
   </xsl:template>
   
@@ -494,6 +499,9 @@
         <xsl:with-param name="doDebug" as="xs:boolean" select="$doDebug" tunnel="yes"/>        
       </xsl:apply-templates>
     </xsl:variable>
+    <xsl:variable name="urn1x" as="xs:string"
+      select="replace($urnVars, ':1\.[1-3]', ':1.x')"
+    />
     <xsl:variable name="urnNoVars">
       <xsl:apply-templates mode="ignore-variables">
         <xsl:with-param name="doDebug" as="xs:boolean" select="$doDebug" tunnel="yes"/>        
@@ -536,12 +544,14 @@
          aren't external parameter entities.
       -->
     <xsl:if test="$entryType = ('system', 'all')">        
-      <system systemId="{normalize-space($urnVars)}" uri="{normalize-space($systemId)}"/>
       <system systemId="{normalize-space($urnNoVars)}" uri="{normalize-space($systemId)}"/>
+      <system systemId="{normalize-space($urn1x)}" uri="{normalize-space($systemId)}"/>
+      <system systemId="{normalize-space($urnVars)}" uri="{normalize-space($systemId)}"/>
     </xsl:if>
     <xsl:if test="$entryType = ('urn', 'all')">
-      <uri name="{normalize-space($urnVars)}" uri="{normalize-space($systemId)}"/>
       <uri name="{normalize-space($urnNoVars)}" uri="{normalize-space($systemId)}"/>
+      <uri name="{normalize-space($urn1x)}" uri="{normalize-space($systemId)}"/>
+      <uri name="{normalize-space($urnVars)}" uri="{normalize-space($systemId)}"/>
     </xsl:if>
   </xsl:template>
   
