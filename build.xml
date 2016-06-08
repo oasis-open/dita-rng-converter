@@ -103,17 +103,13 @@
   <property name="xsdGenerationXsl" location="${xslsrc}/rng2ditaxsd/rng2ditaxsd.xsl"/>
   
   <property name="catalogPath" location="${dita-ot-dir}/catalog-dita.xml"/>
-  
-  
+   
   <makeurl property="catalogPathUrl" file="${catalogPath}"/>
 
   
   <property name="debug" value="false"/>
   <condition property="doGenerateModules" value="${generateModules}">
     <isset property="generateModules"/>
-  </condition>
-  <condition property="doGenerateStandardModules" value="${generateStandardModules}">
-    <isset property="generateStandardModules"/>
   </condition>
   <condition property="doGenerateModules" value="false">
     <not>
@@ -196,13 +192,6 @@
    </echo>
  </target>
 
- <target name="generate-all" 
-   description="Generates all OASIS-defined shells and modules for both DTD and XSD syntax"
-   depends="init, clean, generate-dtd, generate-rnc-urn, generate-xsd-url, generate-xsd-urn, generate-catalogs"
-   >
-  
- </target> 
-
   <!-- NOTE: In the XSLT tasks below, I'm not sure that the
        <factory> specification is necessary since we're also
        putting the saxon jar on the classpath. However, it doesn't 
@@ -237,46 +226,6 @@
       <arg line="catalogs=&quot;${masterCatalog}&quot;"/>
     </java>        
     
-    <antcall target="copy1.3ForeignVocabs"/>
-   
-  </target>
-  
-  <target name="check.copyVocabs">
-    <condition property="doCopyVocabs">
-      <and>
-        <equals 
-          arg1="${ditaver}"
-          arg2="1.3"
-          />
-        <istrue value="${doGenerateModules}"
-        />
-        <istrue value="${doGenerateStandardModules}"
-        />
-      </and>
-    </condition>
-  </target>
-  
-  <target name="copy1.3ForeignVocabs" depends="check.copyVocabs" if="doCopyVocabs"
-    description="Copy the SVG and MathML declarations to the output if module generation is requested"
-    >
-    <echo>Copying foreign vocabularies to output...</echo>
-    <!-- Copy the foreign DTDs: -->
-    <copy todir="${dtd-outdir}/technicalContent/dtd">
-      <fileset dir="${foreignsrc}/dtd">
-        <include name="**/*"/>
-      </fileset>
-    </copy>
-    <!-- Copy the foreign XSDs: -->
-    <copy todir="${xsd-urn-outdir}/technicalContent/xsd">
-      <fileset dir="${foreignsrc}/xsd">
-        <include name="**/*"/>
-      </fileset>
-    </copy>
-    <copy todir="${xsd-url-outdir}/technicalContent/xsd">
-      <fileset dir="${foreignsrc}/xsd">
-        <include name="**/*"/>
-      </fileset>
-    </copy>
   </target>
   
   <target name="generate-xsd-url"
@@ -304,7 +253,6 @@
       <arg line="generateCatalogs=${doGenerateCatalogs}"/>
     </java>        
     
-    <antcall target="copy1.3ForeignVocabs"/>
   </target>
 
   <target name="generate-xsd-urn"
@@ -357,17 +305,6 @@
     >
   	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
 
-<!-- WEK: Not doing deletion for now. Need to be selective about which 
-          catalogs are deleted based on catalog type value (e.g., only
-          DTD catalogs).
-  -->
-<!--
-    <delete failonerror="false">
-      <fileset dir="${catalogOutDir}">
-        <include name="**/catalog.xml"/>
-      </fileset>
-    </delete>
--->
     <java classname="net.sf.saxon.Transform" failonerror="true"
       classpathref="saxonClasspath"
       >

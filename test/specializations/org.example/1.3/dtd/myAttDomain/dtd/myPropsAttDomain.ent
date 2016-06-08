@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!-- Sample attribute domain specialization                        -->
+<!-- This domain defines a specialization of @props named @myProps -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATION                  -->
+<!-- ============================================================= -->
+
+<!ENTITY myPropsAtt-d-att
+  "a(props myProps)"
+>
+
+<!-- ================ End DITA Delivery Target Attribute Domain  ================== -->
+ 

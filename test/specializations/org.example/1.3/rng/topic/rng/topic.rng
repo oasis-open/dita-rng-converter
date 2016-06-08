@@ -41,21 +41,22 @@ Integrates custom domain "myMention".
          <optional>
             <attribute name="domains"
                        a:defaultValue="(topic abbrev-d)
-                                       (topic equation-d)
-                                       (topic hazard-d)
-                                       (topic hi-d)
-                                       (topic indexing-d)
-                                       (topic markup-d mymention-d)
-                                       (topic markup-d xml-d)
-                                       (topic markup-d)
-                                       (topic mathml-d)
-                                       (topic pr-d)
-                                       (topic relmgmt-d)
-                                       (topic svg-d)
-                                       (topic sw-d)
-                                       (topic ui-d)
-                                       (topic ut-d)
-                                       a(props deliveryTarget)"/>
+                         (topic equation-d)
+                         (topic hazard-d)
+                         (topic hi-d)
+                         (topic indexing-d)
+                         (topic markup-d mymention-d)
+                         (topic markup-d xml-d)
+                         (topic markup-d)
+                         (topic mathml-d)
+                         (topic pr-d)
+                         (topic relmgmt-d)
+                         (topic svg-d)
+                         (topic sw-d)
+                         (topic ui-d)
+                         (topic ut-d)
+                         a(props deliveryTarget)
+                         a(props myProps)"/>
          </optional>
       </define>
   </div>
@@ -68,6 +69,7 @@ Integrates custom domain "myMention".
          </define>
       </include>  
       <include href="../../myMentionDomain/rng/myMentionDomain.rng"/>
+      <include href="../../myAttDomain/rng/myPropsAttDomain.rng"/>
       <include href="urn:oasis:names:tc:dita:rng:abbreviateDomain.rng"/>
       <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"
                dita:since="1.3"/>

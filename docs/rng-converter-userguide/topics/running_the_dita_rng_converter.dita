@@ -19,9 +19,13 @@
           <dt>generate-dtd</dt>
           <dd>Only generates DTD files from the input RELAX NG files.</dd>
         </dlentry>
+        <dlentry>
+          <dt>generate-catalogs</dt>
+          <dd>Generates just the catalogs for the modules.</dd>
+        </dlentry>
       </dl></p>
-    <p>You must specify the directory containing the RELAX NG document type shells to process, e.g.,
-      using the <parmname>rngsrc</parmname> Ant
+    <p>You must specify the directory containing the RELAX NG document type shells to process sing
+      the <parmname>rngsrc</parmname> Ant
       parameter:<codeblock>ant generate-dtd -Drngsrc=test/local-shells/org.example</codeblock></p>
     <p>By default, the output goes to the a directory named <filepath>build</filepath> under the
       main <filepath>dita-rng-converter</filepath> directory (more precisely, relative to the

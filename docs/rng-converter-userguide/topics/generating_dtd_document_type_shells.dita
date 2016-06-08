@@ -5,7 +5,8 @@
   <body>
     <p>To generate document type shells you use the Ant target "generate-dtd" and specify the
       directory containing your RELAX NG document type
-      shells:<codeblock>c:\dita-rng-converter > ant generate-dtd -Drngsrc=test/local-shells/org.example/1.3/rng
+      shells:<codeblock>c:\dita-rng-converter > ant generate-dtd \
+   -Drngsrc=test/local-shells/org.example/1.3/rng
 </codeblock></p>
     <p>By default, the output goes to the <filepath>build</filepath> directory under the directory
       containing the <filepath>build.xml</filepath> file.</p>
@@ -20,7 +21,8 @@
       grammars, you can use the <parmname>doctypesDir</parmname> parameter to specify the top-level
       directory. The RNG source files must be under a directory named <filepath>rng</filepath> under
       the directory specified by
-      <parmname>doctypesDir</parmname>:<codeblock>ant generate-dtd <b>-DdoctypesDir=test/local-shells/org.example/1.3/doctypes</b> \
+      <parmname>doctypesDir</parmname>:<codeblock>ant generate-dtd \
+  <b>-DdoctypesDir=test/local-shells/org.example/1.3/doctypes</b> \
   -Doutdir=test/local-shells/org.example</codeblock></p>
     <p>By default the RNG-to-DTD generator only generates the document type shells. </p>
     <p>If you want to generate catalog files from your shells, specify the

@@ -4,13 +4,13 @@
   <title>Generating DTDs</title>
   <body>
     <p>There are two basic use cases for generating DTDs:<ol id="ol_gd5_1fq_fw">
-        <li>Generating just document type shell DTDs from RELAX NG document type shells.</li>
-        <li>Generating document type shell DTDs and vocabulary and constraint module DTDs for
+        <li>Generating just DTD document type shells from RELAX NG document type shells.</li>
+        <li>Generating DTD document type shells and DTD vocabulary and constraint modules for
           non-OASIS-provided modules (e.g., your own specializations or constraints).</li>
       </ol></p>
     <p>RELAX NG document type shells are about as easy to create as it's possible for DITA document
       type shells to be. Generating DTDs from them makes it about as easy as it can be to create
-      your own document type shells.</p>
+      your own DTD document type shells.</p>
     <p>RELAX NG vocabulary and constraint modules are of course more involved but are still easier
       to create and maintain than their DTD or XSD equivalent, simply because RELAX NG is an
       easier-to-use syntax than either DTD or XSD.</p>

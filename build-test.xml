@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="generate-all" name="rng2dtdxsd-test">
+  <!-- 
+     This Ant script supports testing the RNG-to-X transforms
+     using the OASIS-defined RNG grammars. It also provides
+     utilities for generating the DTD and XSD versions of the
+     OASIS-defined grammars. It is intended primarily for use
+     by the DITA Technical Committee in maintaining the 
+     DITA vocabulary for new DITA versions.
+    
+    -->
+   
+  <property name="generateStandardModules" value="true"/> 
+  <condition property="doGenerateStandardModules" value="${generateStandardModules}">
+    <isset property="generateStandardModules"/>
+  </condition>  
+  
+ <import file="build.xml"/>  
+  	
+ <target name="generate-all" 
+   description="Generates all OASIS-defined shells and modules for both DTD and XSD syntax"
+   depends="init, clean, generate-dtd, generate-rnc-urn, generate-xsd-url, generate-xsd-urn, generate-catalogs"
+   >
+  
+ </target> 
+
+  <target name="check.copyVocabs">
+    <condition property="doCopyVocabs">
+      <and>
+        <equals 
+          arg1="${ditaver}"
+          arg2="1.3"
+          />
+        <istrue value="${doGenerateModules}"
+        />
+        <istrue value="${doGenerateStandardModules}"
+        />
+      </and>
+    </condition>
+  </target>
+  
+  <target name="copy1.3ForeignVocabs" depends="check.copyVocabs" if="doCopyVocabs"
+    description="Copy the SVG and MathML declarations to the output if module generation is requested"
+    >
+    <echo>Copying foreign vocabularies to output...</echo>
+    <!-- Copy the foreign DTDs: -->
+    <copy todir="${dtd-outdir}/technicalContent/dtd">
+      <fileset dir="${foreignsrc}/dtd">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+    <!-- Copy the foreign XSDs: -->
+    <copy todir="${xsd-urn-outdir}/technicalContent/xsd">
+      <fileset dir="${foreignsrc}/xsd">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+    <copy todir="${xsd-url-outdir}/technicalContent/xsd">
+      <fileset dir="${foreignsrc}/xsd">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="generate-xsd-url"
+    depends="init, clean"
+    >
+    <!-- Catalog path is not needed for processing TC-defined RNGs as they 
+         use relative URLs, but for non-TC RNGs will need a catalog to resolve
+         URNs, e.g., the OT master catalog.
+      -->
+  	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
+    <java classname="net.sf.saxon.Transform" failonerror="true"
+      classpathref="saxonClasspath"
+      >
+      <arg line="-o:${manifestOutputDir}/xsd-url-generation-manifest.xml"/>
+      <arg line="-it:processDir"/>
+      <arg line="-xsl:${xsdGenerationXsl}"/>
+      <arg line="-catalog:${catalogPathUrl}"/>
+      <arg line="outdir=${xsd-url-outdir}"/>
+      <arg line="useURNsInShell=false"/>
+      <arg line="ditaVersion=${ditaver}"/>
+      <arg line="debug=${debug}"/>
+      <arg line="rootDir=${rngsrcUrl}"/>
+      <arg line="generateModules=${doGenerateModules}"/>
+      <arg line="generateStandardModules=${doGenerateStandardModules}"/>
+      <arg line="generateCatalogs=${doGenerateCatalogs}"/>
+    </java>        
+    
+    <antcall target="copy1.3ForeignVocabs"/>
+  </target>
+
+
+</project>

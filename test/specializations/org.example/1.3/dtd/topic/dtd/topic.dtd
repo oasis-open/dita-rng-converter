@@ -91,6 +91,11 @@
 <!--             DOMAIN ATTRIBUTES DECLARATIONS                    -->
 <!-- ============================================================= -->
 
+<!ENTITY % myPropsAtt-d-dec
+  PUBLIC "urn:publid:example.org:dita:dtd:entities:1.3:myPropsAttDomain.ent"
+         "../../myAttDomain/dtd/myPropsAttDomain.ent"
+>%myPropsAtt-d-dec;
+
 <!ENTITY % deliveryTargetAtt-d-dec
   PUBLIC "-//OASIS//ENTITIES DITA 1.3 Delivery Target Attribute Domain//EN"
          "urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.ent"
@@ -159,7 +164,7 @@
 <!-- ============================================================= -->
 
 <!ENTITY % props-attribute-extensions
-  "%deliveryTargetAtt-d-attribute;"
+  "%myProps-d-attribute;"
 >
 <!ENTITY % base-attribute-extensions
   ""
@@ -180,6 +185,7 @@
 
 <!ENTITY included-domains
                           "&mymention-d-att;
+                           &myPropsAtt-d-att;
                            &abbrev-d-att;
                            &deliveryTargetAtt-d-att;
                            &equation-d-att;

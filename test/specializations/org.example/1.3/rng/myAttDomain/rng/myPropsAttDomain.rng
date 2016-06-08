@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:publid:example.org:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
+<grammar 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   <moduleTitle>DITA Delivery Target Attribute Domain </moduleTitle>
+   <headerComment><![CDATA[
+=============================================================
+Sample attribute domain specialization
+
+This domain defines a specialization of @props named @myProps
+=============================================================
+]]></headerComment>
+   <moduleMetadata>
+     <moduleType>attributedomain</moduleType>
+     <moduleShortName>myPropsAtt-d</moduleShortName>
+     <modulePublicIds>
+       <dtdEnt>urn:publid:example.org:dita:dtd:entities<var presep=":" name="ditaver"/>:myPropsAttDomain.ent</dtdEnt>
+       <xsdMod>urn:publid:example.org:dita:xsd:myPropsAttDomain.xsd<var presep=":" name="ditaver"/></xsdMod>
+       <rncMod>urn:publid:example.org:dita:rnc:myPropsAttDomain.rnc<var presep=":" name="ditaver"/></rncMod>
+       <rngMod>urn:publid:example.org:dita:rng:myPropsAttDomain.rng<var presep=":" name="ditaver"/></rngMod>
+     </modulePublicIds>
+     <domainsContribution>a(props myProps)</domainsContribution>
+   </moduleMetadata>
+ </moduleDesc>
+  <define name="myProps-d-attribute">
+    <optional>
+      <attribute name="myProps">
+        <a:documentation>A sample specialization of @props</a:documentation>
+      </attribute>
+    </optional>    
+  </define>
+  
+  <define name="props-attribute-extensions" combine="interleave">
+    <ref name="myProps-d-attribute"/>
+  </define>
+  
+</grammar>
