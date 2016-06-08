@@ -20,5 +20,14 @@
     <p>Alternatively, you can get the RELAX NG files from the DITA Technical Committee materials as
       provided through the OASIS Web site. However, the latest Open Toolkit should reflect the
       most-current versions of the OASIS-provided RELAX NG grammars.</p>
+    <p>The dita-rng-converter project includes sample RELAX NG document type shells, vocabulary
+      modules, and constraint modules in the <filepath>test</filepath> directory. You can use these
+      samples to experiment with the RELAX NG converter. All the examples in this document reflect
+      the test samples. You should be able to run the commands shown in the various command examples
+      yourself.</p>
+    <p>Note that longer examples use backslashes ("\") to indicate line continuation for long
+      command lines. On Linux and OS X those command examples should work if pasted directly into a
+      command window (as long as there are no blank spaces following the "\" characters). On Windows
+      you may need to manually create a single line in order to run the command.</p>
   </body>
 </topic>

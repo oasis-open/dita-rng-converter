@@ -27,5 +27,6 @@
   </chapter>
   <chapter href="topics/generating_dtds.dita">
     <topicref href="topics/generating_dtd_document_type_shells.dita"/>
+    <topicref href="topics/generating_vocabulary_and_constraint_modules.dita"/>
   </chapter>
 </bookmap>
