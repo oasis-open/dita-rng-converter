@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.org:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA Concept</moduleTitle>
+    <headerComment xml:space="preserve"><![CDATA[
+=============================================================
+Sample topic specialization. Sets the root element to "myTopic".
+
+=============================================================
+]]></headerComment>
+    <moduleMetadata>
+      <moduleType>topic</moduleType>
+      <moduleShortName>mytopic</moduleShortName>
+      <modulePublicIds>
+        <dtdMod>urn:pubid:example.org:dita:dtd:elements:<var presep=":" name="ditaver"/>:mytopic.mod</dtdMod>
+        <dtdEnt>urn:pubid:example.org:dita:dtd:entities:<var presep=":" name="ditaver"/>:mytopic.ent</dtdEnt>
+        <xsdMod>urn:pubid:example.org:dita:xsd:mytopicMod.xsd<var presep=":" name="ditaver"/></xsdMod>
+        <xsdGrp>urn:pubid:example.org:dita:xsd:mytopicGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
+        <rncMod>urn:pubid:example.org:dita:rnc:mytopicMod.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:pubid:example.org:dita:rng:mytopicMod.rng<var presep=":" name="ditaver"/></rngMod>
+      </modulePublicIds>
+      <domainsContribution>(topic mytopic)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
+  <div>
+    <a:documentation>TOPIC NESTING OVERRIDES</a:documentation>
+
+    <define name="mytopic-info-types">
+      <ref name="info-types"/>
+    </define>
+
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+    <define name="mytopic">
+      <ref name="mytopic.element"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
+
+    <div>
+      <a:documentation> LONG NAME: My Topic </a:documentation>
+      <define name="mytopic.content">
+        <ref name="title"/>
+        <optional>
+          <ref name="titlealts"/>
+        </optional>
+        <optional>
+          <choice>
+            <ref name="abstract"/>
+            <ref name="shortdesc"/>
+          </choice>
+        </optional>
+        <optional>
+          <ref name="prolog"/>
+        </optional>
+        <optional>
+          <ref name="body"/>
+        </optional>
+        <optional>
+          <ref name="related-links"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="mytopic-info-types"/>
+        </zeroOrMore>
+      </define>
+      <define name="mytopic.attributes">
+        <attribute name="id">
+          <data type="ID"/>
+        </attribute>
+        <ref name="conref-atts"/>
+        <ref name="select-atts"/>
+        <ref name="localization-atts"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+      </define>
+      <define name="mytopic.element">
+        <element name="mytopic" dita:longName="myTopic">
+          <a:documentation>A trivial specialization of topic that simply changes the topic element tag name.</a:documentation>
+          <ref name="mytopic.attlist"/>
+          <ref name="mytopic.content"/>
+        </element>
+      </define>
+      <define name="mytopic.attlist" combine="interleave">
+        <ref name="mytopic.attributes"/>
+        <ref name="arch-atts"/>
+        <ref name="domains-att"/>
+      </define>
+      <define name="idElements" combine="choice">
+        <ref name="mytopic.element"/>
+      </define>
+    </div>
+    
+    
+  </div>
+  <div>
+    <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
+    <define name="mytopic.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/topic mytopic/mytopic "/>
+      </optional>
+    </define>
+    
+    
+  </div>
+</grammar>
