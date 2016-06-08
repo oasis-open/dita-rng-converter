@@ -614,7 +614,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" select="14"/>
     <xsl:param name="nlBeforeClosingQuote" as="xs:boolean" select="false()"/>
-    
+        
     <!-- FIXME: The following is a hack that depends on a consistent naming convention
          for attribute sets.
          

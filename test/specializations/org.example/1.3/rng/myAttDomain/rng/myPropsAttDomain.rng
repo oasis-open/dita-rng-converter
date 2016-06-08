@@ -27,7 +27,7 @@ This domain defines a specialization of @props named @myProps
      <domainsContribution>a(props myProps)</domainsContribution>
    </moduleMetadata>
  </moduleDesc>
-  <define name="myProps-d-attribute">
+  <define name="myPropsAtt-d-attribute">
     <optional>
       <attribute name="myProps">
         <a:documentation>A sample specialization of @props</a:documentation>
@@ -36,7 +36,7 @@ This domain defines a specialization of @props named @myProps
   </define>
   
   <define name="props-attribute-extensions" combine="interleave">
-    <ref name="myProps-d-attribute"/>
+    <ref name="myPropsAtt-d-attribute"/>
   </define>
   
 </grammar>

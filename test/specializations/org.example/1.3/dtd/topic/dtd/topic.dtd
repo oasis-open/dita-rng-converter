@@ -164,7 +164,7 @@
 <!-- ============================================================= -->
 
 <!ENTITY % props-attribute-extensions
-  "%myProps-d-attribute;"
+  "%myPropsAtt-d-attribute;"
 >
 <!ENTITY % base-attribute-extensions
   ""
