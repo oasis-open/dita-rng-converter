@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.org:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/" 
+  xmlns="http://relaxng.org/ns/structure/1.0">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA XML Construct Domain</moduleTitle>
+    <headerComment xml:space="preserve"><![CDATA[
+============================================================= 
+Sample specialization module
+
+This module defines several specializations of the 
+"markupname" element from the DITA 1.3 markup name 
+domain, which is the base domain for the DITA 1.3
+XML domain.
+=============================================================      
+ ]]></headerComment>
+    <moduleMetadata>
+      <moduleType>elementdomain</moduleType>
+      <moduleShortName>mymention-d</moduleShortName>
+      <modulePublicIds>
+        <dtdMod>urn:pubid:example.org:dita:dtd:elements<var presep=":" name="ditaver"/>:myMentionDomain.mod</dtdMod>
+        <dtdEnt>urn:pubid:example.org:dita:dtd:entities<var presep=":" name="ditaver"/>:myMentionDomain.ent</dtdEnt>
+        <xsdMod>urn:pubid:example.org:dita:xsd:xmlDomain.xsd<var presep=":" name="ditaver"/></xsdMod>
+        <rncMod>urn:pubid:example.org:dita:rnc:xmlDomain.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:pubid:example.org:dita:rng:xmlDomain.rng<var presep=":" name="ditaver"/></rngMod>
+      </modulePublicIds>
+      <domainsContribution>(topic markup-d mymention-d)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
+  <div>
+    <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation>
+    <define name="mymention-d-keyword">
+      <choice>
+        <ref name="rngpattern.element"/>
+      </choice>
+    </define>
+    <define name="keyword" combine="choice">
+      <ref name="mymention-d-keyword"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
+    <div>
+      <a:documentation> LONG NAME: RELAX NG pattern name </a:documentation>
+      <define name="rngpattern.content">
+        <zeroOrMore>
+          <choice>
+            <text/>
+            <ref name="draft-comment"/>
+            <ref name="required-cleanup"/>
+            <ref name="text"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="rngpattern.attributes">
+        <ref name="univ-atts"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+      </define>
+      <define name="rngpattern.element">
+        <element name="rngpattern" dita:longName="RELAX NG pattern name">
+          <ref name="rngpattern.attlist"/>
+          <ref name="rngpattern.content"/>
+        </element>
+      </define>
+      <define name="rngpattern.attlist" combine="interleave">
+        <ref name="rngpattern.attributes"/>
+      </define>
+    </div>
+  </div>
+  <div>
+    <a:documentation> Specialization attributes. Global attributes and class defaults </a:documentation>
+    <define name="rngpattern.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/keyword markup-d/markupname mymention-d/rngpattern "/>
+      </optional>
+    </define>
+  </div>
+</grammar>

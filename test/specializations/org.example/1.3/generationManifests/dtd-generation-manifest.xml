@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rng2ditadtd:conversionManifest xmlns:rng2ditadtd="http://dita.org/rng2ditadtd"
+                                timestamp="2016-06-08T13:38:06.976-05:00"
+                                processor="rng2ditadtd.xsl">
+   <generatedShells xmlns="http://dita.org/rng2ditadtd">
+      <shell xmlns="">
+         <inputDoc>file:/Users/ekimber/workspace-oasis/dita-rng-converter/test/specializations/org.example/1.3/topic/rng/topic.rng</inputDoc>
+         <dtdFile>/Users/ekimber/workspace-oasis/dita-rng-converter/test/specializations/org.example/1.3/dtd/topic/dtd/topic.dtd</dtdFile>
+      </shell>
+   </generatedShells>
+   <generatedModules xmlns="http://dita.org/rng2ditadtd">
+      <moduleFiles>
+         <inputFile>file:/Users/ekimber/workspace-oasis/dita-rng-converter/test/specializations/org.example/1.3/myMentionDomain/rng/myMentionDomain.rng</inputFile>
+         <entityFile>/Users/ekimber/workspace-oasis/dita-rng-converter/test/specializations/org.example/1.3/dtd/myMentionDomain/dtd/myMentionDomain.ent</entityFile>
+         <modFile>/Users/ekimber/workspace-oasis/dita-rng-converter/test/specializations/org.example/1.3/dtd/myMentionDomain/dtd/myMentionDomain.mod</modFile>
+      </moduleFiles>
+   </generatedModules>
+</rng2ditadtd:conversionManifest>

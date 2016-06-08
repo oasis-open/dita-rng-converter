@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../org.example/1.3/topic/rng/topic.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<topic id="topic_mkb_mdx_fw">
+  <title>Test of MyMention Domain</title>
+  <body>
+    <p>Here is an <xmlelement>rngpattern</xmlelement> element from the myMention domain: <rngpattern>somepattern</rngpattern>.</p>
+  </body>
+</topic>

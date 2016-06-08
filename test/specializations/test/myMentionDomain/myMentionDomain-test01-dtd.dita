@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../org.example/1.3/dtd/topic/dtd/topic.dtd">
+<topic id="topic_mkb_mdx_fw">
+  <title>Test of MyMention Domain</title>
+  <body>
+    <p>Here is an <xmlelement>rngpattern</xmlelement> element from the myMention domain: <rngpattern>somepattern</rngpattern>.</p>
+  </body>
+</topic>

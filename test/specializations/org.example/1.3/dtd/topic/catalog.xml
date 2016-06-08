@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Topic Shell-->
+
+   <public publicId="urn:pubid:example.org:dita:dtd::topic.dtd"
+           uri="dtd/topic.dtd"/>
+   <public publicId="urn:pubid:example.org:dita:dtd::1.x:topic.dtd"
+           uri="dtd/topic.dtd"/>
+   <public publicId="urn:pubid:example.org:dita:dtd::1.3:topic.dtd"
+           uri="dtd/topic.dtd"/>
+</catalog>
