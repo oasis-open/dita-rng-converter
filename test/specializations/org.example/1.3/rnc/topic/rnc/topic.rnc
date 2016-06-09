@@ -1,0 +1,94 @@
+# 
+# =============================================================
+# Topic document type shell
+# 
+# Integrates custom domain "myMention".
+# =============================================================
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+      
+      
+start = 
+         topic.element
+      
+
+  
+}
+div {
+      
+      
+domains-att = 
+         
+            
+attribute domains { text}
+         ?
+      
+  
+}
+div {
+      
+      
+include "urn:oasis:names:tc:dita:rng:topicMod.rnc"  
+      
+include "../../myMentionDomain/rnc/myMentionDomain.rnc"
+      
+include "../../myAttDomain/rnc/myPropsAttDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:abbreviateDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:equationDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:hazardDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:highlightDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:indexingDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:markupDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:mathmlDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:programmingDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:releaseManagementDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:softwareDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:svgDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:uiDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:utilitiesDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:xmlDomain.rnc"
+  
+}
+div {
+      
+      
+any = 
+         
+            (
+               idElements
+                | 
+element  *
+                      - (
+                        topic
+                        
+                        
+                     )
+                   {
+                     
+attribute  * { text}
+                  *, any}
+                |  text 
+            )
+         *
+      
+  
+}

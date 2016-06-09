@@ -191,6 +191,15 @@
          generate any shells or modules.   
    </echo>
  </target>
+  
+  <target name="generate-all" 
+    description="Generates all shells and modules for both DTD and XSD syntax"
+    depends="init, clean, generate-dtd, generate-rnc-urn, generate-xsd-url, generate-xsd-urn, generate-catalogs"
+    >
+    
+  </target> 
+  
+  
 
   <!-- NOTE: In the XSLT tasks below, I'm not sure that the
        <factory> specification is necessary since we're also

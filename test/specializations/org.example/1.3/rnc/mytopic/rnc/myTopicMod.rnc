@@ -1,0 +1,69 @@
+# 
+# =============================================================
+# Sample topic specialization. Sets the root element to "myTopic".
+# 
+# =============================================================
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+mytopic-info-types = 
+      info-types
+    
+mytopic = 
+      mytopic.element
+    
+mytopic.content = 
+        title
+        , 
+          titlealts
+        ?
+        , 
+          (
+            abstract
+             | shortdesc
+          )
+        ?
+        , 
+          prolog
+        ?
+        , 
+          body
+        ?
+        , 
+          related-links
+        ?
+        , 
+          mytopic-info-types
+        *
+      
+mytopic.attributes = 
+        
+attribute id { xsd:ID}
+        , conref-atts
+        , select-atts
+        , localization-atts
+        , 
+          
+attribute outputclass { text}
+        ?
+      
+mytopic.element = 
+        
+element mytopic {mytopic.attlist, mytopic.content}
+      
+mytopic.attlist &= 
+        mytopic.attributes
+        , arch-atts
+        , domains-att
+      
+idElements |= 
+        mytopic.element
+      
+mytopic.attlist &= 
+      global-atts
+      , 
+        
+attribute class { text}
+      ?
+    

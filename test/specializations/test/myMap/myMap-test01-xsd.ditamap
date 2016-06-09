@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mymap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../../org.example/1.3/schema/myMap/xsd/myMap.xsd">
+ <title>My Map Type Test 01 (XSD)</title>    
+  <pubresources>
+    <keydef keys="topic-01" href="../myTopic/mytopic-test01-xsd.dita"/>
+    <keydef keys="topic-02" href="../myTopic/mytopic-test01-xsd.dita"/>
+  </pubresources>
+  <pubroot keyref="topic-01">
+    <topicref keyref="topic-02"/>
+  </pubroot>
+  <reltable>
+    <relrow>
+      <relcell>
+        <topicref keyref="topic-01"/>
+      </relcell>
+      <relcell>
+        <topicref keyref="topic-02"/>
+      </relcell>
+    </relrow>
+  </reltable>  
+</mymap>

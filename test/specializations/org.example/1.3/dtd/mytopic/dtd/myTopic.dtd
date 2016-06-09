@@ -116,23 +116,15 @@
 <!ENTITY % term         "term |
                          %abbrev-d-term;
                         ">
+<!ENTITY % note         "note |
+                         %hazard-d-note;
+                        ">
 <!ENTITY % ph           "ph |
-                         %equation-d-ph; |
                          %hi-d-ph; |
                          %pr-d-ph; |
                          %sw-d-ph; |
-                         %ui-d-ph;
-                        ">
-<!ENTITY % div          "div |
-                         %equation-d-div;
-                        ">
-<!ENTITY % fig          "fig |
-                         %equation-d-fig; |
-                         %pr-d-fig; |
-                         %ut-d-fig;
-                        ">
-<!ENTITY % note         "note |
-                         %hazard-d-note;
+                         %ui-d-ph; |
+                         %equation-d-ph;
                         ">
 <!ENTITY % index-base   "index-base |
                          %indexing-d-index-base;
@@ -145,14 +137,15 @@
                          %ui-d-keyword; |
                          %xml-d-keyword;
                         ">
-<!ENTITY % foreign      "foreign |
-                         %mathml-d-foreign; |
-                         %svg-d-foreign;
-                        ">
 <!ENTITY % pre          "pre |
                          %pr-d-pre; |
                          %sw-d-pre; |
                          %ui-d-pre;
+                        ">
+<!ENTITY % fig          "fig |
+                         %pr-d-fig; |
+                         %ut-d-fig; |
+                         %equation-d-fig;
                         ">
 <!ENTITY % dl           "dl |
                          %pr-d-dl;
@@ -162,6 +155,13 @@
                         ">
 <!ENTITY % data         "data |
                          %ut-d-data;
+                        ">
+<!ENTITY % div          "div |
+                         %equation-d-div;
+                        ">
+<!ENTITY % foreign      "foreign |
+                         %mathml-d-foreign; |
+                         %svg-d-foreign;
                         ">
 
 <!-- ============================================================= -->

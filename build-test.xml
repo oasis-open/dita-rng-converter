@@ -17,13 +17,6 @@
   
  <import file="build.xml"/>  
   	
- <target name="generate-all" 
-   description="Generates all OASIS-defined shells and modules for both DTD and XSD syntax"
-   depends="init, clean, generate-dtd, generate-rnc-urn, generate-xsd-url, generate-xsd-urn, generate-catalogs"
-   >
-  
- </target> 
-
   <target name="check.copyVocabs">
     <condition property="doCopyVocabs">
       <and>

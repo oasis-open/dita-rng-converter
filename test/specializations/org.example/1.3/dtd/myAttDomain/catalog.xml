@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Delivery Target Attribute Domain -->
+
+   <public publicId="urn:publid:example.org:dita:dtd:entities:myPropsAttDomain.ent"
+           uri="dtd/myPropsAttDomain.ent"/>
+   <public publicId="urn:publid:example.org:dita:dtd:entities:1.x:myPropsAttDomain.ent"
+           uri="dtd/myPropsAttDomain.ent"/>
+   <public publicId="urn:publid:example.org:dita:dtd:entities:1.3:myPropsAttDomain.ent"
+           uri="dtd/myPropsAttDomain.ent"/>
+</catalog>

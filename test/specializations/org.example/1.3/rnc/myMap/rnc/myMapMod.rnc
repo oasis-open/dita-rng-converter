@@ -1,0 +1,170 @@
+# 
+# =============================================================
+# Sample map specialization
+# 
+# Adds required "pubroot" topicref.
+# =============================================================
+# 
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+pubroot = 
+      pubroot.element
+    
+pubresources = 
+      pubresources.element
+    
+mymap.content = 
+        
+          title
+        ?
+        , 
+          topicmeta
+        ?
+        , 
+          (
+            pubresources
+          )
+        *
+        , pubroot
+        , 
+          (
+            topicref
+          )
+        *
+        , 
+          (
+            reltable
+          )
+        *        
+      
+mymap.attributes = 
+        
+          
+attribute title { text}
+        ?
+        , 
+          
+attribute id { xsd:ID}
+        ?
+        , conref-atts
+        , 
+          
+attribute anchorref { text}
+        ?
+        , 
+          
+attribute outputclass { text}
+        ?
+        , localization-atts
+        , topicref-atts
+        , select-atts
+      
+mymap.element = 
+        
+element mymap {mymap.attlist, mymap.content}
+      
+mymap.attlist &= 
+        mymap.attributes
+        , arch-atts
+        , 
+          
+attribute domains { text}
+        ?
+      
+pubroot.content = 
+        
+          topicmeta
+        ?
+        , 
+          data.elements.incl
+        *
+        , 
+          topicref
+        *
+      
+pubroot.attributes = 
+        
+          
+attribute href { text}
+        ?
+        , 
+          
+attribute keyref { text}
+        ?
+        , 
+          
+attribute keys { text}
+        ?
+        , 
+          
+attribute cascade { text}
+        ?
+        , 
+          
+attribute format { text}
+        ?
+        , 
+          
+attribute outputclass { text}
+        ?
+        , univ-atts
+      
+pubroot.element = 
+        
+element pubroot {pubroot.attlist, pubroot.content}
+      
+pubroot.attlist &= 
+        pubroot.attributes
+      
+pubresources.content = 
+        
+          data.elements.incl
+        *
+        , 
+          topicref
+        *
+      
+pubresources.attributes = 
+        
+          
+attribute processing-role { text}
+        ?
+        , 
+          
+attribute cascade { text}
+        ?
+        , 
+          
+attribute outputclass { text}
+        ?
+        , univ-atts
+      
+pubresources.element = 
+        
+element pubresources {pubresources.attlist, pubresources.content}
+      
+pubresources.attlist &= 
+        pubresources.attributes
+      
+mymap.attlist &= 
+      global-atts
+      , 
+        
+attribute class { text}
+      ?
+    
+pubroot.attlist &= 
+      global-atts
+      , 
+        
+attribute class { text}
+      ?
+    
+pubresources.attlist &= 
+      global-atts
+      , 
+        
+attribute class { text}
+      ?
+    

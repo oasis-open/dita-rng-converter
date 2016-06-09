@@ -1,0 +1,99 @@
+# 
+# =============================================================
+# Sample map specialization
+# 
+# 
+# =============================================================   
+#   
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+div {
+      
+      
+start = 
+         mymap.element
+      
+
+  
+}
+div {
+      
+
+      
+domains-att = 
+         
+            
+attribute domains { text}
+         ?
+      
+  
+}
+div {
+      
+      
+include "urn:oasis:names:tc:dita:rng:mapMod.rnc"
+      
+include "myMapMod.rnc"    
+      
+include "urn:oasis:names:tc:dita:rng:mapGroupMod.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:abbreviateDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:delayResolutionDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:ditavalrefDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:glossrefDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:hazardDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:highlightDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:indexingDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:markupDomain.rnc"
+      
+include "../../myAttDomain/rnc/myPropsAttDomain.rnc"  
+      
+include "../../myMentionDomain/rnc/myMentionDomain.rnc"  
+      
+include "urn:oasis:names:tc:dita:rng:programmingDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:releaseManagementDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:softwareDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:uiDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:utilitiesDomain.rnc"
+      
+include "urn:oasis:names:tc:dita:rng:xmlDomain.rnc"    
+  
+}
+div {
+      
+      
+any = 
+         
+            (
+               idElements
+                | 
+element  *
+                      - (
+                       map
+                        | mymap
+                         | anchor
+                     )
+                   {
+                     
+attribute  * { text}
+                  *, any}
+                |  text 
+            )
+         *
+      
+  
+}

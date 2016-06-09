@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA XML Construct Domain-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:pubid:example.org:dita:xsd:xmlDomain.xsd"
+              uri="xsd/myMentionDomain.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:xmlDomain.xsd:1.x"
+              uri="xsd/myMentionDomain.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:xmlDomain.xsd:1.3"
+              uri="xsd/myMentionDomain.xsd"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:pubid:example.org:dita:xsd:xmlDomain.xsd"
+           uri="xsd/myMentionDomain.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:xmlDomain.xsd:1.x"
+           uri="xsd/myMentionDomain.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:xmlDomain.xsd:1.3"
+           uri="xsd/myMentionDomain.xsd"/>
+   </group>
+</catalog>

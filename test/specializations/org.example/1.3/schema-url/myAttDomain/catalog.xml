@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Delivery Target Attribute Domain -->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:publid:example.org:dita:xsd:myPropsAttDomain.xsd"
+              uri="xsd/myPropsAttDomain.xsd"/>
+      <system systemId="urn:publid:example.org:dita:xsd:myPropsAttDomain.xsd:1.x"
+              uri="xsd/myPropsAttDomain.xsd"/>
+      <system systemId="urn:publid:example.org:dita:xsd:myPropsAttDomain.xsd:1.3"
+              uri="xsd/myPropsAttDomain.xsd"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:publid:example.org:dita:xsd:myPropsAttDomain.xsd"
+           uri="xsd/myPropsAttDomain.xsd"/>
+      <uri name="urn:publid:example.org:dita:xsd:myPropsAttDomain.xsd:1.x"
+           uri="xsd/myPropsAttDomain.xsd"/>
+      <uri name="urn:publid:example.org:dita:xsd:myPropsAttDomain.xsd:1.3"
+           uri="xsd/myPropsAttDomain.xsd"/>
+   </group>
+</catalog>
