@@ -731,15 +731,11 @@
       <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
     <xsl:text>(</xsl:text>
-    <xsl:for-each select="rng:*">
-      <xsl:if test="not(position()=1)">
-        <xsl:text> |&#x0a;</xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="." mode="#current" >
-        <xsl:with-param name="indent" as="xs:integer" tunnel="yes" 
-          select="$indent"/>
-      </xsl:apply-templates>
-    </xsl:for-each>
+    <xsl:apply-templates select="rng:*" mode="#current" >
+      <xsl:with-param name="indent" as="xs:integer" tunnel="yes" 
+        select="$indent"/>
+      <xsl:with-param name="connector" as="xs:string" select="' |'"/>
+    </xsl:apply-templates>
     <xsl:text>)</xsl:text>
   </xsl:template>
   
@@ -782,12 +778,9 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     
-    <xsl:for-each select="rng:*">
-      <xsl:if test="not(position()=1)">
-        <xsl:text> |&#x0a;</xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="." mode="#current" />      
-    </xsl:for-each>
+      <xsl:apply-templates select="rng:*" mode="#current" >
+        <xsl:with-param name="connector" as="xs:string" select="' |'"/>
+      </xsl:apply-templates>      
   </xsl:template>
   
   <!-- Any choice child of rng:define that doesn't match the preceding template.
@@ -802,14 +795,10 @@
     </xsl:if>
     <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
     <xsl:text>(</xsl:text>    
-    <xsl:for-each select="rng:*">
-      <xsl:if test="not(position()=1)">
-        <xsl:text> |&#x0a;</xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="." mode="#current" >
-        <xsl:with-param name="indent" as="xs:integer" tunnel="yes" select="$indent + 1"/>
-      </xsl:apply-templates>      
-    </xsl:for-each>
+    <xsl:apply-templates select="rng:*" mode="#current" >
+      <xsl:with-param name="indent" as="xs:integer" tunnel="yes" select="$indent + 1"/>
+      <xsl:with-param name="connector" as="xs:string" select="' |'"/>
+    </xsl:apply-templates>      
     <xsl:text>)</xsl:text>
     <xsl:if test="count(following-sibling::rng:*) gt 0">
       <xsl:text>,&#x0a;</xsl:text>
@@ -853,18 +842,16 @@
     <!-- Choice has its parens and occurrence indicator provided by the containing element
          element.
       -->
-    <xsl:for-each select="rng:*">
-      <xsl:if test="not(position()=1)">
-        <xsl:text> |&#x0a;</xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="." mode="#current" />      
-    </xsl:for-each>
+    <xsl:apply-templates select="rng:*" mode="#current" >
+     <xsl:with-param name="connector" as="xs:string" select="' |'"/>
+    </xsl:apply-templates>      
   </xsl:template>
 
   <xsl:template match="rng:ref" mode="element-decls" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     <xsl:param name="isAttSet" as="xs:boolean" tunnel="yes"/>
+    <xsl:param name="connector" as="xs:string" select="','"/>
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] element-decls: <xsl:value-of select="concat(name(../..), '/', (.))"/>, name="<xsl:value-of select="@name"/>"</xsl:message>
@@ -902,22 +889,20 @@
             <xsl:sequence select="$entRef"/>
             <xsl:text>)</xsl:text>
             <xsl:if test="count(following-sibling::rng:*) gt 0">
-              <xsl:text>,</xsl:text>
+              <xsl:value-of select="$connector"/>
             </xsl:if>
           </xsl:when>
           <xsl:otherwise>
             <xsl:sequence select="$entRef"/>
             <xsl:if test="not($isAttSet) and 
-                          not(parent::rng:choice) and 
                           (count(following-sibling::rng:*) gt 0)">
-              <xsl:text>,</xsl:text>
+              <xsl:value-of select="$connector"/>
             </xsl:if>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:if test="not(parent::rng:choice) and 
-                  count(following-sibling::rng:*) gt 0">
+    <xsl:if test="count(following-sibling::rng:*) gt 0">
       <xsl:text>&#x0a;</xsl:text>
     </xsl:if>
   </xsl:template>
