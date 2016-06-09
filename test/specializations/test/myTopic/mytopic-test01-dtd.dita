@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mytopic SYSTEM "../../org.example/1.3/dtd/mytopic/dtd/mytopic.dtd">
-<mytopic id="topic_z55_x5x_fw">
+<mytopic id="topic_z55_x5x_fw" > 
   <title>This is a MyTopic topic</title>
   <body>
     <p>The topic body.</p>
+    <mathml>
+      <m:math xmlns:m="http://www.w3.org/1998/Math/MathML"></m:math>
+    </mathml>
   </body>
 </mytopic>

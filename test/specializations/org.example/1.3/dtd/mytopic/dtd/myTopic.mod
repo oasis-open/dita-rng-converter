@@ -20,19 +20,13 @@
 <!--                    LONG NAME: myTopic                         -->
 <!ENTITY % mytopic.content
                        "((%title;),
-                         (%titlealts;,
-)?,
+                         (%titlealts;)?,
                          (%abstract; |
                           %shortdesc;)?,
-                         (%prolog;,
-)?,
-                         (%body;,
-)?,
-                         (%related-links;,
-)?,
-                         (%mytopic-info-types;,
-)*,
-)"
+                         (%prolog;)?,
+                         (%body;)?,
+                         (%related-links;)?,
+                         (%mytopic-info-types;)*)"
 >
 <!ENTITY % mytopic.attributes
               "id

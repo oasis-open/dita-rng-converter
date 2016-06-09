@@ -70,24 +70,7 @@ Document type shell for the myTopic topic type
     <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
     <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
     <include href="urn:oasis:names:tc:dita:rng:markupDomain.rng" dita:since="1.3"/>
-    <include href="urn:oasis:names:tc:dita:rng:mathmlDomain.rng" dita:since="1.3">
-      <define name="mathml.content">
-        <zeroOrMore>
-          <choice>
-            <externalRef href="mathmlDomainProxy.rng"
-              dita:namespacePrefix="m"
-              dita:dtdPublicId="-//OASIS//ELEMENTS DITA 1.3 Mathml3 Driver//EN"
-              dita:dtdSystemId="mathml/mathml3-ditadriver.dtd"
-              dita:xsdURI="mathml/mathml3/mathml3.xsd"
-              dita:xsdTargetNamespace="http://www.w3.org/1998/Math/MathML"
-            />
-            <ref name="mathmlref"/>
-            <ref name="data"/>
-            <ref name="data-about"/>
-          </choice>
-        </zeroOrMore>
-      </define>
-    </include>
+    <include href="urn:oasis:names:tc:dita:rng:mathmlDomain.rng" dita:since="1.3"/>    
     <include href="urn:oasis:names:tc:dita:rng:programmingDomain.rng"/>
     <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng"
       dita:since="1.3"/>

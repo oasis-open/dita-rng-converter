@@ -4,5 +4,8 @@
   <title>This is a MyTopic topic</title>
   <body>
     <p>The topic body.</p>
+    <mathml >
+      <m:math xmlns:m="http://www.w3.org/1998/Math/MathML"></m:math>
+    </mathml>
   </body>
 </mytopic>
