@@ -212,6 +212,7 @@
      >
       <arg line="-o:&quot;${manifestOutputDir}/dtd-generation-manifest.xml&quot;"/>
       <arg line="-it:processDir"/>
+<!--      <arg line="-t"/>--><!-- Uncomment this to turn on Saxon version and tracing output -->
       <arg line="-xsl:&quot;${dtdGenerationXsl}&quot;"/>
       <arg line="-catalog:&quot;${catalogPathUrl}&quot;"/>
       <arg line="generateCatalogs=${doGenerateCatalogs}"/>

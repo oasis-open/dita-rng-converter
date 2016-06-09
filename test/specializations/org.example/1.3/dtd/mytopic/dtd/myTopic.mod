@@ -14,8 +14,7 @@
 <!-- ============================================================= -->
 
 <!ENTITY % mytopic-info-types
-              "%info-types;,
-"
+              "%info-types;"
 >
 <!--                    LONG NAME: myTopic                         -->
 <!ENTITY % mytopic.content
@@ -38,7 +37,6 @@
                outputclass
                           CDATA
                                     #IMPLIED
-
 "
 >
 <!ELEMENT  mytopic %mytopic.content;>

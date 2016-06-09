@@ -144,7 +144,7 @@
      classpathref="saxonClasspath"
      force="true"
      >
-     <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+     <factory name="net.sf.saxon.TransformerFactoryImpl"/>     
      <param name="outdir" expression="${docsToValidateDir}/valid"/>
      <param name="debug" expression="${debug}"/>
    </xslt>

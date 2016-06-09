@@ -672,6 +672,7 @@
   <xsl:template match="rng:zeroOrMore" mode="element-decls" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
+        
     <xsl:if test="not(parent::rng:define) or preceding-sibling::rng:*">
       <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
@@ -681,7 +682,7 @@
         select="$indent + 1"/>
     </xsl:apply-templates>
     <xsl:text>)*</xsl:text>
-    <xsl:if test="not(position()=last())">
+    <xsl:if test="count(following-sibling::rng:*) gt 0">
       <xsl:text>,&#x0a;</xsl:text>
     </xsl:if>
   </xsl:template>
@@ -689,6 +690,7 @@
   <xsl:template match="rng:oneOrMore" mode="element-decls" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
+    
     <xsl:if test="preceding-sibling::rng:*">
       <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
@@ -698,7 +700,7 @@
         select="$indent + 1"/>
     </xsl:apply-templates>
     <xsl:text>)+</xsl:text>
-    <xsl:if test="not(position()=last())">
+    <xsl:if test="count(following-sibling::rng:*) gt 0">
       <xsl:text>,&#x0a;</xsl:text>
     </xsl:if>
   </xsl:template>
@@ -706,6 +708,7 @@
   <xsl:template match="rng:group" mode="element-decls">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
+    
     <xsl:if test="preceding-sibling::rng:*">
       <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
@@ -715,7 +718,7 @@
         select="$indent + 1"/>
     </xsl:apply-templates>
     <xsl:text>)</xsl:text>
-    <xsl:if test="not(position()=last())">
+    <xsl:if test="count(following-sibling::rng:*) gt 0">
       <xsl:text>,&#x0a;</xsl:text>
     </xsl:if>
   </xsl:template>
@@ -744,6 +747,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     <xsl:param name="isAttSet" as="xs:boolean" tunnel="yes"/>
+    
     <xsl:choose>
       <xsl:when test="not($isAttSet)">
         <!-- optional element content -->
@@ -755,14 +759,14 @@
           <xsl:with-param name="indent" select="$indent + 1" as="xs:integer" tunnel="yes"/>
         </xsl:apply-templates>
         <xsl:text>)?</xsl:text>
-        <xsl:if test="not(position()=last())">
+        <xsl:if test="count(following-sibling::rng:*) gt 0">
           <xsl:text>,&#x0a;</xsl:text>
         </xsl:if>
       </xsl:when>
       <xsl:otherwise>
         <!-- optional attribute value -->
         <xsl:apply-templates mode="#current" />
-        <xsl:if test="not(position()=last())">
+        <xsl:if test="count(following-sibling::rng:*) gt 0">
           <xsl:text>&#x0a;</xsl:text>
         </xsl:if>
       </xsl:otherwise>
@@ -777,6 +781,7 @@
   <xsl:template match="rng:define[not(ends-with(@name, '.content'))]/rng:choice[count(../rng:*) = 1]" mode="element-decls" priority="15">    
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
+    
     <xsl:for-each select="rng:*">
       <xsl:if test="not(position()=1)">
         <xsl:text> |&#x0a;</xsl:text>
@@ -795,7 +800,8 @@
     <xsl:if test="preceding-sibling::rng:*">
       <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
-    <xsl:text>(</xsl:text>
+    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+    <xsl:text>(</xsl:text>    
     <xsl:for-each select="rng:*">
       <xsl:if test="not(position()=1)">
         <xsl:text> |&#x0a;</xsl:text>
@@ -805,7 +811,7 @@
       </xsl:apply-templates>      
     </xsl:for-each>
     <xsl:text>)</xsl:text>
-    <xsl:if test="not(position()=last())">
+    <xsl:if test="count(following-sibling::rng:*) gt 0">
       <xsl:text>,&#x0a;</xsl:text>
     </xsl:if>
   </xsl:template>
@@ -843,6 +849,7 @@
     >
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
+    
     <!-- Choice has its parens and occurrence indicator provided by the containing element
          element.
       -->
@@ -858,6 +865,11 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     <xsl:param name="isAttSet" as="xs:boolean" tunnel="yes"/>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] element-decls: <xsl:value-of select="concat(name(../..), '/', (.))"/>, name="<xsl:value-of select="@name"/>"</xsl:message>
+    </xsl:if>
+    
     <xsl:if test="preceding-sibling::rng:*">
       <!-- NOTE: It is up to the processor of the group
                  this ref must be part of to emit
@@ -889,20 +901,23 @@
             <xsl:text>(</xsl:text>
             <xsl:sequence select="$entRef"/>
             <xsl:text>)</xsl:text>
-            <xsl:if test="not(position() = last())">
+            <xsl:if test="count(following-sibling::rng:*) gt 0">
               <xsl:text>,</xsl:text>
             </xsl:if>
           </xsl:when>
           <xsl:otherwise>
             <xsl:sequence select="$entRef"/>
-            <xsl:if test="not($isAttSet) and not(position() = last())">
+            <xsl:if test="not($isAttSet) and 
+                          not(parent::rng:choice) and 
+                          (count(following-sibling::rng:*) gt 0)">
               <xsl:text>,</xsl:text>
             </xsl:if>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:if test="not(position() = last())">
+    <xsl:if test="not(parent::rng:choice) and 
+                  count(following-sibling::rng:*) gt 0">
       <xsl:text>&#x0a;</xsl:text>
     </xsl:if>
   </xsl:template>
