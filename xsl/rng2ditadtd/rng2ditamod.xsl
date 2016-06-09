@@ -970,9 +970,15 @@
 
   <xsl:template match="rng:text" mode="element-decls" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="connector" as="xs:string" select="','"/>
     <!-- NOTE: #PCDATA must always be the first token in a repeating OR
          group so it will never be indented. -->
+    
     <xsl:text>#PCDATA</xsl:text>
+    <xsl:if test="count(following-sibling::rng:*) gt 0">
+      <xsl:sequence select="$connector"/>
+      <xsl:sequence select="'&#x0a;'"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="rng:value" mode="element-decls" priority="10">

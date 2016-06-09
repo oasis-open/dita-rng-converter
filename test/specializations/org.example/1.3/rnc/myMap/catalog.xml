@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--My Specialized Map Type Shell-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:pubid:example.org:dita:rnc:map.rnc" uri="rnc/myMap.rnc"/>
+      <system systemId="urn:pubid:example.org:dita:rnc:map.rnc:1.x"
+              uri="rnc/myMap.rnc"/>
+      <system systemId="urn:pubid:example.org:dita:rnc:map.rnc:1.3"
+              uri="rnc/myMap.rnc"/>
+      <system systemId="urn:pubid:example.org:dita:rnc:myMapMod.rnc"
+              uri="rnc/myMapMod.rnc"/>
+      <system systemId="urn:pubid:example.org:dita:rnc:myMapMod.rnc:1.x"
+              uri="rnc/myMapMod.rnc"/>
+      <system systemId="urn:pubid:example.org:dita:rnc:myMapMod.rnc:1.3"
+              uri="rnc/myMapMod.rnc"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:pubid:example.org:dita:rnc:map.rnc" uri="rnc/myMap.rnc"/>
+      <uri name="urn:pubid:example.org:dita:rnc:map.rnc:1.x" uri="rnc/myMap.rnc"/>
+      <uri name="urn:pubid:example.org:dita:rnc:map.rnc:1.3" uri="rnc/myMap.rnc"/>
+      <uri name="urn:pubid:example.org:dita:rnc:myMapMod.rnc"
+           uri="rnc/myMapMod.rnc"/>
+      <uri name="urn:pubid:example.org:dita:rnc:myMapMod.rnc:1.x"
+           uri="rnc/myMapMod.rnc"/>
+      <uri name="urn:pubid:example.org:dita:rnc:myMapMod.rnc:1.3"
+           uri="rnc/myMapMod.rnc"/>
+   </group>
+</catalog>

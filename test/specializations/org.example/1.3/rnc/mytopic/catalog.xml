@@ -3,30 +3,30 @@
 <!--DITA mytopic Shell-->
 
    <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:pubid:example.org:dita:rnc:mytopic.rnc"
+      <system systemId="urn:pubid:example.org:dita:rnc:myTopic.rnc"
               uri="rnc/myTopic.rnc"/>
-      <system systemId="urn:pubid:example.org:dita:rnc:mytopic.rnc:1.x"
+      <system systemId="urn:pubid:example.org:dita:rnc:myTopic.rnc:1.x"
               uri="rnc/myTopic.rnc"/>
-      <system systemId="urn:pubid:example.org:dita:rnc:mytopic.rnc:1.3"
+      <system systemId="urn:pubid:example.org:dita:rnc:myTopic.rnc:1.3"
               uri="rnc/myTopic.rnc"/>
-      <system systemId="urn:pubid:example.org:dita:rnc:mytopicMod.rnc"
+      <system systemId="urn:pubid:example.org:dita:rnc:myTopicMod.rnc"
               uri="rnc/myTopicMod.rnc"/>
-      <system systemId="urn:pubid:example.org:dita:rnc:mytopicMod.rnc:1.x"
+      <system systemId="urn:pubid:example.org:dita:rnc:myTopicMod.rnc:1.x"
               uri="rnc/myTopicMod.rnc"/>
-      <system systemId="urn:pubid:example.org:dita:rnc:mytopicMod.rnc:1.3"
+      <system systemId="urn:pubid:example.org:dita:rnc:myTopicMod.rnc:1.3"
               uri="rnc/myTopicMod.rnc"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:pubid:example.org:dita:rnc:mytopic.rnc" uri="rnc/myTopic.rnc"/>
-      <uri name="urn:pubid:example.org:dita:rnc:mytopic.rnc:1.x"
+      <uri name="urn:pubid:example.org:dita:rnc:myTopic.rnc" uri="rnc/myTopic.rnc"/>
+      <uri name="urn:pubid:example.org:dita:rnc:myTopic.rnc:1.x"
            uri="rnc/myTopic.rnc"/>
-      <uri name="urn:pubid:example.org:dita:rnc:mytopic.rnc:1.3"
+      <uri name="urn:pubid:example.org:dita:rnc:myTopic.rnc:1.3"
            uri="rnc/myTopic.rnc"/>
-      <uri name="urn:pubid:example.org:dita:rnc:mytopicMod.rnc"
+      <uri name="urn:pubid:example.org:dita:rnc:myTopicMod.rnc"
            uri="rnc/myTopicMod.rnc"/>
-      <uri name="urn:pubid:example.org:dita:rnc:mytopicMod.rnc:1.x"
+      <uri name="urn:pubid:example.org:dita:rnc:myTopicMod.rnc:1.x"
            uri="rnc/myTopicMod.rnc"/>
-      <uri name="urn:pubid:example.org:dita:rnc:mytopicMod.rnc:1.3"
+      <uri name="urn:pubid:example.org:dita:rnc:myTopicMod.rnc:1.3"
            uri="rnc/myTopicMod.rnc"/>
    </group>
 </catalog>

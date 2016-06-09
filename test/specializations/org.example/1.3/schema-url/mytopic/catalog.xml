@@ -3,42 +3,42 @@
 <!--DITA mytopic Shell-->
 
    <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:pubid:example.org:dita:xsd:mytopic.xsd"
+      <system systemId="urn:pubid:example.org:dita:xsd:myTopic.xsd"
               uri="xsd/myTopic.xsd"/>
-      <system systemId="urn:pubid:example.org:dita:xsd:mytopic.xsd:1.x"
+      <system systemId="urn:pubid:example.org:dita:xsd:myTopic.xsd:1.x"
               uri="xsd/myTopic.xsd"/>
-      <system systemId="urn:pubid:example.org:dita:xsd:mytopic.xsd:1.3"
+      <system systemId="urn:pubid:example.org:dita:xsd:myTopic.xsd:1.3"
               uri="xsd/myTopic.xsd"/>
-      <system systemId="urn:pubid:example.org:dita:xsd:mytopicMod.xsd"
+      <system systemId="urn:pubid:example.org:dita:xsd:myTopicMod.xsd"
               uri="xsd/myTopicMod.xsd"/>
-      <system systemId="urn:pubid:example.org:dita:xsd:mytopicMod.xsd:1.x"
+      <system systemId="urn:pubid:example.org:dita:xsd:myTopicMod.xsd:1.x"
               uri="xsd/myTopicMod.xsd"/>
-      <system systemId="urn:pubid:example.org:dita:xsd:mytopicMod.xsd:1.3"
+      <system systemId="urn:pubid:example.org:dita:xsd:myTopicMod.xsd:1.3"
               uri="xsd/myTopicMod.xsd"/>
-      <system systemId="urn:pubid:example.org:dita:xsd:mytopicGrp.xsd"
+      <system systemId="urn:pubid:example.org:dita:xsd:myTopicGrp.xsd"
               uri="xsd/myTopicGrp.xsd"/>
-      <system systemId="urn:pubid:example.org:dita:xsd:mytopicGrp.xsd:1.x"
+      <system systemId="urn:pubid:example.org:dita:xsd:myTopicGrp.xsd:1.x"
               uri="xsd/myTopicGrp.xsd"/>
-      <system systemId="urn:pubid:example.org:dita:xsd:mytopicGrp.xsd:1.3"
+      <system systemId="urn:pubid:example.org:dita:xsd:myTopicGrp.xsd:1.3"
               uri="xsd/myTopicGrp.xsd"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:pubid:example.org:dita:xsd:mytopic.xsd" uri="xsd/myTopic.xsd"/>
-      <uri name="urn:pubid:example.org:dita:xsd:mytopic.xsd:1.x"
+      <uri name="urn:pubid:example.org:dita:xsd:myTopic.xsd" uri="xsd/myTopic.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:myTopic.xsd:1.x"
            uri="xsd/myTopic.xsd"/>
-      <uri name="urn:pubid:example.org:dita:xsd:mytopic.xsd:1.3"
+      <uri name="urn:pubid:example.org:dita:xsd:myTopic.xsd:1.3"
            uri="xsd/myTopic.xsd"/>
-      <uri name="urn:pubid:example.org:dita:xsd:mytopicMod.xsd"
+      <uri name="urn:pubid:example.org:dita:xsd:myTopicMod.xsd"
            uri="xsd/myTopicMod.xsd"/>
-      <uri name="urn:pubid:example.org:dita:xsd:mytopicMod.xsd:1.x"
+      <uri name="urn:pubid:example.org:dita:xsd:myTopicMod.xsd:1.x"
            uri="xsd/myTopicMod.xsd"/>
-      <uri name="urn:pubid:example.org:dita:xsd:mytopicMod.xsd:1.3"
+      <uri name="urn:pubid:example.org:dita:xsd:myTopicMod.xsd:1.3"
            uri="xsd/myTopicMod.xsd"/>
-      <uri name="urn:pubid:example.org:dita:xsd:mytopicGrp.xsd"
+      <uri name="urn:pubid:example.org:dita:xsd:myTopicGrp.xsd"
            uri="xsd/myTopicGrp.xsd"/>
-      <uri name="urn:pubid:example.org:dita:xsd:mytopicGrp.xsd:1.x"
+      <uri name="urn:pubid:example.org:dita:xsd:myTopicGrp.xsd:1.x"
            uri="xsd/myTopicGrp.xsd"/>
-      <uri name="urn:pubid:example.org:dita:xsd:mytopicGrp.xsd:1.3"
+      <uri name="urn:pubid:example.org:dita:xsd:myTopicGrp.xsd:1.3"
            uri="xsd/myTopicGrp.xsd"/>
    </group>
 </catalog>

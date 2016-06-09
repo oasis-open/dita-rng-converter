@@ -15,12 +15,12 @@ Sample topic specialization. Sets the root element to "myTopic".
       <moduleType>topic</moduleType>
       <moduleShortName>mytopic</moduleShortName>
       <modulePublicIds>
-        <dtdMod>urn:pubid:example.org:dita:dtd:elements:<var presep=":" name="ditaver"/>:mytopic.mod</dtdMod>
-        <dtdEnt>urn:pubid:example.org:dita:dtd:entities:<var presep=":" name="ditaver"/>:mytopic.ent</dtdEnt>
-        <xsdMod>urn:pubid:example.org:dita:xsd:mytopicMod.xsd<var presep=":" name="ditaver"/></xsdMod>
-        <xsdGrp>urn:pubid:example.org:dita:xsd:mytopicGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
-        <rncMod>urn:pubid:example.org:dita:rnc:mytopicMod.rnc<var presep=":" name="ditaver"/></rncMod>
-        <rngMod>urn:pubid:example.org:dita:rng:mytopicMod.rng<var presep=":" name="ditaver"/></rngMod>
+        <dtdMod>urn:pubid:example.org:dita:dtd:elements:<var presep=":" name="ditaver"/>:myTopic.mod</dtdMod>
+        <dtdEnt>urn:pubid:example.org:dita:dtd:entities:<var presep=":" name="ditaver"/>:myTopic.ent</dtdEnt>
+        <xsdMod>urn:pubid:example.org:dita:xsd:myTopicMod.xsd<var presep=":" name="ditaver"/></xsdMod>
+        <xsdGrp>urn:pubid:example.org:dita:xsd:myTopicGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
+        <rncMod>urn:pubid:example.org:dita:rnc:myTopicMod.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:pubid:example.org:dita:rng:myTopicMod.rng<var presep=":" name="ditaver"/></rngMod>
       </modulePublicIds>
       <domainsContribution>(topic mytopic)</domainsContribution>
     </moduleMetadata>

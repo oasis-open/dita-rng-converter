@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mymap SYSTEM "../../org.example/1.3/dtd/myMap/dtd/myMap.dtd">
+<mymap>
+ <title>My Map Type Test 01 (DTD)</title>
+  <pubresources>
+    <keydef keys="topic-01" href="../myTopic/mytopic-test01-dtd.dita"/>
+    <keydef keys="topic-02" href="../myTopic/mytopic-test01-dtd.dita"/>
+  </pubresources>
+  <pubroot keyref="topic-01">
+    <topicref keyref="topic-02"/>
+  </pubroot>
+  <reltable>
+    <relrow>
+      <relcell>
+        <topicref keyref="topic-01"/>
+      </relcell>
+      <relcell>
+        <topicref keyref="topic-02"/>
+      </relcell>
+    </relrow>
+  </reltable>
+</mymap>

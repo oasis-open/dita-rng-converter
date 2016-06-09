@@ -20,7 +20,7 @@
 
 <!--                    LONG NAME: RELAX NG pattern name           -->
 <!ENTITY % rngpattern.content
-                       "(#PCDATA |
+                       "(#PCDATA | 
                          %draft-comment; |
                          %required-cleanup; |
                          %text;)*"
