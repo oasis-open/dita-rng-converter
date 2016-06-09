@@ -194,7 +194,7 @@
   
   <target name="generate-all" 
     description="Generates all shells and modules for both DTD and XSD syntax"
-    depends="init, clean, generate-dtd, generate-rnc-urn, generate-xsd-url, generate-xsd-urn, generate-catalogs"
+    depends="init, clean, generate-dtd, generate-xsd-url, generate-xsd-urn, generate-catalogs"
     >
     
   </target> 
@@ -290,6 +290,7 @@
   <target name="generate-rnc-urn"
     depends="init, clean"
     >
+    <echo>- [WARN] RNC generation not yet fully implemented. </echo>
   	<makeurl property="rngsrcUrl" file="${rngsrc}"/>
 
     <java classname="net.sf.saxon.Transform" failonerror="true"

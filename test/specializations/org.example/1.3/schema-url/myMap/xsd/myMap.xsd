@@ -111,11 +111,6 @@
          <xs:attributeGroup ref="deliveryTargetAtt-d-attribute"/>
          <xs:attributeGroup ref="myPropsAtt-d-attribute"/>
       </xs:attributeGroup>
-      <xs:attributeGroup name="props-attribute-extensions">
-         <xs:attributeGroup ref="props-attribute-extensions"/>
-         <xs:attributeGroup ref="deliveryTargetAtt-d-attribute"/>
-         <xs:attributeGroup ref="myPropsAtt-d-attribute"/>
-      </xs:attributeGroup>
    </xs:redefine>
    <xs:redefine schemaLocation="../../../../../../../../../dita-ot/DITA-OT/plugins/org.oasis-open.dita.v1_3/xsd/base/xsd/metaDeclGrp.xsd">
       <xs:group name="metadata">

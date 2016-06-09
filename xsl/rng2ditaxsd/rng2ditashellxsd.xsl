@@ -549,7 +549,7 @@ It must be declared in topic-type shells.
         </xsl:for-each>
       </xsl:variable>
       <xsl:variable name="attributeExtensionDefines" as="node()*">
-        <xsl:for-each select="$modulesToProcess[rngfunc:getModuleType(./*) = ('attributedomain')]">
+        <xsl:for-each select="($modulesToProcess[rngfunc:getModuleType(./*) = ('attributedomain')])">
           <xsl:sequence 
             select=".//rng:define[string(@name) = $attributeExtensionGroups]"/>
         </xsl:for-each>
@@ -603,13 +603,16 @@ It must be declared in topic-type shells.
           </xs:group>              
         </xsl:if>
       </xsl:for-each>
-      <xsl:for-each select="for $define in $attributeExtensionDefines return string($define/@name)">
-        <xs:attributeGroup name="{.}">
-          <xs:attributeGroup ref="{.}"/><!-- This is a bit of XSD mojo. See XSD document-type shell: Coding requirements in the Arch Spec -->
-          <xsl:for-each select="$attributeExtensionDefines/rng:ref">
-            <xs:attributeGroup ref="{@name}"/>
-          </xsl:for-each>
-        </xs:attributeGroup>
+      <xsl:for-each select="('props-attribute-extensions', 'base-attribute-extensions')">
+        <xsl:variable name="defineName" as="xs:string" select="."/>
+        <xsl:if test="$attributeExtensionDefines[@name = $defineName]">
+          <xs:attributeGroup name="{$defineName}">
+            <xs:attributeGroup ref="{$defineName}"/><!-- This is a bit of XSD mojo. See XSD document-type shell: Coding requirements in the Arch Spec -->
+            <xsl:for-each select="$attributeExtensionDefines[@name = $defineName]/rng:ref">
+              <xs:attributeGroup ref="{@name}"/>
+            </xsl:for-each>
+          </xs:attributeGroup>
+        </xsl:if>
       </xsl:for-each>
     </xs:redefine>  
   </xsl:template>

@@ -17,8 +17,8 @@
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:indexingDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:markupDomain.xsd:1.3"/>
-   <xs:include schemaLocation="../../myAttDomain/xsd/myPropsAttDomain.xsd"/>
-   <xs:include schemaLocation="../../myMentionDomain/xsd/myMentionDomain.xsd"/>
+   <xs:include schemaLocation="urn:publid:example.org:dita:xsd:myPropsAttDomain.xsd:1.3"/>
+   <xs:include schemaLocation="urn:pubid:example.org:dita:xsd:xmlDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:releaseManagementDomain.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd:1.3"/>
@@ -29,7 +29,7 @@
    <!-- ================ GROUP DEFINITIONS ===================== -->
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:tblDeclGrp.xsd:1.3"/>
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:mapGrp.xsd:1.3"/>
-   <xs:include schemaLocation="./myMapGrp.xsd"/>
+   <xs:include schemaLocation="urn:pubid:example.org:dita:xsd:myMapGrp.xsd:1.3"/>
 
    <!-- =================  MODULE INCLUDE DEFINITION  ================== -->
    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:commonElementMod.xsd:1.3"/>
@@ -127,16 +127,8 @@
       </xs:group>
    </xs:redefine>
 
-   <xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:mapMod.xsd:1.3">
-     <xs:group name="topicref">
-       <xs:choice>
-         <xs:group ref="topicref"/>
-         <xs:group ref="mapgroup-d-topicref"/>
-         <xs:group ref="ditavalref-d-topicref"/>
-       </xs:choice>
-     </xs:group>     
-   </xs:redefine>
-   <xs:include schemaLocation="./myMapMod.xsd"/>
+   <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:mapMod.xsd:1.3"/>
+   <xs:include schemaLocation="urn:pubid:example.org:dita:xsd:myMapMod.xsd:1.3"/>
 
    <xs:attributeGroup name="domains-att">
       <xs:attribute name="domains"
