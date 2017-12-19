@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/15/trunk/src/com/thaiopensource/relaxng/pattern
+END
+SchemaPatternBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/14/trunk/src/com/thaiopensource/relaxng/pattern/SchemaPatternBuilder.java
+END
+SchemaBuilderImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/trunk/src/com/thaiopensource/relaxng/pattern/SchemaBuilderImpl.java
+END
+AnnotationsImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/thaiopensource/relaxng/pattern/AnnotationsImpl.java
+END
+DefaultValuesExtractor.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/15/trunk/src/com/thaiopensource/relaxng/pattern/DefaultValuesExtractor.java
+END
+AttributePattern.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/9/trunk/src/com/thaiopensource/relaxng/pattern/AttributePattern.java
+END

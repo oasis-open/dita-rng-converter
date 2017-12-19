@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="urn:dita-ng:dita:rng:topic.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:dita-ng:dita:rng:topic.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="introduction">
+    <title>Introduction</title>
+    <body>
+      <p>With just a little bit of care and preparation, any flower garden can be a vibrantly
+            colored environment. Flowers can be selected for specific blooming seasons, colors and
+            shapes. Both annual and <xref href="../concepts/glossary.xml#perennial" format="dita"
+                >perennial</xref> flower gardens can be planted depending on climate and specific
+            needs.</p>
+    </body>
+</topic>

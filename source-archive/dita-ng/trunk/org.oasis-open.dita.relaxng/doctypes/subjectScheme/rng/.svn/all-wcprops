@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/subjectScheme/rng
+END
+classifyMap.rng
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/subjectScheme/rng/classifyMap.rng
+END
+subjectSchemeMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/subjectScheme/rng/subjectSchemeMod.rng
+END
+subjectScheme.rng
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/subjectScheme/rng/subjectScheme.rng
+END
+classifyDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/subjectScheme/rng/classifyDomainMod.rng
+END

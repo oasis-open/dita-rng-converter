@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:/Users/george/Documents/workspace/dita-ng/RelaxNG/rng/base/rng/basetopic.rng" type="xml"?>
+<topic id="test">
+    <title>Topic title</title>
+    <body>
+        <p></p>
+    </body>
+</topic>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--XML Catalog for DITA-NG Relax NG XML schemas-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  
+  <!-- Add mapping for: base/basemap.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:basemap.rng" uri="base/rng/basemap.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:basemap.rng:1.2" uri="base/rng/basemap.rng"/>
+  
+  <!-- Add mapping for: base/basetopic.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:basetopic" uri="base/rng/basetopic.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:basetopic:1.2" uri="base/rng/basetopic.rng"/>
+  
+  <!-- Add mapping for: base/commonElementsMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:commonElementsMod.rng" uri="base/rng/commonElementsMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:commonElementsMod.rng:1.2" uri="base/rng/commonElementsMod.rng"/>
+  
+  <!-- Add mapping for: base/delayResolutionDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:delayResolutionDomainMod.rng" uri="base/rng/delayResolutionDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:delayResolutionDomainMod.rng:1.2" uri="base/rng/delayResolutionDomainMod.rng"/>
+  
+  <!-- Add mapping for: base/hazardstatementDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:hazardstatementDomainMod.rng" uri="base/rng/hazardstatementDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:hazardstatementDomainMod.rng:1.2" uri="base/rng/hazardstatementDomainMod.rng"/>
+  
+  <!-- Add mapping for: base/highlightDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng" uri="base/rng/highlightDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng:1.2" uri="base/rng/highlightDomainMod.rng"/>
+  
+  <!-- Add mapping for: base/indexingDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:indexingDomainMod.rng" uri="base/rng/indexingDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:indexingDomainMod.rng:1.2" uri="base/rng/indexingDomainMod.rng"/>
+  
+  <!-- Add mapping for: base/mapMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:mapMod.rng" uri="base/rng/mapMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:mapMod.rng:1.2" uri="base/rng/mapMod.rng"/>
+  
+  <!-- Add mapping for: base/mapGroupMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:mapGroupMod.rng" uri="base/rng/mapGroupMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:mapGroupMod.rng:1.2" uri="base/rng/mapGroupMod.rng"/>
+  
+  <!-- Add mapping for: base/metaDeclMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:metaDeclMod.rng" uri="base/rng/metaDeclMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:metaDeclMod.rng:1.2" uri="base/rng/metaDeclMod.rng"/>
+  
+  <!-- Add mapping for: base/tblDeclMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:tblDeclMod.rng" uri="base/rng/tblDeclMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:tblDeclMod.rng:1.2" uri="base/rng/tblDeclMod.rng"/>
+  
+  <!-- Add mapping for: base/topicMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:topicMod.rng" uri="base/rng/topicMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:topicMod.rng:1.2" uri="base/rng/topicMod.rng"/>
+  
+  <!-- Add mapping for: base/utilitiesDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:utilitiesDomainMod.rng" uri="base/rng/utilitiesDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:utilitiesDomainMod.rng:1.2" uri="base/rng/utilitiesDomainMod.rng"/>
+  
+  <!-- Add mapping for: bookmap/bookmapMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:bookmapMod.rng" uri="bookmap/rng/bookmapMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:bookmapMod.rng:1.2" uri="bookmap/rng/bookmapMod.rng"/>
+  
+  <!-- Add mapping for: bookmap/bookmap.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:bookmap.rng" uri="bookmap/rng/bookmap.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:bookmap.rng:1.2" uri="bookmap/rng/bookmap.rng"/>
+  
+  <!-- Add mapping for: ditaval/ditaval.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:ditaval.rng" uri="ditaval/rng/ditaval.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:ditaval.rng:1.2" uri="ditaval/rng/ditaval.rng"/>
+  
+  <!-- Add mapping for: learning/learningAssessmentMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningAssessmentMod.rng" uri="learning/rng/learningAssessmentMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningAssessmentMod.rng:1.2" uri="learning/rng/learningAssessmentMod.rng"/>
+  
+  <!-- Add mapping for: learning/learningAssessment.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningAssessment.rng" uri="learning/rng/learningAssessment.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningAssessment.rng:1.2" uri="learning/rng/learningAssessment.rng"/>
+  
+  <!-- Add mapping for: learning/learningBaseMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningBaseMod.rng" uri="learning/rng/learningBaseMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningBaseMod.rng:1.2" uri="learning/rng/learningBaseMod.rng"/>
+  
+  <!-- Add mapping for: learning/learningBookmap.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningBookmap.rng" uri="learning/rng/learningBookmap.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningBookmap.rng:1.2" uri="learning/rng/learningBookmap.rng"/>
+  
+  <!-- Add mapping for: learning/learningContentMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningContentMod.rng" uri="learning/rng/learningContentMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningContentMod.rng:1.2" uri="learning/rng/learningContentMod.rng"/>
+  
+  <!-- Add mapping for: learning/learningContent.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningContent.rng" uri="learning/rng/learningContent.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningContent.rng:1.2" uri="learning/rng/learningContent.rng"/>
+  
+  <!-- Add mapping for: learning/learningDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningDomainMod.rng" uri="learning/rng/learningDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningDomainMod.rng:1.2" uri="learning/rng/learningDomainMod.rng"/>
+  
+  <!-- Add mapping for: learning/learningInteractionBaseDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningDomainMod.rng" uri="learning/rng/learningInteractionBaseDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningDomainMod.rng:1.2" uri="learning/rng/learningInteractionBaseDomainMod.rng"/>
+  
+  <!-- Add mapping for: learning/learningMap.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningMap.rng" uri="learning/rng/learningMap.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningMap.rng:1.2" uri="learning/rng/learningMap.rng"/>
+  
+  <!-- Add mapping for: learning/learningMapdomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningMapDomainMod.rng" uri="learning/rng/learningMapdomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningMapDomainMod.rng:1.2" uri="learning/rng/learningMapdomainMod.rng"/>
+  
+  <!-- Add mapping for: learning/learningMetadataDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningMetadataDomainMod.rng" uri="learning/rng/learningMetadataDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningMetadataDomainMod.rng:1.2" uri="learning/rng/learningMetadataDomainMod.rng"/>
+  
+  <!-- Add mapping for: learning/learningOverviewMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningOverviewMod.rng" uri="learning/rng/learningOverviewMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningOverviewMod.rng:1.2" uri="learning/rng/learningOverviewMod.rng"/>
+  
+  <!-- Add mapping for: learning/learningOverview.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningOverview.rng" uri="learning/rng/learningOverview.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningOverview.rng:1.2" uri="learning/rng/learningOverview.rng"/>
+  
+  <!-- Add mapping for: learning/learningPlanMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningPlanMod.rng" uri="learning/rng/learningPlanMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningPlanMod.rng:1.2" uri="learning/rng/learningPlanMod.rng"/>
+  
+  <!-- Add mapping for: learning/learningPlan.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningPlan.rng" uri="learning/rng/learningPlan.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningPlan.rng:1.2" uri="learning/rng/learningPlan.rng"/>
+  
+  <!-- Add mapping for: learning/learningSummaryMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningSummaryMod.rng" uri="learning/rng/learningSummaryMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningSummaryMod.rng:1.2" uri="learning/rng/learningSummaryMod.rng"/>
+  
+  <!-- Add mapping for: learning/learningSummary.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:learningSummary.rng" uri="learning/rng/learningSummary.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:learningSummary.rng:1.2" uri="learning/rng/learningSummary.rng"/>
+  
+  <!-- Add mapping for: machineryIndustry/machineryTask.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:machineryTask.rng" uri="machineryIndustry/rng/machineryTask.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:machineryTask.rng:1.2" uri="machineryIndustry/rng/machineryTask.rng"/>
+  
+  <!-- Add mapping for: machineryIndustry/machineryTaskbodyConstraintMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng" uri="machineryIndustry/rng/machineryTaskbodyConstraintMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng:1.2" uri="machineryIndustry/rng/machineryTaskbodyConstraintMod.rng"/>
+  
+  <!-- Add mapping for: subjectScheme/classifyDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:classifyDomainMod.rng" uri="subjectScheme/rng/classifyDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:classifyDomainMod.rng:1.2" uri="subjectScheme/rng/classifyDomainMod.rng"/>
+  
+  <!-- Add mapping for: subjectScheme/classifyMap.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:classifyMap.rng" uri="subjectScheme/rng/classifyMap.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:classifyMap.rng:1.2" uri="subjectScheme/rng/classifyMap.rng"/>
+  
+  <!-- Add mapping for: subjectScheme/subjectSchemeMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:subjectSchemeMod.rng" uri="subjectScheme/rng/subjectSchemeMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:subjectSchemeMod.rng:1.2" uri="subjectScheme/rng/subjectSchemeMod.rng"/>
+  
+  <!-- Add mapping for: subjectScheme/subjectScheme.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:subjectScheme.rng" uri="subjectScheme/rng/subjectScheme.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:subjectScheme.rng:1.2" uri="subjectScheme/rng/subjectScheme.rng"/>
+  
+  <!-- Add mapping for: technicalContent/abbreviateDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:abbreviateDomainMod.rng" uri="technicalContent/rng/abbreviateDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:abbreviateDomainMod.rng:1.2" uri="technicalContent/rng/abbreviateDomainMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/conceptMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:conceptMod.rng" uri="technicalContent/rng/conceptMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:conceptMod.rng:1.2" uri="technicalContent/rng/conceptMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/concept.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:concept.rng" uri="technicalContent/rng/concept.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:concept.rng:1.2" uri="technicalContent/rng/concept.rng"/>
+  
+  <!-- Add mapping for: technicalContent/ditabase.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:ditabase.rng" uri="technicalContent/rng/ditabase.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:ditabase.rng:1.2" uri="technicalContent/rng/ditabase.rng"/>
+  
+  <!-- Add mapping for: technicalContent/generalTask.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:generalTask.rng" uri="technicalContent/rng/generalTask.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:generalTask.rng:1.2" uri="technicalContent/rng/generalTask.rng"/>
+  
+  <!-- Add mapping for: technicalContent/glossary.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:glossary.rng" uri="technicalContent/rng/glossary.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:glossary.rng:1.2" uri="technicalContent/rng/glossary.rng"/>
+  
+  <!-- Add mapping for: technicalContent/glossentryMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:glossentryMod.rng" uri="technicalContent/rng/glossentryMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:glossentryMod.rng:1.2" uri="technicalContent/rng/glossentryMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/glossentry.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:glossentry.rng" uri="technicalContent/rng/glossentry.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:glossentry.rng:1.2" uri="technicalContent/rng/glossentry.rng"/>
+  
+  <!-- Add mapping for: technicalContent/glossgroupMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:glossgroupMod.rng" uri="technicalContent/rng/glossgroupMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:glossgroupMod.rng:1.2" uri="technicalContent/rng/glossgroupMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/glossgroup.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:glossgroup.rng" uri="technicalContent/rng/glossgroup.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:glossgroup.rng:1.2" uri="technicalContent/rng/glossgroup.rng"/>
+  
+  <!-- Add mapping for: technicalContent/glossrefDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:glossrefDomainMod.rng" uri="technicalContent/rng/glossrefDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:glossrefDomainMod.rng:1.2" uri="technicalContent/rng/glossrefDomainMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/map.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:map.rng" uri="technicalContent/rng/map.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:map.rng:1.2" uri="technicalContent/rng/map.rng"/>
+  
+  <!-- Add mapping for: technicalContent/programmingDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:programmingDomainMod.rng" uri="technicalContent/rng/programmingDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:programmingDomainMod.rng:1.2" uri="technicalContent/rng/programmingDomainMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/referenceMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:referenceMod.rng" uri="technicalContent/rng/referenceMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:referenceMod.rng:1.2" uri="technicalContent/rng/referenceMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/reference.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:reference.rng" uri="technicalContent/rng/reference.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:reference.rng:1.2" uri="technicalContent/rng/reference.rng"/>
+  
+  <!-- Add mapping for: technicalContent/softwareDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:softwareDomainMod.rng" uri="technicalContent/rng/softwareDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:softwareDomainMod.rng:1.2" uri="technicalContent/rng/softwareDomainMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/strictTaskbodyConstraintMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:strictTaskbodyConstraintMod.rng" uri="technicalContent/rng/strictTaskbodyConstraintMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:strictTaskbodyConstraintMod.rng:1.2" uri="technicalContent/rng/strictTaskbodyConstraintMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/taskMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:taskMod.rng" uri="technicalContent/rng/taskMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:taskMod.rng:1.2" uri="technicalContent/rng/taskMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/task.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:task.rng" uri="technicalContent/rng/task.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:task.rng:1.2" uri="technicalContent/rng/task.rng"/>
+  
+  <!-- Add mapping for: technicalContent/taskreqDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:taskreqDomainMod.rng" uri="technicalContent/rng/taskreqDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:taskreqDomainMod.rng:1.2" uri="technicalContent/rng/taskreqDomainMod.rng"/>
+  
+  <!-- Add mapping for: technicalContent/topic.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:topic.rng" uri="technicalContent/rng/topic.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:topic.rng:1.2" uri="technicalContent/rng/topic.rng"/>
+  
+  <!-- Add mapping for: technicalContent/uiDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:uiDomainMod.rng" uri="technicalContent/rng/uiDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:uiDomainMod.rng:1.2" uri="technicalContent/rng/uiDomainMod.rng"/>
+  
+  <!-- Add mapping for: xhtml/xhtml1-transitional.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:xhtml1-transitional.rng" uri="xhtml/rng/xhtml1-transitional.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:xhtml1-transitional.rng:1.2" uri="xhtml/rng/xhtml1-transitional.rng"/>
+  
+  <!-- Add mapping for: xnal/xnalDomainMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:xnalDomainMod.rng" uri="xnal/rng/xnalDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:xnalDomainMod.rng:1.2" uri="xnal/rng/xnalDomainMod.rng"/></catalog>

@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3
+END
+mathml3-strict-content.rng
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/mathml3-strict-content.rng
+END
+linear_algebra.rng
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/linear_algebra.rng
+END
+algebra-logic.rng
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/algebra-logic.rng
+END
+statistics.rng
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/statistics.rng
+END
+mathml3-common.rng
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/mathml3-common.rng
+END
+calculus_veccalc.rng
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/calculus_veccalc.rng
+END
+relations.rng
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/relations.rng
+END
+mathml3-deprecated.rng
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/mathml3-deprecated.rng
+END
+specfun.rng
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/specfun.rng
+END
+basic-content-elements.rng
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/basic-content-elements.rng
+END
+sequences_series.rng
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/sequences_series.rng
+END
+mathml3.rng
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/mathml3.rng
+END
+mathml3-pragmatic.rng
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/mathml3-pragmatic.rng
+END
+mathml3-strict.rng
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/mathml3-strict.rng
+END
+constants.rng
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/constants.rng
+END
+errors.rng
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/errors.rng
+END
+mathml3-cds.rng
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/mathml3-cds.rng
+END
+mathml3-content.rng
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/mathml3-content.rng
+END
+sets.rng
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/sets.rng
+END
+mathml3-presentation.rng
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/mathml3-presentation.rng
+END
+mathml3-cds-pragmatic.rng
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3/mathml3-cds-pragmatic.rng
+END

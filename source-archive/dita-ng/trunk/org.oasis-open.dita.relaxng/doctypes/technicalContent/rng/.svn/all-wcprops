@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng
+END
+glossary.rng
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/96/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossary.rng
+END
+glossgroupMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossgroupMod.rng
+END
+glossgroup.rng
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossgroup.rng
+END
+uiDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/uiDomainMod.rng
+END
+glossentry.rng
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossentry.rng
+END
+glossentryMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossentryMod.rng
+END
+programmingDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/programmingDomainMod.rng
+END
+ditabase.rng
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/ditabase.rng
+END
+glossrefDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossrefDomainMod.rng
+END
+map.rng
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/map.rng
+END
+topic.rng
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/topic.rng
+END
+strictTaskbodyConstraintMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/strictTaskbodyConstraintMod.rng
+END
+softwareDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/softwareDomainMod.rng
+END
+conceptMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/conceptMod.rng
+END
+concept.rng
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/concept.rng
+END
+abbreviateDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/abbreviateDomainMod.rng
+END
+referenceMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/referenceMod.rng
+END
+reference.rng
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/reference.rng
+END
+generalTask.rng
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/generalTask.rng
+END
+task.rng
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/task.rng
+END
+taskMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/taskMod.rng
+END
+taskreqDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/taskreqDomainMod.rng
+END

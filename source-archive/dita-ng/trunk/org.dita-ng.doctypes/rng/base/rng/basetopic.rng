@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- ============================================================= 
+     MODULE:    DITA Topic Base RNG (only base domains)             
+     VERSION:   1.2                                                
+     DATE:      October 2010                                       
+     ============================================================= -->
+<!--
+     Refer to the latest version of this file by the following URI:
+     urn:dita-ng:dita:rng:basetopic.rng
+     To refer to this specific version, you may use this value:
+     urn:dita-ng:dita:rng:basetopic.rng:1.2
+-->
+<!-- ============================================================= 
+     SYSTEM:     Darwin Information Typing Architecture (DITA)     
+     PURPOSE:    Relax NG schema to describe Base DITA Topics             
+     ORIGINAL CREATION DATE:                                       
+     September 2010                                                
+     (C) Copyright Syncro Soft 2010-2011                                
+     All Rights Reserved.                                          
+     ============================================================= -->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:d="http://dita-ng.org/annotations/1.0">
+  <!-- Module annotations -->
+  <d:info>
+    <d:header>
+      <d:module>DITA Topic Base (only base domains)</d:module>
+      <d:version>1.2</d:version>
+      <d:date>April 2010</d:date>
+    </d:header>
+    <d:invocation>
+      <d:owner>OASIS</d:owner>
+      <d:description>Base Topic</d:description>
+      <d:language>EN</d:language>
+    </d:invocation>
+    <d:system>Darwin Information Typing Architecture (DITA)</d:system>
+    <d:purpose>Base DITA Topics</d:purpose>
+    <d:originalCreationDate>April 2010</d:originalCreationDate>
+    <d:copyright>(C) Copyright OASIS Open 2010. All Rights Reserved.</d:copyright>
+    <d:updates/>
+  </d:info>
+
+  <!-- Define the root elements -->
+  <start combine="choice">
+    <ref name="topic.element"/>
+  </start>
+  
+  <!-- The DITA domains attribute -->
+  <define name="domains-atts" combine="interleave">
+    <optional>
+      <attribute name="domains"
+        a:defaultValue="(topic hi-d) (topic ut-d) (topic indexing-d) (topic hazard-d)"/>
+    </optional>
+  </define>
+  
+  <!-- Include modules -->
+  <include href="topic.mod.rng"/>
+  <include href="highlightDomain.mod.rng"/>
+  <include href="utilitiesDomain.mod.rng"/>
+  <include href="indexingDomain.mod.rng"/>
+  <include href="hazardstatementDomain.mod.rng"/>
+
+  <!-- Define the any pattern to exclude elements with ID attributes
+    from the wildcard and refer them expliceitely  -->
+  <define name="any">
+    <zeroOrMore>
+      <choice>
+        <ref name="topic.element"/>
+        <element>
+          <anyName>
+            <except>
+              <name>topic</name>
+            </except>
+          </anyName>
+          <zeroOrMore>
+            <attribute>
+              <anyName/>
+            </attribute>
+          </zeroOrMore>
+          <ref name="any"/>
+        </element>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+</grammar>

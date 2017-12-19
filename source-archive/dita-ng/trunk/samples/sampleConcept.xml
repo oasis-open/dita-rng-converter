@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oXygenxml:dita:rng:concept.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<concept id="test">
+    <title>Sample</title>
+    <conbody>
+        <p>Sample</p>
+        <ul id="ul_358038b5-2cc7-4f2b-810b-74fc923b24ec">
+            <li>first</li>
+            <li>second</li>
+        </ul>
+        <p>DITA works with Relax NG!!!!</p>
+        <codeblock>Super!!!!!
+Almost incredible!!!!!</codeblock>
+    </conbody>
+</concept>

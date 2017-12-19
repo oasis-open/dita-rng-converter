@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:dita-ng:dita:rng:concept.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:dita-ng:dita:rng:concept.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<concept id="glossary">
+  <title>Glossary</title>
+  <conbody>
+    <p>Description of some of the terms.</p>
+  </conbody>
+  <concept id="genus">
+    <title>genus</title>
+    <conbody>
+      <p>A low-level taxonomic rank used in the classification of living and
+        fossil organisms. Other well-known taxonomic ranks are domain, kingdom, phylum, class,
+        order, family, and species, with <b>genus</b> fitting between family and species.When  where
+        The scientific name of a genus may be called the generic name: it is alway capitalized.</p>
+    </conbody>
+  </concept>
+  <concept id="pollination">
+    <title>pollination</title>
+    <conbody>
+      <p><b>Pollination</b> is the process by which pollen is transferred in plants, thereby
+        enabling fertilisation and sexual reproduction. Pollination is a necessary step in the
+        reproduction of flowering plants, resulting in the production of offspring that are
+        genetically diverse.</p>
+    </conbody>
+  </concept>
+  <concept id="sepal">
+    <title>sepal</title>
+    <conbody>
+      <p>A <b>sepal</b> (from Latin <i>separatus</i> "separate" + <i>petalum</i> "petal") is a part
+        of the flower of flowering plants. <b>Sepals</b> in a "typical" flower are green and lie
+        under the more conspicuous petals. As a collective unit the sepals are called the calyx, and
+        the collection of petals is called the corolla. Together, these two structures are known as
+        the perianth of the flower. The petals and sepals are usually differentiated into colorful
+        petals and green sepals. The term tepal is usually applied when the petals and sepals are
+        not differentiated and look similar or the petals are absent and the sepals are colorful.
+        When the flower is in bud, the sepals enclose and protect the more delicate floral parts
+        within. Morphologically they are modified leaves. </p>
+    </conbody>
+  </concept>
+  <concept id="rhizome">
+    <title>rhizome</title>
+    <conbody>
+      <p>A <b>rhizome</b> is a characteristically horizontal stem of a plant that is usually found
+        underground, often sending out roots and shoots from its nodes. Some plants have rhizomes
+        that grow above ground or that lie at the soil surface, including some Iris species, and
+        ferns, whose spreading stems are rhizomes. Rhizomes may also be referred to as creeping
+        rootstalks, or rootstocks.</p>
+    </conbody>
+  </concept>
+  <concept id="bulb">
+    <title>bulb</title>
+    <conbody>
+      <p>A <b>bulb</b> is an underground vertical shoot that has modified leaves (or thickened leaf
+        bases) that are used as food storage organs by a dormant plant.</p>
+    </conbody>
+  </concept>
+  <concept id="cultivar">
+    <title>cultivar</title>
+    <conbody>
+      <p>A <b>cultivar</b> is a cultivated plant that has been selected and given a unique name
+        because of its decorative or useful characteristics; it is usually distinct from similar
+        plants and when propagated it retains those characteristics. The word cultivar is generally
+        regarded as a portmanteau of "<b>culti</b>vated" and "<b>var</b>iety", but could also be
+        derived from "<b>culti</b>gen" "<b>var</b>iety".</p>
+    </conbody>
+  </concept>
+  <concept id="perennial">
+    <title>perennial</title>
+    <conbody>
+      <p>A <b>perennial</b> plant or perennial is a plant that lives for more than two years. When
+        used by gardeners or horticulturists, this term applies specifically to perennial herbaceous
+        plants. Scientifically, woody plants like shrubs and trees are also perennial in their
+        habit.</p>
+    </conbody>
+  </concept>
+  <concept id="panicle">
+    <title>panicle</title>
+    <conbody>
+      <p>A <b>panicle</b> is a compound raceme, a loose, much-branched indeterminate inflorescence
+        with pedicellate flowers (and fruit) attached along the secondary branches (in other words,
+        a branched cluster of flowers in which the branches are racemes).</p>
+    </conbody>
+  </concept>
+</concept>

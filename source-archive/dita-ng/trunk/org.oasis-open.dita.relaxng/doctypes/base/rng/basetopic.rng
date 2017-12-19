@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  >
+  <a:documentation 
+                   ditaarch:dtdPublicId="-//OASIS//DTD DITA 1.2 Base Topic//EN"
+    ditaarch:dtdPublicIdSpecificVersion="-//OASIS//DTD DITA 1.2 Base Topic//EN"
+                   ditaarch:xsdPublicUri="urn:oasis:names:tc:dita:xsd:basetopic.xsd"
+    ditaarch:xsdPublicUriSpecificVersion="urn:oasis:names:tc:dita:xsd:basetopic.xsd:1.2"
+                   ditaarch:rngPublicUri="urn:oasis:names:tc:dita:rng:basetopic.rng"
+    ditaarch:rngPublicUriSpecificVersion="urn:oasis:names:tc:dita:rng:basetopic.rng:1.2"
+                   ditaarch:rncPublicUri="urn:oasis:names:tc:dita:rnc:basetopic.rnc"
+    ditaarch:rncPublicUriSpecificVersion="urn:oasis:names:tc:dita:rnc:basetopic.rnc:1.2"
+    >
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA Topic Base DTD (only base domains)           -->
+<!--  VERSION:   1.2                                               -->
+<!--  DATE:      April 2010                                        -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//DTD DITA Base Topic//EN"
+      Delivered as file "basetopic.dtd"                            -->
+
+<!-- The public ID above refers to the latest version of this DTD.
+     To refer to this specific version, you may use this value:
+PUBLIC "-//OASIS//DTD DITA 1.2 Base Topic//EN"                     -->
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    DTD to describe Base DITA Topics                  -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             April 2010                                        -->
+<!--                                                               -->
+<!--             (C) Copyright OASIS Open 2010.                    -->
+<!--             All Rights Reserved.                              -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!-- ============================================================= -->
+  </a:documentation>
+
+  <start combine="choice">
+    <ref name="topic.element"/>
+  </start>
+  
+  <define name="domains-att" combine="interleave">
+    <optional>
+      <attribute name="domains"
+        a:defaultValue="(topic hi-d) (topic ut-d) (topic indexing-d) (topic hazard-d)"/>
+    </optional>
+  </define>
+  
+  <!-- Include modules -->
+
+  <include href="topicMod.rng"/>
+  <include href="highlightDomainMod.rng"/>
+  <include href="utilitiesDomainMod.rng"/>
+  <include href="indexingDomainMod.rng"/>
+  <include href="hazardstatementDomainMod.rng"/>
+
+  <!-- Define the any pattern to exclude elements with ID attributes
+    from the wildcard and refer them explicitly -->
+  <define name="any">
+    <zeroOrMore>
+      <choice>
+        <ref name="topic.element"/>
+        <element>
+          <anyName>
+            <except>
+              <name>topic</name>
+            </except>
+          </anyName>
+          <zeroOrMore>
+            <attribute>
+              <anyName/>
+            </attribute>
+          </zeroOrMore>
+          <ref name="any"/>
+        </element>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+</grammar>
