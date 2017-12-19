@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:dita-ng:dita:rng:map.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:dita-ng:dita:rng:map.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<map title="Growing Flowers">
+  <topicref href="topics/introduction.xml"/>
+  <topicref href="topics/care.xml">
+    <topicref href="tasks/pruning.xml"/>
+    <topicref href="tasks/gardenPreparation.xml"/>
+  </topicref>
+  <topicref href="topics/index.xml" collection-type="sequence">
+    <topicref href="concepts/springFlowers.xml" collection-type="sequence">
+      <topicref href="topics/flowers/iris.xml"/>
+      <topicref href="topics/flowers/snowdrop.xml"/>
+    </topicref>
+    <topicref href="concepts/summerFlowers.xml" collection-type="sequence">
+      <topicref href="topics/flowers/gardenia.xml"/>
+      <topicref href="topics/flowers/lilac.xml"/>
+    </topicref>
+    <topicref href="concepts/autumnFlowers.xml" collection-type="sequence">
+      <topicref href="topics/flowers/chrysanthemum.xml"/>
+      <topicref href="topics/flowers/salvia.xml"/>
+    </topicref>
+    <topicref href="concepts/winterFlowers.xml" collection-type="sequence">
+      <topicref href="topics/flowers/gerbera.xml"/>
+    </topicref>
+  </topicref>
+  <topicref href="concepts/glossary.xml"/>
+  <topicref href="topics/copyright.xml"/>
+</map>

@@ -1,0 +1,4258 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT topicsubject (topicmeta?,
+                        (data|data-about|subjectref|topicref|anchorref
+                         |keydef|mapref|topicgroup|topichead|topicset
+                         |topicsetref|topicsubject|topicapply)*)>
+<!ATTLIST topicsubject
+  xmlns CDATA #FIXED ''
+  navtitle CDATA #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  keys CDATA #IMPLIED
+  query CDATA #IMPLIED
+  type CDATA #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  format CDATA #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT topicmeta (navtitle?,linktext?,searchtitle?,shortdesc?,
+                     author*,source?,publisher?,copyright*,critdates?,
+                     permissions?,metadata*,audience*,category*,
+                     (keywords|exportanchors)*,prodinfo*,othermeta*,
+                     resourceid*,(data|data-about|foreign|unknown)*)>
+<!ATTLIST topicmeta
+  xmlns CDATA #FIXED ''
+  lockmeta (no|yes|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT data (#PCDATA|data|data-about|foreign|unknown|keyword|term
+                |image|object|ph|b|i|sup|sub|tt|u|title)*>
+<!ATTLIST data
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  name CDATA #IMPLIED
+  datatype CDATA #IMPLIED
+  value CDATA #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  format CDATA #IMPLIED
+  type CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT data-about (data,(data|data-about)*)>
+<!ATTLIST data-about
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  format CDATA #IMPLIED
+  type CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT subjectref (topicmeta?,(data|data-about)*)>
+<!ATTLIST subjectref
+  xmlns CDATA #FIXED ''
+  navtitle CDATA #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  keys CDATA #IMPLIED
+  query CDATA #IMPLIED
+  collection-type (choice|family|sequence|unordered
+                   |-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  format CDATA #IMPLIED
+  linking (none|normal|sourceonly|targetonly
+           |-dita-use-conref-target) #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT topicref (topicmeta?,
+                    (anchor|data|data-about|navref|topicref|anchorref
+                     |keydef|mapref|topicgroup|topichead|topicset
+                     |topicsetref|topicsubject|topicapply)*)>
+<!ATTLIST topicref
+  xmlns CDATA #FIXED ''
+  navtitle CDATA #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  keys CDATA #IMPLIED
+  query CDATA #IMPLIED
+  copy-to CDATA #IMPLIED
+  outputclass CDATA #IMPLIED
+  collection-type (choice|family|sequence|unordered
+                   |-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  locktitle (no|yes|-dita-use-conref-target) #IMPLIED
+  format CDATA #IMPLIED
+  linking (none|normal|sourceonly|targetonly
+           |-dita-use-conref-target) #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  print (no|printonly|yes|-dita-use-conref-target) #IMPLIED
+  search (no|yes|-dita-use-conref-target) #IMPLIED
+  chunk CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT anchorref (topicmeta?,
+                     (data|data-about|topicref|anchorref|keydef|mapref
+                      |topicgroup|topichead|topicset|topicsetref
+                      |topicsubject|topicapply)*)>
+<!ATTLIST anchorref
+  xmlns CDATA #FIXED ''
+  navtitle CDATA #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  keys CDATA #IMPLIED
+  query CDATA #IMPLIED
+  copy-to CDATA #IMPLIED
+  outputclass CDATA #IMPLIED
+  collection-type (choice|family|sequence|unordered
+                   |-dita-use-conref-target) #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  locktitle (no|yes|-dita-use-conref-target) #IMPLIED
+  format CDATA #IMPLIED
+  linking (none|normal|sourceonly|targetonly
+           |-dita-use-conref-target) #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  print (no|printonly|yes|-dita-use-conref-target) #IMPLIED
+  search (no|yes|-dita-use-conref-target) #IMPLIED
+  chunk CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT keydef (topicmeta?,
+                  (anchor|data|data-about|navref|topicref|anchorref
+                   |keydef|mapref|topicgroup|topichead|topicset
+                   |topicsetref|topicsubject|topicapply)*)>
+<!ATTLIST keydef
+  xmlns CDATA #FIXED ''
+  navtitle CDATA #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  keys CDATA #REQUIRED
+  query CDATA #IMPLIED
+  copy-to CDATA #IMPLIED
+  outputclass CDATA #IMPLIED
+  collection-type (choice|family|sequence|unordered
+                   |-dita-use-conref-target) #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  locktitle (no|yes|-dita-use-conref-target) #IMPLIED
+  format CDATA #IMPLIED
+  linking (none|normal|sourceonly|targetonly
+           |-dita-use-conref-target) #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  print (no|printonly|yes|-dita-use-conref-target) #IMPLIED
+  search (no|yes|-dita-use-conref-target) #IMPLIED
+  chunk CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT mapref (topicmeta?,(data|data-about)*)>
+<!ATTLIST mapref
+  xmlns CDATA #FIXED ''
+  navtitle CDATA #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  keys CDATA #IMPLIED
+  query CDATA #IMPLIED
+  copy-to CDATA #IMPLIED
+  outputclass CDATA #IMPLIED
+  format CDATA #IMPLIED
+  collection-type (choice|family|sequence|unordered
+                   |-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  locktitle (no|yes|-dita-use-conref-target) #IMPLIED
+  linking (none|normal|sourceonly|targetonly
+           |-dita-use-conref-target) #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  print (no|printonly|yes|-dita-use-conref-target) #IMPLIED
+  search (no|yes|-dita-use-conref-target) #IMPLIED
+  chunk CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT topicgroup (topicmeta?,
+                      (anchor|data|data-about|navref|topicref|anchorref
+                       |keydef|mapref|topicgroup|topichead|topicset
+                       |topicsetref|topicsubject|topicapply)*)>
+<!ATTLIST topicgroup
+  xmlns CDATA #FIXED ''
+  outputclass CDATA #IMPLIED
+  collection-type (choice|family|sequence|unordered
+                   |-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  locktitle (no|yes|-dita-use-conref-target) #IMPLIED
+  format CDATA #IMPLIED
+  linking (none|normal|sourceonly|targetonly
+           |-dita-use-conref-target) #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  print (no|printonly|yes|-dita-use-conref-target) #IMPLIED
+  search (no|yes|-dita-use-conref-target) #IMPLIED
+  chunk CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT topichead (topicmeta?,
+                     (anchor|data|data-about|navref|topicref|anchorref
+                      |keydef|mapref|topicgroup|topichead|topicset
+                      |topicsetref|topicsubject|topicapply)*)>
+<!ATTLIST topichead
+  xmlns CDATA #FIXED ''
+  navtitle CDATA #IMPLIED
+  outputclass CDATA #IMPLIED
+  keys CDATA #IMPLIED
+  copy-to CDATA #IMPLIED
+  collection-type (choice|family|sequence|unordered
+                   |-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  locktitle (no|yes|-dita-use-conref-target) #IMPLIED
+  format CDATA #IMPLIED
+  linking (none|normal|sourceonly|targetonly
+           |-dita-use-conref-target) #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  print (no|printonly|yes|-dita-use-conref-target) #IMPLIED
+  search (no|yes|-dita-use-conref-target) #IMPLIED
+  chunk CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT topicset (topicmeta?,
+                    (anchor|data|data-about|navref|topicref|anchorref
+                     |keydef|mapref|topicgroup|topichead|topicset
+                     |topicsetref|topicsubject|topicapply)*)>
+<!ATTLIST topicset
+  xmlns CDATA #FIXED ''
+  navtitle CDATA #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  keys CDATA #IMPLIED
+  query CDATA #IMPLIED
+  copy-to CDATA #IMPLIED
+  outputclass CDATA #IMPLIED
+  collection-type (choice|family|sequence|unordered
+                   |-dita-use-conref-target) #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  locktitle (no|yes|-dita-use-conref-target) #IMPLIED
+  format CDATA #IMPLIED
+  linking (none|normal|sourceonly|targetonly
+           |-dita-use-conref-target) #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  print (no|printonly|yes|-dita-use-conref-target) #IMPLIED
+  search (no|yes|-dita-use-conref-target) #IMPLIED
+  chunk CDATA #IMPLIED
+  id NMTOKEN #REQUIRED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT topicsetref (topicmeta?,
+                       (data|data-about|topicref|anchorref|keydef|mapref
+                        |topicgroup|topichead|topicset|topicsetref
+                        |topicsubject|topicapply)*)>
+<!ATTLIST topicsetref
+  xmlns CDATA #FIXED ''
+  navtitle CDATA #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  keys CDATA #IMPLIED
+  query CDATA #IMPLIED
+  copy-to CDATA #IMPLIED
+  outputclass CDATA #IMPLIED
+  collection-type (choice|family|sequence|unordered
+                   |-dita-use-conref-target) #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  locktitle (no|yes|-dita-use-conref-target) #IMPLIED
+  format CDATA #IMPLIED
+  linking (none|normal|sourceonly|targetonly
+           |-dita-use-conref-target) #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  print (no|printonly|yes|-dita-use-conref-target) #IMPLIED
+  search (no|yes|-dita-use-conref-target) #IMPLIED
+  chunk CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT topicapply (topicmeta?,
+                      (data|data-about|subjectref|topicref|anchorref
+                       |keydef|mapref|topicgroup|topichead|topicset
+                       |topicsetref|topicsubject|topicapply)*)>
+<!ATTLIST topicapply
+  xmlns CDATA #FIXED ''
+  navtitle CDATA #IMPLIED
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  keys CDATA #IMPLIED
+  query CDATA #IMPLIED
+  collection-type (choice|family|sequence|unordered
+                   |-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  processing-role (normal|resource-only
+                   |-dita-use-conref-target) #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  format CDATA #IMPLIED
+  linking (none|normal|sourceonly|targetonly
+           |-dita-use-conref-target) #IMPLIED
+  toc (no|yes|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT navtitle (#PCDATA|data|data-about|foreign|unknown|keyword|term
+                    |ph|b|i|sup|sub|tt|u)*>
+<!ATTLIST navtitle
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT linktext (#PCDATA|data|data-about|foreign|unknown|keyword|term
+                    |ph|b|i|sup|sub|tt|u)*>
+<!ATTLIST linktext
+  xmlns CDATA #FIXED ''
+  outputclass CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT searchtitle (#PCDATA|data|data-about|foreign|unknown|keyword
+                       |term)*>
+<!ATTLIST searchtitle
+  xmlns CDATA #FIXED ''
+  outputclass CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT shortdesc (#PCDATA|boolean|keyword|ph|b|i|sup|sub|tt|u|q|term
+                     |tm|state|data|data-about|foreign|unknown|image
+                     |draft-comment)*>
+<!ATTLIST shortdesc
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT author (#PCDATA|data|data-about|foreign|unknown|keyword
+                  |term)*>
+<!ATTLIST author
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  href CDATA #IMPLIED
+  format CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  keyref CDATA #IMPLIED
+  type CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT source (#PCDATA|data|data-about|foreign|unknown|keyword|term
+                  |ph|b|i|sup|sub|tt|u)*>
+<!ATTLIST source
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  href CDATA #IMPLIED
+  format CDATA #IMPLIED
+  type CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  keyref CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT publisher (#PCDATA|data|data-about|foreign|unknown|keyword
+                     |term)*>
+<!ATTLIST publisher
+  xmlns CDATA #FIXED ''
+  href CDATA #IMPLIED
+  format CDATA #IMPLIED
+  type CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT copyright (copyryear+,copyrholder)>
+<!ATTLIST copyright
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT critdates (created?,revised*)>
+<!ATTLIST critdates
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT permissions EMPTY>
+<!ATTLIST permissions
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  view CDATA #REQUIRED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT metadata (audience*,category*,(keywords|exportanchors)*,
+                    prodinfo*,othermeta*,
+                    (data|data-about|foreign|unknown)*)>
+<!ATTLIST metadata
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  mapkeyref CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT audience EMPTY>
+<!ATTLIST audience
+  xmlns CDATA #FIXED ''
+  type CDATA #IMPLIED
+  othertype CDATA #IMPLIED
+  job CDATA #IMPLIED
+  otherjob CDATA #IMPLIED
+  experiencelevel CDATA #IMPLIED
+  name NMTOKEN #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT category (#PCDATA|data|data-about|foreign|unknown|keyword
+                    |term)*>
+<!ATTLIST category
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT keywords (indexterm|keyword)*>
+<!ATTLIST keywords
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT exportanchors (anchorid|anchorkey)*>
+<!ATTLIST exportanchors
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT prodinfo (prodname,vrmlist,
+                    (brand|component|featnum|platform|prognum|series)*)>
+<!ATTLIST prodinfo
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT othermeta EMPTY>
+<!ATTLIST othermeta
+  xmlns CDATA #FIXED ''
+  name CDATA #REQUIRED
+  content CDATA #REQUIRED
+  translate-content (no|yes|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT resourceid EMPTY>
+<!ATTLIST resourceid
+  xmlns CDATA #FIXED ''
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  id CDATA #REQUIRED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  appname CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT foreign ANY>
+<!ATTLIST foreign
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT unknown ANY>
+<!ATTLIST unknown
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT keyword (#PCDATA|text|tm)*>
+<!ATTLIST keyword
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT term (#PCDATA|text|tm)*>
+<!ATTLIST term
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT image (alt?,longdescref?)>
+<!ATTLIST image
+  xmlns CDATA #FIXED ''
+  href CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  keyref CDATA #IMPLIED
+  alt CDATA #IMPLIED
+  longdescref CDATA #IMPLIED
+  height NMTOKEN #IMPLIED
+  width NMTOKEN #IMPLIED
+  align CDATA #IMPLIED
+  scale NMTOKEN #IMPLIED
+  scalefit (yes|no|-dita-use-conref-target) #IMPLIED
+  placement (break|inline|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT object (desc?,longdescref?,param*,(foreign|unknown)*)>
+<!ATTLIST object
+  xmlns CDATA #FIXED ''
+  declare (declare) #IMPLIED
+  classid CDATA #IMPLIED
+  codebase CDATA #IMPLIED
+  data CDATA #IMPLIED
+  type CDATA #IMPLIED
+  codetype CDATA #IMPLIED
+  archive CDATA #IMPLIED
+  standby CDATA #IMPLIED
+  height NMTOKEN #IMPLIED
+  width NMTOKEN #IMPLIED
+  usemap CDATA #IMPLIED
+  name CDATA #IMPLIED
+  tabindex NMTOKEN #IMPLIED
+  longdescref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  longdescre CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT ph (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+              |xref|state|data|data-about|foreign|unknown|image
+              |draft-comment|fn|indextermref|indexterm|required-cleanup
+              |text)*>
+<!ATTLIST ph
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT b (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+             |xref|state|data|data-about|foreign|unknown)*>
+<!ATTLIST b
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT i (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+             |xref|state|data|data-about|foreign|unknown)*>
+<!ATTLIST i
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT sup (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term
+               |tm|xref|state|data|data-about|foreign|unknown)*>
+<!ATTLIST sup
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT sub (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term
+               |tm|xref|state|data|data-about|foreign|unknown)*>
+<!ATTLIST sub
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT tt (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+              |xref|state|data|data-about|foreign|unknown)*>
+<!ATTLIST tt
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT u (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+             |xref|state|data|data-about|foreign|unknown)*>
+<!ATTLIST u
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT title (#PCDATA|boolean|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+                 |state|data|data-about|foreign|unknown|image)*>
+<!ATTLIST title
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  base CDATA #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT anchor EMPTY>
+<!ATTLIST anchor
+  xmlns CDATA #FIXED ''
+  outputclass CDATA #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  id ID #REQUIRED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT navref EMPTY>
+<!ATTLIST navref
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  keyref CDATA #IMPLIED
+  mapref CDATA #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT boolean EMPTY>
+<!ATTLIST boolean
+  xmlns CDATA #FIXED ''
+  state (no|yes|-dita-use-conref-target) #REQUIRED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT q (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+             |xref|state|data|data-about|foreign|unknown)*>
+<!ATTLIST q
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT tm (#PCDATA|text|tm)*>
+<!ATTLIST tm
+  xmlns CDATA #FIXED ''
+  trademark CDATA #IMPLIED
+  tmowner CDATA #IMPLIED
+  tmtype (reg|service|tm|-dita-use-conref-target) #REQUIRED
+  tmclass CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT state EMPTY>
+<!ATTLIST state
+  xmlns CDATA #FIXED ''
+  name CDATA #REQUIRED
+  value CDATA #REQUIRED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT draft-comment (#PCDATA|dl|fig|imagemap|image|lines|lq|note
+                         |hazardstatement|object|ol|p|pre|simpletable|sl
+                         |table|ul|boolean|cite|keyword|ph|b|i|sup|sub
+                         |tt|u|q|term|tm|xref|state|data|data-about
+                         |foreign|unknown)*>
+<!ATTLIST draft-comment
+  xmlns CDATA #FIXED ''
+  author CDATA #IMPLIED
+  time CDATA #IMPLIED
+  disposition CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT copyryear EMPTY>
+<!ATTLIST copyryear
+  xmlns CDATA #FIXED ''
+  year CDATA #REQUIRED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT copyrholder (#PCDATA|data|data-about|foreign|unknown|keyword
+                       |term)*>
+<!ATTLIST copyrholder
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT created EMPTY>
+<!ATTLIST created
+  xmlns CDATA #FIXED ''
+  date CDATA #REQUIRED
+  golive CDATA #IMPLIED
+  expiry CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT revised EMPTY>
+<!ATTLIST revised
+  xmlns CDATA #FIXED ''
+  modified CDATA #REQUIRED
+  golive CDATA #IMPLIED
+  expiry CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT indexterm (#PCDATA|data|data-about|foreign|unknown|keyword
+                     |term|indexterm|index-base|index-see|index-see-also
+                     |index-sort-as)*>
+<!ATTLIST indexterm
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  start CDATA #IMPLIED
+  end CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT anchorid EMPTY>
+<!ATTLIST anchorid
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #REQUIRED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT anchorkey EMPTY>
+<!ATTLIST anchorkey
+  xmlns CDATA #FIXED ''
+  keyref CDATA #REQUIRED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT prodname (#PCDATA|data|data-about|foreign|unknown|keyword
+                    |term)*>
+<!ATTLIST prodname
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT vrmlist (vrm)+>
+<!ATTLIST vrmlist
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT brand (#PCDATA|data|data-about|foreign|unknown|keyword|term)*>
+<!ATTLIST brand
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT component (#PCDATA|data|data-about|foreign|unknown|keyword
+                     |term)*>
+<!ATTLIST component
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT featnum (#PCDATA|data|data-about|foreign|unknown|keyword
+                   |term)*>
+<!ATTLIST featnum
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT platform (#PCDATA|data|data-about|foreign|unknown|keyword
+                    |term)*>
+<!ATTLIST platform
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT prognum (#PCDATA|data|data-about|foreign|unknown|keyword
+                   |term)*>
+<!ATTLIST prognum
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT series (#PCDATA|data|data-about|foreign|unknown|keyword
+                  |term)*>
+<!ATTLIST series
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+
+
+<!ELEMENT text (#PCDATA|text)*>
+<!ATTLIST text
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT alt (#PCDATA|data|data-about|foreign|unknown|keyword|term|ph|b
+               |i|sup|sub|tt|u)*>
+<!ATTLIST alt
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT longdescref EMPTY>
+<!ATTLIST longdescref
+  xmlns CDATA #FIXED ''
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  type CDATA #IMPLIED
+  format CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT desc (#PCDATA|dl|image|lines|lq|note|hazardstatement|ol|p|pre
+                |sl|ul|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term
+                |tm|xref|state|data|data-about|foreign|unknown)*>
+<!ATTLIST desc
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT param EMPTY>
+<!ATTLIST param
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  name CDATA #REQUIRED
+  value CDATA #IMPLIED
+  valuetype (data|object|ref|-dita-use-conref-target) #IMPLIED
+  type CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT cite (#PCDATA|boolean|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+                |state|data|data-about|foreign|unknown)*>
+<!ATTLIST cite
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT xref (#PCDATA|boolean|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+                |state|data|data-about|foreign|unknown|image|desc)*>
+<!ATTLIST xref
+  xmlns CDATA #FIXED ''
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  type CDATA #IMPLIED
+  format CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT fn (#PCDATA|dl|fig|imagemap|image|lines|lq|note
+              |hazardstatement|object|ol|p|pre|sl|ul|boolean|cite
+              |keyword|ph|b|i|sup|sub|tt|u|q|term|tm|xref|state|data
+              |data-about|foreign|unknown)*>
+<!ATTLIST fn
+  xmlns CDATA #FIXED ''
+  callout CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT indextermref EMPTY>
+<!ATTLIST indextermref
+  xmlns CDATA #FIXED ''
+  keyref CDATA #REQUIRED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT required-cleanup ANY>
+<!ATTLIST required-cleanup
+  xmlns CDATA #FIXED ''
+  remap CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT dl (dlhead?,dlentry+)>
+<!ATTLIST dl
+  xmlns CDATA #FIXED ''
+  compact (no|yes|-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT fig (title?,desc?,
+               (figgroup|dl|image|lines|lq|note|hazardstatement|object
+                |ol|p|pre|sl|ul|data|data-about|fn|foreign|unknown
+                |simpletable|xref)*)>
+<!ATTLIST fig
+  xmlns CDATA #FIXED ''
+  scale (50|60|70|80|90|100|110|120|140|160|180|200
+         |-dita-use-conref-target) #IMPLIED
+  frame (all|bottom|none|sides|top|topbot
+         |-dita-use-conref-target) #IMPLIED
+  expanse (column|page|spread|textline|-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT imagemap (image,area+)>
+<!ATTLIST imagemap
+  xmlns CDATA #FIXED ''
+  scale (50|60|70|80|90|100|110|120|140|160|180|200
+         |-dita-use-conref-target) #IMPLIED
+  frame (all|bottom|none|sides|top|topbot
+         |-dita-use-conref-target) #IMPLIED
+  expanse (column|page|spread|textline|-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT lines (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term
+                 |tm|xref|state|data|data-about|foreign|unknown
+                 |draft-comment|fn|indextermref|indexterm
+                 |required-cleanup)*>
+<!ATTLIST lines
+  xmlns CDATA #FIXED ''
+  scale (50|60|70|80|90|100|110|120|140|160|180|200
+         |-dita-use-conref-target) #IMPLIED
+  frame (all|bottom|none|sides|top|topbot
+         |-dita-use-conref-target) #IMPLIED
+  expanse (column|page|spread|textline|-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  xml:space (preserve) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT lq (#PCDATA|dl|fig|imagemap|image|lines|note|hazardstatement
+              |object|ol|p|pre|simpletable|sl|table|ul|boolean|cite
+              |keyword|ph|b|i|sup|sub|tt|u|q|term|tm|xref|state|data
+              |data-about|foreign|unknown|longquoteref|draft-comment|fn
+              |indextermref|indexterm|required-cleanup)*>
+<!ATTLIST lq
+  xmlns CDATA #FIXED ''
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  format CDATA #IMPLIED
+  type CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  reftitle CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT note (#PCDATA|dl|fig|imagemap|image|lines|lq|object|ol|p|pre
+                |simpletable|sl|table|ul|boolean|cite|keyword|ph|b|i|sup
+                |sub|tt|u|q|term|tm|xref|state|data|data-about|foreign
+                |unknown|draft-comment|fn|indextermref|indexterm
+                |required-cleanup)*>
+<!ATTLIST note
+  xmlns CDATA #FIXED ''
+  type (attention|caution|danger|fastpath|important|note|notice|other
+        |remember|restriction|tip|warning
+        |-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  othertype CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT hazardstatement (messagepanel+,hazardsymbol*)>
+<!ATTLIST hazardstatement
+  xmlns CDATA #FIXED ''
+  type (attention|caution|danger|fastpath|important|note|notice|other
+        |remember|restriction|tip|warning
+        |-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  othertype CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT ol (li)+>
+<!ATTLIST ol
+  xmlns CDATA #FIXED ''
+  compact (no|yes|-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT p (#PCDATA|dl|fig|imagemap|image|lines|lq|note|hazardstatement
+             |object|ol|pre|simpletable|sl|table|ul|boolean|cite|keyword
+             |ph|b|i|sup|sub|tt|u|q|term|tm|xref|state|data|data-about
+             |foreign|unknown|draft-comment|fn|indextermref|indexterm
+             |required-cleanup)*>
+<!ATTLIST p
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT pre (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term
+               |tm|xref|state|data|data-about|foreign|unknown
+               |draft-comment|fn|indextermref|indexterm
+               |required-cleanup)*>
+<!ATTLIST pre
+  xmlns CDATA #FIXED ''
+  scale (50|60|70|80|90|100|110|120|140|160|180|200
+         |-dita-use-conref-target) #IMPLIED
+  frame (all|bottom|none|sides|top|topbot
+         |-dita-use-conref-target) #IMPLIED
+  expanse (column|page|spread|textline|-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  xml:space (preserve) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT simpletable (sthead?,strow+)>
+<!ATTLIST simpletable
+  xmlns CDATA #FIXED ''
+  relcolwidth CDATA #IMPLIED
+  keycol NMTOKEN #IMPLIED
+  refcols NMTOKENS #IMPLIED
+  scale (50|60|70|80|90|100|110|120|140|160|180|200
+         |-dita-use-conref-target) #IMPLIED
+  frame (all|bottom|none|sides|top|topbot
+         |-dita-use-conref-target) #IMPLIED
+  expanse (column|page|spread|textline|-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT sl (sli)+>
+<!ATTLIST sl
+  xmlns CDATA #FIXED ''
+  compact (no|yes|-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT table (title?,desc?,tgroup+)>
+<!ATTLIST table
+  xmlns CDATA #FIXED ''
+  frame (top|bottom|topbot|all|sides|none
+         |-dita-use-conref-target) #IMPLIED
+  colsep NMTOKEN #IMPLIED
+  rowsep NMTOKEN #IMPLIED
+  pgwide NMTOKEN #IMPLIED
+  rowheader (firstcol|norowheader|-dita-use-conref-target) #IMPLIED
+  scale (50|60|70|80|90|100|110|120|140|160|180|200
+         |-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT ul (li)+>
+<!ATTLIST ul
+  xmlns CDATA #FIXED ''
+  compact (no|yes|-dita-use-conref-target) #IMPLIED
+  spectitle CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT index-base (#PCDATA|data|data-about|foreign|unknown|keyword
+                      |term|indexterm)*>
+<!ATTLIST index-base
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT index-see (#PCDATA|data|data-about|foreign|unknown|keyword
+                     |term|indexterm)*>
+<!ATTLIST index-see
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT index-see-also (#PCDATA|data|data-about|foreign|unknown
+                          |keyword|term|indexterm)*>
+<!ATTLIST index-see-also
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT index-sort-as (#PCDATA|data|data-about|foreign|unknown|keyword
+                         |term)*>
+<!ATTLIST index-sort-as
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT vrm EMPTY>
+<!ATTLIST vrm
+  xmlns CDATA #FIXED ''
+  version CDATA #REQUIRED
+  release CDATA #IMPLIED
+  modification CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT dlhead (dthd?,ddhd?)>
+<!ATTLIST dlhead
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT dlentry (dt+,dd+)>
+<!ATTLIST dlentry
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT figgroup (title?,
+                    (figgroup|dl|image|lines|lq|note|hazardstatement
+                     |object|ol|p|pre|sl|ul|boolean|cite|keyword|ph|b|i
+                     |sup|sub|tt|u|q|term|tm|xref|state|data|data-about
+                     |fn|foreign|unknown)*)>
+<!ATTLIST figgroup
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT area (shape,coords,xref)>
+<!ATTLIST area
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT longquoteref EMPTY>
+<!ATTLIST longquoteref
+  xmlns CDATA #FIXED ''
+  href CDATA #IMPLIED
+  keyref CDATA #IMPLIED
+  type CDATA #IMPLIED
+  format CDATA #IMPLIED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT messagepanel (typeofhazard,consequence*,howtoavoid+)>
+<!ATTLIST messagepanel
+  xmlns CDATA #FIXED ''
+  spectitle CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT hazardsymbol (alt?,longdescref?)>
+<!ATTLIST hazardsymbol
+  xmlns CDATA #FIXED ''
+  href CDATA #REQUIRED
+  scope (external|local|peer|-dita-use-conref-target) #IMPLIED
+  keyref CDATA #IMPLIED
+  longdescref CDATA #IMPLIED
+  height NMTOKEN #IMPLIED
+  width NMTOKEN #IMPLIED
+  align CDATA #IMPLIED
+  scale NMTOKEN #IMPLIED
+  scalefit (yes|no|-dita-use-conref-target) #IMPLIED
+  placement (break|inline|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT li (#PCDATA|dl|fig|imagemap|image|lines|lq|note
+              |hazardstatement|object|ol|p|pre|simpletable|sl|table|ul
+              |boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term|tm|xref
+              |state|data|data-about|foreign|unknown|itemgroup
+              |draft-comment|fn|indextermref|indexterm
+              |required-cleanup)*>
+<!ATTLIST li
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT sthead (stentry)+>
+<!ATTLIST sthead
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT strow (stentry)*>
+<!ATTLIST strow
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT sli (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term
+               |tm|xref|state|data|data-about|foreign|unknown|image
+               |draft-comment|fn|indextermref|indexterm
+               |required-cleanup)*>
+<!ATTLIST sli
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT tgroup (colspec*,thead?,tbody)>
+<!ATTLIST tgroup
+  xmlns CDATA #FIXED ''
+  cols NMTOKEN #REQUIRED
+  colsep NMTOKEN #IMPLIED
+  rowsep NMTOKEN #IMPLIED
+  align (left|right|center|justify|char
+         |-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT dthd (#PCDATA|boolean|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+                |state|data|data-about|foreign|unknown|image)*>
+<!ATTLIST dthd
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT ddhd (#PCDATA|boolean|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+                |state|data|data-about|foreign|unknown|image)*>
+<!ATTLIST ddhd
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT dt (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term|tm
+              |xref|state|data|data-about|foreign|unknown|image)*>
+<!ATTLIST dt
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT dd (#PCDATA|dl|fig|imagemap|image|lines|lq|note
+              |hazardstatement|object|ol|p|pre|simpletable|sl|table|ul
+              |boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q|term|tm|xref
+              |state|data|data-about|foreign|unknown|itemgroup
+              |draft-comment|fn|indextermref|indexterm
+              |required-cleanup)*>
+<!ATTLIST dd
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT shape (#PCDATA|text)*>
+<!ATTLIST shape
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT coords (#PCDATA|data|data-about|foreign|unknown|keyword
+                  |term)*>
+<!ATTLIST coords
+  xmlns CDATA #FIXED ''
+  keyref CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT typeofhazard (#PCDATA|data|data-about|foreign|unknown|keyword
+                        |term|ph|b|i|sup|sub|tt|u|tm)*>
+<!ATTLIST typeofhazard
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT consequence (#PCDATA|data|data-about|foreign|unknown|keyword
+                       |term|ph|b|i|sup|sub|tt|u|tm)*>
+<!ATTLIST consequence
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT howtoavoid (#PCDATA|boolean|cite|keyword|ph|b|i|sup|sub|tt|u|q
+                      |term|tm|xref|state|sl|simpletable)*>
+<!ATTLIST howtoavoid
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT itemgroup (#PCDATA|dl|fig|imagemap|image|lines|lq|note
+                     |hazardstatement|object|ol|p|pre|simpletable|sl
+                     |table|ul|boolean|cite|keyword|ph|b|i|sup|sub|tt|u
+                     |q|term|tm|xref|state|data|data-about|foreign
+                     |unknown|draft-comment|fn|indextermref|indexterm
+                     |required-cleanup)*>
+<!ATTLIST itemgroup
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT stentry (#PCDATA|dl|fig|imagemap|image|lines|lq|note
+                   |hazardstatement|object|ol|p|pre|sl|ul|boolean|cite
+                   |keyword|ph|b|i|sup|sub|tt|u|q|term|tm|xref|state
+                   |data|data-about|foreign|unknown|draft-comment|fn
+                   |indextermref|indexterm|required-cleanup)*>
+<!ATTLIST stentry
+  xmlns CDATA #FIXED ''
+  specentry CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT colspec EMPTY>
+<!ATTLIST colspec
+  xmlns CDATA #FIXED ''
+  colnum NMTOKEN #IMPLIED
+  colname NMTOKEN #IMPLIED
+  colwidth CDATA #IMPLIED
+  colsep NMTOKEN #IMPLIED
+  rowsep NMTOKEN #IMPLIED
+  align (left|right|center|justify|char
+         |-dita-use-conref-target) #IMPLIED
+  char CDATA #IMPLIED
+  charoff NMTOKEN #IMPLIED
+  base CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT thead (row)+>
+<!ATTLIST thead
+  xmlns CDATA #FIXED ''
+  valign (top|middle|bottom|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT tbody (row)+>
+<!ATTLIST tbody
+  xmlns CDATA #FIXED ''
+  valign (top|middle|bottom|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT row (entry)+>
+<!ATTLIST row
+  xmlns CDATA #FIXED ''
+  rowsep NMTOKEN #IMPLIED
+  valign (top|middle|bottom|-dita-use-conref-target) #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  props CDATA #IMPLIED
+  platform CDATA #IMPLIED
+  product CDATA #IMPLIED
+  audience CDATA #IMPLIED
+  otherprops CDATA #IMPLIED
+  base CDATA #IMPLIED
+  importance (default|deprecated|high|low|normal|obsolete|optional
+              |recommended|required|urgent
+              |-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  status (changed|deleted|new|unchanged
+          |-dita-use-conref-target) #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ELEMENT entry (#PCDATA|dl|fig|imagemap|image|lines|lq|note
+                 |hazardstatement|object|ol|p|pre|sl|ul|boolean|cite
+                 |keyword|ph|b|i|sup|sub|tt|u|q|term|tm|xref|state|data
+                 |data-about|foreign|unknown|draft-comment|fn
+                 |indextermref|indexterm|required-cleanup)*>
+<!ATTLIST entry
+  xmlns CDATA #FIXED ''
+  colname NMTOKEN #IMPLIED
+  namest NMTOKEN #IMPLIED
+  nameend NMTOKEN #IMPLIED
+  morerows NMTOKEN #IMPLIED
+  colsep NMTOKEN #IMPLIED
+  rowsep NMTOKEN #IMPLIED
+  align (left|right|center|justify|char
+         |-dita-use-conref-target) #IMPLIED
+  char CDATA #IMPLIED
+  charoff NMTOKEN #IMPLIED
+  valign (top|middle|bottom|-dita-use-conref-target) #IMPLIED
+  base CDATA #IMPLIED
+  id NMTOKEN #IMPLIED
+  conref CDATA #IMPLIED
+  conrefend CDATA #IMPLIED
+  conaction (mark|pushafter|pushbefore|pushreplace
+             |-dita-use-conref-target) #IMPLIED
+  conkeyref CDATA #IMPLIED
+  translate (no|yes|-dita-use-conref-target) #IMPLIED
+  xml:lang CDATA #IMPLIED
+  dir (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED
+  rev CDATA #IMPLIED
+  outputclass CDATA #IMPLIED
+  xtrc CDATA #IMPLIED
+  xtrf CDATA #IMPLIED
+>
+
+<!ATTLIST topicsubject domains CDATA "(map mapgroup-d) (topic indexing-d) (topic delay-d) (map classify-d)                         (topic hi-d) (topic ut-d) (topic hazard-d)">
+<!ATTLIST table class CDATA "- topic/table ">
+<!ATTLIST tgroup class CDATA "- topic/tgroup ">
+<!ATTLIST colspec class CDATA "- topic/colspec ">
+<!ATTLIST thead class CDATA "- topic/thead ">
+<!ATTLIST tbody class CDATA "- topic/tbody ">
+<!ATTLIST row class CDATA "- topic/row ">
+<!ATTLIST entry class CDATA "- topic/entry ">
+<!ATTLIST alt class CDATA "- topic/alt ">
+<!ATTLIST boolean class CDATA "- topic/boolean ">
+<!ATTLIST cite class CDATA "- topic/cite ">
+<!ATTLIST dd class CDATA "- topic/dd ">
+<!ATTLIST data class CDATA "- topic/data ">
+<!ATTLIST data-about class CDATA "- topic/data-about ">
+<!ATTLIST ddhd class CDATA "- topic/ddhd ">
+<!ATTLIST desc class CDATA "- topic/desc ">
+<!ATTLIST dl class CDATA "- topic/dl ">
+<!ATTLIST dlentry class CDATA "- topic/dlentry ">
+<!ATTLIST dlhead class CDATA "- topic/dlhead ">
+<!ATTLIST draft-comment class CDATA "- topic/draft-comment ">
+<!ATTLIST dt class CDATA "- topic/dt ">
+<!ATTLIST dthd class CDATA "- topic/dthd ">
+<!ATTLIST fig class CDATA "- topic/fig ">
+<!ATTLIST figgroup class CDATA "- topic/figgroup ">
+<!ATTLIST fn class CDATA "- topic/fn ">
+<!ATTLIST foreign class CDATA "- topic/foreign ">
+<!ATTLIST image class CDATA "- topic/image ">
+<!ATTLIST indexterm class CDATA "- topic/indexterm ">
+<!ATTLIST index-base class CDATA "- topic/index-base ">
+<!ATTLIST indextermref class CDATA "- topic/indextermref ">
+<!ATTLIST itemgroup class CDATA "- topic/itemgroup ">
+<!ATTLIST keyword class CDATA "- topic/keyword ">
+<!ATTLIST li class CDATA "- topic/li ">
+<!ATTLIST lines class CDATA "- topic/lines ">
+<!ATTLIST longdescref class CDATA "- topic/longdescref ">
+<!ATTLIST longquoteref class CDATA "- topic/longquoteref ">
+<!ATTLIST lq class CDATA "- topic/lq ">
+<!ATTLIST navtitle class CDATA "- topic/navtitle ">
+<!ATTLIST note class CDATA "- topic/note ">
+<!ATTLIST object class CDATA "- topic/object ">
+<!ATTLIST ol class CDATA "- topic/ol ">
+<!ATTLIST p class CDATA "- topic/p ">
+<!ATTLIST param class CDATA "- topic/param ">
+<!ATTLIST ph class CDATA "- topic/ph ">
+<!ATTLIST pre class CDATA "- topic/pre ">
+<!ATTLIST q class CDATA "- topic/q ">
+<!ATTLIST required-cleanup class CDATA "- topic/required-cleanup ">
+<!ATTLIST simpletable class CDATA "- topic/simpletable ">
+<!ATTLIST sl class CDATA "- topic/sl ">
+<!ATTLIST sli class CDATA "- topic/sli ">
+<!ATTLIST state class CDATA "- topic/state ">
+<!ATTLIST stentry class CDATA "- topic/stentry ">
+<!ATTLIST sthead class CDATA "- topic/sthead ">
+<!ATTLIST strow class CDATA "- topic/strow ">
+<!ATTLIST term class CDATA "- topic/term ">
+<!ATTLIST text class CDATA "- topic/text ">
+<!ATTLIST title class CDATA "- topic/title ">
+<!ATTLIST tm class CDATA "- topic/tm ">
+<!ATTLIST ul class CDATA "- topic/ul ">
+<!ATTLIST unknown class CDATA "- topic/unknown ">
+<!ATTLIST xref class CDATA "- topic/xref ">
+<!ATTLIST author class CDATA "- topic/author ">
+<!ATTLIST source class CDATA "- topic/source ">
+<!ATTLIST publisher class CDATA "- topic/publisher ">
+<!ATTLIST copyright class CDATA "- topic/copyright ">
+<!ATTLIST copyryear class CDATA "- topic/copyryear ">
+<!ATTLIST copyrholder class CDATA "- topic/copyrholder ">
+<!ATTLIST critdates class CDATA "- topic/critdates ">
+<!ATTLIST created class CDATA "- topic/created ">
+<!ATTLIST revised class CDATA "- topic/revised ">
+<!ATTLIST permissions class CDATA "- topic/permissions ">
+<!ATTLIST category class CDATA "- topic/category ">
+<!ATTLIST metadata class CDATA "- topic/metadata ">
+<!ATTLIST audience class CDATA "- topic/audience ">
+<!ATTLIST keywords class CDATA "- topic/keywords ">
+<!ATTLIST prodinfo class CDATA "- topic/prodinfo ">
+<!ATTLIST prodname class CDATA "- topic/prodname ">
+<!ATTLIST vrmlist class CDATA "- topic/vrmlist ">
+<!ATTLIST vrm class CDATA "- topic/vrm ">
+<!ATTLIST brand class CDATA "- topic/brand ">
+<!ATTLIST series class CDATA "- topic/series ">
+<!ATTLIST platform class CDATA "- topic/platform ">
+<!ATTLIST prognum class CDATA "- topic/prognum ">
+<!ATTLIST featnum class CDATA "- topic/featnum ">
+<!ATTLIST component class CDATA "- topic/component ">
+<!ATTLIST othermeta class CDATA "- topic/othermeta ">
+<!ATTLIST resourceid class CDATA "- topic/resourceid ">
+<!ATTLIST map class CDATA "- map/map ">
+<!ATTLIST navref class CDATA "- map/navref ">
+<!ATTLIST topicref class CDATA "- map/topicref ">
+<!ATTLIST anchor class CDATA "- map/anchor ">
+<!ATTLIST reltable class CDATA "- map/reltable ">
+<!ATTLIST relheader class CDATA "- map/relheader ">
+<!ATTLIST relcolspec class CDATA "- map/relcolspec ">
+<!ATTLIST relrow class CDATA "- map/relrow ">
+<!ATTLIST relcell class CDATA "- map/relcell ">
+<!ATTLIST topicmeta class CDATA "- map/topicmeta ">
+<!ATTLIST linktext class CDATA "- map/linktext ">
+<!ATTLIST searchtitle class CDATA "- map/searchtitle ">
+<!ATTLIST shortdesc class CDATA "- map/shortdesc ">
+<!ATTLIST anchorref class CDATA "+ map/topicref mapgroup-d/anchorref ">
+<!ATTLIST keydef class CDATA "+ map/topicref mapgroup-d/keydef ">
+<!ATTLIST mapref class CDATA "+ map/topicref mapgroup-d/mapref ">
+<!ATTLIST topicgroup class CDATA "+ map/topicref mapgroup-d/topicgroup ">
+<!ATTLIST topichead class CDATA "+ map/topicref mapgroup-d/topichead ">
+<!ATTLIST topicset class CDATA "+ map/topicref mapgroup-d/topicset ">
+<!ATTLIST topicsetref class CDATA "+ map/topicref mapgroup-d/topicsetref ">
+<!ATTLIST index-see class CDATA "+ topic/index-base indexing-d/index-see ">
+<!ATTLIST index-see-also class CDATA "+ topic/index-base indexing-d/index-see-also ">
+<!ATTLIST index-sort-as class CDATA "+ topic/index-base indexing-d/index-sort-as ">
+<!ATTLIST exportanchors class CDATA "+ topic/keywords delay-d/exportanchors ">
+<!ATTLIST anchorid class CDATA "+ topic/keyword delay-d/anchorid ">
+<!ATTLIST anchorkey class CDATA "+ topic/keyword delay-d/anchorkey ">
+<!ATTLIST topicsubject class CDATA "+ map/topicref classify-d/topicsubject ">
+<!ATTLIST topicapply class CDATA "+ map/topicref classify-d/topicapply ">
+<!ATTLIST subjectref class CDATA "+ map/topicref classify-d/subjectref ">
+<!ATTLIST topicSubjectTable class CDATA "+ map/reltable classify-d/topicSubjectTable ">
+<!ATTLIST topicSubjectHeader class CDATA "+ map/relrow classify-d/topicSubjectHeader ">
+<!ATTLIST topicSubjectRow class CDATA "+ map/relrow classify-d/topicSubjectRow ">
+<!ATTLIST topicCell class CDATA "+ map/relcell classify-d/topicCell ">
+<!ATTLIST subjectCell class CDATA "+ map/relcell classify-d/subjectCell ">
+<!ATTLIST b class CDATA "+ topic/ph hi-d/b ">
+<!ATTLIST i class CDATA "+ topic/ph hi-d/i ">
+<!ATTLIST sub class CDATA "+ topic/ph hi-d/sub ">
+<!ATTLIST sup class CDATA "+ topic/ph hi-d/sup ">
+<!ATTLIST tt class CDATA "+ topic/ph hi-d/tt ">
+<!ATTLIST u class CDATA "+ topic/ph hi-d/u ">
+<!ATTLIST imagemap class CDATA "+ topic/fig ut-d/imagemap ">
+<!ATTLIST area class CDATA "+ topic/figgroup ut-d/area ">
+<!ATTLIST shape class CDATA "+ topic/keyword ut-d/shape ">
+<!ATTLIST coords class CDATA "+ topic/ph ut-d/coords ">
+<!ATTLIST hazardstatement class CDATA "+ topic/note hazard-d/hazardstatement ">
+<!ATTLIST messagepanel class CDATA "+ topic/ul hazard-d/messagepanel ">
+<!ATTLIST hazardsymbol class CDATA "+ topic/image hazard-d/hazardsymbol ">
+<!ATTLIST typeofhazard class CDATA "+ topic/li hazard-d/typeofhazard ">
+<!ATTLIST consequence class CDATA "+ topic/li hazard-d/consequence ">
+<!ATTLIST howtoavoid class CDATA "+ topic/li hazard-d/howtoavoid ">

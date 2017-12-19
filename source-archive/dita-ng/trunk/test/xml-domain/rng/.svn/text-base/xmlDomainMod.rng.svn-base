@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================= 
+  MODULE:    DITA XML Domain - RNC              
+  VERSION:   1.3                                                
+  DATE:      October 2012                                       
+  =============================================================
+-->
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0">
+  <!-- Define the domain values of this module -->
+  
+  <define name="domains-att-contribution" combine="choice">
+    <value>(topic xml-d)</value>
+  </define>
+  
+  <!-- Define domain extension patterns -->
+  <define name="xml-d-keyword">
+    <choice>
+      <ref name="numcharref.element"/>
+      <ref name="parameterentity.element"/>
+      <ref name="rngpattern.element"/>
+      <ref name="textentity.element"/>
+      <ref name="xmlatt.element"/>
+      <ref name="xmlelement.element"/>
+      <ref name="xmlnsname.element"/>
+      <ref name="xsdattgroup.element"/>
+      <ref name="xsdcomplextype.element"/>
+      <ref name="xsdgroup.element"/>
+      <ref name="xsdsimpletype.element"/>
+    </choice>
+  </define>
+  
+  <!-- Extend the patterns with the domain contribution -->
+  <define name="keyword" combine="choice">
+    <ref name="xml-d-keyword"/>
+  </define>
+  
+  <!-- Define elements content and attributes -->
+  <!-- LONG NAME: Numeric character reference (&#10;, &#x0a;) -->
+  <define name="numcharref.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="numcharref.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="numcharref.element">
+    <element name="numcharref">
+      <ref name="numcharref.attlist"/>
+      <ref name="numcharref.content"/>
+    </element>
+  </define>
+  <define name="numcharref.attlist" combine="interleave">
+    <ref name="numcharref.attributes"/>
+  </define>
+  <!-- LONG NAME: Parameter entity reference (%p.content;) -->
+  <define name="parameterentity.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="parameterentity.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="parameterentity.element">
+    <element name="parameterentity">
+      <a:documentation>The parameterentity (&lt;parameterentity&gt;) element is used to identify
+mentions of XML DTD parameter entities.
+        Category: Mention elements</a:documentation>
+      <ref name="parameterentity.attlist"/>
+      <ref name="parameterentity.content"/>
+    </element>
+  </define>
+  <define name="parameterentity.attlist" combine="interleave">
+    <ref name="parameterentity.attributes"/>
+  </define>
+  <!-- LONG NAME: Relax NG named pattern -->
+  <define name="rngpattern.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="rngpattern.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="rngpattern.element">
+    <element name="rngpattern">
+      <a:documentation>The rngpattern (&lt;rngpattern&gt;) element is used to 
+identify mentions of named patterns.
+        Category: Mention elements</a:documentation>
+      <ref name="rngpattern.attlist"/>
+      <ref name="rngpattern.content"/>
+    </element>
+  </define>
+  <define name="rngpattern.attlist" combine="interleave">
+    <ref name="rngpattern.attributes"/>
+  </define>
+  <!-- LONG NAME: Text entity (&prodname;) -->
+  <define name="textentity.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="textentity.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="textentity.element">
+    <element name="textentity">
+      <a:documentation>The textentity (&lt;textentity&gt;) element is used to identify
+mentions of XML text entities.
+        Category: Mention elements</a:documentation>
+      <ref name="textentity.attlist"/>
+      <ref name="textentity.content"/>
+    </element>
+  </define>
+  <define name="textentity.attlist" combine="interleave">
+    <ref name="textentity.attributes"/>
+  </define>
+  <!-- LONG NAME: XML attribute -->
+  <define name="xmlatt.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="xmlatt.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="xmlatt.element">
+    <element name="xmlatt">
+      <a:documentation>The xmlatt (&lt;xmlatt&gt;) element is used to identify
+mentions of XML attributes.
+        Category: Mention elements</a:documentation>
+      <ref name="xmlatt.attlist"/>
+      <ref name="xmlatt.content"/>
+    </element>
+  </define>
+  <define name="xmlatt.attlist" combine="interleave">
+    <ref name="xmlatt.attributes"/>
+  </define>
+  <!-- LONG NAME: XML element -->
+  <define name="xmlelement.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="xmlelement.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="xmlelement.element">
+    <element name="xmlelement">
+      <a:documentation>The xmlelement (&lt;xmlelement&gt;) element is used to identity mentions
+of XML element types.
+        Category: Mention elements</a:documentation>
+      <ref name="xmlelement.attlist"/>
+      <ref name="xmlelement.content"/>
+    </element>
+  </define>
+  <define name="xmlelement.attlist" combine="interleave">
+    <ref name="xmlelement.attributes"/>
+  </define>
+  <!-- LONG NAME: XML namespace name (aka "namespace URI") -->
+  <define name="xmlnsname.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="xmlnsname.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="xmlnsname.element">
+    <element name="xmlnsname">
+      <a:documentation>The xmlnsname (&lt;xmlnsname&gt;) element is used to identify
+mentions of XML namespace names, e.g. the value used
+in @xmlns attributes.
+        Category: Mention elements</a:documentation>
+      <ref name="xmlnsname.attlist"/>
+      <ref name="xmlnsname.content"/>
+    </element>
+  </define>
+  <define name="xmlnsname.attlist" combine="interleave">
+    <ref name="xmlnsname.attributes"/>
+  </define>
+  <!-- LONG NAME: XSD attribute group -->
+  <define name="xsdattgroup.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="xsdattgroup.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="xsdattgroup.element">
+    <element name="xsdattgroup">
+      <a:documentation>The xsdattgroup (&lt;xsdattgroup&gt;) element is used to identify
+mentions of XSD attribute groups.
+        Category: Mention elements</a:documentation>
+      <ref name="xsdattgroup.attlist"/>
+      <ref name="xsdattgroup.content"/>
+    </element>
+  </define>
+  <define name="xsdattgroup.attlist" combine="interleave">
+    <ref name="xsdattgroup.attributes"/>
+  </define>
+  <!-- LONG NAME: XSD complex type -->
+  <define name="xsdcomplextype.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="xsdcomplextype.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="xsdcomplextype.element">
+    <element name="xsdcomplextype">
+      <a:documentation>The xsdcomplextype (&lt;xsdcomplextype&gt;) element is used to identify
+mentions  of XSD complex types.
+        Category: Mention elements</a:documentation>
+      <ref name="xsdcomplextype.attlist"/>
+      <ref name="xsdcomplextype.content"/>
+    </element>
+  </define>
+  <define name="xsdcomplextype.attlist" combine="interleave">
+    <ref name="xsdcomplextype.attributes"/>
+  </define>
+  <!-- LONG NAME: XSD group -->
+  <define name="xsdgroup.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="xsdgroup.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="xsdgroup.element">
+    <element name="xsdgroup">
+      <a:documentation>The xsdgroup (&lt;xsdgroup&gt;) element is used to identify
+mentions of XSD groups (element groups, as opposed to 
+attribute groups).
+        Category: Mention elements</a:documentation>
+      <ref name="xsdgroup.attlist"/>
+      <ref name="xsdgroup.content"/>
+    </element>
+  </define>
+  <define name="xsdgroup.attlist" combine="interleave">
+    <ref name="xsdgroup.attributes"/>
+  </define>
+  <!-- LONG NAME: XSD simpletype -->
+  <define name="xsdsimpletype.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="xsdsimpletype.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="xsdsimpletype.element">
+    <element name="xsdsimpletype">
+      <a:documentation>The xsdsimpletype (&lt;xsdsimpletype&gt;) element is used to identify
+mentions of XSD simple types ("data types").
+        Category: Mention elements</a:documentation>
+      <ref name="xsdsimpletype.attlist"/>
+      <ref name="xsdsimpletype.content"/>
+    </element>
+  </define>
+  <define name="xsdsimpletype.attlist" combine="interleave">
+    <ref name="xsdsimpletype.attributes"/>
+  </define>
+  <!-- Specialization attributes. Global attributes and class defaults -->
+  <define name="numcharref.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/numcharref "/>
+    </optional>
+  </define>
+  <define name="parameterentity.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/parameterentity "/>
+    </optional>
+  </define>
+  <define name="rngpattern.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/rngpattern "/>
+    </optional>
+  </define>
+  <define name="textentity.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/textentity "/>
+    </optional>
+  </define>
+  <define name="xmlatt.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/xmlatt "/>
+    </optional>
+  </define>
+  <define name="xmlelement.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/xmlelement "/>
+    </optional>
+  </define>
+  <define name="xmlnsname.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/xmlnsname "/>
+    </optional>
+  </define>
+  <define name="xsdattgroup.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/xsdattgroup "/>
+    </optional>
+  </define>
+  <define name="xsdcomplextype.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/xsdcomplextype "/>
+    </optional>
+  </define>
+  <define name="xsdgroup.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/xsdgroup "/>
+    </optional>
+  </define>
+  <define name="xsdsimpletype.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/xsdsimpletype "/>
+    </optional>
+  </define>
+</grammar>

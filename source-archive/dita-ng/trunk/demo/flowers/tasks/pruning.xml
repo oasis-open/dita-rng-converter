@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:dita-ng:dita:rng:task.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:dita-ng:dita:rng:task.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<task id="taskId">
+    <title>Pruning</title>
+    <taskbody>
+        <context>
+            <p><b>Pruning</b> is the
+                    process<indexterm>tasks<indexterm>pruning</indexterm></indexterm> of removing
+                certain above-ground elements from a plant; in landscaping this process usually
+                involves removal of diseased, non-productive, or otherwise unwanted portions from a
+                plant. In nature, certain meteorological conditions such as wind, snow or seawater
+                mist can conduct a when for natural pruning process. The purpose of anthropomorphic pruning
+                is to shape the plant by controlling or directing plant growth, to maintain the
+                health of the plant, or to increase the yield or quality of flowers and fruits.</p>
+            <p>In general the smaller the wound (smaller the branch that is cut) the less harm to
+                the tree. It is therefore typically better to formative prune the tree when juvenile
+                than try to cut off large branches on a mature tree.</p>
+            <p>Follow these simple steps:</p>
+        </context>
+        <steps>
+            <step>
+                <cmd>Begin by cutting out all the dead branches.</cmd>
+            </step>
+            <step>
+                <cmd>Remove all tangled or crossed over branches. This allows air to circulate and
+                    reduces bug and fungi infestation. </cmd>
+            </step>
+            <step>
+                <cmd>Take your time! Work comfortably and do not make shortcuts when cutting stems.
+                    Use good quality, sharp tools.</cmd>
+            </step>
+            <step>
+                <cmd>Clean up the area. Burn all pest infested branches. </cmd>
+            </step>
+        </steps>
+    </taskbody>
+</task>

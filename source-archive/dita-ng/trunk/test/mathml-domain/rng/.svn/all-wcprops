@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng
+END
+catalog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/catalog.xml
+END
+mathml3.rng
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathml3.rng
+END
+topic-with-mathml.rng
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/topic-with-mathml.rng
+END
+mathmlDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/mathmlDomainMod.rng
+END
+equationDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/107/trunk/test/mathml-domain/rng/equationDomainMod.rng
+END

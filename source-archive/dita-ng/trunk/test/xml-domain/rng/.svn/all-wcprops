@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/107/trunk/test/xml-domain/rng
+END
+xmlDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/107/trunk/test/xml-domain/rng/xmlDomainMod.rng
+END
+topic-xmlDomain-shell.rng
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/92/trunk/test/xml-domain/rng/topic-xmlDomain-shell.rng
+END

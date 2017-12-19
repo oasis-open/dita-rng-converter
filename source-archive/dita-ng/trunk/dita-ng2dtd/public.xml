@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+  <entities public="-//OASIS//ENTITIES DITA 1.2 Concept//EN" infotype="concept"/>
+  <elements public="-//OASIS//ELEMENTS DITA 1.2 Concept//EN" infotype="concept"/>
+  
+  <entities public="-//OASIS//ENTITIES DITA 1.2 Highlight Domain//EN" domain="hi-d"/>
+  <entities public="-//OASIS//ENTITIES DITA 1.2 Utilities Domain//EN" domain="ut-d"/>
+  <entities public="-//OASIS//ENTITIES DITA 1.2 Indexing Domain//EN" domain="indexing-d"/>  
+  <entities public="-//OASIS//ENTITIES DITA 1.2 Hazard Statement Domain//EN" domain="hazard-d"/>  
+  <entities public="-//OASIS//ENTITIES DITA 1.2 Abbreviated Form Domain//EN" domain="abbrev-d"/>
+  <entities public="-//OASIS//ENTITIES DITA 1.2 Programming Domain//EN" domain="pr-d"/>
+  <entities public="-//OASIS//ENTITIES DITA 1.2 Software Domain//EN" domain="sw-d"/>
+  <entities public="-//OASIS//ENTITIES DITA 1.2 User Interface Domain//EN" domain="ui-d"/>
+
+  <elements public="-//OASIS//ELEMENTS DITA 1.2 Highlight Domain//EN" domain="hi-d"/>
+  <elements public="-//OASIS//ELEMENTS DITA 1.2 Utilities Domain//EN" domain="ut-d"/>
+  <elements public="-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" domain="indexing-d"/>  
+  <elements public="-//OASIS//ELEMENTS DITA 1.2 Hazard Statement Domain//EN" domain="hazard-d"/>  
+  <elements public="-//OASIS//ELEMENTS DITA 1.2 Abbreviated Form Domain//EN" domain="abbrev-d"/>
+  <elements public="-//OASIS//ELEMENTS DITA 1.2 Programming Domain//EN" domain="pr-d"/>
+  <elements public="-//OASIS//ELEMENTS DITA 1.2 Software Domain//EN" domain="sw-d"/>
+  <elements public="-//OASIS//ELEMENTS DITA 1.2 User Interface Domain//EN" domain="ui-d"/>
+</map>

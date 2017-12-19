@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <include
+    href="mathml3/mathml3.rng">
+    <define
+      name="anyElement">
+      <element>
+        <anyName>
+          <except>
+            <nsName
+              ns="http://www.w3.org/1998/Math/MathML"/>
+            <nsName
+              ns=""/>
+          </except>
+        </anyName>
+        <oneOrMore>
+          <attribute>
+            <anyName/>
+            <text/>
+          </attribute>
+        </oneOrMore>
+        <zeroOrMore>
+          <text/>
+          <ref
+            name="anyElement"/>
+        </zeroOrMore>
+      </element>
+    </define>
+  </include>
+  <!--    anyElement =
+    element * - (m:* | local:*) {
+    (attribute * { text }
+    | text
+    | anyElement)*
+    }
+    }
+-->
+</grammar>

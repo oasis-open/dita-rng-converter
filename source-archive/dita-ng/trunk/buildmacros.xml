@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="buildmacros">
+
+    <macrodef name="fixcomments">
+        <attribute name="dir-element"/>
+        <sequential>
+
+            <replaceregexp match="RNG" replace="RNC" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+            <replaceregexp match="rng:" replace="rnc:" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+            <replaceregexp match=".rng" replace=".rnc" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+
+        </sequential>
+    </macrodef>
+
+    <target name="cond_mkdir" if="${make-this-dir}">
+        <mkdir dir="${dir}"/>
+    </target>
+
+    <macrodef name="trang_rng2rnc">
+        <attribute name="dir-element1"/>
+        <attribute name="dir-element2" default="@{dir-element1}"/>
+        <attribute name="description" default="convert @{dir-element2}"/>
+        <attribute name="make-this-dir" default="false"/>
+        <sequential>
+            <antcall target="cond_mkdir">
+                <param name="make-this-dir" value="@{make-this-dir}"/>
+                <param name="dir" value="${tmp}/rnc/@{dir-element1}/rnc"/>
+            </antcall>
+            <mkdir dir="${tmp}/rnc/@{dir-element1}/rnc"/>
+            <java fork="true" jar="${trang}" description="@{description}">
+                <arg value="-I"/>
+                <arg value="rng"/>
+                <arg value="-O"/>
+                <arg value="rnc"/>
+                <arg value="${tmp}/rng/@{dir-element1}/rng/@{dir-element2}.rng"/>
+                <arg value="${tmp}/rnc/@{dir-element1}/rnc/@{dir-element2}.rnc"/>
+            </java>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="fix_base_includes">
+        <!-- fix includes from base -->
+        <attribute name="dir-element"/>
+
+        <sequential>
+
+            <replaceregexp match="topic.mod.rnc" replace="../../base/rnc/topic.mod.rnc" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+
+            <replaceregexp match="highlightDomain.mod.rnc" replace="../../base/rnc/highlightDomain.mod.rnc" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+
+            <replaceregexp match="utilitiesDomain.mod.rnc" replace="../../base/rnc/utilitiesDomain.mod.rnc" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+
+            <replaceregexp match="indexingDomain.mod.rnc" replace="../../base/rnc/indexingDomain.mod.rnc" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+
+            <replaceregexp match="hazardstatementDomain.mod.rnc" replace="../../base/rnc/hazardstatementDomain.mod.rnc" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+
+            <replaceregexp match="delayResolutionDomain.mod.rnc" replace="../../base/rnc/delayResolutionDomain.mod.rnc" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+
+            <replaceregexp match="([&apos;&quot;])map.mod.rnc" replace="\1../../base/rnc/map.mod.rnc" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+
+            <replaceregexp match="mapGroup.mod.rnc" replace="../../base/rnc/mapGroup.mod.rnc" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+
+        </sequential>
+
+    </macrodef>
+
+    <macrodef name="fix_bookmap_includes">
+        <!-- fix includes from bookmap -->
+        <attribute name="dir-element"/>
+
+        <sequential>
+
+            <replaceregexp match="bookmap.mod.rnc" replace="../../bookmap/rnc/bookmap.mod.rnc" flags="g">
+                <fileset dir="${tmp}/rnc/@{dir-element}/rnc">
+                    <include name="*.rnc"/>
+                </fileset>
+            </replaceregexp>
+
+        </sequential>
+
+    </macrodef>
+</project>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= 
+  MODULE:    DITA Glossary Group module - RNG              
+  VERSION:   1.2                                                
+  DATE:      October 2010                                       
+  ============================================================= -->
+<!--
+  Refer to the latest version of this file by the following URI:
+  urn:dita-ng:dita:rng:glossgroupMod.rng
+  To refer to this specific version, you may use this value:
+  urn:dita-ng:dita:rng:glossgroupMod.rng:1.2
+-->
+<!-- ============================================================= 
+  SYSTEM:     Darwin Information Typing Architecture (DITA)     
+  PURPOSE:    Define elements and specialization attributes
+              Glossary Group topics             
+  ORIGINAL CREATION DATE:  
+  September 2010                                                
+  (C) Copyright Syncro Soft 2010-2011                                
+  All Rights Reserved.                                          
+  ============================================================= -->
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <!-- Define the domain values of this module -->
+  <define name="domains-att-contribution" combine="choice">
+    <value>(topic concept glossgroup)</value>
+  </define>
+  
+  <!-- XXX -->
+  <define name="glossgroup-info-types">
+    <choice>
+      <ref name="glossgroup.element"/>
+      <ref name="glossentry.element"/>
+    </choice>
+  </define>
+  
+  <!-- Define patterns -->
+  <define name="glossgroup">
+    <ref name="glossgroup.element"/>
+  </define>
+  
+  <!-- Define elements content and attributes -->
+  
+  <!-- LONG NAME: Glossary Group -->
+  <define name="glossgroup.content">
+    <ref name="title"/>
+    <optional>
+      <ref name="prolog"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="glossgroup-info-types"/>
+    </zeroOrMore>
+  </define>
+  <define name="glossgroup.attributes">
+    <attribute name="id">
+      <data type="ID"/>
+    </attribute>
+    <ref name="conref-atts"/>
+    <ref name="select-atts"/>
+    <ref name="localization-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="glossgroup.element">
+    <element name="glossgroup">
+      <a:documentation>The &lt;glossgroup> element may be used to contain multiple &lt;glossentry>
+        topics within a single collection.</a:documentation>
+      <ref name="glossgroup.attlist"/>
+      <ref name="glossgroup.content"/>
+    </element>
+  </define>
+  <define name="glossgroup.attlist" combine="interleave">
+    <ref name="glossgroup.attributes"/>
+    <ref name="arch-atts"/>
+    <optional>
+      <attribute name="domains" a:defaultValue="(topic concept)                            (topic concept glossentry)                            (topic concept glossgroup)                            (topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    "/>
+    </optional>
+  </define>
+  
+  <!-- Specialization attributes. Global attributes and class defaults -->
+  
+  <define name="glossgroup.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/topic concept/concept glossgroup/glossgroup "/>
+    </optional>
+  </define>
+</grammar>

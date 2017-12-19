@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:d="http://dita-ng.org/annotations/1.0"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+    <h1>DITA Modules Annotations</h1>
+    <p>These elements capture the information required by DITA vocabulary
+    module declarations in order to be to able to generate DTD, XSD, and
+    RNC files that conform to the DITA coding requirements.</p>
+    <p>Sample:</p>
+    <pre>
+      <![CDATA[
+    <d:info>
+     <d:header>
+       <d:module>DITA Topic Base RNG (only base domains)</d:module>
+       <d:version>1.2</d:version>
+       <d:date>April 2010</d:date>
+     </d:header>
+     <d:invocation>
+       <d:owner>OASIS</d:owner>
+       <d:description>DTD DITA Base Topic</d:description>
+       <d:language>EN</d:language>
+     </d:invocation>
+     <d:system>Darwin Information Typing Architecture (DITA)</d:system>
+     <d:purpose>DTD to describe Base DITA Topics</d:purpose>
+     <d:originalCreationDate>April 2010</d:originalCreationDate>
+     <copyright>(C) Copyright OASIS Open 2010. All Rights
+Reserved.</copyright>
+     <d:updates/>
+   </d:info>
+      ]]>
+    </pre>
+  </a:documentation>
+  <!--
+    -->
+  <start ns="http://dita-ng.org/annotations/1.0">
+    <element name="d:info">
+      <ref name="header"/>
+      <ref name="invocation"/>
+      <ref name="system"/>
+      <ref name="purpose"/>
+      <ref name="originalCreationDate"/>
+      <ref name="copyright"/>
+    </element>
+  </start>
+  
+  <define name="header">
+    <a:documentation>
+      <h2>Header</h2>
+      <p>Captures the module name, version number, and last update date.</p>
+    </a:documentation>
+    <ref name="module"/>
+    <ref name="version"/>
+    <ref name="date"/>
+    
+  </define>
+  <define name="module">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>TagName</h2>
+      <p>Desc</p>      
+    </a:documentation>
+    <text/>
+  </define>
+  <define name="version">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>TagName</h2>
+      <p>Desc</p>      
+    </a:documentation>
+    <text/>
+  </define>
+  <define name="date">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>TagName</h2>
+      <p>Desc</p>      
+    </a:documentation>
+    <text/>
+  </define>
+  
+  
+  <define name="invocation">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>TagName</h2>
+      <p>Desc</p>      
+      
+      <![CDATA[
+      <d:invocation>
+        <d:owner>OASIS</d:owner>
+        <d:description>DTD DITA Base Topic</d:description>
+        <d:language>EN</d:language>
+      </d:invocation>
+      ]]>      
+    </a:documentation>
+    <ref name="owner"/>
+    <ref name="description"/>
+    <ref name="language"/>
+  </define>
+  
+  <define name="owner">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>owner</h2>
+      <p>The owner of the module.</p>      
+    </a:documentation>
+    <text/>    
+  </define>
+
+  <define name="description">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>description</h2>
+      <p>A description of the module: its purpose and use.</p>      
+    </a:documentation>
+    <text/>    
+  </define>
+  
+  <define name="language">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>language</h2>
+      <p>The national language the module is defined in, as an ISO language code
+      (as for the @xml:lang attribute), e.g. "en" or "en-US".</p>      
+    </a:documentation>
+    <text/>    
+  </define>
+  
+  <define name="system">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>system</h2>
+      <p>The intended system identifier (filename) for the module, e.g. "topic.mod".</p>      
+    </a:documentation>
+    <text/>    
+  </define>
+  
+  <define name="purpose">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>purpose</h2>
+      <p>Describes the purpose of the module.</p>      
+    </a:documentation>
+    <text/>    
+  </define>
+  
+  <define name="originalCreationDate">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>originalCreationDate</h2>
+      <p>The date the module was first created or published.</p>      
+    </a:documentation>
+    <text/>    
+  </define>
+  
+  <define name="copyright">
+    <a:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h2>copyright</h2>
+      <p>The copyright or similar license statement for the module.</p>      
+    </a:documentation>
+    <text/>        
+  </define>
+  
+  
+</grammar>

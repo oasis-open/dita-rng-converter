@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  
+  <system systemId="urn:oasis:names:tc:dita:rng:mathmlDomainMod.rng"
+    uri="mathmlDomainMod.rng"
+  />
+  <system systemId="urn:oasis:names:tc:dita:rng:equationDomainMod.rng"
+    uri="equationDomainMod.rng"
+  />
+  
+  
+</catalog>  

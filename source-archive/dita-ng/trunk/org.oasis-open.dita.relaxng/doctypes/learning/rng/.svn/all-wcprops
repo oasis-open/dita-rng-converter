@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng
+END
+learningAssessment.rng
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningAssessment.rng
+END
+learningAssessmentMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningAssessmentMod.rng
+END
+learningBookmap.rng
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningBookmap.rng
+END
+learningPlanMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningPlanMod.rng
+END
+learningPlan.rng
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningPlan.rng
+END
+learningSummaryMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningSummaryMod.rng
+END
+learningSummary.rng
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningSummary.rng
+END
+learningInteractionBaseDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningInteractionBaseDomainMod.rng
+END
+learningMapdomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningMapdomainMod.rng
+END
+learningOverview.rng
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningOverview.rng
+END
+learningOverviewMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningOverviewMod.rng
+END
+learningDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningDomainMod.rng
+END
+learningMetadataDomainMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningMetadataDomainMod.rng
+END
+learningContentMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningContentMod.rng
+END
+learningBaseMod.rng
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningBaseMod.rng
+END
+learningContent.rng
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningContent.rng
+END
+learningMap.rng
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/107/trunk/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningMap.rng
+END

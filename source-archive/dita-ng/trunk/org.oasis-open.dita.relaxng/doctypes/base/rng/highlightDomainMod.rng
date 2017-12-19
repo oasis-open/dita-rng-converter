@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" 
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0">
+  <a:documentation ditaarch:moduleTitle="DITA Highlight Domain"
+                   ditaarch:dtdPublicId="-//OASIS//ELEMENTS DITA Topic//EN"
+    ditaarch:dtdPublicIdSpecificVersion="-//OASIS//ELEMENTS 1.2 DITA Topic//EN"
+                   ditaarch:xsdPublicUri="urn:oasis:names:tc:dita:xsd:topicMod.xsd"
+    ditaarch:xsdPublicUriSpecificVersion="urn:oasis:names:tc:dita:xsd:topicMod.xsd:1.2"
+                   ditaarch:rngPublicUri="urn:oasis:names:tc:dita:rng:topicMod.rng"
+    ditaarch:rngPublicUriSpecificVersion="urn:oasis:names:tc:dita:rng:topicMod.rng:1.2"
+                   ditaarch:rncPublicUri="urn:oasis:names:tc:dita:rnc:topicMod.rnc"
+    ditaarch:rncPublicUriSpecificVersion="urn:oasis:names:tc:dita:rnc:topicMod.rnc:1.2"
+    >
+ ============================================================= 
+                    HEADER                                     
+ ============================================================= 
+  MODULE:    DITA Highlight Domain                             
+  VERSION:   1.2                                               
+  DATE:      November 2009                                     
+                                                               
+ ============================================================= 
+
+ ============================================================= 
+                    PUBLIC DOCUMENT TYPE DEFINITION            
+                    TYPICAL INVOCATION                         
+                                                               
+  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
+      Delivered as file "highlightDomain.mod"                      
+
+ ============================================================= 
+ SYSTEM:     Darwin Information Typing Architecture (DITA)     
+                                                               
+ PURPOSE:    Define elements and specialization attributes     
+             for Highlight Domain                              
+                                                               
+ ORIGINAL CREATION DATE:                                       
+             March 2001                                        
+                                                               
+             (C) Copyright OASIS Open 2005, 2009.              
+             (C) Copyright IBM Corporation 2001, 2004.         
+             All Rights Reserved.                              
+                                                               
+  UPDATES:                                                     
+    2005.11.15 RDA: Corrected descriptive names for all        
+                    elements except bold                       
+    2005.11.15 RDA: Corrected the "Delivered as" system ID     
+    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
+    2008.02.13 RDA: Create .content and .attributes entities   
+ ============================================================= 
+</a:documentation>
+  
+  <!-- Define the domain values of this module -->
+  <define name="domains-att-contribution" combine="choice">
+    <value>(topic hi-d)</value>
+  </define>
+  
+  <!-- Define domain extension patterns -->
+  <define name="hi-d-ph">
+    <choice>
+      <ref name="b.element"/>
+      <ref name="i.element"/>
+      <ref name="sup.element"/>
+      <ref name="sub.element"/>
+      <ref name="tt.element"/>
+      <ref name="u.element"/>
+    </choice>
+  </define>
+  <!-- Extend the patterns with the domain contribution -->
+  <define name="ph" combine="choice">
+    <ref name="hi-d-ph"/>
+  </define>
+  
+  <define name="b.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="basic.ph"/>
+        <ref name="data.elements.incl"/>
+        <ref name="foreign.unknown.incl"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="b.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="b.element">
+    <element name="b" ditaarch:longName="Bold">
+      <a:documentation>The bold (&lt;b>) element is used to apply bold highlighting to the content
+        of the element. Use this element only when there is not some other more proper element. For
+        example, for specific items such as GUI controls, use the &lt;uicontrol> element. This
+        element is part of the DITA highlighting domain. 
+        Category: Typographic elements</a:documentation>
+      <ref name="b.attlist"/>
+      <ref name="b.content"/>
+    </element>
+  </define>
+  <define name="b.attlist" combine="interleave">
+    <ref name="b.attributes"/>
+  </define>
+  
+  <define name="u.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="basic.ph"/>
+        <ref name="data.elements.incl"/>
+        <ref name="foreign.unknown.incl"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="u.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="u.element">
+    <element name="u" ditaarch:longName="Underlined">
+      <a:documentation>The underline (&lt;u>) element is used to apply underline highlighting to the
+        content of the element. 
+        Category: Typographic elements</a:documentation>
+      <ref name="u.attlist"/>
+      <ref name="u.content"/>
+    </element>
+  </define>
+  <define name="u.attlist" combine="interleave">
+    <ref name="u.attributes"/>
+  </define>
+  
+  <define name="i.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="basic.ph"/>
+        <ref name="data.elements.incl"/>
+        <ref name="foreign.unknown.incl"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="i.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="i.element">
+    <element name="i" ditaarch:longName="Italic">
+      <a:documentation>The italic (&lt;i>) element is used to apply italic highlighting to the
+        content of the element. 
+        Category: Typographic elements</a:documentation>
+      <ref name="i.attlist"/>
+      <ref name="i.content"/>
+    </element>
+  </define>
+  <define name="i.attlist" combine="interleave">
+    <ref name="i.attributes"/>
+  </define>
+  
+  <define name="tt.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="basic.ph"/>
+        <ref name="data.elements.incl"/>
+        <ref name="foreign.unknown.incl"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="tt.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="tt.element">
+    <element name="tt" ditaarch:longName="Teletype (monospaced)">
+      <a:documentation> The teletype (&lt;tt>) element is used to apply monospaced highlighting to
+        the content of the element. 
+        Category: Typographic elements </a:documentation>
+      <ref name="tt.attlist"/>
+      <ref name="tt.content"/>
+    </element>
+  </define>
+  <define name="tt.attlist" combine="interleave">
+    <ref name="tt.attributes"/>
+  </define>
+  
+  <define name="sup.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="basic.ph"/>
+        <ref name="data.elements.incl"/>
+        <ref name="foreign.unknown.incl"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="sup.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="sup.element">
+    <element name="sup" ditaarch:longName="Superscript">
+      <a:documentation>The superscript (&lt;sup>) element indicates that text should be
+        superscripted, or vertically raised in relationship to the surrounding text. Superscripts
+        are usually a smaller font than the surrounding text. Use this element only when there is
+        not some other more proper tag. This element is part of the DITA highlighting domain.
+        Category: Typographic elements</a:documentation>
+      <ref name="sup.attlist"/>
+      <ref name="sup.content"/>
+    </element>
+  </define>
+  <define name="sup.attlist" combine="interleave">
+    <ref name="sup.attributes"/>
+  </define>
+  
+  <define name="sub.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="basic.ph"/>
+        <ref name="data.elements.incl"/>
+        <ref name="foreign.unknown.incl"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="sub.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="sub.element">
+    <element name="sub" ditaarch:longName="Subscript">
+      <a:documentation>A subscript (&lt;sub>) indicates that text should be subscripted, or placed
+        lower in relationship to the surrounding text. Subscripted text is often a smaller font than
+        the surrounding text. Formatting may vary depending on your output process. This element is
+        part of the DITA highlighting domain. Category: Typographic elements</a:documentation>
+      <ref name="sub.attlist"/>
+      <ref name="sub.content"/>
+    </element>
+  </define>
+  <define name="sub.attlist" combine="interleave">
+    <ref name="sub.attributes"/>
+  </define>
+  
+  <!-- Specialization attributes. Global attributes and class defaults -->
+
+  <define name="b.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph hi-d/b "/>
+    </optional>
+  </define>
+  <define name="i.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph hi-d/i "/>
+    </optional>
+  </define>
+  <define name="sub.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph hi-d/sub "/>
+    </optional>
+  </define>
+  <define name="sup.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph hi-d/sup "/>
+    </optional>
+  </define>
+  <define name="tt.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph hi-d/tt "/>
+    </optional>
+  </define>
+  <define name="u.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph hi-d/u "/>
+    </optional>
+  </define>
+</grammar>

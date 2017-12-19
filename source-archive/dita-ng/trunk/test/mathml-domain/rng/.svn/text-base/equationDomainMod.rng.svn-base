@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <define
+    name="domains-atts-value"
+    combine="choice">
+    <value>(topic equation-d)</value>
+  </define>
+
+  <define
+    name="equation-d-ph">
+    <ref
+      name="equation-inline.element"/>
+  </define>
+
+  <define
+    name="equation-d-p">
+    <ref
+      name="equation-block.element"/>
+  </define>
+
+  <define
+    name="equation-d-fig">
+    <ref
+      name="equation-display.element"/>
+  </define>
+
+  <define
+    name="ph"
+    combine="choice">
+    <ref
+      name="equation-d-ph"/>
+  </define>
+
+  <define
+    name="p"
+    combine="choice">
+    <ref
+      name="equation-d-p"/>
+  </define>
+
+  <define
+    name="fig"
+    combine="choice">
+    <ref
+      name="equation-d-fig"/>
+  </define>
+
+  <define
+    name="equation.cnt">
+    <zeroOrMore>
+      <choice>
+        <ref
+          name="ph.cnt"/>
+        <ref
+          name="text"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define
+    name="equation-inline.content">
+    <zeroOrMore>
+      <ref
+        name="equation.cnt"/>
+    </zeroOrMore>
+  </define>
+  <define
+    name="equation-inline.attributes">
+    <ref
+      name="univ-atts"/>
+    <optional>
+      <attribute
+        name="outputclass"/>
+    </optional>
+  </define>
+  <define
+    name="equation-inline.element">
+    <element
+      name="equation-inline">
+      <a:documentation>
+        The Inline Equation element (&lt;equation-inline&gt;) represents an
+        equation that is intended to be rendered inline with its surrounding
+        content.
+        
+        The equation content may be represented in any number of ways,
+        including embedded MathML using the &lt;mathml&gt; specialization of
+        &lt;foreign&gt;, a reference to an image, inline TeX markup,
+        or any other way that an equation might be defined.
+        
+        The equation may include alternative forms, such as both a MathML
+        version and an image.
+      </a:documentation>
+      <ref
+        name="equation-inline.content"/>
+      <ref
+        name="equation-inline.attlist"/>
+    </element>
+  </define>
+  <define name="equation-inline.attlist" combine="interleave">
+    <ref name="equation-inline.attributes"/>
+  </define>
+  
+
+  <define
+    name="equation-block.content">
+    <zeroOrMore>
+      <text/>
+      <ref
+        name="equation.cnt"/>
+    </zeroOrMore>
+  </define>
+  <define
+    name="equation-block.attributes">
+    <ref
+      name="univ-atts"/>
+    <optional>
+      <attribute
+        name="outputclass"/>
+    </optional>
+  </define>
+  <define
+    name="equation-block.element">
+    <element
+      name="equation-block">
+      <a:documentation>
+        The Block Equation element (&lt;equation-block&gt;) represents an
+        equation that is intended to be rendered as a block element. Block
+        equations are not intended to be numbered (see
+        &lt;equation-display&gt;).
+        
+        The equation content may be represented in any number of ways,
+        including embedded MathML using the &lt;mathml&gt; specialization of
+        &lt;foreign&gt;, a reference to an image, inline TeX markup,
+        or any other way that an equation might be defined.
+        
+        The equation may include alternative forms, such as both a MathML
+        version and an image.
+      </a:documentation>
+      <ref
+        name="equation-block.content"/>
+      <ref
+        name="equation-block.attlist"/>
+    </element>
+  </define>
+  <define name="equation-block.attlist" combine="interleave">
+    <ref name="equation-block.attributes"/>
+  </define>
+  
+  <define
+    name="equation-display.content">
+    <optional>
+      <ref
+        name="title"/>
+    </optional>
+    <optional>
+      <ref
+        name="desc"/>
+    </optional>
+    <zeroOrMore>
+      <choice>
+        <ref
+          name="figgroup"/>
+        <ref
+          name="fig.cnt"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define
+    name="equation-display.attributes">
+    <ref
+      name="display-atts"/>
+    <optional>
+      <attribute
+        name="spectitle"/>
+    </optional>
+    <ref
+      name="univ-atts"/>
+    <optional>
+      <attribute
+        name="outputclass"/>
+    </optional>
+  </define>
+  <define
+    name="equation-display.element">
+    <element
+      name="equation-display">
+      <a:documentation>
+        The Display Equation element (&lt;equation-display&gt;) represents an
+        equation that may have a title or a description and that may be
+        numbered. When equations are numbered they are often numbered separately
+        from figures.
+        
+        Display equations that are simply a single equation plus, optionally, a
+        title or description, may use the &lt;mathml&gt; element directly. When
+        the display equation content is more complicated, it should use
+        &gt;equation-block&gt; to clearly distinguish
+        the equation content from non-equation content, such as paragraphs that
+        provide commentary on the equations within the display equation.
+        
+        The equation content may be represented in any number of ways,
+        including embedded MathML using the &lt;mathml&gt; specialization of
+        &lt;foreign&gt;, a reference to an image, inline TeX markup,
+        or any other way that an equation might be defined.
+        
+        The equation may include alternative forms, such as both a MathML
+        version and an image.
+      </a:documentation>
+      <ref
+        name="equation-display.content"/>
+      <ref
+        name="equation-display.attlist"/>
+    </element>
+  </define>
+  <define name="equation-display.attlist" combine="interleave">
+    <ref name="equation-display.attributes"/>
+  </define>
+  
+  <define name="equation-inline.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph equation-d/equation-inline "/>
+    </optional>
+  </define>
+  
+  <define name="equation-block.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/p equation-d/equation-block "/>
+    </optional>
+  </define>
+  
+  <define name="equation-display.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/fig equation-d/equation-display "/>
+    </optional>
+  </define>
+  
+</grammar>
