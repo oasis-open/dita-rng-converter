@@ -43,7 +43,7 @@
       tunnel="yes"
     />
     <xsl:if test="$doDebug"> 
-      <xsl:message> + [DEBUG] === entityFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>
+      <xsl:message>+ [DEBUG] === entityFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>
     </xsl:if>    
     <xsl:variable name="moduleTitle" 
       select="rngfunc:getModuleTitle(.)" 
@@ -60,7 +60,7 @@
       select="rngfunc:getModuleType(.)"
     />
     <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] moduleType="<xsl:sequence select="$moduleType"/>"</xsl:message>
+        <xsl:message>+ [DEBUG] moduleType="<xsl:sequence select="$moduleType"/>"</xsl:message>
     </xsl:if>
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
     
@@ -103,8 +103,8 @@
 
     <xsl:if test="$moduleType = 'attributedomain'">
       <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] entityFile: module is an attribute domain, applying templates in mode generate-parment-decl-from-define...</xsl:message>
-        <xsl:message> + [DEBUG] entityFile: domainPrefix="<xsl:value-of select="$domainPrefix"/>"</xsl:message>
+        <xsl:message>+ [DEBUG] entityFile: module is an attribute domain, applying templates in mode generate-parment-decl-from-define...</xsl:message>
+        <xsl:message>+ [DEBUG] entityFile: domainPrefix="<xsl:value-of select="$domainPrefix"/>"</xsl:message>
       </xsl:if>
       <xsl:if test="not(/*/rng:define[starts-with(@name, $domainPrefix)])">
         <xsl:message> - [WARN] For attribute domain module, got domain prefix of "<xsl:value-of select="$domainPrefix"/>" but didn't</xsl:message>
@@ -159,7 +159,7 @@
 &lt;!-- ============================================================= -->
 &lt;!--                    DOMAIN ENTITY DECLARATION                  -->
 &lt;!-- ============================================================= -->&#x0a;</xsl:text>
-            <xsl:apply-templates mode="domainAttContributeEntityDecl"
+            <xsl:apply-templates mode="domainAttContributionEntityDecl"
               select="dita:moduleDesc/dita:moduleMetadata/dita:domainsContribution"
               >
               <xsl:with-param name="domainPrefix" select="$domainPrefix" as="xs:string" />
@@ -175,7 +175,7 @@
     <xsl:text> ================== -->&#x0a; </xsl:text>    
   </xsl:template>
   
-  <xsl:template match="dita:domainsContribution" mode="domainAttContributeEntityDecl">
+  <xsl:template match="dita:domainsContribution" mode="domainAttContributionEntityDecl">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="domainPrefix" as="xs:string"/>
     
@@ -195,4 +195,8 @@
 
   <xsl:template match="rnga:documentation" mode="entityFile" />
 
+  <xsl:template match="rng:*" priority="-1" mode="entityFile">
+    <xsl:message> - [WARN] entityFile: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" /></xsl:message>
+  </xsl:template>
+    
 </xsl:stylesheet>

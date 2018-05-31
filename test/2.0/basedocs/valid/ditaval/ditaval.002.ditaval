@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<val shellPackage="ditaval" shellName="ditaval">
+  <prop action="exclude"/>
+  <prop action="exclude" att="platform"/>
+  <prop action="include" att="platform" val="win"/>
+  <revprop action="flag" val="1.3" color="blue" style="bold">
+    <startflag imageref="beg.jpg">
+      <alt-text>[Beginner</alt-text>
+    </startflag>
+    <endflag imageref="beg2.jpg">
+      <alt-text>]</alt-text>
+    </endflag>
+  </revprop>
+</val>

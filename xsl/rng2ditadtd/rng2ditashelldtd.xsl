@@ -28,6 +28,8 @@
     </xd:desc>
   </xd:doc>
   
+  <xsl:include href="mode-entityDeclaration.xsl"/>
+  
   <!-- ================================================================= 
        Root processing template for individual RNG document type shells.
        ================================================================= -->
@@ -46,8 +48,8 @@
          The output needs to be in dtd/{package}/dtd
       -->
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] processShell: Handling doc <xsl:value-of select="document-uri(root(.))"/></xsl:message>
-      <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
+      <xsl:message>+ [DEBUG] processShell: Handling doc <xsl:value-of select="document-uri(root(.))"/></xsl:message>
+      <xsl:message>+ [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
     </xsl:if>
     
     
@@ -67,7 +69,7 @@
     
     <xsl:variable name="referencedModules" as="document-node()*">
       <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] processShell: Applying templates in mode "getReferencedModules"...</xsl:message>
+        <xsl:message>+ [DEBUG] processShell: Applying templates in mode "getReferencedModules"...</xsl:message>
       </xsl:if>
       
       <xsl:apply-templates select="." mode="getReferencedModules">
@@ -79,7 +81,7 @@
         
       </xsl:apply-templates>
       <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] processShell: Apply templates done.</xsl:message>
+        <xsl:message>+ [DEBUG] processShell: Apply templates done.</xsl:message>
       </xsl:if>
     </xsl:variable>
 
@@ -101,7 +103,7 @@
       <!-- Generate the .dtd file: -->
         
       <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] / applying templates in mode dtdFile. $dtdOutputDir="<xsl:sequence select="$dtdOutputDir"/>", rngShellUrl="<xsl:value-of select="$rngShellUrl"/>"</xsl:message>
+        <xsl:message>+ [DEBUG] / applying templates in mode dtdFile. $dtdOutputDir="<xsl:sequence select="$dtdOutputDir"/>", rngShellUrl="<xsl:value-of select="$rngShellUrl"/>"</xsl:message>
       </xsl:if>
       <xsl:result-document href="{$dtdResultUrl}" format="dtd">
         <xsl:apply-templates mode="dtdFile">
@@ -109,7 +111,7 @@
           <xsl:with-param name="dtdFilename" select="$dtdFilename" tunnel="yes" as="xs:string" />
           <xsl:with-param name="dtdOutputDir" select="$dtdOutputDir" tunnel="yes" as="xs:string" />
           <xsl:with-param name="modulesToProcess"  select="$referencedModules" tunnel="yes" as="document-node()*" />
-          <xsl:with-param name="rngShellUrl" select="$rngShellUrl" tunnel="yes" as="xs:string"/>
+          <xsl:with-param name="referencingGrammarUrl" select="$rngShellUrl" tunnel="yes" as="xs:string"/>
         </xsl:apply-templates>
       </xsl:result-document>
         
@@ -130,7 +132,7 @@
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*" />
     
       <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] dtdFile: rng:grammar: dtdDir="<xsl:sequence select="$dtdOutputDir"/>"</xsl:message>
+        <xsl:message>+ [DEBUG] dtdFile: rng:grammar: dtdDir="<xsl:sequence select="$dtdOutputDir"/>"</xsl:message>
       </xsl:if>    
     <xsl:variable name="firstStart" as="element()?"
       select="(//rng:start/rng:ref)[1]"
@@ -139,7 +141,7 @@
       select="substring-before($firstStart/@name,'.element')" 
       as="xs:string" />
     
-    <xsl:message> + [INFO] === Generating DTD shell <xsl:value-of select="$dtdFilename" />...</xsl:message>
+    <xsl:message>+ [INFO] === Generating DTD shell <xsl:value-of select="$dtdFilename" />...</xsl:message>
     
     
     <xsl:variable name="shellType" select="rngfunc:getModuleType(.)" as="xs:string"/>
@@ -176,7 +178,7 @@
       </xsl:when>
     </xsl:choose>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] dtdFile: grammar - moduleShortName="<xsl:sequence select="rngfunc:getModuleShortName(.)"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] dtdFile: grammar - moduleShortName="<xsl:sequence select="rngfunc:getModuleShortName(.)"/>"</xsl:message>
     </xsl:if>
     <xsl:choose>
       <!-- The base topic and map modules are special cases in that they have no
@@ -254,19 +256,19 @@
              Note: No space between declarations within this group.
           -->
         <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] dtdFile: rng:grammar - Generating domain extension integration entities... </xsl:message>
+          <xsl:message>+ [DEBUG] dtdFile: rng:grammar - Generating domain extension integration entities... </xsl:message>
         </xsl:if>
         <xsl:variable name="domainModules" as="element()*"
           select="$modulesToProcess[rngfunc:isElementDomain(.)]/*" 
         />
-        <xsl:message> + [INFO]    Domain modules to integrate: <xsl:sequence select="for $mod in $domainModules return rngfunc:getModuleShortName($mod)"/></xsl:message>
+        <xsl:message>+ [INFO]    Domain modules to integrate: <xsl:sequence select="for $mod in $domainModules return rngfunc:getModuleShortName($mod)"/></xsl:message>
         <xsl:variable name="domainExtensionPatterns" as="element()*"
           select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))]"
         />
         
         <xsl:for-each-group select="$domainExtensionPatterns" 
           group-by="substring-after(@name, concat(rngfunc:getModuleShortName(root(.)/*), '-'))">
-<!--          <xsl:message> + [DEBUG   current-grouping-key="<xsl:sequence select="current-grouping-key()"/>"</xsl:message>-->
+<!--          <xsl:message>+ [DEBUG   current-grouping-key="<xsl:sequence select="current-grouping-key()"/>"</xsl:message>-->
             <xsl:variable name="firstPart" as="xs:string"
               select="concat('&#x0a;&lt;!ENTITY % ', current-grouping-key())"
             />
@@ -381,14 +383,14 @@
                 </xsl:if>              
               </xsl:when>
               <xsl:otherwise>
-                <xsl:message> + [WARN] Failed to resolve reference to URI "<xsl:value-of select="@href"/>, relative to base URI
+                <xsl:message>+ [WARN] Failed to resolve reference to URI "<xsl:value-of select="@href"/>, relative to base URI
 "<xsl:value-of select="base-uri(.)"/>"</xsl:message>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:for-each>
         </xsl:variable>
         <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] match="rng:grammar" mode="dtdFile": count(topicModuleIncludes)="<xsl:value-of
+          <xsl:message>+ [DEBUG] match="rng:grammar" mode="dtdFile": count(topicModuleIncludes)="<xsl:value-of
             select="count($topicModuleIncludes)"/>"</xsl:message>
         </xsl:if>
         
@@ -396,13 +398,13 @@
           <xsl:choose>
             <xsl:when test=".//rng:define">
               <xsl:if test="$doDebug">
-                <xsl:message> + [DEBUG] match="rng:grammar" mode="dtdFile": Found defines, processing them...</xsl:message>
+                <xsl:message>+ [DEBUG] match="rng:grammar" mode="dtdFile": Found defines, processing them...</xsl:message>
               </xsl:if>
               <xsl:apply-templates select=".//rng:define" mode="generate-parment-decl-from-define"/>              
             </xsl:when>
             <xsl:otherwise>
               <xsl:if test="$doDebug">
-                <xsl:message> + [DEBUG] match="rng:grammar" mode="dtdFile": No defines, generating *-info-types declaration...</xsl:message>
+                <xsl:message>+ [DEBUG] match="rng:grammar" mode="dtdFile": No defines, generating *-info-types declaration...</xsl:message>
               </xsl:if>
               <xsl:variable name="module" select="document(./@href,.)" as="document-node()"/>
               <xsl:variable name="topicType" as="xs:string" select="rngfunc:getModuleShortName($module/*)"/>
@@ -413,8 +415,8 @@
                 -->
               <xsl:if test="$topicType != 'topic' or (normalize-space(//rng:start/rng:ref/@name) = 'topic.element')">
                 <xsl:if test="$doDebug">
-                  <xsl:message> + [DEBUG] match="rng:grammar" mode="dtdFile": A topic-type module, applying templates to *-info-types defines...</xsl:message>
-                  <xsl:message> + [DEBUG]  info-types defines in <xsl:value-of select="document-uri($module)"/>:
+                  <xsl:message>+ [DEBUG] match="rng:grammar" mode="dtdFile": A topic-type module, applying templates to *-info-types defines...</xsl:message>
+                  <xsl:message>+ [DEBUG]  info-types defines in <xsl:value-of select="document-uri($module)"/>:
                     <xsl:sequence select="$module//rng:define[ends-with(@name, '-info-types')]"/>
                   </xsl:message>
                 </xsl:if>
@@ -611,7 +613,7 @@
     <xsl:value-of select="rngfunc:getModuleTitle(.)"/>
     <xsl:text> ================= --></xsl:text>
     
-    <xsl:message> + [INFO] === DTD shell <xsl:value-of select="$dtdFilename" /> generated.</xsl:message>
+    <xsl:message>+ [INFO] === DTD shell <xsl:value-of select="$dtdFilename" /> generated.</xsl:message>
 
   </xsl:template>
   
@@ -693,7 +695,7 @@
   <xsl:template mode="handle-info-types-pattern" match="rng:define[ends-with(@name, '-info-types')]" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] handle-info-types-pattern: rng:define, name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] handle-info-types-pattern: rng:define, name="<xsl:value-of select="@name"/>"</xsl:message>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="rng:ref[@name = 'info-types']">
@@ -709,101 +711,6 @@
         <xsl:apply-templates mode="generate-parment-decl-from-define" select="."/>
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:template>
-  
-
-
-
-  <xsl:template match="*" mode="entityDeclaration">
-    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:apply-templates mode="#current" select="node()" />
-  </xsl:template>
-
-  <xsl:template match="rng:grammar" mode="entityDeclaration">
-    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:param 
-      name="entityType" 
-      as="xs:string" 
-      tunnel="yes"
-    /><!-- One of "type, "ent", or "mod" 
-      
-           Note that "type" = "mod" for the purposes of
-           constructing filenames because topic and map
-           modules use an entity name of *-type.
-    -->
-    <xsl:param name="dtdOutputDir" tunnel="yes" as="xs:string" />
-    <xsl:param name="rngShellUrl" tunnel="yes" as="xs:string"/>
-    
-    <xsl:variable name="rngShellParent" as="xs:string"
-      select="relpath:getParent($rngShellUrl)"
-    />
-    
-    <xsl:variable name="filenameSuffix" as="xs:string"
-      select="if ($entityType = 'type') then 'mod' else $entityType"
-    />
-    <xsl:variable name="entityNameSuffix" as="xs:string"
-      select="if ($entityType = 'ent')
-         then '-dec'
-         else if ($entityType = 'type') then '-type' else '-def'"
-    />
-    
-    <!-- Have to special case the base topic module as its .ent file is named "topicDefn.ent"
-         rather than topic.ent.
-      -->
-    <xsl:variable name="entFilename" as="xs:string"
-      select="rngfunc:getEntityFilename(., $filenameSuffix)"
-    />
-    <xsl:variable name="moduleUrl" as="xs:string"
-      select="rngfunc:getGrammarUri(.)"
-    />
-    <xsl:variable name="relpathFromShell" as="xs:string"
-      select="relpath:getParent(relpath:getRelativePath($rngShellParent, $moduleUrl))"
-      />
-    <xsl:variable name="shortName" as="xs:string"
-      select="rngfunc:getModuleShortName(.)"
-    />
-    <xsl:variable name="pubidTagname" as="xs:string"
-      select="concat('dtd', if ($entityType = 'ent') then 'Ent' else 'Mod')"
-    />
-    <xsl:variable name="publicId" 
-      select="rngfunc:getPublicId(., $pubidTagname, true())" 
-    />
-    <xsl:variable name="entityName" as="xs:string"
-      select="concat($shortName, $entityNameSuffix)"
-    />
-    <!-- FIXME: The replace is a short-term hack to avoid figuring out how to
-                generalize the code for getting the result URI for a module
-                so we can construct the relative output path properly.
-                This hack will work for OASIS files but not necessarily 
-                any other organization pattern.
-      -->
-    <xsl:variable name="entitySystemID" as="xs:string"
-      select="replace(relpath:newFile($relpathFromShell, $entFilename), '/rng/', '/dtd/')"
-    />
-    <!-- Special case the topic and map modules, which do not have a *.ent file like all the rest 
-         (topic has
-         topicDefn.ent, which is included in the topic.mod file. It has to be included *after* 
-         all the domain entity integration parameter entities so that those declarations will
-         take precedence over those in topicDefn.ent.
-      -->
-    <xsl:if test="$entityType != 'ent' or 
-                  ($entityType = 'ent' and 
-                  not($entityName = 'topic-dec') and 
-                  not($entityName = 'map-dec'))">    
-      <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="$entityName" /><xsl:text>&#x0a;</xsl:text> 
-      <xsl:value-of select="str:indent(2)"/>
-      <xsl:choose>
-        <xsl:when test="$doUsePublicIDsInShell">
-          <xsl:text>PUBLIC "</xsl:text><xsl:value-of select="$publicId" /><xsl:text>"&#x0a;</xsl:text>
-          <xsl:value-of select="str:indent(9)"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>SYSTEM </xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-      <xsl:value-of select="concat('&quot;', $entitySystemID, '&quot;')"/><xsl:text>&#x0a;</xsl:text>
-      <xsl:text>&gt;</xsl:text><xsl:value-of select="concat('%', $entityName, ';')"/><xsl:text>&#x0a;</xsl:text>
-    </xsl:if>
   </xsl:template>
 
   <xsl:template match="*" mode="domainExtension">

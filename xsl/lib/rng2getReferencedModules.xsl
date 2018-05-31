@@ -108,7 +108,7 @@
     <xsl:param name="uri2" as="xs:string"/>
     
     <!-- Compare 2 URIs to see if they are equivalent.
-         If they are both URNs or both not URNs, they must be identical.
+         If they are both URNs or both not URNs, they must be identical to be the same module.
          If one is a URN and one is a URL, then compare the last token.
          If both tokens end with ".rng" then the last tokens must be identical.
          If one does not end with .rng then the name parts must be identical.

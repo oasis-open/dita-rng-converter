@@ -116,6 +116,14 @@
       <isset property="generateModules"/>
     </not>
   </condition>
+  <condition property="doGenerateStandardModules" value="${generateStandardModules}">
+    <isset property="generateStandardModules"/>
+  </condition>
+  <condition property="doGenerateStandardModules" value="false">
+    <not>
+      <isset property="generateStandardModules"/>
+    </not>
+  </condition>
   <condition property="doGenerateCatalogs" value="${generateCatalogs}">
     <isset property="generateCatalogs"/>
   </condition>
@@ -182,6 +190,8 @@
    
       Generate the standard OASIS-defined modules as well as any other
       modules.
+      
+   -Dditaver=1.2|1.3|2.0 Default is "1.3"
       
    -D debug=[true|FALSE]
    
