@@ -11,7 +11,7 @@
         <li>There is a top-level directory for each grammar type (DTD, RNC, RNG, and XSD)</li>
         <li>Within each top-level directory is a directory reflecting different related sets of
           grammars: <filepath>base</filepath>, <filepath>bookmap</filepath>, etc.</li>
-        <li>With each of these directories is a directory reflecting the same grammar type as the
+        <li>Within each of these directories is a directory reflecting the same grammar type as the
           top-level directory, e.g. <filepath>dtd</filepath>, <filepath>rng</filepath>, etc. These
           directories also contain the entity resolution catalog files for that grammar set
             (<filepath>catalog.xml)</filepath></li>
