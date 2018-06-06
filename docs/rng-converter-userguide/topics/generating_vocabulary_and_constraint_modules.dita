@@ -14,7 +14,7 @@
   -Doutdir=test/specializations/org.example \
   -DgenerateCatalogs=true \
   -DgenerateModules=true</codeblock></p>
-    <p>The form of the command will generate the DTD version of the document type shell and also
+    <p>This form of the command will generate the DTD version of the document type shell and also
       generate the DTD versions of any non-OASIS-defined modules referenced by the shell.</p>
     <p>Note that for XSD, generation of constraint modules is imperfect because of the rules for XSD
       constraints. If your constraints are simple it may generate working modules but in many cases

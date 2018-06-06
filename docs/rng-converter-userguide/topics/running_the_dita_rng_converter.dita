@@ -4,7 +4,7 @@
   <title>Running the DITA RNG Converter</title>
   <body>
     <p>The DITA RNG converter is implemented as a set of XSLT transforms and Ant scripts that run
-      the XSLT transforms. You can also run the XSLT transforms directly using a tool like OxygenXML
+      the XSLT transforms. You can also run the XSLT transforms directly using a tool like oXygenXML
       if you choose—the Ant scripts are simply a convenience to make running the transforms
       easier.</p>
     <p>The top-level Ant script is <filepath>build.xml</filepath>. If you simply run the command
@@ -24,7 +24,7 @@
           <dd>Generates just the catalogs for the modules.</dd>
         </dlentry>
       </dl></p>
-    <p>You must specify the directory containing the RELAX NG document type shells to process sing
+    <p>You must specify the directory containing the RELAX NG document type shells to process using
       the <parmname>rngsrc</parmname> Ant
       parameter:<codeblock>ant generate-dtd -Drngsrc=test/local-shells/org.example</codeblock></p>
     <p>By default, the output goes to the a directory named <filepath>build</filepath> under the
