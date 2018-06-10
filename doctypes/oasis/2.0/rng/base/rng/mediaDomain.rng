@@ -225,7 +225,7 @@
   </div>
   
   <div>
-    <a:documentation xml:space="preserve"> LONG NAME: Media control configuration </a:documentation>
+    <a:documentation xml:space="preserve"> LONG NAME: Media controls </a:documentation>
     <define name="media-controls.content">
       <empty/>
     </define>
@@ -247,7 +247,7 @@
       <ref name="univ-atts"/>
     </define>
     <define name="media-controls.element">
-      <element name="media-controls" dita:longName="Audio object reference">
+      <element name="media-controls" dita:longName="Media controls">
         <a:documentation>DITA's &lt;media-controls> element corresponds to the HTML @media attribute on &lt;video> and &lt;audio> elements.</a:documentation>
         <ref name="media-controls.attlist"/>
         <ref name="media-controls.content"/>
@@ -281,7 +281,7 @@
       <ref name="univ-atts"/>
     </define>
     <define name="media-autoplay.element">
-      <element name="media-autoplay" dita:longName="Audio object reference">
+      <element name="media-autoplay" dita:longName="Media autoplay configuration">
         <a:documentation>DITA's &lt;media-autoplay> element corresponds to the HTML @autoplay attribute on &lt;video> and &lt;audio> elements.</a:documentation>
         <ref name="media-autoplay.attlist"/>
         <ref name="media-autoplay.content"/>
@@ -293,7 +293,7 @@
   </div>
   
   <div>
-    <a:documentation xml:space="preserve"> LONG NAME: Media loop configuration </a:documentation>
+    <a:documentation xml:space="preserve"> LONG NAME: Loop configuration </a:documentation>
     <define name="media-loop.content">
       <empty/>
     </define>
@@ -315,7 +315,7 @@
       <ref name="univ-atts"/>
     </define>
     <define name="media-loop.element">
-      <element name="media-loop" dita:longName="Audio object reference">
+      <element name="media-loop" dita:longName="Loop configuration">
         <a:documentation>DITA's &lt;media-loop> element corresponds to the HTML @loop attribute on &lt;video> and &lt;audio> elements.</a:documentation>
         <ref name="media-loop.attlist"/>
         <ref name="media-loop.content"/>
@@ -349,7 +349,7 @@
       <ref name="univ-atts"/>
     </define>
     <define name="media-muted.element">
-      <element name="media-muted" dita:longName="Audio object reference">
+      <element name="media-muted" dita:longName="Media mute configuration">
         <a:documentation>DITA's &lt;media-muted> element corresponds to the HTML @muted attribute on &lt;video> and &lt;audio> elements.</a:documentation>
         <ref name="media-muted.attlist"/>
         <ref name="media-muted.content"/>
@@ -388,7 +388,7 @@
       <ref name="univ-atts"/>
     </define>
     <define name="media-source.element">
-      <element name="media-source" dita:longName="Audio object reference">
+      <element name="media-source" dita:longName="Media source">
         <a:documentation>DITA's &lt;media-source> element corresponds to the HTML &lt;source> element within &lt;video> and &lt;audio> elements.</a:documentation>
         <ref name="media-source.attlist"/>
         <ref name="media-source.content"/>
@@ -436,7 +436,7 @@
       <ref name="univ-atts"/>
     </define>
     <define name="media-track.element">
-      <element name="media-track" dita:longName="Audio object reference">
+      <element name="media-track" dita:longName="Media track">
         <a:documentation>DITA's &lt;media-track> element corresponds to the HTML &lt;track> element within &lt;video> and &lt;audio> elements.</a:documentation>
         <ref name="media-track.attlist"/>
         <ref name="media-track.content"/>
@@ -475,7 +475,7 @@
       <ref name="univ-atts"/>
     </define>
     <define name="video-poster.element">
-      <element name="video-poster" dita:longName="Audio object reference">
+      <element name="video-poster" dita:longName="Video poster">
         <a:documentation>DITA's &lt;video-poster> element corresponds to the HTML &lt;track> element within &lt;video> and &lt;audio> elements.</a:documentation>
         <ref name="video-poster.attlist"/>
         <ref name="video-poster.content"/>
