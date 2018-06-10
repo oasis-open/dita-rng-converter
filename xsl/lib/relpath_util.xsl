@@ -378,7 +378,10 @@
          component of the path.
     -->
     <xsl:param name="sourcePath" as="xs:string"/>
-    <xsl:value-of select="tokenize($sourcePath, '/')[last()]"/>
+    <xsl:variable name="result" 
+      select="tokenize($sourcePath, '/')[last()]"
+    />
+    <xsl:sequence select="$result"/>
   </xsl:function>
   
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">

@@ -258,7 +258,7 @@
     />
     <xsl:sequence select="$entFilename"/>
   </xsl:function>
-  
+
   <xsl:function name="rngfunc:getGrammarUri" as="xs:string">
     <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
     <xsl:variable name="result" select="if (document-uri(root($rngGrammar))) 
@@ -440,9 +440,16 @@
   
   <xsl:function name="rngfunc:isModuleDoc" as="xs:boolean">
     <xsl:param name="doc" as="document-node()"/>
-    <xsl:variable name="filename" as="xs:string"
-      select="relpath:getName(string(document-uri($doc)))"
+    <xsl:variable name="base-uri" 
+      as="xs:string"
+      select="string(document-uri($doc))"
     />
+    <xsl:variable name="filename" as="xs:string"
+      select="relpath:getName($base-uri)"
+    />
+    <!-- FIXME: Need to use the module metadata, not the filename. 
+         See issue #12
+      -->
     <xsl:variable name="result" as="xs:boolean"
       select="ends-with($filename, 'Mod.rng')
               "

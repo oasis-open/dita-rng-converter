@@ -271,6 +271,7 @@
       <arg line="generateModules=${doGenerateModules}"/>
       <arg line="generateStandardModules=${doGenerateStandardModules}"/>
       <arg line="generateCatalogs=${doGenerateCatalogs}"/>
+      <arg line="catalogUrl=&quot;${catalogPathUrl}&quot;"/>
     </java>        
     
   </target>
@@ -294,6 +295,7 @@
       <arg line="rootDir=${rngsrcUrl}"/>
       <arg line="generateModules=${doGenerateModules}"/>
       <arg line="generateStandardModules=${doGenerateStandardModules}"/>
+      <arg line="catalogUrl=&quot;${catalogPathUrl}&quot;"/>
     </java>        
   </target>
 
@@ -317,6 +319,7 @@
       <arg line="rootDir=${rngsrcUrl}"/>
       <arg line="generateModules=${doGenerateModules}"/>
       <arg line="generateStandardModules=${doGenerateStandardModules}"/>
+      <arg line="catalogUrl=&quot;${catalogPathUrl}&quot;"/>
     </java>        
   </target>
   
@@ -336,6 +339,7 @@
       <arg line="ditaVersion=${ditaver}"/>
       <arg line="outdir=&quot;${verSpecificOutDir}&quot;"/>
       <arg line="catalogType=${catalogType}"/>
+      <arg line="catalogUrl=&quot;${catalogPathUrl}&quot;"/>
     </java>
   </target>
   

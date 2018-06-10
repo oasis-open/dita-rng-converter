@@ -35,6 +35,7 @@
        ============================================================== -->
   
   <xsl:include href="../lib/relpath_util.xsl" />
+  <xsl:include href="../lib/catalog_util.xsl" />
   <xsl:include href="../lib/rng2functions.xsl"/>
   <xsl:include href="../lib/rng2gatherModules.xsl"/>
   <xsl:include href="../lib/rng2generateCatalogs.xsl"/>
@@ -68,6 +69,18 @@
        - 'schema-url' : The XSDs that use URls to reference modules
        
     -->
+  
+  <xd:doc>
+    <xd:param>$catalogUrl: File URL of [DITA-OT]/catalog-dita.xml</xd:param>
+  </xd:doc>
+  
+  <!-- FIXME: This is used by the catalog utility to resolve URIs through a catalog.
+              
+              This needs to be replaced with a list of catalogs
+              and then used to construct a global map representing
+              the resolved catalogs to be used for URI lookup.
+    -->
+  <xsl:param name="catalogUrl" as="xs:string?" select="()"/>
   
   <xsl:output omit-xml-declaration="yes"/>
   

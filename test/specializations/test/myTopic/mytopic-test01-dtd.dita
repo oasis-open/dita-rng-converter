@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mytopic SYSTEM "../../org.example/1.3/dtd/mytopic/dtd/mytopic.dtd">
+<!DOCTYPE mytopic SYSTEM "file:/Users/ekimber/workspace-oasis/dita-rng-converter/build/1.3/dtd/myTopic/dtd/myTopic.dtd">
 <mytopic id="topic_z55_x5x_fw" > 
   <title>This is a MyTopic topic</title>
   <body>

@@ -14,6 +14,7 @@
   version="2.0">
   
   <xsl:include href="../lib/relpath_util.xsl" />
+  <xsl:include href="../lib/catalog_util.xsl" />
   <xsl:include href="../lib/rng2functions.xsl"/>
   <xsl:include href="../lib/rng2gatherModules.xsl"/>
   <xsl:include href="../lib/rng2generateCatalogs.xsl"/>
@@ -97,6 +98,17 @@
     select="matches($useURNsInShell, '(yes|true|1|no)', 'i')"
   />
   
+  <!-- FIXME: This is used by the catalog utility to resolve URIs through a catalog.
+              
+              This needs to be replaced with a list of catalogs
+              and then used to construct a global map representing
+              the resolved catalogs to be used for URI lookup.
+    -->
+  <xd:doc>
+    <xd:param>$catalogUrl: File URL of [DITA-OT]/catalog-dita.xml</xd:param>
+  </xd:doc>
+  <xsl:param name="catalogUrl" as="xs:string?" select="()"/>
+
   <!-- NOTE: The primary output of this transform is an XML 
        manifest file that lists all input files and their
        corresponding outputs.

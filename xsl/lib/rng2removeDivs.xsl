@@ -35,6 +35,7 @@
     <xsl:copy>
       <xsl:if test="$origURI">
     <!--<xsl:message> + [DEBUG] removeDivs: Constructing @origURI attribute</xsl:message>-->
+        <!--xsl:attribute name="origURI" select="$origURI"/-->
         <xsl:attribute name="origURI" select="$origURI"/>
       </xsl:if>
       <xsl:apply-templates select="@*,node()" mode="#current"/>
