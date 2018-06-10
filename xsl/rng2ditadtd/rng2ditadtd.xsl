@@ -9,8 +9,9 @@
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
+  xmlns:catutil="http://local/catalog-utility"  
   xmlns:local="http://local-functions"
-  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc local rng2ditadtd"
+  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc local rng2ditadtd catutil"
   version="2.0">
   
   <xd:doc scope="stylesheet">
@@ -158,7 +159,7 @@
     <xsl:variable name="effectiveRootDir" as="xs:string" 
       select="if ($rootDir != '')
         then $rootDir
-        else relpath:getParent(document-uri(root(.)))
+        else relpath:getParent(catutil:resolve-uri(string(document-uri(root(.)))))
       "/>
     <xsl:message>+ [INFO] processDir: effectiveRootDir="<xsl:value-of select="$effectiveRootDir"/></xsl:message>
     <xsl:variable name="collectionUri" 
@@ -173,7 +174,7 @@
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] rngDocs:
  <xsl:value-of select="for $doc in $rngDocs 
-   return concat(relpath:getName(document-uri($doc)),
+   return concat(relpath:getName(catutil:resolve-uri(string(document-uri($doc)))),
            ', moduleType: ',
            rngfunc:getModuleType($doc/*),
            ', isShell: ',
@@ -198,16 +199,23 @@
     
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] Referenced modules:
-<xsl:sequence select="for $doc in $referencedModules return concat(document-uri($doc), '&#x0a;')"/>      
+        <xsl:sequence 
+          select="
+            for $doc in $referencedModules 
+            return concat(catutil:resolve-uri(string(catutil:resolve-uri(string(document-uri($doc))))), '&#x0a;')
+          "
+        />      
       </xsl:message>
     </xsl:if>    
     
     <xsl:variable name="moduleDocs" as="document-node()*"
-      select="(for $doc in $rngDocs 
-                return if (matches(string(document-uri($doc)), '.+Mod.rng'))
-                          then $doc
-                          else ()), 
-                $referencedModules
+      select="
+        (for $doc in $rngDocs 
+         return 
+           if (matches(string(catutil:resolve-uri(string(document-uri($doc)), true())), '.+Mod.rng'))
+           then $doc
+           else ()), 
+         $referencedModules
       "
     />
     
@@ -236,7 +244,7 @@
     <xsl:message>+ [INFO] Getting list of unique modules...</xsl:message>
     <!-- Construct list of unique modules -->
     <xsl:variable name="modulesToProcess" as="document-node()*">
-      <xsl:for-each-group select="$moduleDocs" group-by="string(document-uri(.))">
+      <xsl:for-each-group select="$moduleDocs" group-by="string(catutil:resolve-uri(string(document-uri(.))))">
         <xsl:sequence select="."/><!-- Select first member of each group -->
       </xsl:for-each-group>
     </xsl:variable>

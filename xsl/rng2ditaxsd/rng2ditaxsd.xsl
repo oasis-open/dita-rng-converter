@@ -192,6 +192,7 @@
       </xsl:message>
     </xsl:if>    
     
+    <!-- FIXME: Need to use module metadata, not filename, to get modules -->
     <xsl:variable name="moduleDocs" as="document-node()*"
       select="(for $doc in $rngDocs 
                 return if (matches(string(document-uri($doc)), '.+Mod.rng'))

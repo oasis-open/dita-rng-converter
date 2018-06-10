@@ -38,7 +38,7 @@
     />
     <xsl:if test="not($dtdSystemId)">
       <xsl:message> - [ERROR] No @dita:dtdSystemId specified for rng:externalRef href="<xsl:value-of select="@href"/>"</xsl:message>
-    </xsl:if>
+    </xsl:if>    
     <xsl:variable name="entityName" as="xs:string"
       select="relpath:getNamePart(relpath:getName($dtdSystemId))"
     />
