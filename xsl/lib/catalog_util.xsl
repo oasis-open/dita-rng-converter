@@ -34,7 +34,7 @@
     <xsl:document>
       <xsl:call-template name="expandCatalogFile">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-        <xsl:with-param name="catalogUrl" as="xs:string?" tunnel="yes" select="$catalogUrl"/>
+        <xsl:with-param name="catalogUrl" as="xs:string?" tunnel="yes" select="$catalogs"/>
       </xsl:call-template>
     </xsl:document>
   </xsl:variable>
@@ -138,7 +138,7 @@
           <xsl:sequence select="$resultUri"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:message>+ [ERROR] catutil:resolve-uri(): URI "<xsl:value-of select="$input-uri"/>" is not defined in catalog file.</xsl:message>
+          <xsl:message>+ [ERROR] catutil:resolve-uri(): URI "<xsl:value-of select="$input-uri"/>" is not defined in catalog "<xsl:value-of select="$catalogs"/>"</xsl:message>
           <xsl:sequence select="$input-uri"/>
         </xsl:otherwise>
       </xsl:choose>

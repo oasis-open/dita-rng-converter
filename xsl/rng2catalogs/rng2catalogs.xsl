@@ -71,7 +71,7 @@
     -->
   
   <xd:doc>
-    <xd:param>$catalogUrl: File URL of [DITA-OT]/catalog-dita.xml</xd:param>
+    <xd:param>$catalogs: URL(s) of catalogs to use.</xd:param>
   </xd:doc>
   
   <!-- FIXME: This is used by the catalog utility to resolve URIs through a catalog.
@@ -80,7 +80,7 @@
               and then used to construct a global map representing
               the resolved catalogs to be used for URI lookup.
     -->
-  <xsl:param name="catalogUrl" as="xs:string?" select="()"/>
+  <xsl:param name="catalogs" as="xs:string?" select="()"/>
   
   <xsl:output omit-xml-declaration="yes"/>
   

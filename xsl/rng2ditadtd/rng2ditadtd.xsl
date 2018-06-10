@@ -121,9 +121,9 @@
               the resolved catalogs to be used for URI lookup.
     -->  
   <xd:doc>      
-    <xd:param>$catalogUrl: File URL of [DITA-OT]/catalog-dita.xml</xd:param>
+    <xd:param>$catalogs: File URL of [DITA-OT]/catalog-dita.xml</xd:param>
   </xd:doc>
-  <xsl:param name="catalogUrl" as="xs:string?" select="()"/>
+  <xsl:param name="catalogs" as="xs:string?" select="()"/>
   
   <!-- NOTE: The primary output of this transform is an XML 
        manifest file that lists all input files and their
