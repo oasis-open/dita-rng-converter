@@ -11,6 +11,7 @@
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   xmlns:local="http://local-functions"
   exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc local rng2ditadtd"
+  expand-text="yes"
   version="3.0">
   
   <xd:doc scope="stylesheet">
@@ -159,7 +160,7 @@
         then $rootDir
         else relpath:getParent(string(base-uri(root(.))))
       "/>
-    <xsl:message>+ [INFO] processDir: effectiveRootDir="<xsl:value-of select="$effectiveRootDir"/></xsl:message>
+    <xsl:message>+ [INFO] processDir: effectiveRootDir="{$effectiveRootDir}"</xsl:message>
     <xsl:variable name="collectionUri" 
       select="concat($effectiveRootDir, '?', 
           'recurse=yes;',
@@ -169,22 +170,19 @@
     <xsl:variable name="rngDocs" as="document-node()*"
       select="collection(iri-to-uri($collectionUri))"
     />
+
     <xsl:if test="$doDebug or true()">
       <xsl:message>+ [DEBUG] rngDocs:
- <xsl:value-of select="for $doc in $rngDocs 
-   return concat(relpath:getName(string(base-uri($doc))),
-           ', moduleType: ',
-           rngfunc:getModuleType($doc/*),
-           ', isShell: ',
-           rngfunc:isShellGrammar($doc),
-           '&#x0a;')"/>
+ {
+        $rngDocs ! (relpath:getName(string(base-uri(.))) ||
+        ', moduleType: ' || rngfunc:getModuleType(./*) ||
+        ', isShell: ' || rngfunc:isShellGrammar(.) ||
+        ', isModuleDoc: ' || rngfunc:isModuleDoc(.) ||
+        '&#x0a;')}        
       </xsl:message>
-    </xsl:if>
+    </xsl:if>    
     <xsl:variable name="shellDocs" as="document-node()*"
-      select="for $doc in $rngDocs 
-      return if (rngfunc:isShellGrammar($doc))
-                then $doc
-                else ()
+      select="$rngDocs ! (if (rngfunc:isShellGrammar(.)) then . else ())
       "
     />
     <xsl:variable name="referencedModules" as="document-node()*">
@@ -198,17 +196,14 @@
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] Referenced modules:
         <xsl:sequence 
-          select="
-            for $doc in $referencedModules 
-            return concat(string(base-uri($doc/*)), '&#x0a;')
-          "
+          select="$referencedModules ! string(base-uri(./*)) => string-join('&#x0a;')"
         />      
       </xsl:message>
       <xsl:message>+ [DEBUG] Referenced modules: document-uri() vs base-uri():
         <xsl:for-each select="$referencedModules">
-          <xsl:message>+ [DEBUG] [<xsl:value-of select="position()"/>] ------------</xsl:message>
-          <xsl:message>+ [DEBUG] document-uri()="<xsl:value-of select="document-uri(root(.))"/>"</xsl:message>
-          <xsl:message>+ [DEBUG] base-uri()="<xsl:value-of select="base-uri(root(.))"/>"</xsl:message>          
+          <xsl:message>+ [DEBUG] [{position()}] ------------</xsl:message>
+          <xsl:message>+ [DEBUG] document-uri()="{document-uri(root(.))}"</xsl:message>
+          <xsl:message>+ [DEBUG] base-uri()="{base-uri(root(.))}"</xsl:message>          
         </xsl:for-each>
         <xsl:message>+ [DEBUG] ------------</xsl:message>
       </xsl:message>
@@ -226,19 +221,17 @@
     />
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] Have <xsl:value-of select="count($shellDocs)"/> shell documents to process:</xsl:message>
+      <xsl:message>+ [DEBUG] Have {count($shellDocs)} shell documents to process:</xsl:message>
         <xsl:message>+ [DEBUG]</xsl:message>
         <xsl:for-each select="$shellDocs">
-          <xsl:message>+ [DEBUG] - <xsl:value-of select="/*/ditaarch:moduleDesc/ditaarch:moduleTitle"/>: <xsl:value-of 
-            select="string(base-uri(./*))"/></xsl:message>
+          <xsl:message>+ [DEBUG] - {/*/ditaarch:moduleDesc/ditaarch:moduleTitle}: {string(base-uri(./*))}</xsl:message>
         </xsl:for-each>
         <xsl:message>+ [DEBUG]</xsl:message>
         <xsl:message>+ [DEBUG] Module documents to process:</xsl:message>
         <xsl:message>+ [DEBUG]</xsl:message>
         <xsl:for-each select="$moduleDocs">
-          <xsl:message>+ [DEBUG] - <xsl:value-of select="/*/ditaarch:moduleDesc/ditaarch:moduleTitle"/></xsl:message>
-          <xsl:message>+ [DEBUG]    <xsl:value-of 
-            select="substring-after(string(base-uri(.)), concat($effectiveRootDir, '/'))"/></xsl:message>
+          <xsl:message>+ [DEBUG] - {/*/ditaarch:moduleDesc/ditaarch:moduleTitle}</xsl:message>
+          <xsl:message>+ [DEBUG]    {substring-after(string(base-uri(.)), concat($effectiveRootDir, '/'))}</xsl:message>
         </xsl:for-each>
         <xsl:message>+ [DEBUG]</xsl:message>
     </xsl:if>    
@@ -277,7 +270,7 @@
       <xsl:message terminate="yes"> - [ERROR] construction of modulesNoDivs failed. Count is <xsl:value-of select="count($modulesNoDivs)"/>, should be <xsl:value-of select="count($modulesToProcess)"/></xsl:message>
     </xsl:if>
     
-    <xsl:if test="$doDebug" expand-text="yes">
+    <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] Got {count($modulesNoDivs)} modulesNoDivs.</xsl:message>
     </xsl:if>
     
@@ -544,13 +537,13 @@
   <xsl:template name="reportParameters">
 <xsl:message>+ [INFO] Parameters:
   
-  debug              ="<xsl:value-of select="$debug"/>"
-  ditaVersion        ="<xsl:value-of select="$ditaVersion"/>"
-  generateModules    ="<xsl:value-of select="concat($generateModules, ' (', $doGenerateModules, ')')"/>"
-  headerCommentStyle ="<xsl:value-of select="$headerCommentStyle"/>"
-  moduleOutdir       ="<xsl:value-of select="$moduleOutdir"/>"
-  outdir             ="<xsl:value-of select="$outdir"/>"
-  usePublicIDsInShell="<xsl:value-of select="concat($usePublicIDsInShell, ' (', $doUsePublicIDsInShell, ')')"/>"
+  debug              ="{$debug}"
+  ditaVersion        ="{$ditaVersion}"
+  generateModules    ="{$generateModules || ' (' || $doGenerateModules || ')'}"
+  headerCommentStyle ="{$headerCommentStyle}"
+  moduleOutdir       ="{$moduleOutdir}"
+  outdir             ="{$outdir}"
+  usePublicIDsInShell="{$usePublicIDsInShell || ' (' || $doUsePublicIDsInShell || ')'}"
 
 </xsl:message>    
     
