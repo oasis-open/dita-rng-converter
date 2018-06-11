@@ -77,9 +77,21 @@
                 so we can construct the relative output path properly.
                 This hack will work for OASIS files but not necessarily 
                 any other organization pattern.
+                
+                When using public IDs, we only want the entity filename,
+                which will almost never be directly resolvable, forcing
+                all resolution to go through a catalog or fail. As a 
+                matter of code and deployment management, you never want
+                a false positive on a failure to resolve through catalogs,
+                e.g., the file happens to be locally available in your
+                development environment but will not be at the same 
+                relative location in any given deployment.
       -->
     <xsl:variable name="entitySystemID" as="xs:string"
-      select="replace(relpath:newFile($relpathFromShell, $entFilename), '/rng/', '/dtd/')"
+      select="
+      if ($doUsePublicIDsInShell)
+      then $entFilename
+      else replace(relpath:newFile($relpathFromShell, $entFilename), '/rng/', '/dtd/')"
     />
     <!-- Special case the topic and map modules, which do not have a *.ent file like all the rest 
          (topic has
