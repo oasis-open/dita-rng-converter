@@ -219,14 +219,6 @@
       <xsl:message> + [DEBUG] Got <xsl:value-of select="count($modulesNoDivs)"/> modulesNoDivs.</xsl:message>
     </xsl:if>
     
-    <!-- FIXME: All modules should have xml:base on the root element so there is always a good base URI value. -->
-    <!-- NOTE: At this point, the modules have been preprocessed to remove
-         <div> elements. This means that any module may be an intermediate
-         document-node that has no associated document-uri() value. The @origURI
-         attribute will have been added to the root element so we know where
-         it came from.
-      -->
-    
     <xsl:variable name="rncOutputDir" as="xs:string"
       select="if ($outdir = '') 
       then relpath:newFile($effectiveRootDir, 'rnc') 
@@ -280,7 +272,7 @@
       as="xs:string"
     />
     <xsl:variable name="rngModuleUrl" as="xs:string"
-      select="if (*/@origURI) then */@origURI else base-uri(.)"
+      select="base-uri(./*)"
     />
     
 <!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->

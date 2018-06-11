@@ -140,7 +140,7 @@
     <!-- Generate glossary.ent file -->
     
     <xsl:if test="$doDebug"> 
-      <xsl:message>+ [DEBUG] === entityFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>
+      <xsl:message expand-text="yes">+ [DEBUG] === entityFile: rng:grammar "{base-uri(.)}"</xsl:message>
     </xsl:if>    
     
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
@@ -196,7 +196,7 @@
     <!-- Generate glossary.mod file -->
     
     <xsl:if test="$doDebug"> 
-      <xsl:message>+ [DEBUG] === moduleFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>
+      <xsl:message expand-text="yes">+ [DEBUG] === moduleFile: rng:grammar "{base-uri(.)}"</xsl:message>
     </xsl:if>    
     
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>

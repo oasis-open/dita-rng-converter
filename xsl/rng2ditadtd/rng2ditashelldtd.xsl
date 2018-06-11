@@ -75,6 +75,7 @@
       
       <xsl:apply-templates select="." mode="getReferencedModules">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <!-- FIXME: This will not be needed once xml:base is in place -->
         <xsl:with-param name="origModule" select="root(.)" as="document-node()" tunnel="yes"/>
         <xsl:with-param name="modulesToProcess" as="document-node()*" tunnel="yes"
           select="$modulesToProcess" 

@@ -259,11 +259,16 @@
     <xsl:sequence select="$entFilename"/>
   </xsl:function>
 
+  <!-- Return the system URL of the grammar document (not the value used on
+       a reference to the module.
+       @param rngGrammar The grammar element to get the URI for.
+       @return The base-uri() value for the grammar.
+    -->
   <xsl:function name="rngfunc:getGrammarUri" as="xs:string">
     <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
-    <xsl:variable name="result" select="if (document-uri(root($rngGrammar))) 
-              then document-uri(root($rngGrammar))
-              else $rngGrammar/@origURI"/>
+    <xsl:variable name="result" as="xs:string" 
+      select="string(base-uri($rngGrammar))"
+    />
     <xsl:sequence select="$result"/>
   </xsl:function>
   
@@ -304,6 +309,7 @@
     <xsl:param name="externalRef" as="element(rng:externalRef)"/>
     <xsl:param name="doDebug" as="xs:boolean"/>
     
+    <!-- FIXME: Use base-uri() instead of @origURI -->
     <xsl:variable name="moduleUri" as="xs:string" 
       select="$externalRef/ancestor-or-self::*[@origURI != ''][1]/@origURI"
     />

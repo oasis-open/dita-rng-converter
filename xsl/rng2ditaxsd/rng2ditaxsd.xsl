@@ -251,14 +251,6 @@
       <xsl:message> + [DEBUG] Got <xsl:value-of select="count($modulesNoDivs)"/> modulesNoDivs.</xsl:message>
     </xsl:if>
     
-    <!-- FIXME: All intermediate docs should have xml:base on the root element so there is a good base-uri value -->
-    <!-- NOTE: At this point, the modules have been preprocessed to remove
-         <div> elements. This means that any module may be an intermediate
-         document-node that has no associated document-uri() value. The @origURI
-         attribute will have been added to the root element so we know where
-         it came from.
-      -->
-    
     <xsl:variable name="schemaDirName" as="xs:string"
       select="if ($doUseURNsInShell) then 'schema' else 'schama-url'"
     />
@@ -331,7 +323,7 @@
       as="xs:string"
     />
     <xsl:variable name="rngModuleUrl" as="xs:string"
-      select="if (*/@origURI) then */@origURI else base-uri(.)"
+      select="string(base-uri(./*))"
     />
     <xsl:message> + [INFO] processModules: Handling module <xsl:value-of select="$rngModuleUrl"/>...</xsl:message>
     <xsl:if test="$doDebug">
@@ -483,14 +475,6 @@
       </xsl:apply-templates>
     </xsl:variable>
     
-    <!-- FIXME: All intermediate docs should have xml:base on the root element so there is a good base-uri value -->
-    <!-- NOTE: At this point, the modules have been preprocessed to remove
-         <div> elements. This means that any module may be an intermediate
-         node that has no associated document-uri() value. The @origURI
-         attribute will have been added to the root element so we know where
-         it came from.
-      -->
-    
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
     </xsl:if>
@@ -586,7 +570,7 @@
     />
     
     <xsl:variable name="rngModuleUrl" as="xs:string"
-      select="if (*/@origURI) then */@origURI else base-uri(.)"
+      select="string(base-uri(./*))"
     />
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence

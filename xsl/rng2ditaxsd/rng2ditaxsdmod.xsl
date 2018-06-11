@@ -451,7 +451,7 @@
     </xsl:if>
     
     <xsl:variable name="referencingRngModuleUrl" as="xs:string"
-      select="if (root(.)/*/@origURI) then root(.)/*/@origURI else base-uri(.)"
+      select="string(base-uri(root(.)/*))"
     />
     <xsl:variable name="targetUrl" as="xs:string"
       select="relpath:newFile(relpath:getParent($referencingRngModuleUrl), string(@href))"

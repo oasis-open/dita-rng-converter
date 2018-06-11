@@ -29,6 +29,7 @@
       <xsl:document>
         <xsl:apply-templates mode="resolveIncludesNormalize">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->
           <xsl:with-param name="origModule" as="document-node()" tunnel="yes" select="."/>
         </xsl:apply-templates>
       </xsl:document>
@@ -60,6 +61,7 @@
   
   <xsl:template mode="resolveIncludesNormalize" match="rng:include">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->
     <xsl:param name="origModule" as="document-node()" tunnel="yes" select="root(.)"/>
     
     <!-- FIXME: Determine if we should be using document-uri() or base-uri() here. -->

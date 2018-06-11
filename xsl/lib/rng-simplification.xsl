@@ -63,6 +63,7 @@ exclude-result-prefixes = "xs rng local">
 			<xsl:apply-templates select="$step" mode="step4.03"> 
 				<xsl:with-param name="out" select="$out" as="xs:boolean"/>
 				<xsl:with-param name="stop-after" select="$stop-after" as="xs:string"/>
+			  <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->
         <!-- We need this for resolving references later in the process
              where we're operating on internal nodes where the base
              URI is the XSLT transform itself.
@@ -268,7 +269,9 @@ exclude-result-prefixes = "xs rng local">
 
 
 <xsl:template match="rng:externalRef" mode="step4.06">
+  <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->  
   <xsl:param name="origDoc" tunnel="yes" as="document-node()"/>
+  
   <xsl:variable name="uriRef" as="xs:string" select="@href"/>
   <xsl:message> + [DEBUG]] rng:externalRef: uriRef = "<xsl:sequence select="$uriRef"/>"</xsl:message>
   <xsl:variable name="includedDoc" as="document-node()?" 
@@ -337,7 +340,9 @@ exclude-result-prefixes = "xs rng local">
 
 
 <xsl:template match="rng:include" mode="step4.07">
+  <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->
   <xsl:param name="origDoc" as="document-node()" tunnel="yes"/>
+
   <xsl:variable name="uriRef" as="xs:string" select="@href"/>
   <xsl:message> + [INFO] ======</xsl:message>
   <xsl:message> + [INFO] Processing included schema "<xsl:sequence select="$uriRef"/>"</xsl:message>

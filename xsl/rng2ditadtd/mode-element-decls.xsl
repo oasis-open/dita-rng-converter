@@ -45,11 +45,8 @@
         <xsl:if test="$doDebug">
           <xsl:message>+ [DEBUG] element-decls: rng:include - Handling module "<xsl:value-of select="@href"/>"</xsl:message>
         </xsl:if>
-        <xsl:variable name="referencingGrammarUrl" as="xs:string" 
-          select="string(/*/@origURI)"
-        />
         <xsl:if test="$doDebug">
-          <xsl:message>+ [DEBUG]   referencingGrammarUrl="<xsl:value-of select="$referencingGrammarUrl"/>"</xsl:message>
+          <xsl:message>+ [DEBUG]   referencingGrammarUrl="<xsl:value-of select="$thisModuleURI"/>"</xsl:message>
         </xsl:if>
         
         <xsl:apply-templates mode="#current" select="a:documentation">
@@ -64,7 +61,7 @@
             select="'mod'"
           />
           <xsl:with-param name="referencingGrammarUrl" tunnel="yes" as="xs:string"
-            select="$referencingGrammarUrl"
+            select="$thisModuleURI"
           />
         </xsl:apply-templates>
       </xsl:when>

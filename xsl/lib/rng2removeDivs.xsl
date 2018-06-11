@@ -28,17 +28,12 @@
   <xsl:template mode="removeDivs" match="rng:grammar" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
 
-    <!-- FIXME: Determine if we should be using document-uri() or base-uri() here. -->
-    <xsl:variable name="origURI" select="string(document-uri(root(.)))" as="xs:string?"/>
+    <xsl:variable name="base-uri" select="string(base-uri(root(.)/*))" as="xs:string"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] removeDivs: rng:grammar, origURI="<xsl:value-of select="$origURI"/>"</xsl:message>
+      <xsl:message> + [DEBUG] removeDivs: rng:grammar, base-uri="<xsl:value-of select="$base-uri"/>"</xsl:message>
     </xsl:if>
     <xsl:copy>
-      <xsl:if test="$origURI">
-    <!--<xsl:message> + [DEBUG] removeDivs: Constructing @origURI attribute</xsl:message>-->
-        <!--xsl:attribute name="origURI" select="$origURI"/-->
-        <xsl:attribute name="origURI" select="$origURI"/>
-      </xsl:if>
+      <xsl:attribute name="xml:base" select="$base-uri"/>
       <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>

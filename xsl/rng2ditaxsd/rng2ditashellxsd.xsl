@@ -315,6 +315,7 @@
         <xsl:when test="$isDitabase">
           <xsl:variable name="topLevelModules" as="document-node()*">
             <xsl:apply-templates select="." mode="getReferencedModules">
+              <!-- FIXME: Won't need this once xml:base is in place -->
               <xsl:with-param name="origModule" select="root(.)" as="document-node()" tunnel="yes"/>
               <xsl:with-param name="modulesToProcess" as="document-node()*" tunnel="yes"
                 select="$includedModules" 
@@ -511,7 +512,7 @@ It must be declared in topic-type shells.
       </xsl:if>
       
       <xsl:variable name="rngModuleUrl" as="xs:string"
-        select="if (*/@origURI) then */@origURI else base-uri(.)"
+        select="string(base-uri(./*))"
       />
       <xsl:variable name="origModule" as="document-node()"
         select="document($rngModuleUrl)"

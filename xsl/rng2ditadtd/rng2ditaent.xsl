@@ -43,7 +43,7 @@
       tunnel="yes"
     />
     <xsl:if test="$doDebug"> 
-      <xsl:message>+ [DEBUG] === entityFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>
+      <xsl:message expand-text="yes">+ [DEBUG] === entityFile: rng:grammar {base-uri(.)}"</xsl:message>
     </xsl:if>    
     <xsl:variable name="moduleTitle" 
       select="rngfunc:getModuleTitle(.)" 

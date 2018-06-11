@@ -33,6 +33,7 @@
 
   <xsl:template match="rng:include" mode="getReferencedModules">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->
     <xsl:param name="origModule" as="document-node()" tunnel="yes" select="root(.)"/>
     <xsl:param name="modulesToProcess" as="document-node()*" tunnel="yes"/>
     <xsl:param name="isProcessNestedIncludes" as="xs:boolean" tunnel="yes" select="true()"/>
@@ -45,8 +46,12 @@
       <xsl:when test="$rngModule">
         <!-- FIXME: Determine if we should be using document-uri() or base-uri() here, probably base-uri -->
         <xsl:variable name="gatheredModule" 
-          select="$modulesToProcess[local:isSameModule(string(/*/@origURI),
-               string(document-uri($rngModule)))][1]" as="document-node()?"
+          select="
+            $modulesToProcess[
+              local:isSameModule(
+                  string(base-uri(/*)),
+                  string(base-uri($rngModule)))
+            ][1]" as="document-node()?"
         />
         <xsl:choose>
           <xsl:when test="$gatheredModule">
@@ -56,6 +61,7 @@
             <xsl:sequence select="$gatheredModule"/>
             <xsl:if test="$isProcessNestedIncludes">           
               <xsl:apply-templates select="$gatheredModule/*" mode="#current">
+                <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->
                 <xsl:with-param name="origModule" select="$rngModule" as="document-node()" tunnel="yes"/>
               </xsl:apply-templates>
             </xsl:if>
@@ -75,7 +81,7 @@
         </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> - [WARN] getReferencedModules: Failed to resolve reference to module for href "<xsl:value-of select="@href"/> relative to URI "<xsl:value-of select="document-uri($origModule)"/>".</xsl:message>
+        <xsl:message> - [WARN] getReferencedModules: Failed to resolve reference to module for href "<xsl:value-of select="@href"/> relative to URI "<xsl:value-of select="document-uri($origModule)"/>" ("<xsl:value-of select="base-uri($origModule/*)"/>").</xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -105,59 +111,16 @@
     <xsl:apply-templates select="$rngModule" mode="#current"/>
   </xsl:template>
   
+  <!-- FIXME: This is a refactor of a much more complex function that is no longer necessary
+       because the code now uses base-uri(), not document-uri().
+       
+       Leaving the function to maintain the knowledge of the URI comparison semantic.
+    -->
   <xsl:function name="local:isSameModule" as="xs:boolean">
     <xsl:param name="uri1" as="xs:string"/>
     <xsl:param name="uri2" as="xs:string"/>
     
-    <!-- Compare 2 URIs to see if they are equivalent.
-         If they are both URNs or both not URNs, they must be identical to be the same module.
-         If one is a URN and one is a URL, then compare the last token.
-         If both tokens end with ".rng" then the last tokens must be identical.
-         If one does not end with .rng then the name parts must be identical.
-         
-         This depends on the URN convention that the last token of the 
-         URN is either the RNG filename or the filename part of the RNG filename.
-         
-         This is a bit of a hack but I can't think of a more reliable way
-         to do this with the current processing code as structured, because there's
-         no easy way to correlate the original URI used on the rng:include
-         element with the URL of the actual document.
-      -->
-    <xsl:variable name="result" as="xs:boolean">
-      <xsl:choose>
-        <xsl:when test="
-          (starts-with($uri1, 'urn:') and starts-with($uri2, 'urn:')) or
-          (not(starts-with($uri1, 'urn:')) and not(starts-with($uri2, 'urn:')))">
-          <xsl:sequence select="$uri1 = $uri2"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:variable name="lastToken1" as="xs:string"
-            select="(if (starts-with($uri1, 'urn:')) 
-                        then tokenize($uri1, ':')
-                        else tokenize($uri1, '/'))[last()]"
-          />
-          <xsl:variable name="lastToken2" as="xs:string"
-            select="(if (starts-with($uri2, 'urn:')) 
-                        then tokenize($uri2, ':')
-                        else tokenize($uri2, '/'))[last()]"
-          />
-
-          <xsl:choose>
-            <xsl:when test="ends-with($lastToken1,'.rng') and 
-                            ends-with($lastToken2, '.rng')">
-              <xsl:sequence select="$lastToken1 = $lastToken2"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:variable name="filename1" as="xs:string"
-                select="relpath:getNamePart($lastToken1)"/>
-              <xsl:variable name="filename2" as="xs:string"
-                select="relpath:getNamePart($lastToken2)"/>
-              <xsl:sequence select="$filename1 = $filename2"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
+    <xsl:variable name="result" select="$uri1 eq $uri2"/>
     <xsl:sequence select="$result"/>
   </xsl:function>
 </xsl:stylesheet>

@@ -277,13 +277,12 @@
       <xsl:message terminate="yes"> - [ERROR] construction of modulesNoDivs failed. Count is <xsl:value-of select="count($modulesNoDivs)"/>, should be <xsl:value-of select="count($modulesToProcess)"/></xsl:message>
     </xsl:if>
     
-<!--    <xsl:message>+ [DEBUG] Got <xsl:value-of select="count($modulesNoDivs)"/> modulesNoDivs.</xsl:message>-->
+    <xsl:if test="$doDebug" expand-text="yes">
+      <xsl:message>+ [DEBUG] Got {count($modulesNoDivs)} modulesNoDivs.</xsl:message>
+    </xsl:if>
     
     <!-- NOTE: At this point, the modules have been preprocessed to remove
-         <div> elements. This means that any module may be an intermediate
-         document-node that has no associated document-uri() value. The @origURI
-         attribute will have been added to the root element so we know where
-         it came from.
+         <div> elements.
       -->
     
     <xsl:variable name="dtdOutputDir" as="xs:string"
@@ -353,6 +352,7 @@
 
     <xsl:variable name="modulesToProcess" as="document-node()*">
       <xsl:apply-templates mode="gatherModules" >
+        <!-- FIXME: We won't need this once xml:base is in place for intermediate docs -->
         <xsl:with-param name="origModule" select="root(.)"/>
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       </xsl:apply-templates>
@@ -368,16 +368,6 @@
         </xsl:apply-templates>
       </xsl:for-each>
     </xsl:variable>
-
-    <!-- FIXME: Should be setting xml:base on the roots of intermediate docs so
-                there is always a good base URI.
-      -->
-    <!-- NOTE: At this point, the modules have been preprocessed to remove
-         <div> elements. This means that any module may be an intermediate
-         node that has no associated document-uri() value. The @origURI
-         attribute will have been added to the root element so we know where
-         it came from.
-      -->
     
     <rng2ditadtd:conversionManifest xmlns="http://dita.org/rng2ditadtd"
       timestamp="{current-dateTime()}"
@@ -426,7 +416,7 @@
       as="xs:string"
     />
     <xsl:variable name="rngModuleUrl" as="xs:string"
-      select="if (*/@origURI) then */@origURI else base-uri(.)"
+      select="string(base-uri(./*))"
     />
     <xsl:message>+ [INFO] processModules: Handling module <xsl:value-of select="$rngModuleUrl"/>...</xsl:message>
     <xsl:if test="$doDebug">
