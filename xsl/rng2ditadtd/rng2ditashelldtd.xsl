@@ -48,7 +48,8 @@
          The output needs to be in dtd/{package}/dtd
       -->
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] processShell: Handling doc <xsl:value-of select="document-uri(root(.))"/></xsl:message>
+      <xsl:message>+ [DEBUG] processShell: Handling doc <xsl:value-of select="document-uri(root(.))"/> ("<xsl:value-of
+          select="base-uri(root(.)/*)"/>")</xsl:message>
       <xsl:message>+ [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
     </xsl:if>
     
@@ -198,6 +199,7 @@
             as="xs:string" 
             tunnel="yes"
           />
+          <!-- FIXME: Determine if we should be using document-uri() or base-uri() here. -->
           <xsl:with-param name="rngShellUri" as="xs:string"
             select="document-uri(root(.))"
           />
@@ -416,7 +418,8 @@
               <xsl:if test="$topicType != 'topic' or (normalize-space(//rng:start/rng:ref/@name) = 'topic.element')">
                 <xsl:if test="$doDebug">
                   <xsl:message>+ [DEBUG] match="rng:grammar" mode="dtdFile": A topic-type module, applying templates to *-info-types defines...</xsl:message>
-                  <xsl:message>+ [DEBUG]  info-types defines in <xsl:value-of select="document-uri($module)"/>:
+                  <xsl:message>+ [DEBUG]  info-types defines in <xsl:value-of select="document-uri($module)"/> ("<xsl:value-of
+                    select="base-uri($module/*)"/>"):
                     <xsl:sequence select="$module//rng:define[ends-with(@name, '-info-types')]"/>
                   </xsl:message>
                 </xsl:if>

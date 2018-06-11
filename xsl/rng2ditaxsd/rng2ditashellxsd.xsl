@@ -196,7 +196,7 @@
       <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] **** shell handling, before metaDecl: included modules:
         <xsl:for-each select="$includedModules">
-          <xsl:sequence select="'&#x0a;', document-uri(.)"/>
+          <xsl:sequence select="'&#x0a;', document-uri(.)"/> <xsl:text>("</xsl:text> <xsl:value-of select="base-uri(./*)"/><xsl:text>")</xsl:text>
         </xsl:for-each>
         </xsl:message>
       </xsl:if>

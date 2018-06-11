@@ -413,7 +413,7 @@
          so the package is the grandparent directory name.
       -->
     <xsl:variable name="pathTokens" as="xs:string*"
-      select="tokenize(document-uri($grammarDoc), '/')"
+      select="tokenize(base-uri($grammarDoc/*), '/')"
     />
     <xsl:variable name="result" as="xs:string"
       select="$pathTokens[last() - 2]"
@@ -427,13 +427,8 @@
     <!-- NOTE: For now ignoring ditaval.rng as it is a special case.
          Will need to handle it specially at some point. Or not.
       -->
-    <xsl:variable name="isShell" as="xs:boolean"
-      select="rngfunc:getModuleType($doc/*, false()) = ('topicshell', 'mapshell')"
-    />
     <xsl:variable name="result" as="xs:boolean"
-      select="
-      $isShell
-      "
+      select="rngfunc:getModuleType($doc/*, false()) = ('topicshell', 'mapshell')"
     />
     <xsl:sequence select="$result"/>
   </xsl:function>
@@ -442,7 +437,7 @@
     <xsl:param name="doc" as="document-node()"/>
     <xsl:variable name="base-uri" 
       as="xs:string"
-      select="string(document-uri($doc))"
+      select="string(base-uri($doc/*))"
     />
     <xsl:variable name="filename" as="xs:string"
       select="relpath:getName($base-uri)"

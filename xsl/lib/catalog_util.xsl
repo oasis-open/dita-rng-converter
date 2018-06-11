@@ -4,6 +4,7 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog"
   xmlns:catutil="http://local/catalog-utility"
+  
   exclude-result-prefixes="xs xd catutil"
   version="2.0">
 
@@ -31,12 +32,12 @@
       
          It should allow a list of catalog URLs 
       -->
-    <xsl:document>
-      <xsl:call-template name="expandCatalogFile">
-        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-        <xsl:with-param name="catalogUrl" as="xs:string?" tunnel="yes" select="$catalogs"/>
-      </xsl:call-template>
-    </xsl:document>
+      <xsl:document>
+        <xsl:call-template name="expandCatalogFile">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          <xsl:with-param name="catalogUrl" as="xs:string?" tunnel="yes" select="$catalogs"/>
+        </xsl:call-template>
+      </xsl:document>
   </xsl:variable>
   
   <xd:doc>
@@ -111,17 +112,31 @@
   </xd:doc>
   <xsl:function name="catutil:resolve-uri" as="xs:string">
     <xsl:param name="input-uri" as="xs:string"/>
-    <xsl:sequence select="catutil:resolve-uri($input-uri, false())"/>
+    <xsl:sequence select="catutil:resolve-uri($input-uri, false(), false())"/>
   </xsl:function>
 
   <xd:doc>
     <xd:desc>Resolve a URI to a URI through the configured catalogs</xd:desc>
+    <xd:param>input-uri: URI to be resolved</xd:param>
+    <xd:param name="doDebug">Turn debugging on off</xd:param>
+    <xd:return>File URI. If URI is not mapped, returns input URI.</xd:return>
+  </xd:doc>
+  <xsl:function name="catutil:resolve-uri" as="xs:string">
+    <xsl:param name="input-uri" as="xs:string"/>
+    <xsl:param name="doDebug" as="xs:boolean"/>
+    <xsl:sequence select="catutil:resolve-uri($input-uri, false(), $doDebug)"/>
+  </xsl:function>
+  
+  <xd:doc>
+    <xd:desc>Resolve a URI to a URI through the configured catalogs</xd:desc>
     <xd:param name="input-uri">URI to be resolved</xd:param>
+    <xd:param name="verbose">Turn verbose error messages on or off. When on, all resolution failures are reported.</xd:param>
     <xd:param name="doDebug">Turn debugging on off</xd:param>
     <xd:return>File URI. If URI is not mapped, returns input URI.</xd:return>
   </xd:doc>
   <xsl:function name="catutil:resolve-uri" as="xs:string">
       <xsl:param name="input-uri" as="xs:string"/>
+      <xsl:param name="verbose" as="xs:boolean"/>
       <xsl:param name="doDebug" as="xs:boolean"/>
     
       <xsl:variable name="uri-entry" as="element()?"
@@ -135,10 +150,15 @@
           <xsl:if test="$doDebug">
             <xsl:message>+ [DEBUG] catutil:resolve-uri(): URI "<xsl:value-of select="$input-uri"/>" is mapped to "<xsl:value-of select="$resultUri"/>"</xsl:message>
           </xsl:if>
+          <xsl:if test="$verbose">
+            <xsl:message>+ [INFO] catutil:resolve-uri(): URI "<xsl:value-of select="$input-uri"/>" is mapped to "<xsl:value-of select="$resultUri"/>"</xsl:message>
+          </xsl:if>
           <xsl:sequence select="$resultUri"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:message>+ [ERROR] catutil:resolve-uri(): URI "<xsl:value-of select="$input-uri"/>" is not defined in catalog "<xsl:value-of select="$catalogs"/>"</xsl:message>
+          <xsl:if test="$verbose">
+            <xsl:message>+ [WARN] catutil:resolve-uri(): URI "<xsl:value-of select="$input-uri"/>" is not defined in catalog "<xsl:value-of select="$catalogs"/>"</xsl:message>
+          </xsl:if>
           <xsl:sequence select="$input-uri"/>
         </xsl:otherwise>
       </xsl:choose>

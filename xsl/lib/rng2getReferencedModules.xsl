@@ -39,10 +39,11 @@
 
     <xsl:variable name="rngModule" as="document-node()?" select="document(@href, $origModule)" />
     <xsl:if test="$doDebug">    
-      <xsl:message> + [DEBUG] getReferencedModules: rng:include: document-uri($rngModule)="<xsl:value-of select="document-uri($rngModule)"/>"</xsl:message>
+      <xsl:message> + [DEBUG] getReferencedModules: rng:include: document-uri($rngModule)="<xsl:value-of select="document-uri($rngModule)"/>" ("<xsl:value-of select="base-uri($rngModule/*)"/>")</xsl:message>
     </xsl:if>    
     <xsl:choose>
       <xsl:when test="$rngModule">
+        <!-- FIXME: Determine if we should be using document-uri() or base-uri() here, probably base-uri -->
         <xsl:variable name="gatheredModule" 
           select="$modulesToProcess[local:isSameModule(string(/*/@origURI),
                string(document-uri($rngModule)))][1]" as="document-node()?"
@@ -60,6 +61,7 @@
             </xsl:if>
           </xsl:when>
           <xsl:otherwise>
+            <!-- FIXME: Determine if we should be using document-uri() or base-uri() here. -->
             <xsl:variable name="moduleUri" select="string(document-uri($rngModule))" as="xs:string"/>
             <xsl:choose>
               <xsl:when test="ends-with($moduleUri, 'Mod.rng')">

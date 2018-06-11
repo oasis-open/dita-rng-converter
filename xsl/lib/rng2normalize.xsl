@@ -62,6 +62,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="origModule" as="document-node()" tunnel="yes" select="root(.)"/>
     
+    <!-- FIXME: Determine if we should be using document-uri() or base-uri() here. -->
     <xsl:variable name="origUri"
       select="if ($origModule/*/@origURI) 
       then $origModule/*/@origURI 
@@ -84,7 +85,7 @@
         </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> - [WARN] resolveIncludes: Failed to resolve reference to module "<xsl:value-of select="@href"/>" relative to module "<xsl:value-of select="document-uri($origModule)"/>"</xsl:message>
+        <xsl:message> - [WARN] resolveIncludes: Failed to resolve reference to module "<xsl:value-of select="@href"/>" relative to module "<xsl:value-of select="document-uri($origModule)"/>" ("<xsl:value-of select="base-uri($origModule/*)"/>"</xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

@@ -96,7 +96,7 @@
     <xsl:variable name="effectiveRootDir" as="xs:string" 
       select="if ($rootDir != '')
       then $rootDir
-      else relpath:getParent(document-uri(root(.)))
+      else relpath:getParent(base-uri(root(.)/*))
       "/>
     <xsl:message> + [INFO] processDir: effectiveRootDir="<xsl:value-of select="$effectiveRootDir"/></xsl:message>
     <xsl:variable name="collectionUri" 
@@ -114,7 +114,7 @@
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:for-each select="$rngDocs">
         <xsl:message> + [DEBUG]  <xsl:value-of 
-          select="substring-after(string(document-uri(.)), concat($effectiveRootDir, '/'))"/></xsl:message>
+          select="substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))"/></xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
     </xsl:if>    

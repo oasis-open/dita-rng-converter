@@ -137,7 +137,7 @@
     <xsl:variable name="effectiveRootDir" as="xs:string" 
       select="if ($rootDir != '')
       then $rootDir
-      else relpath:getParent(document-uri(root(.)))
+      else relpath:getParent(base-uri(root(.)/*))
       "/>
     
     <xsl:message> + [INFO] processDir: effectiveRootDir="<xsl:value-of select="$effectiveRootDir"/></xsl:message>
@@ -159,9 +159,10 @@
       else ()
       "
     />
+    <!-- FIXME: Need to use module metadata, not filenames -->
     <xsl:variable name="moduleDocs" as="document-node()*"
       select="for $doc in $rngDocs 
-      return if (matches(string(document-uri($doc)), '.+Mod.rng'))
+      return if (matches(string(base-uri($doc/*)), '.+Mod.rng'))
       then $doc
       else ()
       "
@@ -172,7 +173,7 @@
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:for-each select="$shellDocs">
         <xsl:message> + [DEBUG]  <xsl:value-of 
-          select="substring-after(string(document-uri(.)), concat($effectiveRootDir, '/'))"/></xsl:message>
+          select="substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))"/></xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:message> + [DEBUG] Module documents to process:</xsl:message>
@@ -180,7 +181,7 @@
       <xsl:for-each select="$moduleDocs">
         <xsl:message> + [DEBUG] - <xsl:value-of select="/*/ditaarch:moduleDesc/ditaarch:moduleTitle"/></xsl:message>
         <xsl:message> + [DEBUG]    <xsl:value-of 
-          select="substring-after(string(document-uri(.)), concat($effectiveRootDir, '/'))"/></xsl:message>
+          select="substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))"/></xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
     </xsl:if>    
@@ -191,7 +192,7 @@
     <xsl:message> + [INFO] Getting list of unique modules...</xsl:message>
     <!-- Construct list of unique modules -->
     <xsl:variable name="modulesToProcess" as="document-node()*">
-      <xsl:for-each-group select="$moduleDocs" group-by="string(document-uri(.))">
+      <xsl:for-each-group select="$moduleDocs" group-by="string(base-uri(./*))">
         <xsl:sequence select="."/><!-- Select first member of each group -->
       </xsl:for-each-group>
     </xsl:variable>
@@ -219,6 +220,7 @@
       <xsl:message> + [DEBUG] Got <xsl:value-of select="count($modulesNoDivs)"/> modulesNoDivs.</xsl:message>
     </xsl:if>
     
+    <!-- FIXME: All modules should have xml:base on the root element so there is always a good base URI value. -->
     <!-- NOTE: At this point, the modules have been preprocessed to remove
          <div> elements. This means that any module may be an intermediate
          document-node that has no associated document-uri() value. The @origURI

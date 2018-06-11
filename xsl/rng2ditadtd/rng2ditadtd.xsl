@@ -155,11 +155,20 @@
       -->
      <xsl:call-template name="reportParameters"/>
 
+    <xsl:if test="$doDebug or true()">
+      <xsl:variable name="result-uri" as="xs:string" select="'catalog-tree.xml'"/>
+      <xsl:message>+ [DEBUG] Writing resolved catalog to <xsl:value-of select="$result-uri"/>
+      </xsl:message>
+      <xsl:result-document href="{$result-uri}" indent="yes">
+        <xsl:sequence select="$catalogTree"/>        
+      </xsl:result-document>
+    </xsl:if>
+
     <xsl:message>+ [INFO] Preparing documents to process...</xsl:message>
     <xsl:variable name="effectiveRootDir" as="xs:string" 
       select="if ($rootDir != '')
         then $rootDir
-        else relpath:getParent(catutil:resolve-uri(string(document-uri(root(.)))))
+        else relpath:getParent(string(base-uri(root(.))))
       "/>
     <xsl:message>+ [INFO] processDir: effectiveRootDir="<xsl:value-of select="$effectiveRootDir"/></xsl:message>
     <xsl:variable name="collectionUri" 
@@ -171,10 +180,10 @@
     <xsl:variable name="rngDocs" as="document-node()*"
       select="collection(iri-to-uri($collectionUri))"
     />
-    <xsl:if test="$doDebug">
+    <xsl:if test="$doDebug or true()">
       <xsl:message>+ [DEBUG] rngDocs:
  <xsl:value-of select="for $doc in $rngDocs 
-   return concat(relpath:getName(catutil:resolve-uri(string(document-uri($doc)))),
+   return concat(relpath:getName(string(base-uri($doc))),
            ', moduleType: ',
            rngfunc:getModuleType($doc/*),
            ', isShell: ',
@@ -202,9 +211,17 @@
         <xsl:sequence 
           select="
             for $doc in $referencedModules 
-            return concat(catutil:resolve-uri(string(catutil:resolve-uri(string(document-uri($doc))))), '&#x0a;')
+            return concat(string(base-uri($doc/*)), '&#x0a;')
           "
         />      
+      </xsl:message>
+      <xsl:message>+ [DEBUG] Referenced modules: document-uri() vs base-uri():
+        <xsl:for-each select="$referencedModules">
+          <xsl:message>+ [DEBUG] [<xsl:value-of select="position()"/>] ------------</xsl:message>
+          <xsl:message>+ [DEBUG] document-uri()="<xsl:value-of select="document-uri(root(.))"/>"</xsl:message>
+          <xsl:message>+ [DEBUG] base-uri()="<xsl:value-of select="base-uri(root(.))"/>"</xsl:message>          
+        </xsl:for-each>
+        <xsl:message>+ [DEBUG] ------------</xsl:message>
       </xsl:message>
     </xsl:if>    
     
@@ -212,7 +229,7 @@
       select="
         (for $doc in $rngDocs 
          return 
-           if (matches(string(catutil:resolve-uri(string(document-uri($doc)), true())), '.+Mod.rng'))
+           if (matches(string(base-uri($doc/*)), '.+Mod.rng'))
            then $doc
            else ()), 
          $referencedModules
@@ -232,7 +249,7 @@
         <xsl:for-each select="$moduleDocs">
           <xsl:message>+ [DEBUG] - <xsl:value-of select="/*/ditaarch:moduleDesc/ditaarch:moduleTitle"/></xsl:message>
           <xsl:message>+ [DEBUG]    <xsl:value-of 
-            select="substring-after(string(document-uri(.)), concat($effectiveRootDir, '/'))"/></xsl:message>
+            select="substring-after(string(base-uri(.)), concat($effectiveRootDir, '/'))"/></xsl:message>
         </xsl:for-each>
         <xsl:message>+ [DEBUG]</xsl:message>
     </xsl:if>    
@@ -244,7 +261,7 @@
     <xsl:message>+ [INFO] Getting list of unique modules...</xsl:message>
     <!-- Construct list of unique modules -->
     <xsl:variable name="modulesToProcess" as="document-node()*">
-      <xsl:for-each-group select="$moduleDocs" group-by="string(catutil:resolve-uri(string(document-uri(.))))">
+      <xsl:for-each-group select="$moduleDocs" group-by="string(base-uri(./*))">
         <xsl:sequence select="."/><!-- Select first member of each group -->
       </xsl:for-each-group>
     </xsl:variable>
@@ -337,7 +354,7 @@
   </xsl:template>
 
   <xsl:template match="/">
-    <xsl:call-template name="reportParameters"/>
+    <xsl:call-template name="reportParameters"/>    
 
     <xsl:variable name="dtdOutputDir" as="xs:string"
       select="if ($outdir = '') 
@@ -363,6 +380,9 @@
       </xsl:for-each>
     </xsl:variable>
 
+    <!-- FIXME: Should be setting xml:base on the roots of intermediate docs so
+                there is always a good base URI.
+      -->
     <!-- NOTE: At this point, the modules have been preprocessed to remove
          <div> elements. This means that any module may be an intermediate
          node that has no associated document-uri() value. The @origURI

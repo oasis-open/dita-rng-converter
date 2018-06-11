@@ -370,6 +370,7 @@
         <xsl:with-param name="doDebug" as="xs:boolean" select="$doDebug" tunnel="yes"/>        
       </xsl:apply-templates>
     </xsl:variable>
+    <!-- FIXME: Determine if we should be using document-uri() or base-uri() here. -->
     <xsl:variable name="initialBaseName" as="xs:string"
       select="relpath:getNamePart(document-uri(root(.)))"
     />
@@ -453,6 +454,7 @@
         <xsl:with-param name="doDebug" as="xs:boolean" select="$doDebug" tunnel="yes"/>        
       </xsl:apply-templates>
     </xsl:variable>
+    <!-- FIXME: Determine if we should be using document-uri() or base-uri() here. -->
     <xsl:variable name="baseName" as="xs:string"
       select="relpath:getNamePart(document-uri(root(.)))"
     />
@@ -508,6 +510,7 @@
       </xsl:apply-templates>
     </xsl:variable>
     
+    <!-- FIXME: Determine if we should be using document-uri() or base-uri() here. -->
     <xsl:variable name="moduleName" as="xs:string"
       select="relpath:getNamePart(document-uri(root(.)))"
     />

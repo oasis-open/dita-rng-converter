@@ -28,6 +28,7 @@
   <xsl:template mode="removeDivs" match="rng:grammar" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
 
+    <!-- FIXME: Determine if we should be using document-uri() or base-uri() here. -->
     <xsl:variable name="origURI" select="string(document-uri(root(.)))" as="xs:string?"/>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] removeDivs: rng:grammar, origURI="<xsl:value-of select="$origURI"/>"</xsl:message>
