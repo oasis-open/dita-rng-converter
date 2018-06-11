@@ -14,7 +14,6 @@
   version="2.0">
   
   <xsl:include href="../lib/relpath_util.xsl" />
-  <xsl:include href="../lib/catalog_util.xsl" />
   <xsl:include href="../lib/rng2functions.xsl"/>
   <xsl:include href="../lib/rng2gatherModules.xsl"/>
   <xsl:include href="../lib/rng2generateCatalogs.xsl"/>

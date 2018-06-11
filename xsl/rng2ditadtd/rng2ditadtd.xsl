@@ -9,9 +9,8 @@
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
-  xmlns:catutil="http://local/catalog-utility"  
   xmlns:local="http://local-functions"
-  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc local rng2ditadtd catutil"
+  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc local rng2ditadtd"
   version="2.0">
   
   <xd:doc scope="stylesheet">
@@ -49,7 +48,6 @@
   </xd:doc>
   
   <xsl:include href="../lib/relpath_util.xsl" />
-  <xsl:include href="../lib/catalog_util.xsl" />
   <xsl:include href="../lib/rng2functions.xsl"/>
   <xsl:include href="../lib/rng2gatherModules.xsl"/>
   <xsl:include href="../lib/rng2removeDivs.xsl"/>
@@ -154,15 +152,6 @@
          specified as a runtime parameter.
       -->
      <xsl:call-template name="reportParameters"/>
-
-    <xsl:if test="$doDebug or true()">
-      <xsl:variable name="result-uri" as="xs:string" select="'catalog-tree.xml'"/>
-      <xsl:message>+ [DEBUG] Writing resolved catalog to <xsl:value-of select="$result-uri"/>
-      </xsl:message>
-      <xsl:result-document href="{$result-uri}" indent="yes">
-        <xsl:sequence select="$catalogTree"/>        
-      </xsl:result-document>
-    </xsl:if>
 
     <xsl:message>+ [INFO] Preparing documents to process...</xsl:message>
     <xsl:variable name="effectiveRootDir" as="xs:string" 
