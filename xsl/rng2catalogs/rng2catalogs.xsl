@@ -12,7 +12,7 @@
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita rngfunc rng2ditadtd"
-  version="2.0">
+  version="3.0">
   
   <!-- ==============================================================
        Standalone RNG-to-entity resolution catalog generation

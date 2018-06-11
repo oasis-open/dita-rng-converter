@@ -13,7 +13,7 @@
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita rngfunc rng2ditadtd"
   xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
-  version="2.0">
+  version="3.0">
   
   <!-- ========================================================
        Generate OASIS XML entity resolution catalogs for

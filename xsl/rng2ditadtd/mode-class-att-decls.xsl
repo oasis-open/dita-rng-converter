@@ -13,7 +13,7 @@
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   xmlns:local="http://local-functions"
   exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita rngfunc local rng2ditadtd"
-  version="2.0"  
+  version="3.0"  
  >
 
   <!-- ====================

@@ -12,7 +12,7 @@
   xmlns:local="http://local-functions"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   exclude-result-prefixes="xs xd rng rnga relpath str rngfunc local rng2ditadtd a"
-  version="2.0">
+  version="3.0">
   
   <!-- ===========================================================
        OASIS-specific overrides to the generic XSD generation 
