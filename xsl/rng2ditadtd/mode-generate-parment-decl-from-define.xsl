@@ -85,7 +85,7 @@
     <xsl:value-of select="str:indent($indent)"/>        
     <xsl:text>&quot;</xsl:text>
     <xsl:variable name="addparen" as="xs:boolean"
-      select="not($isAttSet) and count(rng:*) &gt; 1"/>
+      select="not($isAttSet) and (count(rng:*) &gt; 1 or rng:text)"/>
     <xsl:if test="$addparen">
       <xsl:text>(</xsl:text>
     </xsl:if>
@@ -109,6 +109,10 @@
     </xsl:if>
     <xsl:if test="$addparen">
       <xsl:text>)</xsl:text>
+    </xsl:if>
+    <!-- Handle case of bare <text> in a define -->
+    <xsl:if test="count(rng:*) = 1 and rng:text">
+      <xsl:text>*</xsl:text>
     </xsl:if>
     <xsl:if test="$nlBeforeClosingQuote">
       <xsl:text>&#x0a;</xsl:text>
