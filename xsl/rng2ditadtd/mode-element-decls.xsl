@@ -100,16 +100,36 @@
   </xsl:template>
     
   <!-- Class attributes are handled in a separate mode -->
-  <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="element-decls" priority="10"/>
+  
+  <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="element-decls" priority="10">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] element-decls: define @name="class": ignoring.</xsl:message>
+    </xsl:if>
+  </xsl:template>
   
   
   <xsl:template match="rng:define[starts-with(@name, concat(rngfunc:getModuleShortName(ancestor::rng:grammar), '-'))]" 
     mode="element-decls" priority="30"
-  />
+  >
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] element-decls: define, @name starts with module short name: ignoring.</xsl:message>
+    </xsl:if>
+    
+  </xsl:template>
   
   
   <xsl:template match="rng:define[@combine = 'choice']" mode="element-decls" priority="20">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- Domain integration entity. Not output in the DTD. -->
+    
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] element-decls: define @combine = 'choice'": ignoring.</xsl:message>
+    </xsl:if>
+    
   </xsl:template>
   
   <xsl:template match="rng:define[ends-with(@name, '.content') or ends-with(@name, '.attributes')]" 
@@ -118,6 +138,9 @@
     <!-- content and attlist declarations are handled from within the rng:element processing 
       
       -->
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] element-decls: define @name ends with .content or .attributes: processing maybe.</xsl:message>
+    </xsl:if>
     
     <xsl:if test="ends-with(@name, '.attributes')">
       <!-- WEK: This is a bit of a hack to handle a case that only occurs within 
@@ -134,17 +157,42 @@
   
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('attlistIndex',@name)]" 
     mode="element-decls" priority="10">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- .attlist pointing to .attributes, ignore -->
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] element-decls: define is a reference to .attributes, ignoring</xsl:message>
+    </xsl:if>
+    
   </xsl:template>
   
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('definesByName',rng:ref/@name)/rng:element]" 
     mode="element-decls" priority="10">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- reference to element name in this module, will be in the entity file -->
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] element-decls: reference to ann element name in this module: ignoring.</xsl:message>
+    </xsl:if>
+    
   </xsl:template>
   
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and not(key('definesByName',rng:ref/@name)) and ends-with(rng:ref/@name, '.element')]" 
     mode="element-decls" priority="20">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- reference to element name in another module, will be in entity file -->
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] element-decls: define reference to an element name in another module: ignoring.</xsl:message>
+    </xsl:if>
+    
+  </xsl:template>
+  
+  <xsl:template match="rng:define[rng:notAllowed]" 
+    mode="element-decls" priority="30">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <!-- The DITA spec doesn't say anything about the use of notAllowed, so just ignore this declaration for now -->
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] element-decls: define containing rng:notAllowed: Ignoring.</xsl:message>
+    </xsl:if>
+    
   </xsl:template>
   
   <!-- ================================
@@ -157,7 +205,9 @@
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] mode: element-decls: element-defining define, name="<xsl:value-of select="@name"/>"</xsl:message>
     </xsl:if>    
-    <xsl:apply-templates mode="#current" select="rng:element"/>
+    <xsl:apply-templates mode="#current" select="rng:element">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template match="rng:define[not(.//rng:attribute[@name='class'])]" mode="element-decls" priority="8">
@@ -177,7 +227,9 @@
         <!-- Domain extension pattern, not output in the .mod file (goes in shell DTDs) -->
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates mode="generate-parment-decl-from-define" select="."/>
+        <xsl:apply-templates mode="generate-parment-decl-from-define" select=".">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -191,6 +243,7 @@
     </xsl:if>
     <xsl:text>(</xsl:text>
     <xsl:apply-templates mode="#current" >
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="indent" as="xs:integer" tunnel="yes" 
         select="$indent + 1"/>
     </xsl:apply-templates>
@@ -209,6 +262,7 @@
     </xsl:if>
     <xsl:text>(</xsl:text>
     <xsl:apply-templates mode="#current" >
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="indent" as="xs:integer" tunnel="yes" 
         select="$indent + 1"/>
     </xsl:apply-templates>
@@ -230,6 +284,7 @@
     </xsl:if>
     <xsl:text>(</xsl:text>
     <xsl:apply-templates mode="#current" >
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="indent" as="xs:integer" tunnel="yes" 
         select="$indent + 1"/>
     </xsl:apply-templates>
@@ -281,6 +336,7 @@
         </xsl:if>
         <xsl:text>(</xsl:text>
         <xsl:apply-templates mode="#current" >
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           <xsl:with-param name="indent" select="$indent + 1" as="xs:integer" tunnel="yes"/>
         </xsl:apply-templates>
         <xsl:text>)?</xsl:text>
@@ -290,7 +346,9 @@
       </xsl:when>
       <xsl:otherwise>
         <!-- optional attribute value -->
-        <xsl:apply-templates mode="#current" />
+        <xsl:apply-templates mode="#current" >
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
         <xsl:if test="count(following-sibling::rng:*) gt 0">
           <xsl:text>&#x0a;</xsl:text>
         </xsl:if>
@@ -314,6 +372,7 @@
     </xsl:if>
     
       <xsl:apply-templates select="rng:*" mode="#current" >
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="connector" as="xs:string" select="' |'"/>
       </xsl:apply-templates>      
   </xsl:template>
@@ -336,6 +395,7 @@
     </xsl:if>
     <xsl:text>(</xsl:text>    
     <xsl:apply-templates select="rng:*" mode="#current" >
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="indent" as="xs:integer" tunnel="yes" select="$indent + 1"/>
       <xsl:with-param name="connector" as="xs:string" select="' |'"/>
     </xsl:apply-templates>      
@@ -359,7 +419,9 @@
          not valid against the RNG.
       -->
     <xsl:for-each select=".">
-      <xsl:call-template name="choice-element-decls"/>
+      <xsl:call-template name="choice-element-decls">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:call-template>
     </xsl:for-each>
     <xsl:text>*</xsl:text><!-- Make the choice a repeating group -->
   </xsl:template>
@@ -383,6 +445,7 @@
          element.
       -->
     <xsl:apply-templates select="rng:*" mode="#current" >
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
      <xsl:with-param name="connector" as="xs:string" select="' |'"/>
     </xsl:apply-templates>      
   </xsl:template>
@@ -419,6 +482,9 @@
       <xsl:when test="not(node()) and not(key('definesByName',@name)) and ends-with(@name, '.element')" >
         <!-- reference to element name in another module -->
         <xsl:value-of select="substring-before(@name,'.element')" />
+        <xsl:if test="count(following-sibling::rng:*) gt 0">
+          <xsl:value-of select="$connector"/>
+        </xsl:if>        
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="entRef" as="node()*">
@@ -641,6 +707,7 @@
         </xsl:if>
         <xsl:text>(</xsl:text>
         <xsl:apply-templates mode="#current" >
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           <xsl:with-param name="indent" select="26" as="xs:integer" tunnel="yes"/>
         </xsl:apply-templates>
         <xsl:text>)</xsl:text>
@@ -655,6 +722,7 @@
           <xsl:message>+ [DEBUG] element-decls: All other attribute configurations. Applying templates in mode element-decls</xsl:message>
         </xsl:if>
         <xsl:apply-templates mode="#current" >
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           <xsl:with-param name="indent" select="27" as="xs:integer" tunnel="yes"/>
         </xsl:apply-templates>
       </xsl:otherwise>
@@ -718,15 +786,18 @@
     <xsl:apply-templates mode="generate-element-type-parameter-entities" 
       select="rng:ref[ends-with(@name, '.content')], 
       rng:ref[ends-with(@name, '.attlist')]">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="tagname" tunnel="yes" as="xs:string" select="@name"/>
     </xsl:apply-templates>
     
     <!-- Element type and attribute list declarations. -->
     <xsl:apply-templates select="rng:ref[ends-with(@name, '.content')]" mode="generate-element-decl">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="tagname" tunnel="yes" as="xs:string" select="@name"/>
     </xsl:apply-templates>
     <!-- NOTE: in the RNG, the reference in the element decl is to .attlist, not .attributes. -->
     <xsl:apply-templates select="rng:ref[ends-with(@name, '.attlist')]" mode="generate-attlist-decl">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="tagname" tunnel="yes" as="xs:string" select="@name"/>
     </xsl:apply-templates>
     <xsl:text>&#x0a;&#x0a;</xsl:text>
@@ -750,13 +821,16 @@
       </xsl:when>
       <xsl:when test="ends-with($define/@name, '.attlist')">
         <!-- .attlist define is always a reference to the .attributes definition -->
-        <xsl:apply-templates select="$define/rng:ref" mode="#current"/>
+        <xsl:apply-templates select="$define/rng:ref" mode="#current">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="indent" as="xs:integer"
           select="if (ends-with(@name, '.content')) then 23 else 14"
         />
-        <xsl:apply-templates select="$define" mode="generate-parment-decl-from-define">        
+        <xsl:apply-templates select="$define" mode="generate-parment-decl-from-define">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           <xsl:with-param name="indent" as="xs:integer" select="$indent"/>
         </xsl:apply-templates>
       </xsl:otherwise>
@@ -772,8 +846,12 @@
     <xsl:value-of select="concat('%', @name, ';')"/>
     <xsl:text>&gt;&#x0a;</xsl:text>
   </xsl:template>
-    
+
+  <xsl:template match="rng:notAllowed" priority="-0.9" mode="element-decls">
+    <xsl:message> - [WARN] element-decls: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" />: <xsl:sequence select=".." /></xsl:message>
+  </xsl:template>
+  
   <xsl:template match="rng:*" priority="-1" mode="element-decls">
-    <xsl:message> - [WARN] element-decls: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" /><xsl:copy-of select="." /></xsl:message>
+    <xsl:message> - [WARN] element-decls: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" />: <xsl:sequence select="." /></xsl:message>
   </xsl:template>
 </xsl:stylesheet>
