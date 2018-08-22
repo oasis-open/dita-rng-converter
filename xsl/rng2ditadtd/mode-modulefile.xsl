@@ -35,6 +35,9 @@
   <xsl:template match="rng:grammar" mode="moduleFile">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
+    <xsl:message>+ [DEBUG] moduleFile: rng:grammar = rngfunc:getModuleType(.)="<xsl:value-of select="rngfunc:getModuleType(.)"/>"</xsl:message>
+    <xsl:variable name="doDebug" as="xs:boolean" select="rngfunc:getModuleShortName(.) = ('par_highlightDomain-c')"/>
+    
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] moduleFile: rng:grammar ...</xsl:message>
     </xsl:if>
@@ -274,9 +277,6 @@
          are not required in the RNG.
          
     -->
-    <!-- FIXME: This may not be selective enough, but for the TC-defined
-         constraints it appears to be OK.
-      -->
     <xsl:apply-templates select="rng:include/rng:define"
       mode="make-element-type-name-parments"
       >
