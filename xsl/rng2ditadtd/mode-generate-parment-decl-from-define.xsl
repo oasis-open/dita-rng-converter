@@ -38,7 +38,7 @@
       <xsl:message>+ [DEBUG] generate-parment-decl-from-define: info-types define: "<xsl:value-of select="@name"/>"</xsl:message>
     </xsl:if>
     <xsl:choose>
-      <xsl:when test="rng:empty">
+      <xsl:when test="rng:empty | rng:notAllowed">
         <xsl:text>&lt;!ENTITY % </xsl:text>
         <xsl:value-of select="@name" />
         <xsl:text>&#x0a;</xsl:text>
@@ -48,7 +48,9 @@
         <xsl:text>&gt;&#x0a;</xsl:text>        
       </xsl:when>
       <xsl:otherwise>
-        <xsl:next-match/>
+        <xsl:next-match>
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:next-match>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
