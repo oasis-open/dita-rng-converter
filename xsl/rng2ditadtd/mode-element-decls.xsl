@@ -323,6 +323,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     <xsl:param name="isAttSet" as="xs:boolean" tunnel="yes"/>
+    <xsl:param name="connector" as="xs:string" select="','"/>
     
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] element-decls: rng:option</xsl:message>
@@ -341,7 +342,8 @@
         </xsl:apply-templates>
         <xsl:text>)?</xsl:text>
         <xsl:if test="count(following-sibling::rng:*) gt 0">
-          <xsl:text>,&#x0a;</xsl:text>
+          <xsl:value-of select="$connector"/>
+          <xsl:text>&#x0a;</xsl:text>
         </xsl:if>
       </xsl:when>
       <xsl:otherwise>
@@ -384,6 +386,7 @@
     >
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
+    <xsl:param name="repeat-indicator" as="xs:string?" select="()"/>
     
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] *** element-decls: rng:define//rng:choice:
@@ -400,6 +403,7 @@
       <xsl:with-param name="connector" as="xs:string" select="' |'"/>
     </xsl:apply-templates>      
     <xsl:text>)</xsl:text>
+    <xsl:value-of select="$repeat-indicator"/>
     <xsl:if test="count(following-sibling::rng:*) gt 0">
       <xsl:text>,&#x0a;</xsl:text>
     </xsl:if>
@@ -421,9 +425,9 @@
     <xsl:for-each select=".">
       <xsl:call-template name="choice-element-decls">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="repeat-indicator" select="'*'"/>
       </xsl:call-template>
     </xsl:for-each>
-    <xsl:text>*</xsl:text><!-- Make the choice a repeating group -->
   </xsl:template>
 
   <!-- FIXME: This set of matches is a bit of a hack to handle
