@@ -25,6 +25,10 @@
     <!-- arch-atts declaration is hard-coded -->
   </xsl:template>
   
+  <xsl:template mode="generate-parment-decl-from-define" match="rng:define[rng:notAllowed]" priority="15">
+    <!-- Ignore not-allowed defines -->
+  </xsl:template>
+  
   <xsl:template mode="generate-parment-decl-from-define"
     match="rng:define[ends-with(@name,'info-types')]" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
