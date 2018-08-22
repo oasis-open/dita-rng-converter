@@ -24,12 +24,28 @@
       <xsl:message>+ [DEBUG] make-element-type-name-parments: rng:define: name="<xsl:value-of select="@name"/>"</xsl:message>
     </xsl:if>
     
-    <xsl:apply-templates select=".//rng:ref" mode="make-element-type-name-parments">
+    <!-- 
+         In DITA, no element type name should ever include a ".".
+         
+         This is not ideal. The ideal solution would be to build the list of
+         all element type names and then only process references to those names
+         but this will work for now.
+         
+      -->
+    <xsl:apply-templates select=".//rng:ref[not(contains(@name, '.'))]" mode="make-element-type-name-parments">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
     </xsl:apply-templates>
   </xsl:template>
   
+  <xsl:template mode="make-element-type-name-parments" match="rng:define[ends-with(@name, '.attributes')]">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    
+    <!-- Ignore references within attribute list declarations -->
+  </xsl:template>
+  
   <xsl:template mode="make-element-type-name-parments" match="rng:ref">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    
     <xsl:text>&lt;!ENTITY % </xsl:text><xsl:value-of select="str:pad(@name, 48)"/>
     <xsl:text>"</xsl:text><xsl:value-of select="@name"/><xsl:text>">&#x0a;</xsl:text>
     
