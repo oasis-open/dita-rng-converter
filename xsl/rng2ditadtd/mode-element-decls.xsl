@@ -394,7 +394,7 @@
       <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
     <xsl:text>(</xsl:text>    
-    <xsl:apply-templates select="rng:*" mode="#current" >
+    <xsl:apply-templates select="rng:text, rng:* except (rng:text)" mode="#current" >
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="indent" as="xs:integer" tunnel="yes" select="$indent + 1"/>
       <xsl:with-param name="connector" as="xs:string" select="' |'"/>
@@ -444,7 +444,7 @@
     <!-- Choice has its parens and occurrence indicator provided by the containing element
          element.
       -->
-    <xsl:apply-templates select="rng:*" mode="#current" >
+    <xsl:apply-templates select="rng:text, rng:* except (rng:text)" mode="#current" >
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
      <xsl:with-param name="connector" as="xs:string" select="' |'"/>
     </xsl:apply-templates>      
@@ -461,12 +461,16 @@
       <xsl:message>+ [DEBUG]                connector="<xsl:value-of select="$connector"/>"</xsl:message>
     </xsl:if>
     
-    <xsl:if test="preceding-sibling::rng:*">
+    <!-- rng:text is always treated as though it was first -->
+    <xsl:if test="preceding-sibling::rng:* or following-sibling::rng:text">
       <!-- NOTE: It is up to the processor of the group
                  this ref must be part of to emit
                  a newline after whatever precedes this ref. 
       -->
       <xsl:value-of select="str:indent($indent)"/>
+    </xsl:if>
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] element-decls: rng:ref "<xsl:value-of select="@name"/>"</xsl:message>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="@name='any'">
@@ -475,14 +479,14 @@
       <xsl:when test="not(node()) and key('definesByName',@name)/rng:element" >
         <!-- reference to element name -->
         <xsl:value-of select="key('definesByName',@name)/rng:element/@name" />
-        <xsl:if test="count(following-sibling::rng:*) gt 0">
+        <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
           <xsl:value-of select="$connector"/>
         </xsl:if>        
       </xsl:when>
       <xsl:when test="not(node()) and not(key('definesByName',@name)) and ends-with(@name, '.element')" >
         <!-- reference to element name in another module -->
         <xsl:value-of select="substring-before(@name,'.element')" />
-        <xsl:if test="count(following-sibling::rng:*) gt 0">
+        <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
           <xsl:value-of select="$connector"/>
         </xsl:if>        
       </xsl:when>
@@ -498,21 +502,21 @@
             <xsl:text>(</xsl:text>
             <xsl:sequence select="$entRef"/>
             <xsl:text>)</xsl:text>
-            <xsl:if test="count(following-sibling::rng:*) gt 0">
+            <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
               <xsl:value-of select="$connector"/>
             </xsl:if>
           </xsl:when>
           <xsl:otherwise>
             <xsl:sequence select="$entRef"/>
             <xsl:if test="not($isAttSet) and 
-                          (count(following-sibling::rng:*) gt 0)">
+                          (count(following-sibling::rng:*[not(self::rng:text)]) gt 0)">
               <xsl:value-of select="$connector"/>
             </xsl:if>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:if test="count(following-sibling::rng:*) gt 0">
+    <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
       <xsl:text>&#x0a;</xsl:text>
     </xsl:if>
   </xsl:template>
@@ -585,7 +589,10 @@
          group so it will never be indented. -->
     
     <xsl:text>#PCDATA</xsl:text>
-    <xsl:if test="count(following-sibling::rng:*) gt 0">
+    <!-- PCDATA has to be the first first thing in a group regardless of where it
+         occurs in the RNG choice, so any sibling demands a connector.
+      -->
+    <xsl:if test="count(following-sibling::rng:* | preceding-sibling::rng:*) gt 0">
       <xsl:sequence select="$connector"/>
       <xsl:sequence select="'&#x0a;'"/>
     </xsl:if>
