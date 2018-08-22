@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." default="help" name="dita-rng2dtdxsd">
-  <!-- NOTE: This ant script is implemented against the 2.3 version
+  <!-- NOTE: This ant script is implemented against the 3.0.x version
        of the DITA Open Toolkit. It may need adjustment to work
        with other Toolkit versions.
     -->
@@ -18,7 +18,7 @@
 	<property name="plugin.dist"  location="${basedir}/dist/plugins"/>
 	<property name="package.dist"  location="${basedir}/dist/package"/>
 
-  <property name="ditaver" description="The DITA version to generate (1.2, 1.3, etc.)"
+  <property name="ditaver" description="The DITA version to generate (1.2, 1.3, 2.0, etc.)"
      value="1.3"
   />
   
@@ -93,7 +93,7 @@
     location="${src}/foreign"
   />
   
-  <property name="usePublicIDsInShell" value="true"/><!-- For testing. True for production -->
+  <property name="usePublicIDsInShell" value="true"/>
   
   <property name="masterCatalog" location="${dita-ot-dir}/catalog-dita.xml"/>
   
