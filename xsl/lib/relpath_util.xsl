@@ -4,6 +4,7 @@
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:local="urn:localfunctions"
   exclude-result-prefixes="relpath xs local"
+  expand-text="yes"
   
   >
   <xsl:variable name="allones" select="(1,1,1,1, 1,1,1,1)" as="xs:integer*"/>

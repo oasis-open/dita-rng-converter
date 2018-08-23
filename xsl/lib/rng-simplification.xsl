@@ -5,7 +5,9 @@
   xmlns:rng="http://relaxng.org/ns/structure/1.0" 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:local="http://local-functions"
-exclude-result-prefixes = "xs rng local">
+exclude-result-prefixes = "xs rng local"
+expand-text="yes"
+  >
   <!-- ===============================================
        RNG Simplification transform
        
@@ -427,9 +429,7 @@ exclude-result-prefixes = "xs rng local">
 		<xsl:if test="self::rng:attribute and not(@ns)">
 			<xsl:attribute name="ns"/>
 		</xsl:if>
-		<name>
-			<xsl:value-of select="@name"/>
-		</name>
+		<name>{@name}</name>
 		<xsl:apply-templates mode="step4.08"/>
 	</xsl:copy>
 </xsl:template>
@@ -523,7 +523,7 @@ exclude-result-prefixes = "xs rng local">
 	<xsl:variable name="prefix" select="substring-before(., ':')" as="xs:string"/>
 	<name>
 		<xsl:attribute name="ns" select="string(namespace::*[name(.) = $prefix])"/>
-		<xsl:value-of select="substring-after(., ':')"/>
+		{substring-after(., ':')}
 	</name>
 </xsl:template>
 

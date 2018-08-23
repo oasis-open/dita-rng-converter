@@ -12,7 +12,9 @@
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   xmlns:local="http://local-functions"
   exclude-result-prefixes="xs xd rng rnga relpath str rngfunc local rng2ditadtd"
-  version="3.0">
+  expand-text="yes"
+  version="3.0"
+  >
 
   <xd:doc scope="stylesheet">
     <xd:desc>
@@ -117,11 +119,11 @@
   <xsl:strip-space elements="*"/>
   
   
-  <xsl:template name="processDir">
-    <!-- Template to process a directory tree. The "rootDir" parameter must
+  <!-- Template to process a directory tree. The "rootDir" parameter must
          be set, either the parent dir of the source document or explicitly
          specified as a runtime parameter.
       -->
+  <xsl:template name="processDir">
     <!-- NOTE: This template is almost the same as the same template
          in the rng2ditadtd.xsl transform but I couldn't find a
          way to usefully factor out the common code because templates
@@ -260,8 +262,8 @@
     <xsl:message> + [INFO] Done.</xsl:message>
   </xsl:template>
   
+  <!-- Generates an RNC file from an RNG file -->
   <xsl:template match="/" mode="processGrammar">    
-    <!-- Generates an RNC file from an RNG file -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
     <xsl:param 
@@ -270,7 +272,7 @@
       as="xs:string"
     />
     <xsl:variable name="rngModuleUrl" as="xs:string"
-      select="base-uri(./*)"
+      select="xs:string(base-uri(*))"
     />
     
 <!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
@@ -469,11 +471,11 @@
     <xsl:if test="$doDebug">      
       <xsl:message> + [DEBUG] default: rng:div</xsl:message>
     </xsl:if>
-    <text>&#x0a;div {</text>
+    <text>&#x0a;div {{</text>
     <xsl:apply-templates>
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
     </xsl:apply-templates>
-    <xsl:text>&#x0a;}</xsl:text>
+    <xsl:text>&#x0a;}}</xsl:text>
   </xsl:template>
  
   <xsl:template match="rng:define">
@@ -512,13 +514,13 @@
       rng:choice[rng:name|rng:anyName|rng:nsName])" mode="nameClass">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     </xsl:apply-templates>
-    <xsl:text> {</xsl:text>
+    <xsl:text> {{</xsl:text>
     <xsl:apply-templates select="* except (rng:name|rng:anyName|rng:nsName|
       rng:choice[rng:name|rng:anyName|rng:nsName])">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="sep" tunnel="yes" select="', '"/>
     </xsl:apply-templates>
-    <xsl:text>}</xsl:text>    
+    <xsl:text>}}</xsl:text>    
   </xsl:template>
 
   <xsl:template match="rng:attribute">
@@ -538,14 +540,14 @@
     <xsl:apply-templates select="@name, (rng:name|rng:anyName|rng:nsName|rng:choice[rng:name|rng:anyName|rng:nsName])" mode="nameClass">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
     </xsl:apply-templates>
-    <xsl:text> {</xsl:text>
+    <xsl:text> {{</xsl:text>
     <xsl:if test="not(rng:value | rng:data | rng:choice | rng:ref) ">
       <xsl:text> text</xsl:text>
     </xsl:if>
     <xsl:apply-templates select="* except  (rng:name|rng:anyName|rng:nsName|rng:choice[rng:name|rng:anyName|rng:nsName])">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>     
     </xsl:apply-templates>        
-    <xsl:text>}</xsl:text>    
+    <xsl:text>}}</xsl:text>    
   </xsl:template>
   
   <xsl:template match="rng:data">

@@ -11,7 +11,9 @@
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   xmlns:local="http://local-functions"
   exclude-result-prefixes="xs xd rng rnga relpath str rngfunc local rng2ditaxsd"
-  version="3.0">
+  expand-text="yes"
+  version="3.0"
+  >
   
   <xsl:include href="../lib/relpath_util.xsl" />
   <xsl:include href="../lib/rng2functions.xsl"/>

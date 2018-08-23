@@ -12,7 +12,9 @@
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   exclude-result-prefixes="xs xd rng rnga relpath a ditaarch str rngfunc rng2ditadtd"
-  version="3.0">
+  expand-text="yes"
+  version="3.0"
+  >
 
   <xd:doc scope="stylesheet">
     <xd:desc>

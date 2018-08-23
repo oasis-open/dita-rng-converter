@@ -12,7 +12,9 @@
   xmlns:local="http://local-functions"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc local rng2ditadtd"
-  version="3.0">
+  expand-text="yes"
+  version="3.0"
+  >
   
   <!-- Overrides to handle special cases in the DTD generation required for
        strict backward compatibility with DITA 1.2 DTDs.
