@@ -45,7 +45,7 @@
   
   <xsl:template mode="groupFile" match="rng:grammar">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:message> + [INFO] === <xsl:value-of select="rngfunc:getModuleShortName(.)"/>: Generating Grp.xsd file...</xsl:message>
+    <xsl:message> + [INFO] === {rngfunc:getModuleShortName(.)}: Generating Grp.xsd file...</xsl:message>
     <xsl:apply-templates 
       select="(dita:moduleDesc/dita:headerComment[@fileType='xsdGrp'], dita:moduleDesc/dita:headerComment[1])[1]" 
       mode="header-comment"
@@ -63,7 +63,7 @@
   <xsl:template mode="moduleFile" match="rng:grammar">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
-    <xsl:message> + [INFO] === <xsl:value-of select="rngfunc:getModuleShortName(.)"/>: Generating Mod.xsd file...</xsl:message>
+    <xsl:message> + [INFO] === {rngfunc:getModuleShortName(.)}: Generating Mod.xsd file...</xsl:message>
     
     <xsl:apply-templates 
       select="(dita:moduleDesc/dita:headerComment[@fileType='xsdMod'], dita:moduleDesc/dita:headerComment[1])[1]" 
@@ -270,7 +270,7 @@
 
   <xsl:template mode="groupFile" match="*" priority="-1">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:message> + [WARN] groupFile: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+    <xsl:message> + [WARN] groupFile: Unhandled element {concat(name(..), '/', name(.))}</xsl:message>
   </xsl:template>
   
   <!-- ============================
@@ -281,7 +281,7 @@
   <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="handleDefinitionsForMod" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: Contains @class attribute declaration.</xsl:message>
+      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: {@name}: Contains @class attribute declaration.</xsl:message>
     </xsl:if>
   </xsl:template>
   
@@ -289,7 +289,7 @@
   <xsl:template match="rng:define[@combine = 'choice']" mode="handleDefinitionsForMod" priority="20">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: Domain integration pattern. Not output in the XSD.</xsl:message>
+      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: {@name}: Domain integration pattern. Not output in the XSD.</xsl:message>
     </xsl:if>
       <!-- Domain integration pattern. Not output in the XSD. -->
   </xsl:template>
@@ -299,7 +299,7 @@
     mode="handleDefinitionsForMod" priority="15">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .content or .attributes, ignoring or not</xsl:message>
+      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: {@name}: .content or .attributes, ignoring or not</xsl:message>
     </xsl:if>
 
     <xsl:if test="ends-with(@name, '.attributes')">
@@ -313,7 +313,7 @@
                 mode="handleDefinitionsForMod" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: reference to element name in this module, will be in the group file</xsl:message>
+      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: {@name}: reference to element name in this module, will be in the group file</xsl:message>
     </xsl:if>
       <!-- reference to element name in this module, will be in the group file -->
   </xsl:template>
@@ -324,7 +324,7 @@
                 mode="handleDefinitionsForMod" priority="20">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: reference to element name in another module, will be in group file</xsl:message>
+      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: {@name}: reference to element name in another module, will be in group file</xsl:message>
     </xsl:if>
       <!-- reference to element name in another module, will be in group file -->
   </xsl:template>
@@ -393,7 +393,7 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:comment> Failed to find element declaration for reference "<xsl:value-of select="@name"/>" </xsl:comment>
-        <xsl:message> - [WARN] refToTagname: Failed to find element declaration for reference "<xsl:value-of select="@name"/>"</xsl:message>
+        <xsl:message> - [WARN] refToTagname: Failed to find element declaration for reference "{@name}"</xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -406,7 +406,7 @@
     -->
     <xsl:param name="domainPrefix" tunnel="yes" as="xs:string" />
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/></xsl:message>
+      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: {@name}</xsl:message>
     </xsl:if>
 
     <xsl:apply-templates mode="generate-group-decl-from-define" select=".">
@@ -432,7 +432,7 @@
 
   <xsl:template mode="handleDefinitionsForMod" match="*" priority="-1">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:message> - [WARN] handleDefinitionsForMod: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+    <xsl:message> - [WARN] handleDefinitionsForMod: Unhandled element {concat(name(..), '/', name(.))}</xsl:message>
   </xsl:template>
   
   <!-- ====================================
@@ -447,7 +447,7 @@
       -->
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] generateConstraintDeclarations: Include of module <xsl:value-of select="@href"/></xsl:message>
+      <xsl:message> + [DEBUG] generateConstraintDeclarations: Include of module {@href}</xsl:message>
     </xsl:if>
     
     <xsl:variable name="referencingRngModuleUrl" as="xs:string"
@@ -474,7 +474,7 @@
       $referencingRngModuleUrl)"
     />      
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] generateConstraintDeclarations: moduleUri="<xsl:value-of select="$moduleUri"/>"</xsl:message>
+      <xsl:message> + [DEBUG] generateConstraintDeclarations: moduleUri="{$moduleUri}"</xsl:message>
     </xsl:if>
     <xs:redefine schemaLocation="{$moduleUri}">
       <xsl:apply-templates mode="#current">
@@ -536,7 +536,7 @@
     />
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] generate-group-decl-from-define (rng2ditaxsdmod.xsl): rng:define, name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message> + [DEBUG] generate-group-decl-from-define (rng2ditaxsdmod.xsl): rng:define, name="{@name}"</xsl:message>
     </xsl:if>
 
     <xsl:choose>
@@ -601,8 +601,8 @@
         select="rngfunc:isMixedContent($normalizedElement)"/>
 
       <xsl:if test="$doDebug and $normalizedElement/@name = 'author' and not($isMixed)">
-        <xsl:message> + [DEBUG] rng:element: <xsl:value-of select="@name"/>: rngfunc:isMixedContent($normalizedElement)=<xsl:value-of select="$isMixed"/></xsl:message>
-        <xsl:message> + [DEBUG]   rng:element: <xsl:value-of select="@name"/>: $normalizedElement=
+        <xsl:message> + [DEBUG] rng:element: {@name}: rngfunc:isMixedContent($normalizedElement)={$isMixed}</xsl:message>
+        <xsl:message> + [DEBUG]   rng:element: {@name}: $normalizedElement=
           <xsl:sequence select="$normalizedElement"/>
         </xsl:message>
       </xsl:if>
@@ -660,7 +660,7 @@
   
   <xsl:template match="*" mode="handleDefinitionsForMod" priority="-1">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:message> - [WARN] Mode handleDefinitionsForMod: Unhandled element <xsl:value-of select="name(..), '/', name(.)"/></xsl:message>
+    <xsl:message> - [WARN] Mode handleDefinitionsForMod: Unhandled element {name(..), '/', name(.)}</xsl:message>
   </xsl:template>
 
   <!-- ============================
@@ -670,7 +670,7 @@
   <xsl:template mode="generateXsdContentModel" match="rng:element/rng:ref" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] generateXsdContentModel: rng:ref name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message> + [DEBUG] generateXsdContentModel: rng:ref name="{@name}"</xsl:message>
     </xsl:if>
     <xsl:variable name="contentPattern" select="key('definesByName', string(@name))"
       as="element(rng:define)*"
@@ -813,7 +813,7 @@
     />
     <xsl:choose>
       <xsl:when test="not($targetUri)">
-        <xsl:message> - [WARN] No @dita:xsdURI attribute for rng:externalRef with href "<xsl:value-of select="@href"/>".</xsl:message>
+        <xsl:message> - [WARN] No @dita:xsdURI attribute for rng:externalRef with href "{@href}".</xsl:message>
         <xsl:message> - [WARN]    Cannot construct import for the foreign vocabulary.</xsl:message>
       </xsl:when>
       <xsl:otherwise>
@@ -822,7 +822,7 @@
         />
         <xsl:choose>
           <xsl:when test="not($targetNamespace)">
-          <xsl:message> - [WARN] No @dita:xsdTargetNamespace for rng:externalRef with href "<xsl:value-of select="@href"/>".</xsl:message>
+          <xsl:message> - [WARN] No @dita:xsdTargetNamespace for rng:externalRef with href "{@href}".</xsl:message>
           <xsl:message> - [WARN]    Foreign vocabularies must be in a namespace.</xsl:message>
           </xsl:when>
           <xsl:otherwise>
@@ -839,7 +839,7 @@
     <xsl:param name="occurrence" as="xs:string?" select="()"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] generateXsdContentModel: rng:externalRef, href="<xsl:value-of select="@href"/>"</xsl:message>
+      <xsl:message> + [DEBUG] generateXsdContentModel: rng:externalRef, href="{@href}"</xsl:message>
     </xsl:if>
     
     <!-- External refs are to grammars that are not merged, so we need to get
@@ -851,17 +851,17 @@
       select="rngfunc:getStartElementsForExternalRef(., $doDebug)"
     />
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] generateXsdContentModel: externalRef - elementTypeNames != '' ="<xsl:value-of select="$elementTypeNames != ''"/>"</xsl:message>
+      <xsl:message> + [DEBUG] generateXsdContentModel: externalRef - elementTypeNames != '' ="{$elementTypeNames != ''}"</xsl:message>
     </xsl:if>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] generateXsdContentModel: externalRef - elementTypeNames="<xsl:value-of select="$elementTypeNames"/>"</xsl:message>
+      <xsl:message> + [DEBUG] generateXsdContentModel: externalRef - elementTypeNames="{$elementTypeNames}"</xsl:message>
     </xsl:if>
 
     <xsl:variable name="namespacePrefix" as="xs:string?"
       select="if (@dita:namespacePrefix) then @dita:namespacePrefix else 'ns1'"
     />
     <xsl:if test="not(@dita:namespacePrefix)">
-      <xsl:message> - [WARN] No @dita:namespacePrefix for rng:externalRef with href "<xsl:value-of select="@href"/>".</xsl:message>
+      <xsl:message> - [WARN] No @dita:namespacePrefix for rng:externalRef with href "{@href}".</xsl:message>
       <xsl:message> - [WARN]    Foreign vocabularies must be in a namespace.</xsl:message>
     </xsl:if>
 
@@ -869,7 +869,7 @@
       select="@dita:xsdTargetNamespace"
     />
     <xsl:if test="not($targetNamespace)">
-      <xsl:message> - [WARN] No @dita:xsdTargetNamespace for rng:externalRef with href "<xsl:value-of select="@href"/>".</xsl:message>
+      <xsl:message> - [WARN] No @dita:xsdTargetNamespace for rng:externalRef with href "{@href}".</xsl:message>
       <xsl:message> - [WARN]    Foreign vocabularies must be in a namespace.</xsl:message>
     </xsl:if>
     <xsl:for-each select="$elementTypeNames">
@@ -897,7 +897,7 @@
   
   <xsl:template mode="generateXsdContentModel" match="*" priority="-1">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:message> - [WARN] generateXsdContentModel: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+    <xsl:message> - [WARN] generateXsdContentModel: Unhandled element {concat(name(..), '/', name(.))}</xsl:message>
   </xsl:template>
   
   <!-- ==============================
@@ -931,7 +931,7 @@
                 mode="handleDefinitionsForMod" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .attlist pointing to .attributes, ignore</xsl:message>
+      <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: {@name}: .attlist pointing to .attributes, ignore</xsl:message>
     </xsl:if>
       <!-- .attlist pointing to .attributes, ignore -->
   </xsl:template>
@@ -984,7 +984,7 @@
   <xsl:template mode="generateXsdAttributeDecls" match="rng:optional/rng:attribute" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] rng:optional/rng:attribute: name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message> + [DEBUG] rng:optional/rng:attribute: name="{@name}"</xsl:message>
     </xsl:if>
     <xs:attribute name="{@name}">
       <xsl:if test="not(rng:choice | rng:data)">
@@ -1003,7 +1003,7 @@
       select="key('definesByName',string(@name))"
     />
     <xsl:if test="not($data)">
-      <xsl:message> - [WARN] rng:attribute/rng:ref: <xsl:value-of select="name(..)"/> - Failed to resolve reference to define "<xsl:value-of select="@name"/>" </xsl:message>
+      <xsl:message> - [WARN] rng:attribute/rng:ref: {name(..)} - Failed to resolve reference to define "{@name}" </xsl:message>
     </xsl:if>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rng:attribute/rng:ref: $data=<xsl:sequence select="$data"/></xsl:message>
@@ -1044,7 +1044,7 @@
   
   <xsl:template mode="generateXsdAttributeDecls" match="*" priority="-1">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:message> - [WARN] generateXsdAttributeDecls: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+    <xsl:message> - [WARN] generateXsdAttributeDecls: Unhandled element {concat(name(..), '/', name(.))}</xsl:message>
   </xsl:template>
   
   <xsl:template mode="generateXsdAttributeDecls" match="rng:choice">
@@ -1096,7 +1096,7 @@
   
   <xsl:template match="a:documentation//*" mode="documentation" priority="-1">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:message> - [WARN] Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/> within a:documentation element.</xsl:message>
+    <xsl:message> - [WARN] Unhandled element {concat(name(..), '/', name(.))} within a:documentation element.</xsl:message>
     <xsl:apply-templates mode="#current">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
     </xsl:apply-templates>
@@ -1213,7 +1213,7 @@
     />
     <xsl:choose>
     <xsl:when test="not($classAtt)">
-      <xsl:message> + [WARN] local:getElementClassValue(): Failed to find @class attribute declaration for element type "<xsl:value-of select="$elementElem/@name"/>"</xsl:message>
+      <xsl:message> + [WARN] local:getElementClassValue(): Failed to find @class attribute declaration for element type "{$elementElem/@name}"</xsl:message>
       <xsl:sequence select="'no class value'"></xsl:sequence>
     </xsl:when>
       <xsl:otherwise>

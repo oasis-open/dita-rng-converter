@@ -139,7 +139,7 @@
       else relpath:getParent(base-uri(root(.)/*))
       "/>
     
-    <xsl:message> + [INFO] processDir: effectiveRootDir="<xsl:value-of select="$effectiveRootDir"/></xsl:message>
+    <xsl:message> + [INFO] processDir: effectiveRootDir="{$effectiveRootDir}</xsl:message>
     <xsl:variable name="collectionUri" 
       select="concat($effectiveRootDir, '?', 
       'recurse=yes;',
@@ -171,16 +171,14 @@
       <xsl:message> + [DEBUG] Shell documents to process:</xsl:message>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:for-each select="$shellDocs">
-        <xsl:message> + [DEBUG]  <xsl:value-of 
-          select="substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))"/></xsl:message>
+        <xsl:message> + [DEBUG]  {substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))}</xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:message> + [DEBUG] Module documents to process:</xsl:message>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:for-each select="$moduleDocs">
-        <xsl:message> + [DEBUG] - <xsl:value-of select="/*/ditaarch:moduleDesc/ditaarch:moduleTitle"/></xsl:message>
-        <xsl:message> + [DEBUG]    <xsl:value-of 
-          select="substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))"/></xsl:message>
+        <xsl:message> + [DEBUG] - {/*/ditaarch:moduleDesc/ditaarch:moduleTitle}</xsl:message>
+        <xsl:message> + [DEBUG]    {substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))}</xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
     </xsl:if>    
@@ -197,7 +195,7 @@
     </xsl:variable>
     
     <xsl:if test="count($modulesToProcess) = 0">
-      <xsl:message terminate="yes"> - [ERROR] construction of modulesNoDivs failed. Count is <xsl:value-of select="count($modulesToProcess)"/>, should be greater than zero</xsl:message>
+      <xsl:message terminate="yes"> - [ERROR] construction of modulesNoDivs failed. Count is {count($modulesToProcess)}, should be greater than zero</xsl:message>
     </xsl:if>
     
     <xsl:message> + [INFO] Removing div elements from modules...</xsl:message>
@@ -212,11 +210,11 @@
     </xsl:variable>
     
     <xsl:if test="count($modulesNoDivs) lt count($modulesToProcess)">
-      <xsl:message terminate="yes"> - [ERROR] constructionof modulesNoDivs failed. Count is <xsl:value-of select="count($modulesNoDivs)"/>, should be <xsl:value-of select="count($modulesToProcess)"/></xsl:message>
+      <xsl:message terminate="yes"> - [ERROR] constructionof modulesNoDivs failed. Count is {count($modulesNoDivs)}, should be {count($modulesToProcess)}</xsl:message>
     </xsl:if>
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] Got <xsl:value-of select="count($modulesNoDivs)"/> modulesNoDivs.</xsl:message>
+      <xsl:message> + [DEBUG] Got {count($modulesNoDivs)} modulesNoDivs.</xsl:message>
     </xsl:if>
     
     <xsl:variable name="rncOutputDir" as="xs:string"
@@ -277,7 +275,7 @@
     
 <!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
     
-    <xsl:message> + [INFO] processModules: Handling module <xsl:value-of select="$rngModuleUrl"/>...</xsl:message>
+    <xsl:message> + [INFO] processModules: Handling module {$rngModuleUrl}...</xsl:message>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence
         select="$rngModuleUrl"/>"</xsl:message>
@@ -339,7 +337,7 @@
       <modFile><xsl:sequence select="$rncResultUrl" /></modFile>
     </moduleFiles>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] processModules: Applying templates in mode generate-modules to generate "<xsl:value-of select="$rncResultUrl"/>"</xsl:message>
+      <xsl:message> + [DEBUG] processModules: Applying templates in mode generate-modules to generate "{$rncResultUrl}"</xsl:message>
     </xsl:if>
     <xsl:result-document href="{$rncResultUrl}" format="rnc">
       <xsl:apply-templates mode="generate-modules">
@@ -432,7 +430,7 @@
     <xsl:param name="sep" select="''" tunnel="yes"/>
     
     <xsl:if test="$doDebug">      
-      <xsl:message> + [DEBUG] default: rng:ref, name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message> + [DEBUG] default: rng:ref, name="{@name}"</xsl:message>
     </xsl:if>
     <xsl:if test="$sep != '' and preceding-sibling::rng:*">
       <xsl:value-of select="$sep"/>
@@ -483,7 +481,7 @@
     
 <!--    <xsl:variable name="doDebug" select="string(@name) = 'any'" as="xs:boolean"/>-->
     <xsl:if test="$doDebug">      
-      <xsl:message> + [DEBUG] default: rng:define, name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message> + [DEBUG] default: rng:define, name="{@name}"</xsl:message>
     </xsl:if>
     <xsl:variable name="assignMethod" as="xs:string"
       select="if (@combine = 'choice') then '|=' else if (@combine = 'interleave') then '&amp;=' else '='"
@@ -527,11 +525,11 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="sep" select="''" tunnel="yes"/>
     <xsl:if test="$doDebug">      
-      <xsl:message> + [DEBUG] default: rng:attribute, sep="<xsl:value-of select="$sep"/>", preceding-sibling::rng:*=<xsl:value-of select="boolean(preceding-sibling::rng:*)"/></xsl:message>
+      <xsl:message> + [DEBUG] default: rng:attribute, sep="{$sep}", preceding-sibling::rng:*={boolean(preceding-sibling::rng:*)}</xsl:message>
     </xsl:if>
     <xsl:if test="$sep != '' and preceding-sibling::rng:*">
       <xsl:if test="$doDebug">      
-        <xsl:message> + [DEBUG] default: rng:ref = putting out separator "<xsl:value-of select="$sep"/>"</xsl:message>
+        <xsl:message> + [DEBUG] default: rng:ref = putting out separator "{$sep}"</xsl:message>
       </xsl:if>
       <xsl:value-of select="$sep"/>
     </xsl:if>
@@ -650,7 +648,7 @@
     </xsl:if>
     <xsl:if test="$sep != '' and (preceding-sibling::rng:* and not(preceding-sibling::rng:name | preceding-sibling::rng:anyName))">
       <xsl:if test="$doDebug">      
-        <xsl:message> + [DEBUG] default: rng:zeroOrMore = putting out separator "<xsl:value-of select="$sep"/>"</xsl:message>
+        <xsl:message> + [DEBUG] default: rng:zeroOrMore = putting out separator "{$sep}"</xsl:message>
       </xsl:if>
       <xsl:value-of select="$sep"/>
     </xsl:if>
@@ -822,7 +820,7 @@
   <xsl:template match="rng:*" priority="-0.5">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">      
-      <xsl:message> - [WARN] Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+      <xsl:message> - [WARN] Unhandled element {concat(name(..), '/', name(.))}</xsl:message>
     </xsl:if>
     
   </xsl:template>
@@ -830,7 +828,7 @@
   <xsl:template match="rng:*" priority="-0.5" mode="nameClass">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">      
-      <xsl:message> - [WARN] nameClass: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+      <xsl:message> - [WARN] nameClass: Unhandled element {concat(name(..), '/', name(.))}</xsl:message>
     </xsl:if>
     
   </xsl:template>
@@ -845,13 +843,13 @@
   <xsl:template name="reportParameters">
     <xsl:message> + [INFO] Parameters:
       
-      debug              ="<xsl:value-of select="$debug"/>"
-      ditaVersion        ="<xsl:value-of select="$ditaVersion"/>"
-      generateModules    ="<xsl:value-of select="concat($generateModules, ' (', $doGenerateModules, ')')"/>"
-      headerCommentStyle ="<xsl:value-of select="$headerCommentStyle"/>"
-      moduleOutdir       ="<xsl:value-of select="$moduleOutdir"/>"
-      outdir             ="<xsl:value-of select="$outdir"/>"
-      useURNsInShell     ="<xsl:value-of select="concat($useURNsInShell, ' (', $doUseURNsInShell, ')')"/>"
+      debug              ="{$debug}"
+      ditaVersion        ="{$ditaVersion}"
+      generateModules    ="{concat($generateModules, ' (', $doGenerateModules, ')')}"
+      headerCommentStyle ="{$headerCommentStyle}"
+      moduleOutdir       ="{$moduleOutdir}"
+      outdir             ="{$outdir}"
+      useURNsInShell     ="{concat($useURNsInShell, ' (', $doUseURNsInShell, ')')}"
       
     </xsl:message>        
     

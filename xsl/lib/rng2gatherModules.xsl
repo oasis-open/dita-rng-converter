@@ -37,7 +37,7 @@
         <xsl:apply-templates mode="gatherModules" select="$rngModule"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> - [ERROR] Failed to resolve reference to module <xsl:sequence select="string(@href)" /> relative to base "<xsl:sequence select="document-uri(.)"/>" ("<xsl:value-of select="base-uri(./*)"/>")</xsl:message>
+        <xsl:message> - [ERROR] Failed to resolve reference to module <xsl:sequence select="string(@href)" /> relative to base "<xsl:sequence select="document-uri(.)"/>" ("{base-uri(./*)}")</xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

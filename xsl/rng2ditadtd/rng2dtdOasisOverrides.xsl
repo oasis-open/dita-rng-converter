@@ -53,7 +53,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] mode: element-decls: element-defining define, name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] mode: element-decls: element-defining define, name="{@name}"</xsl:message>
     </xsl:if> 
     <xsl:call-template name="no-topic-nesting-elementdecl"/>    
   </xsl:template>
@@ -83,7 +83,7 @@
 
     <!-- Generate glossary.dtd shell -->
 
-    <xsl:message>+ [INFO] === Generating DTD shell <xsl:value-of select="$dtdFilename" />...</xsl:message>
+    <xsl:message>+ [INFO] === Generating DTD shell {$dtdFilename}...</xsl:message>
     
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
     
@@ -126,7 +126,7 @@
     <xsl:value-of select="rngfunc:getModuleTitle(.)"/>
     <xsl:text> ================= --></xsl:text>
     
-    <xsl:message>+ [INFO] === DTD shell <xsl:value-of select="$dtdFilename" /> generated.</xsl:message>
+    <xsl:message>+ [INFO] === DTD shell {$dtdFilename} generated.</xsl:message>
     
   </xsl:template>
 
@@ -290,7 +290,7 @@
     <xsl:variable name="firstStart" as="element()?"
       select="(//rng:start/rng:ref)[1]"
     />
-    <xsl:message>+ [INFO] === Generating DTD shell <xsl:value-of select="$dtdFilename" />...</xsl:message>
+    <xsl:message>+ [INFO] === Generating DTD shell {$dtdFilename}...</xsl:message>
     
     <xsl:apply-templates 
       select="(dita:moduleDesc/dita:headerComment[@fileType='dtdShell'], dita:moduleDesc/dita:headerComment[1])[1]" 

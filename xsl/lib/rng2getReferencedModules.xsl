@@ -40,7 +40,7 @@
 
     <xsl:variable name="rngModule" as="document-node()?" select="document(@href, $origModule)" />
     <xsl:if test="$doDebug">    
-      <xsl:message> + [DEBUG] getReferencedModules: rng:include: document-uri($rngModule)="<xsl:value-of select="document-uri($rngModule)"/>" ("<xsl:value-of select="base-uri($rngModule/*)"/>")</xsl:message>
+      <xsl:message> + [DEBUG] getReferencedModules: rng:include: document-uri($rngModule)="{document-uri($rngModule)}" ("{base-uri($rngModule/*)}")</xsl:message>
     </xsl:if>    
     <xsl:choose>
       <xsl:when test="$rngModule">
@@ -56,7 +56,7 @@
         <xsl:choose>
           <xsl:when test="$gatheredModule">
             <xsl:if test="$doDebug">
-              <xsl:message> + [DEBUG] getReferencedModules: Found referenced module <xsl:value-of select="$gatheredModule/*/@origURI"/></xsl:message>
+              <xsl:message> + [DEBUG] getReferencedModules: Found referenced module {$gatheredModule/*/@origURI}</xsl:message>
             </xsl:if>
             <xsl:sequence select="$gatheredModule"/>
             <xsl:if test="$isProcessNestedIncludes">           
@@ -71,7 +71,7 @@
             <xsl:variable name="moduleUri" select="string(document-uri($rngModule))" as="xs:string"/>
             <xsl:choose>
               <xsl:when test="ends-with($moduleUri, 'Mod.rng')">
-                <xsl:message> - [ERROR] getReferencedModules: Failed to find gathered module for referenced module "<xsl:value-of select="$moduleUri"/>"</xsl:message>
+                <xsl:message> - [ERROR] getReferencedModules: Failed to find gathered module for referenced module "{$moduleUri}"</xsl:message>
               </xsl:when>
               <xsl:otherwise>
                 <!-- Not a DITA module, ignore it -->
@@ -81,7 +81,7 @@
         </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> - [WARN] getReferencedModules: Failed to resolve reference to module for href "<xsl:value-of select="@href"/> relative to URI "<xsl:value-of select="document-uri($origModule)"/>" ("<xsl:value-of select="base-uri($origModule/*)"/>").</xsl:message>
+        <xsl:message> - [WARN] getReferencedModules: Failed to resolve reference to module for href "{@href} relative to URI "{document-uri($origModule)}" ("{base-uri($origModule/*)}").</xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

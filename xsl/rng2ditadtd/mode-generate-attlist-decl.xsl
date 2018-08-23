@@ -27,7 +27,7 @@
       select="key('definesByName', @name)[1]"
     />
     <xsl:if test="count($define) = 0">
-      <xsl:message> - [WARN] No rng:define element for referenced name "<xsl:value-of select="@name"/>".</xsl:message>
+      <xsl:message> - [WARN] No rng:define element for referenced name "{@name}".</xsl:message>
     </xsl:if>
     <xsl:apply-templates select="$define/rng:ref" mode="#current"/>
   </xsl:template>

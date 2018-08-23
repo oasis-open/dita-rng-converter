@@ -153,7 +153,7 @@
     
     <!-- Generate an XSD shell for a map or topic type -->
     
-    <xsl:message> + [INFO] === Generating XSD shell <xsl:value-of select="$xsdFilename" />...</xsl:message>
+    <xsl:message> + [INFO] === Generating XSD shell {$xsdFilename}...</xsl:message>
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] xsdFile: rng:grammar: Override for glossary shell.</xsl:message>
@@ -186,7 +186,7 @@
   <xsl:template mode="groupFile" match="rng:grammar[rngfunc:getModuleShortName(.) = 'glossary']">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
 
-    <xsl:message> + [INFO] === <xsl:value-of select="rngfunc:getModuleShortName(.)"/>: Generating Grp.xsd file...</xsl:message>
+    <xsl:message> + [INFO] === {rngfunc:getModuleShortName(.)}: Generating Grp.xsd file...</xsl:message>
     <xsl:apply-templates 
       select="(ditaarch:moduleDesc/ditaarch:headerComment[@fileType='xsdGrp'], ditaarch:moduleDesc/ditaarch:headerComment[1])[1]" 
       mode="header-comment"
@@ -209,7 +209,7 @@
   <xsl:template mode="moduleFile" match="rng:grammar[rngfunc:getModuleShortName(.) = 'glossary']">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
-    <xsl:message> + [INFO] === <xsl:value-of select="rngfunc:getModuleShortName(.)"/>: Generating Mod.xsd file...</xsl:message>
+    <xsl:message> + [INFO] === {rngfunc:getModuleShortName(.)}: Generating Mod.xsd file...</xsl:message>
     <xsl:apply-templates 
       select="(ditaarch:moduleDesc/ditaarch:headerComment[@fileType='xsdMod'], ditaarch:moduleDesc/ditaarch:headerComment[1])[1]" 
       mode="header-comment"
@@ -371,7 +371,7 @@
     
     <!-- Generate an XSD shell for a map or topic type -->
     
-    <xsl:message> + [INFO] === Generating XSD shell <xsl:value-of select="$xsdFilename" />...</xsl:message>
+    <xsl:message> + [INFO] === Generating XSD shell {$xsdFilename}...</xsl:message>
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] xsdFile: rng:grammar: Special case for ditaval XSD.</xsl:message>

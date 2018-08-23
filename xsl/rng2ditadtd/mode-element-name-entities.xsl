@@ -23,7 +23,7 @@
   <xsl:template mode="element-name-entities" match="rng:define">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-name-entities: rng:define: name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] element-name-entities: rng:define: name="{@name}"</xsl:message>
     </xsl:if>
     <xsl:apply-templates mode="#current" select="rng:element"/>
   </xsl:template>
@@ -31,7 +31,7 @@
   <xsl:template mode="element-name-entities" match="rng:element">    
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-name-entities: rng:element: name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] element-name-entities: rng:element: name="{@name}"</xsl:message>
     </xsl:if>
     <!-- Generate an element name entity declaration 
     

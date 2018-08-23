@@ -157,7 +157,7 @@
       else relpath:getParent(base-uri(root(.)/*))
       "/>
     
-    <xsl:message> + [INFO] processDir: effectiveRootDir="<xsl:value-of select="$effectiveRootDir"/></xsl:message>
+    <xsl:message> + [INFO] processDir: effectiveRootDir="{$effectiveRootDir}</xsl:message>
     <xsl:variable name="collectionUri" 
       select="concat($effectiveRootDir, '?', 
       'recurse=yes;',
@@ -204,16 +204,14 @@
       <xsl:message> + [DEBUG] Shell documents to process:</xsl:message>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:for-each select="$shellDocs">
-        <xsl:message> + [DEBUG]  <xsl:value-of 
-          select="substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))"/></xsl:message>
+        <xsl:message> + [DEBUG]  {substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))}</xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:message> + [DEBUG] Module documents to process:</xsl:message>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:for-each select="$moduleDocs">
-        <xsl:message> + [DEBUG] - <xsl:value-of select="/*/ditaarch:moduleDesc/ditaarch:moduleTitle"/></xsl:message>
-        <xsl:message> + [DEBUG]    <xsl:value-of 
-          select="substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))"/></xsl:message>
+        <xsl:message> + [DEBUG] - {/*/ditaarch:moduleDesc/ditaarch:moduleTitle}</xsl:message>
+        <xsl:message> + [DEBUG]    {substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))}</xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
     </xsl:if>    
@@ -229,7 +227,7 @@
     </xsl:variable>
     
     <xsl:if test="count($modulesToProcess) = 0">
-      <xsl:message terminate="yes"> - [ERROR] construction of $modulesToProcess failed. Count is <xsl:value-of select="count($modulesToProcess)"/>, should be greater than zero</xsl:message>
+      <xsl:message terminate="yes"> - [ERROR] construction of $modulesToProcess failed. Count is {count($modulesToProcess)}, should be greater than zero</xsl:message>
     </xsl:if>
     
     <xsl:message> + [INFO] Removing div elements from modules...</xsl:message>
@@ -244,11 +242,11 @@
     </xsl:variable>
     
     <xsl:if test="count($modulesNoDivs) lt count($modulesToProcess)">
-      <xsl:message terminate="yes"> - [ERROR] construction of $modulesNoDivs failed. Count is <xsl:value-of select="count($modulesNoDivs)"/>, should be <xsl:value-of select="count($modulesToProcess)"/></xsl:message>
+      <xsl:message terminate="yes"> - [ERROR] construction of $modulesNoDivs failed. Count is {count($modulesNoDivs)}, should be {count($modulesToProcess)}</xsl:message>
     </xsl:if>
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] Got <xsl:value-of select="count($modulesNoDivs)"/> modulesNoDivs.</xsl:message>
+      <xsl:message> + [DEBUG] Got {count($modulesNoDivs)} modulesNoDivs.</xsl:message>
     </xsl:if>
     
     <xsl:variable name="schemaDirName" as="xs:string"
@@ -325,7 +323,7 @@
     <xsl:variable name="rngModuleUrl" as="xs:string"
       select="string(base-uri(./*))"
     />
-    <xsl:message> + [INFO] processModules: Handling module <xsl:value-of select="$rngModuleUrl"/>...</xsl:message>
+    <xsl:message> + [INFO] processModules: Handling module {$rngModuleUrl}...</xsl:message>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence
         select="$rngModuleUrl"/>"</xsl:message>
@@ -415,7 +413,7 @@
       <!-- FIXME: Generate grp files when needed -->
     </moduleFiles>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] processModules: Applying templates in mode generate-modules to generate "<xsl:value-of select="$modResultUrl"/>"</xsl:message>
+      <xsl:message> + [DEBUG] processModules: Applying templates in mode generate-modules to generate "{$modResultUrl}"</xsl:message>
     </xsl:if>
     <xsl:apply-templates mode="generate-modules" select="."><!-- Root template for generate-modules matches on document, not rng:grammar -->
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>                 
@@ -662,13 +660,13 @@
   <xsl:template name="reportParameters">
     <xsl:message> + [INFO] Parameters:
       
-      debug              ="<xsl:value-of select="$debug"/>"
-      ditaVersion        ="<xsl:value-of select="$ditaVersion"/>"
-      generateModules    ="<xsl:value-of select="concat($generateModules, ' (', $doGenerateModules, ')')"/>"
-      headerCommentStyle ="<xsl:value-of select="$headerCommentStyle"/>"
-      moduleOutdir       ="<xsl:value-of select="$moduleOutdir"/>"
-      outdir             ="<xsl:value-of select="$outdir"/>"
-      useURNsInShell     ="<xsl:value-of select="concat($useURNsInShell, ' (', $doUseURNsInShell, ')')"/>"
+      debug              ="{$debug}"
+      ditaVersion        ="{$ditaVersion}"
+      generateModules    ="{concat($generateModules, ' (', $doGenerateModules, ')')}"
+      headerCommentStyle ="{$headerCommentStyle}"
+      moduleOutdir       ="{$moduleOutdir}"
+      outdir             ="{$outdir}"
+      useURNsInShell     ="{concat($useURNsInShell, ' (', $doUseURNsInShell, ')')}"
       
     </xsl:message>        
     

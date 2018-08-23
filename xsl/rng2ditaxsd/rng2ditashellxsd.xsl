@@ -48,7 +48,7 @@
     />
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] processShell: / - Have <xsl:value-of select="count($modulesToProcess)"/> modules to process.</xsl:message>
+      <xsl:message> + [DEBUG] processShell: / - Have {count($modulesToProcess)} modules to process.</xsl:message>
     </xsl:if>
     
     <!-- For the Grp files we need to include all modules, top-level or nested.
@@ -61,7 +61,7 @@
     />
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] processShell: / - Have <xsl:value-of select="count($referencedModules)"/> referenced modules.</xsl:message>
+      <xsl:message> + [DEBUG] processShell: / - Have {count($referencedModules)} referenced modules.</xsl:message>
     </xsl:if>
     
     <shell>
@@ -81,7 +81,7 @@
       <!-- Generate the .xsd file: -->
       
       <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] / applying templates in mode xsdFile. $schemaOutputDir="<xsl:sequence select="$schemaOutputDir"/>", rngShellUrl="<xsl:value-of select="$rngShellUrl"/>"</xsl:message>
+        <xsl:message> + [DEBUG] / applying templates in mode xsdFile. $schemaOutputDir="<xsl:sequence select="$schemaOutputDir"/>", rngShellUrl="{$rngShellUrl}"</xsl:message>
       </xsl:if>
       <xsl:result-document href="{$shellResultUrl}" format="xsd">
         <xsl:apply-templates mode="xsdFile">
@@ -128,7 +128,7 @@
     
     <!-- Generate an XSD shell for a map or topic type -->
     
-    <xsl:message> + [INFO] === Generating XSD shell <xsl:value-of select="$xsdFilename" />...</xsl:message>
+    <xsl:message> + [INFO] === Generating XSD shell {$xsdFilename}...</xsl:message>
     
     <xsl:variable name="shellType" select="rngfunc:getModuleType(.)" as="xs:string"/>
     
@@ -137,7 +137,7 @@
     </xsl:if>
         
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] xsdFile: rng:grammar: Have <xsl:value-of select="count($modulesToProcess)"/> modules to process.</xsl:message>
+      <xsl:message> + [DEBUG] xsdFile: rng:grammar: Have {count($modulesToProcess)} modules to process.</xsl:message>
     </xsl:if>
     
     <!-- Generate the header comment -->
@@ -168,10 +168,9 @@
         <xsl:variable name="mapMod" as="document-node()?"
           select="$modulesToProcess[(rngfunc:getModuleShortName(./*) = 'map')][rngfunc:getModuleType(./*) = 'map']"
         />
-        <xsl:message> + [DEBUG] mapshell: mapMod.rng is in modulesToProcess: <xsl:value-of select="boolean($mapMod)"/></xsl:message>
+        <xsl:message> + [DEBUG] mapshell: mapMod.rng is in modulesToProcess: {boolean($mapMod)}</xsl:message>
         <xsl:if test="$mapMod">
-          <xsl:message> + [DEBUG]     mapMod is extended: <xsl:value-of 
-            select="rngfunc:isExtendedModule($mapMod, ($modulesToProcess except $mapMod))"/></xsl:message>
+          <xsl:message> + [DEBUG]     mapMod is extended: {rngfunc:isExtendedModule($mapMod, ($modulesToProcess except $mapMod))}</xsl:message>
         </xsl:if>
       </xsl:if>
       <xsl:apply-templates 
@@ -196,7 +195,7 @@
       <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] **** shell handling, before metaDecl: included modules:
         <xsl:for-each select="$includedModules">
-          <xsl:sequence select="'&#x0a;', document-uri(.)"/> <xsl:text>("</xsl:text> <xsl:value-of select="base-uri(./*)"/><xsl:text>")</xsl:text>
+          <xsl:sequence select="'&#x0a;', document-uri(.)"/> <xsl:text>("</xsl:text> {base-uri(./*)}<xsl:text>")</xsl:text>
         </xsl:for-each>
         </xsl:message>
       </xsl:if>
@@ -380,7 +379,7 @@ It must be declared in topic-type shells.
     <xsl:param name="rngShellUrl" tunnel="yes" as="xs:string"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] handleTopLevelIncludes: include of <xsl:value-of select="@href"/></xsl:message>
+      <xsl:message> + [DEBUG] handleTopLevelIncludes: include of {@href}</xsl:message>
     </xsl:if>
     
     <!-- NOTE: As far as I can figure out there's no easy way to determine whether
@@ -397,7 +396,7 @@ It must be declared in topic-type shells.
       select="document(@href, root(.))"
     />
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] handleTopLevelIncludes: Module type=<xsl:value-of select="rngfunc:getModuleType($includedRNGModule/*)"/></xsl:message>
+      <xsl:message> + [DEBUG] handleTopLevelIncludes: Module type={rngfunc:getModuleType($includedRNGModule/*)}</xsl:message>
     </xsl:if>
     
     <xsl:if test="rngfunc:getModuleType($includedRNGModule/*) = ('topic', 'map', 'constraint')">
@@ -469,7 +468,7 @@ It must be declared in topic-type shells.
     -->
         
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] generateRedefines(): Have <xsl:value-of select="count($modulesToProcess)"/> modules to process.</xsl:message>
+      <xsl:message> + [DEBUG] generateRedefines(): Have {count($modulesToProcess)} modules to process.</xsl:message>
     </xsl:if>
     <xsl:message> + [INFO] Generating domain extension redefines... </xsl:message>
     <xsl:variable name="domainModules" as="element()*"
@@ -496,7 +495,7 @@ It must be declared in topic-type shells.
                 rngfunc:isExtendedModule(., ($modulesToProcess except .)))
       ]">
       <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] generateRedefines: Constructing xs:redefine for module "<xsl:value-of select="rngfunc:getModuleShortName(./*)"/>"</xsl:message>
+        <xsl:message> + [DEBUG] generateRedefines: Constructing xs:redefine for module "{rngfunc:getModuleShortName(./*)}"</xsl:message>
       </xsl:if>
       <!-- Element domains do not have Grp modules. -->
       <xsl:variable name="moduleUri" as="xs:string"
@@ -508,7 +507,7 @@ It must be declared in topic-type shells.
                                     $xsdDir, $rngShellUrl)"
       />      
       <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] generateRedefines: mdouleUri="<xsl:value-of select="$moduleUri"/>"</xsl:message>
+        <xsl:message> + [DEBUG] generateRedefines: mdouleUri="{$moduleUri}"</xsl:message>
       </xsl:if>
       
       <xsl:variable name="rngModuleUrl" as="xs:string"
@@ -585,7 +584,7 @@ It must be declared in topic-type shells.
     <xsl:param name="attributeExtensionDefines" as="node()*"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] generateRedefines: Constructing xs:redefine for <xsl:value-of select="$moduleUri"/></xsl:message>
+      <xsl:message> + [DEBUG] generateRedefines: Constructing xs:redefine for {$moduleUri}</xsl:message>
     </xsl:if>
     <xs:redefine schemaLocation="{$moduleUri}">
       <xsl:for-each select="$elementTypeNames">
@@ -639,8 +638,8 @@ It must be declared in topic-type shells.
     <xsl:param name="isDitabase" tunnel="yes" as="xs:boolean" select="false()"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] generateIncludes: rng:grammar "<xsl:value-of select="rngfunc:getModuleShortName(.)"/>"</xsl:message>
-      <xsl:message> + [DEBUG] generateIncludes:   fileType="<xsl:value-of select="$fileType"/>"</xsl:message>
+      <xsl:message> + [DEBUG] generateIncludes: rng:grammar "{rngfunc:getModuleShortName(.)}"</xsl:message>
+      <xsl:message> + [DEBUG] generateIncludes:   fileType="{$fileType}"</xsl:message>
     </xsl:if>
 
     <xsl:variable name="schemaLocation" as="xs:string"
@@ -854,7 +853,7 @@ It must be declared in topic-type shells.
       </xsl:when>
       <xsl:otherwise>
         <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] local:getModuleUri(): rngShellUrl="<xsl:value-of select="$rngShellUrl"/>"</xsl:message>
+          <xsl:message> + [DEBUG] local:getModuleUri(): rngShellUrl="{$rngShellUrl}"</xsl:message>
         </xsl:if>
         <xsl:sequence 
           select="local:getXsdUrlForRngModule(
@@ -890,12 +889,12 @@ It must be declared in topic-type shells.
     
     <xsl:variable name="rngShellParent" as="xs:string" select="relpath:getParent($rngShellUrl)"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] local:getXsdUrlForRngModule: rngShellParent="<xsl:value-of select="$rngShellParent"/>"</xsl:message>
+      <xsl:message> + [DEBUG] local:getXsdUrlForRngModule: rngShellParent="{$rngShellParent}"</xsl:message>
     </xsl:if>
 
     <xsl:variable name="rngModuleUrl" as="xs:string" select="rngfunc:getGrammarUri($rngModule)"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] local:getXsdUrlForRngModule: rngModuleUrl="<xsl:value-of select="$rngModuleUrl"/>"</xsl:message>
+      <xsl:message> + [DEBUG] local:getXsdUrlForRngModule: rngModuleUrl="{$rngModuleUrl}"</xsl:message>
     </xsl:if>
     <xsl:variable name="rngModuleName" as="xs:string" select="relpath:getNamePart($rngModuleUrl)"/>
     <xsl:variable name="xsdModuleBaseName" as="xs:string"
@@ -922,7 +921,7 @@ It must be declared in topic-type shells.
                 any other organization pattern.
       -->
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] local:getXsdUrlForRngModule: relpathFromShell="<xsl:value-of select="$relpathFromShell"/>"</xsl:message>
+      <xsl:message> + [DEBUG] local:getXsdUrlForRngModule: relpathFromShell="{$relpathFromShell}"</xsl:message>
     </xsl:if>
     <xsl:variable name="moduleSystemID" as="xs:string" 
       select="replace(relpath:newFile($relpathFromShell, $targetFilename), '/rng/', '/xsd/')"/>

@@ -48,9 +48,8 @@
          The output needs to be in dtd/{package}/dtd
       -->
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] processShell: Handling doc <xsl:value-of select="document-uri(root(.))"/> ("<xsl:value-of
-          select="base-uri(root(.)/*)"/>")</xsl:message>
-      <xsl:message>+ [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
+      <xsl:message>+ [DEBUG] processShell: Handling doc {document-uri(root(.))} ("{base-uri(root(.)/*)}")</xsl:message>
+      <xsl:message>+ [DEBUG] Initial process: Found {count($modulesToProcess)} modules.</xsl:message>
     </xsl:if>
     
     
@@ -105,7 +104,7 @@
       <!-- Generate the .dtd file: -->
         
       <xsl:if test="$doDebug">
-        <xsl:message>+ [DEBUG] / applying templates in mode dtdFile. $dtdOutputDir="<xsl:sequence select="$dtdOutputDir"/>", rngShellUrl="<xsl:value-of select="$rngShellUrl"/>"</xsl:message>
+        <xsl:message>+ [DEBUG] / applying templates in mode dtdFile. $dtdOutputDir="<xsl:sequence select="$dtdOutputDir"/>", rngShellUrl="{$rngShellUrl}"</xsl:message>
       </xsl:if>
       <xsl:result-document href="{$dtdResultUrl}" format="dtd">
         <xsl:apply-templates mode="dtdFile">
@@ -143,7 +142,7 @@
       select="substring-before($firstStart/@name,'.element')" 
       as="xs:string" />
     
-    <xsl:message>+ [INFO] === Generating DTD shell <xsl:value-of select="$dtdFilename" />...</xsl:message>
+    <xsl:message>+ [INFO] === Generating DTD shell {$dtdFilename}...</xsl:message>
     
     
     <xsl:variable name="shellType" select="rngfunc:getModuleType(.)" as="xs:string"/>
@@ -386,15 +385,14 @@
                 </xsl:if>              
               </xsl:when>
               <xsl:otherwise>
-                <xsl:message>+ [WARN] Failed to resolve reference to URI "<xsl:value-of select="@href"/>, relative to base URI
-"<xsl:value-of select="base-uri(.)"/>"</xsl:message>
+                <xsl:message>+ [WARN] Failed to resolve reference to URI "{@href}, relative to base URI
+"{base-uri(.)}"</xsl:message>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:for-each>
         </xsl:variable>
         <xsl:if test="$doDebug">
-          <xsl:message>+ [DEBUG] match="rng:grammar" mode="dtdFile": count(topicModuleIncludes)="<xsl:value-of
-            select="count($topicModuleIncludes)"/>"</xsl:message>
+          <xsl:message>+ [DEBUG] match="rng:grammar" mode="dtdFile": count(topicModuleIncludes)="{count($topicModuleIncludes)}"</xsl:message>
         </xsl:if>
         
         <xsl:for-each select="$topicModuleIncludes">          
@@ -419,8 +417,7 @@
               <xsl:if test="$topicType != 'topic' or (normalize-space(//rng:start/rng:ref/@name) = 'topic.element')">
                 <xsl:if test="$doDebug">
                   <xsl:message>+ [DEBUG] match="rng:grammar" mode="dtdFile": A topic-type module, applying templates to *-info-types defines...</xsl:message>
-                  <xsl:message>+ [DEBUG]  info-types defines in <xsl:value-of select="document-uri($module)"/> ("<xsl:value-of
-                    select="base-uri($module/*)"/>"):
+                  <xsl:message>+ [DEBUG]  info-types defines in {document-uri($module)} ("{base-uri($module/*)}"):
                     <xsl:sequence select="$module//rng:define[ends-with(@name, '-info-types')]"/>
                   </xsl:message>
                 </xsl:if>
@@ -617,7 +614,7 @@
     <xsl:value-of select="rngfunc:getModuleTitle(.)"/>
     <xsl:text> ================= --></xsl:text>
     
-    <xsl:message>+ [INFO] === DTD shell <xsl:value-of select="$dtdFilename" /> generated.</xsl:message>
+    <xsl:message>+ [INFO] === DTD shell {$dtdFilename} generated.</xsl:message>
 
   </xsl:template>
   
@@ -699,7 +696,7 @@
   <xsl:template mode="handle-info-types-pattern" match="rng:define[ends-with(@name, '-info-types')]" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] handle-info-types-pattern: rng:define, name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] handle-info-types-pattern: rng:define, name="{@name}"</xsl:message>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="rng:ref[@name = 'info-types']">

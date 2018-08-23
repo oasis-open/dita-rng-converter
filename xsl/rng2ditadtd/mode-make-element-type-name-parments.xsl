@@ -21,7 +21,7 @@
   <xsl:template mode="make-element-type-name-parments" match="rng:define">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] make-element-type-name-parments: rng:define: name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] make-element-type-name-parments: rng:define: name="{@name}"</xsl:message>
     </xsl:if>
     
     <!-- 

@@ -56,7 +56,7 @@
         -->
     </xsl:param>
     
-    <xsl:message> + [INFO]   catalogType="<xsl:value-of select="$catalogType"/>"...</xsl:message>
+    <xsl:message> + [INFO]   catalogType="{$catalogType}"...</xsl:message>
     
     <xsl:variable name="schemaTypes" as="xs:string*"
       select="if ($catalogType = 'all') 
@@ -69,7 +69,7 @@
       -->
     <xsl:choose>
       <xsl:when test="$catalogType = 'all'">
-        <xsl:message> + [INFO]   <xsl:value-of select="$catalogUri"/></xsl:message>
+        <xsl:message> + [INFO]   {$catalogUri}</xsl:message>
         <xsl:result-document href="{$catalogUri}" format="xml-catalog">
           <catalog>
             <xsl:for-each select="$schemaTypes">
@@ -88,7 +88,7 @@
       <xsl:variable name="uri" as="xs:string"
         select="relpath:newFile(relpath:newFile(relpath:getParent($catalogUri), .), 'catalog.xml')"
       />
-      <xsl:message> + [INFO]   <xsl:value-of select="$uri"/></xsl:message>
+      <xsl:message> + [INFO]   {$uri}</xsl:message>
       <xsl:result-document href="{$uri}" 
         format="xml-catalog">
         <catalog>
@@ -98,7 +98,7 @@
           <xsl:for-each-group select="$rngDocs[/*/dita:moduleDesc]" group-by="rngfunc:getModulePackage(.)">
             <xsl:sort select="rngfunc:getModulePackage(.)"/>
             <xsl:if test="$doDebug">
-              <xsl:message> + [DEBUG] Package "<xsl:value-of select="current-grouping-key()"/>"</xsl:message>
+              <xsl:message> + [DEBUG] Package "{current-grouping-key()}"</xsl:message>
             </xsl:if>
             <nextCatalog catalog="{current-grouping-key()}/catalog.xml"/>
           </xsl:for-each-group>     
@@ -129,7 +129,7 @@
     <xsl:for-each-group select="$rngDocs[/*/dita:moduleDesc]" group-by="rngfunc:getModulePackage(.)">
       <xsl:sort select="rngfunc:getModulePackage(.)"/>
       <xsl:if test="$doDebug">
-        <xsl:message> + [DEBUG] Package "<xsl:value-of select="current-grouping-key()"/>"</xsl:message>
+        <xsl:message> + [DEBUG] Package "{current-grouping-key()}"</xsl:message>
       </xsl:if>
       <xsl:call-template name="makePackageCatalog">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
@@ -152,8 +152,8 @@
     <xsl:param name="packageName" as="xs:string"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] makePackageCatalog: packageName="<xsl:value-of select="$packageName"/>"</xsl:message>
-      <xsl:message> + [DEBUG]   makePackageCatalog: schemaType="<xsl:value-of select="$schemaType"/>"</xsl:message>
+      <xsl:message> + [DEBUG] makePackageCatalog: packageName="{$packageName}"</xsl:message>
+      <xsl:message> + [DEBUG]   makePackageCatalog: schemaType="{$schemaType}"</xsl:message>
     </xsl:if>
     
     <xsl:variable name="rngDocsSorted" as="document-node()*">
@@ -170,7 +170,7 @@
     <xsl:variable name="catalogUri" as="xs:string"
       select="relpath:newFile($parentDir, 'catalog.xml')"
     />
-    <xsl:message> + [INFO]   <xsl:value-of select="$catalogUri"/></xsl:message>
+    <xsl:message> + [INFO]   {$catalogUri}</xsl:message>
     <xsl:result-document href="{$catalogUri}" format="xml-catalog">
       <catalog>
         <xsl:if test="$doGenerationComment">
@@ -239,9 +239,9 @@
       -->
 
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] additionalEntries: packageName="<xsl:value-of select="$packageName"/>"</xsl:message>
-      <xsl:message> + [DEBUG] additionalEntries:   catalogType="<xsl:value-of select="$catalogType"/>"</xsl:message>
-      <xsl:message> + [DEBUG] additionalEntries:   entryType="<xsl:value-of select="$entryType"/>"</xsl:message>
+      <xsl:message> + [DEBUG] additionalEntries: packageName="{$packageName}"</xsl:message>
+      <xsl:message> + [DEBUG] additionalEntries:   catalogType="{$catalogType}"</xsl:message>
+      <xsl:message> + [DEBUG] additionalEntries:   entryType="{$entryType}"</xsl:message>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="$packageName = 'base' and $entryType = 'urn' and $catalogType = 'schema'">
@@ -347,7 +347,7 @@
         </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> - [ERROR] generate-catalogs: Unrecognized catalogType value "<xsl:value-of select="$catalogType"/></xsl:message>
+        <xsl:message> - [ERROR] generate-catalogs: Unrecognized catalogType value "{$catalogType}</xsl:message>
       </xsl:otherwise>
     </xsl:choose>    
   </xsl:template>
@@ -583,7 +583,7 @@
         </xsl:if>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> - [WARN] dita:var: Unrecognized @name value "<xsl:value-of select="$name"/>"</xsl:message>
+        <xsl:message> - [WARN] dita:var: Unrecognized @name value "{$name}"</xsl:message>
         <xsl:value-of select="concat('${', @name, '}')"/>
       </xsl:otherwise>
     </xsl:choose>

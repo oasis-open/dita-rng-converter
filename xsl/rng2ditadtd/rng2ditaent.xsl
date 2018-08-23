@@ -104,13 +104,13 @@
     <xsl:if test="$moduleType = 'attributedomain'">
       <xsl:if test="$doDebug">
         <xsl:message>+ [DEBUG] entityFile: module is an attribute domain, applying templates in mode generate-parment-decl-from-define...</xsl:message>
-        <xsl:message>+ [DEBUG] entityFile: domainPrefix="<xsl:value-of select="$domainPrefix"/>"</xsl:message>
+        <xsl:message>+ [DEBUG] entityFile: domainPrefix="{$domainPrefix}"</xsl:message>
       </xsl:if>
       <xsl:if test="not(/*/rng:define[starts-with(@name, $domainPrefix)])">
-        <xsl:message> - [WARN] For attribute domain module, got domain prefix of "<xsl:value-of select="$domainPrefix"/>" but didn't</xsl:message>
+        <xsl:message> - [WARN] For attribute domain module, got domain prefix of "{$domainPrefix}" but didn't</xsl:message>
         <xsl:message> - [WARN] find any rng:define elements whose @name value starts with that prefix. The define</xsl:message>
-        <xsl:message> - [WARN] element for the attribute must be named with the domain prefix, e.g. "<xsl:value-of select="concat($domainPrefix, '-attribute')"/>".</xsl:message>
-        <xsl:message> - [WARN] Found the following defines: <xsl:value-of select="string-join(/*/rng:define/@name, ', ')"/></xsl:message>
+        <xsl:message> - [WARN] element for the attribute must be named with the domain prefix, e.g. "{concat($domainPrefix, '-attribute')}".</xsl:message>
+        <xsl:message> - [WARN] Found the following defines: {string-join(/*/rng:define/@name, ', ')}</xsl:message>
       </xsl:if>
       <xsl:apply-templates 
         select="/*/rng:define[starts-with(@name, $domainPrefix)]" 

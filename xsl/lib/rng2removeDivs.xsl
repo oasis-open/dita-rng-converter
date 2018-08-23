@@ -30,7 +30,7 @@
 
     <xsl:variable name="base-uri" select="string(base-uri(root(.)/*))" as="xs:string"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] removeDivs: rng:grammar, base-uri="<xsl:value-of select="$base-uri"/>"</xsl:message>
+      <xsl:message> + [DEBUG] removeDivs: rng:grammar, base-uri="{$base-uri}"</xsl:message>
     </xsl:if>
     <xsl:copy>
       <xsl:attribute name="xml:base" select="$base-uri"/>

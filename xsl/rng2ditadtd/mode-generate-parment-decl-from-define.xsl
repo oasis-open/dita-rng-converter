@@ -35,7 +35,7 @@
     <xsl:param name="indent" as="xs:integer" select="14"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] generate-parment-decl-from-define: info-types define: "<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] generate-parment-decl-from-define: info-types define: "{@name}"</xsl:message>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="rng:empty | rng:notAllowed">
@@ -61,7 +61,7 @@
     <xsl:param name="nlBeforeClosingQuote" as="xs:boolean" select="false()"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] generate-parment-decl-from-define: rng:define name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] generate-parment-decl-from-define: rng:define name="{@name}"</xsl:message>
     </xsl:if>
     
     <!-- FIXME: The following is a hack that depends on a consistent naming convention
@@ -76,8 +76,8 @@
     />
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] generate-parment-decl-from-define: name="<xsl:value-of select="@name"/>"</xsl:message>
-      <xsl:message>+ [DEBUG]   generate-parment-decl-from-define: isAttSet="<xsl:value-of select="$isAttSet"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] generate-parment-decl-from-define: name="{@name}"</xsl:message>
+      <xsl:message>+ [DEBUG]   generate-parment-decl-from-define: isAttSet="{$isAttSet}"</xsl:message>
     </xsl:if>
     <xsl:text>&lt;!ENTITY % </xsl:text>
     <xsl:value-of select="@name" />

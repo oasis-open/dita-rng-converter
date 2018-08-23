@@ -71,13 +71,13 @@
       else string(document-uri($origModule))" as="xs:string"
     />
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] resolveIncludesNormalize: rng:include, origUri="<xsl:value-of select="$origUri"/>"</xsl:message>
+      <xsl:message> + [DEBUG] resolveIncludesNormalize: rng:include, origUri="{$origUri}"</xsl:message>
     </xsl:if>
     <xsl:variable name="targetUri" as="xs:string"
       select="string(resolve-uri(@href, $origUri))"
     />
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] resolveIncludesNormalize: rng:include, targetUri="<xsl:value-of select="$targetUri"/>"</xsl:message>
+      <xsl:message> + [DEBUG] resolveIncludesNormalize: rng:include, targetUri="{$targetUri}"</xsl:message>
     </xsl:if>
     <xsl:variable name="rngModule" as="document-node()?" select="document($targetUri)" />
     <xsl:choose>
@@ -87,7 +87,7 @@
         </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> - [WARN] resolveIncludes: Failed to resolve reference to module "<xsl:value-of select="@href"/>" relative to module "<xsl:value-of select="document-uri($origModule)"/>" ("<xsl:value-of select="base-uri($origModule/*)"/>"</xsl:message>
+        <xsl:message> - [WARN] resolveIncludes: Failed to resolve reference to module "{@href}" relative to module "{document-uri($origModule)}" ("{base-uri($origModule/*)}"</xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -108,7 +108,7 @@
   <xsl:template mode="expandRefs" match="*" priority="-1">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] expandRefs: catch-all: <xsl:value-of select="name(..), '/', name(.)"/></xsl:message>
+      <xsl:message> + [DEBUG] expandRefs: catch-all: {name(..), '/', name(.)}</xsl:message>
     </xsl:if>
     <xsl:copy>
       <xsl:apply-templates mode="#current" select="@*,node()"/>
@@ -133,7 +133,7 @@
            ends-with(@name, 'att')]" priority="20">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] expandRefs: catch-all: <xsl:value-of select="name(..), '/', name(.)"/></xsl:message>
+      <xsl:message> + [DEBUG] expandRefs: catch-all: {name(..), '/', name(.)}</xsl:message>
     </xsl:if>
     <xsl:sequence select="."/>
   </xsl:template>
@@ -141,7 +141,7 @@
   <xsl:template mode="expandRefs" match="rng:define[count(*) = 1][rng:ref[ends-with(@name, '.element')]]" priority="20">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] expandRefs: define <xsl:value-of select="@name"/>: with exactly one rng:ref child, </xsl:message>
+      <xsl:message> + [DEBUG] expandRefs: define {@name}: with exactly one rng:ref child, </xsl:message>
     </xsl:if>
     <xsl:sequence select="."/>
   </xsl:template>
@@ -155,7 +155,7 @@
 
     <xsl:variable name="targetName" select="@name" as="xs:string"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] expandRefs: rng:ref: targetName="<xsl:value-of select="$targetName"/>"</xsl:message>
+      <xsl:message> + [DEBUG] expandRefs: rng:ref: targetName="{$targetName}"</xsl:message>
     </xsl:if>
     <!--    <xsl:variable name="target" as="element()*"
       select="$modulesToProcess//*[@name = $targetName][not(self::rng:ref)]"
@@ -169,7 +169,7 @@
     </xsl:variable>
     <xsl:choose>
       <xsl:when test="not($target)">
-        <xsl:message> - [WARN]   expandRefs: Failed to resolve reference to name "<xsl:value-of select="@name"/>"</xsl:message>
+        <xsl:message> - [WARN]   expandRefs: Failed to resolve reference to name "{@name}"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
         <xsl:choose>
@@ -202,7 +202,7 @@
               </xsl:when>
               <xsl:otherwise>
                 <xsl:if test="$doDebug">
-                  <xsl:message> + [DEBUG]   expandRefs: processing children of defines "<xsl:value-of select="$targetName"/>"</xsl:message>
+                  <xsl:message> + [DEBUG]   expandRefs: processing children of defines "{$targetName}"</xsl:message>
                 </xsl:if>
                 <xsl:for-each select="$target[not(ends-with(./@name, '.element'))]">
                   <xsl:apply-templates select="./*" mode="#current"/>

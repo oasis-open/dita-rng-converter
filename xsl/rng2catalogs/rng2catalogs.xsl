@@ -97,7 +97,7 @@
       then $rootDir
       else relpath:getParent(base-uri(root(.)/*))
       "/>
-    <xsl:message> + [INFO] processDir: effectiveRootDir="<xsl:value-of select="$effectiveRootDir"/></xsl:message>
+    <xsl:message> + [INFO] processDir: effectiveRootDir="{$effectiveRootDir}</xsl:message>
     <xsl:variable name="collectionUri" 
       select="concat($effectiveRootDir, '?', 
       'recurse=yes;',
@@ -112,8 +112,7 @@
       <xsl:message> + [DEBUG] Documents to process:</xsl:message>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:for-each select="$rngDocs">
-        <xsl:message> + [DEBUG]  <xsl:value-of 
-          select="substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))"/></xsl:message>
+        <xsl:message> + [DEBUG]  {substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))}</xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
     </xsl:if>    
@@ -135,10 +134,10 @@
   <xsl:template name="reportParameters">
     <xsl:message> + [INFO] Parameters:
       
-      debug              ="<xsl:value-of select="$debug"/>"
-      ditaVersion        ="<xsl:value-of select="$ditaVersion"/>"
-      outdir             ="<xsl:value-of select="$outdir"/>"
-      rootDir            ="<xsl:value-of select="$rootDir"/>"
+      debug              ="{$debug}"
+      ditaVersion        ="{$ditaVersion}"
+      outdir             ="{$outdir}"
+      rootDir            ="{$rootDir}"
       
     </xsl:message>    
     

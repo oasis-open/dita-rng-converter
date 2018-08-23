@@ -248,11 +248,11 @@
       </xsl:for-each-group>
     </xsl:variable>
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] getReferencedModules: $modulesToProcess="<xsl:value-of select="for $mod in $modulesToProcess return rngfunc:getModuleShortName($mod/*)"/>"</xsl:message>      
+      <xsl:message>+ [DEBUG] getReferencedModules: $modulesToProcess="{for $mod in $modulesToProcess return rngfunc:getModuleShortName($mod/*)}"</xsl:message>      
     </xsl:if>
     
     <xsl:if test="count($modulesToProcess) = 0">
-      <xsl:message terminate="yes"> - [ERROR] construction of modulesNoDivs failed. Count is <xsl:value-of select="count($modulesToProcess)"/>, should be greater than zero</xsl:message>
+      <xsl:message terminate="yes"> - [ERROR] construction of modulesNoDivs failed. Count is {count($modulesToProcess)}, should be greater than zero</xsl:message>
     </xsl:if>
     
     <xsl:message>+ [INFO] Removing div elements from modules...</xsl:message>
@@ -267,7 +267,7 @@
     </xsl:variable>
     
     <xsl:if test="count($modulesNoDivs) lt count($modulesToProcess)">
-      <xsl:message terminate="yes"> - [ERROR] construction of modulesNoDivs failed. Count is <xsl:value-of select="count($modulesNoDivs)"/>, should be <xsl:value-of select="count($modulesToProcess)"/></xsl:message>
+      <xsl:message terminate="yes"> - [ERROR] construction of modulesNoDivs failed. Count is {count($modulesNoDivs)}, should be {count($modulesToProcess)}</xsl:message>
     </xsl:if>
     
     <xsl:if test="$doDebug">
@@ -411,7 +411,7 @@
     <xsl:variable name="rngModuleUrl" as="xs:string"
       select="string(base-uri(./*))"
     />
-    <xsl:message>+ [INFO] processModules: Handling module <xsl:value-of select="$rngModuleUrl"/>...</xsl:message>
+    <xsl:message>+ [INFO] processModules: Handling module {$rngModuleUrl}...</xsl:message>
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence
         select="$rngModuleUrl"/>"</xsl:message>
@@ -484,7 +484,7 @@
              'map'))"
       >    
       <xsl:if test="$doDebug">
-        <xsl:message>+ [DEBUG] processModules: Applying templates in mode entityFile to generate "<xsl:value-of select="$entResultUrl"/>"</xsl:message>
+        <xsl:message>+ [DEBUG] processModules: Applying templates in mode entityFile to generate "{$entResultUrl}"</xsl:message>
       </xsl:if>
       <xsl:if test="not($moduleType = ('constraint'))">
         <xsl:result-document href="{$entResultUrl}" format="dtd">
@@ -499,7 +499,7 @@
     <!-- Generate the .mod file: NOTE: Attribute modules only have .ent files -->
     <xsl:if test="not($moduleType = ('attributedomain'))">
       <xsl:if test="$doDebug">
-        <xsl:message>+ [DEBUG] processModules: Applying templates in mode moduleFile to generate "<xsl:value-of select="$modResultUrl"/>"</xsl:message>
+        <xsl:message>+ [DEBUG] processModules: Applying templates in mode moduleFile to generate "{$modResultUrl}"</xsl:message>
       </xsl:if>
       <xsl:result-document href="{$modResultUrl}" format="dtd">
         <xsl:apply-templates mode="moduleFile" >

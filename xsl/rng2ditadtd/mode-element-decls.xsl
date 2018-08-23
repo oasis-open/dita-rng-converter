@@ -29,7 +29,7 @@
     <xsl:param name="dtdOutputDir" as="xs:string" tunnel="yes"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] rng:include, element-decls: dtdOutputDir="<xsl:value-of select="$dtdOutputDir"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] rng:include, element-decls: dtdOutputDir="{$dtdOutputDir}"</xsl:message>
     </xsl:if>
     
     <xsl:variable name="thisModuleURI" as="xs:string"
@@ -43,10 +43,10 @@
     <xsl:choose>
       <xsl:when test="$module">
         <xsl:if test="$doDebug">
-          <xsl:message>+ [DEBUG] element-decls: rng:include - Handling module "<xsl:value-of select="@href"/>"</xsl:message>
+          <xsl:message>+ [DEBUG] element-decls: rng:include - Handling module "{@href}"</xsl:message>
         </xsl:if>
         <xsl:if test="$doDebug">
-          <xsl:message>+ [DEBUG]   referencingGrammarUrl="<xsl:value-of select="$thisModuleURI"/>"</xsl:message>
+          <xsl:message>+ [DEBUG]   referencingGrammarUrl="{$thisModuleURI}"</xsl:message>
         </xsl:if>
         
         <xsl:apply-templates mode="#current" select="a:documentation">
@@ -66,7 +66,7 @@
         </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> - [ERROR] Failed to resolve grammar reference <xsl:value-of select="@href"/> using full URL "<xsl:value-of select="$targetUri"/>"</xsl:message>
+        <xsl:message> - [ERROR] Failed to resolve grammar reference {@href} using full URL "{$targetUri}"</xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -203,7 +203,7 @@
   <xsl:template match="rng:define[rng:element]" mode="element-decls" priority="15">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] mode: element-decls: element-defining define, name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] mode: element-decls: element-defining define, name="{@name}"</xsl:message>
     </xsl:if>    
     <xsl:apply-templates mode="#current" select="rng:element">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
@@ -219,7 +219,7 @@
     <xsl:param name="domainPfx" tunnel="yes" as="xs:string" /><!-- FIXME: I think domainPfx is no longer useful. -->
         
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] mode: element-decls: rng:define name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] mode: element-decls: rng:define name="{@name}"</xsl:message>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="$domainPfx and not($domainPfx='') and starts-with(@name, $domainPfx)">
@@ -299,7 +299,7 @@
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: rng:attribute[name="<xsl:value-of select="../@name"/>"]/rng:choice</xsl:message>
+      <xsl:message>+ [DEBUG] element-decls: rng:attribute[name="{../@name}"]/rng:choice</xsl:message>
     </xsl:if>
     
     <xsl:if test="preceding-sibling::rng:* or 
@@ -461,8 +461,8 @@
     <xsl:param name="connector" as="xs:string" select="','"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: <xsl:value-of select="concat(name(../..), '/', name(..))"/>, ref name="<xsl:value-of select="@name"/>"</xsl:message>
-      <xsl:message>+ [DEBUG]                connector="<xsl:value-of select="$connector"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] element-decls: {concat(name(../..), '/', name(..))}, ref name="{@name}"</xsl:message>
+      <xsl:message>+ [DEBUG]                connector="{$connector}"</xsl:message>
     </xsl:if>
     
     <!-- rng:text is always treated as though it was first -->
@@ -474,7 +474,7 @@
       <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: rng:ref "<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] element-decls: rng:ref "{@name}"</xsl:message>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="@name='any'">
@@ -531,7 +531,7 @@
     <xsl:param name="isAttSet" as="xs:boolean" tunnel="yes"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: rng:externalRef, href="<xsl:value-of select="@href"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] element-decls: rng:externalRef, href="{@href}"</xsl:message>
     </xsl:if>
 
     <!-- I'm not sure this check is sufficient but it's good enough for now -->
@@ -541,7 +541,7 @@
       "
     />
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG]  element-decls: rng:externalRef, sep="<xsl:value-of select="$sep"/>"</xsl:message>
+      <xsl:message>+ [DEBUG]  element-decls: rng:externalRef, sep="{$sep}"</xsl:message>
     </xsl:if>
     
     <xsl:if test="preceding-sibling::rng:*">
@@ -561,16 +561,16 @@
        select="rngfunc:getStartElementsForExternalRef(., $doDebug)"
     />
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: elementTypeNames != '' ="<xsl:value-of select="$elementTypeNames != ''"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] element-decls: elementTypeNames != '' ="{$elementTypeNames != ''}"</xsl:message>
     </xsl:if>
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: elementTypeNames="<xsl:value-of select="$elementTypeNames"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] element-decls: elementTypeNames="{$elementTypeNames}"</xsl:message>
     </xsl:if>
     <xsl:variable name="nsPrefix" as="xs:string?"
       select="@dita:namespacePrefix"
     />
     <xsl:if test="not($nsPrefix)">
-      <xsl:message> - [WARN] No @dita:namespacePrefix for rng:externalRef with href "<xsl:value-of select="@href"/>".</xsl:message>
+      <xsl:message> - [WARN] No @dita:namespacePrefix for rng:externalRef with href "{@href}".</xsl:message>
       <xsl:message> - [WARN]    Foreign vocabularies must be in a namespace and must be prefixed to avoid collision with DITA-defined names.</xsl:message>
     </xsl:if>
     <xsl:variable name="nsPrefixString" as="xs:string" select="if ($nsPrefix) then concat($nsPrefix, ':') else 'ns1:'"/>
@@ -608,8 +608,8 @@
     <xsl:param name="connector" as="xs:string?" select="()"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: <xsl:value-of select="concat(name(..), '/', name(.))"/>: "<xsl:value-of select="."/>"</xsl:message>
-      <xsl:message>+ [DEBUG] element-decls:   connector="<xsl:value-of select="$connector"/></xsl:message>
+      <xsl:message>+ [DEBUG] element-decls: {concat(name(..), '/', name(.))}: "{.}"</xsl:message>
+      <xsl:message>+ [DEBUG] element-decls:   connector="{$connector}</xsl:message>
     </xsl:if>
     <xsl:if test="preceding-sibling::rng:*">
       <xsl:value-of select="str:indent($indent)"/>
@@ -673,7 +673,7 @@
 
       -->
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: attribute "<xsl:value-of select="@name"/>":
+      <xsl:message>+ [DEBUG] element-decls: attribute "{@name}":
 <xsl:sequence select="."/>        
       </xsl:message>
     </xsl:if>
@@ -780,7 +780,7 @@
     <!-- Generate the content and attribute list parameter entities: -->
     <!-- Generate the element type and attribute list declarations -->
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: rng:element, name="<xsl:value-of select="@name"/>" </xsl:message>
+      <xsl:message>+ [DEBUG] element-decls: rng:element, name="{@name}" </xsl:message>
     </xsl:if>
     <xsl:variable name="longName" as="xs:string"
       select="if (@ditaarch:longName) 
@@ -828,7 +828,7 @@
         <!-- Silently ignore: these references are a special case -->
       </xsl:when>
       <xsl:when test="count($define) = 0">        
-        <xsl:message> - [WARN] generate-element-type-parameter-entities: rng:ref - No rng:define element for referenced name "<xsl:value-of select="@name"/>".</xsl:message>
+        <xsl:message> - [WARN] generate-element-type-parameter-entities: rng:ref - No rng:define element for referenced name "{@name}".</xsl:message>
       </xsl:when>
       <xsl:when test="ends-with($define/@name, '.attlist')">
         <!-- .attlist define is always a reference to the .attributes definition -->
