@@ -300,8 +300,11 @@
                     or we need a separate "generate shells" control.
           -->
         <xsl:apply-templates 
-          select="$shellDocs[($doGenerateStandardModules) or
-                                   not(rngfunc:isStandardModule(.))]" 
+          select="
+            $shellDocs[
+              ($doGenerateStandardModules) or
+              not(rngfunc:isStandardModule(.))
+            ]" 
           mode="processShell">
           <xsl:with-param name="dtdOutputDir" as="xs:string" tunnel="yes"
             select="$dtdOutputDir"
@@ -318,14 +321,20 @@
         <xsl:message>+ [INFO] Generating .mod and .ent files in directory "<xsl:sequence select="$dtdOutputDir"/>"...</xsl:message>
         <generatedModules>
           <xsl:apply-templates 
-            select="$modulesNoDivs[($doGenerateStandardModules) or
-                                   not(rngfunc:isStandardModule(.))]" 
+            select="
+              $modulesNoDivs[
+                ($doGenerateStandardModules) or
+                not(rngfunc:isStandardModule(.))
+              ]" 
             mode="processModules">
             <xsl:with-param name="dtdOutputDir" as="xs:string" tunnel="yes"
               select="$dtdOutputDir"
             />
             <xsl:with-param name="modulesToProcess" tunnel="yes" as="document-node()*"
               select="$modulesToProcess"
+            />
+            <xsl:with-param name="shellDocs" tunnel="yes" as="document-node()*"
+              select="$shellDocs"
             />
             <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>         
           </xsl:apply-templates>
@@ -402,13 +411,15 @@
      .ent and .mod files.
     -->
   <xsl:template match="/" mode="processModules">    
-   <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param 
       name="dtdOutputDir"
       tunnel="yes" 
       as="xs:string"
     />
+    
+    <xsl:variable name="doDebug" as="xs:boolean" select="rngfunc:getModuleType(*) = ('contraint')"/>
+
     <xsl:variable name="rngModuleUrl" as="xs:string"
       select="string(base-uri(./*))"
     />

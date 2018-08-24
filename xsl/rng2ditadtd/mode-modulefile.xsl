@@ -31,6 +31,7 @@
       <xsl:message>+ [DEBUG] moduleFile: / ...</xsl:message>
     </xsl:if>
     <xsl:apply-templates mode="#current" >
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
     </xsl:apply-templates>
   </xsl:template>
   
@@ -38,7 +39,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
     <xsl:message>+ [DEBUG] moduleFile: rng:grammar = rngfunc:getModuleType(.)="{rngfunc:getModuleType(.)}"</xsl:message>
-    <xsl:variable name="doDebug" as="xs:boolean" select="rngfunc:getModuleShortName(.) = ('par_highlightDomain-c')"/>
+    <xsl:variable name="doDebug" as="xs:boolean" select="rngfunc:getModuleType(.) = ('contraint')"/>
     
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] moduleFile: rng:grammar ...</xsl:message>
@@ -89,7 +90,7 @@
         <!-- metaDecl.mod does not include it's element name entities but tblDecl does -->
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates mode="element-name-entities" select="rng:define[rng:element]"/>       
+        <xsl:apply-templates mode="element-name-entities" select="rng:define[rng:element]"/>  
       </xsl:otherwise>
     </xsl:choose>
     
@@ -279,18 +280,26 @@
          are not required in the RNG.
          
     -->
-    <xsl:apply-templates select="rng:include/rng:define"
+<!--    <xsl:apply-templates select="rng:include/rng:define"
       mode="make-element-type-name-parments"
       >
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>  
     </xsl:apply-templates>
-    
+-->    
     <xsl:text>&#x0a;</xsl:text>
     
-    <xsl:apply-templates select="rng:include | rng:define" mode="generate-parment-decl-from-define">
+      
+    <!-- Create parameter entities for any referenced patterns -->
+    <xsl:variable name="doDebug" as="xs:boolean" select="rngfunc:getModuleShortName(.) = ('xxx')"/>
+    
+    <xsl:apply-templates select="." mode="generate-referenced-parameter-entities">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>
+       
+<!--    <xsl:apply-templates select="rng:include | rng:define" mode="generate-parment-decl-from-define">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>  
     </xsl:apply-templates>
-    
+-->    
     <xsl:text>
 &lt;!-- ================== </xsl:text><xsl:value-of select="$moduleTitle"/><xsl:text> ==================== -->&#x0a; </xsl:text>    
     
