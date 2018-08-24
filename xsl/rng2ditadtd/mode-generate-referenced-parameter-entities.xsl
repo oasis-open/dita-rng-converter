@@ -146,10 +146,12 @@
     
   </xsl:template>
   
-  <xsl:template mode="gfpe-collect-element-type-names" match="rng:ref[matches(@name, '^.+-d-.+$')]" as="map(xs:string, element(rng:define)*)*">
+  <xsl:template mode="gfpe-collect-element-type-names" 
+    match="rng:ref[matches(@name, '^.+-d-.+$|\.element$')]" 
+    as="map(xs:string, element(rng:define)*)*">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
-    <!-- Ignore references to domain integration patterns -->
+    <!-- Ignore references to domain integration patterns and .element patterns -->
   </xsl:template>
 
   <xsl:template mode="gfpe-collect-element-type-names" match="rng:ref" as="map(xs:string, element(rng:define)*)*">
@@ -324,10 +326,10 @@
       gfpe-refs-in-content-or-attributes
       gfpe-collect-referenced-patterns
     " 
-    match="rng:ref[matches(@name, '^.+-d-.+$')]" priority="10">
+    match="rng:ref[matches(@name, '^.+-d-.+$|\.element$')]" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
-    <!-- Ignore domain integration patterns -->
+    <!-- Ignore domain integration and element definition patterns -->
   </xsl:template>
   
   <xsl:template 
