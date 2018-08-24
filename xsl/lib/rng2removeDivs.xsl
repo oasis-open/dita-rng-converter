@@ -29,7 +29,7 @@
   <xsl:template mode="removeDivs" match="rng:grammar" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
 
-    <xsl:variable name="base-uri" select="string(base-uri(root(.)/*))" as="xs:string"/>
+    <xsl:variable name="base-uri" select="string(base-uri(.))" as="xs:string"/>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] removeDivs: rng:grammar, base-uri="{$base-uri}"</xsl:message>
     </xsl:if>

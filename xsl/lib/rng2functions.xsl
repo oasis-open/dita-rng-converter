@@ -387,9 +387,8 @@
     <xsl:param name="externalRef" as="element(rng:externalRef)"/>
     <xsl:param name="doDebug" as="xs:boolean"/>
     
-    <!-- FIXME: Use base-uri() instead of @origURI -->
     <xsl:variable name="moduleUri" as="xs:string" 
-      select="$externalRef/ancestor-or-self::*[@origURI != ''][1]/@origURI"
+      select="xs:string(base-uri($externalRef))"
     />
     
     <xsl:variable name="moduleResolvedUri" 

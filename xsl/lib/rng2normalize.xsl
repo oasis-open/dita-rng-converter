@@ -65,11 +65,8 @@
     <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->
     <xsl:param name="origModule" as="document-node()" tunnel="yes" select="root(.)"/>
     
-    <!-- FIXME: Determine if we should be using document-uri() or base-uri() here. -->
     <xsl:variable name="origUri"
-      select="if ($origModule/*/@origURI) 
-      then $origModule/*/@origURI 
-      else string(document-uri($origModule))" as="xs:string"
+      select="string(base-uri($origModule/*))" as="xs:string"
     />
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] resolveIncludesNormalize: rng:include, origUri="{$origUri}"</xsl:message>

@@ -57,7 +57,7 @@
         <xsl:choose>
           <xsl:when test="$gatheredModule">
             <xsl:if test="$doDebug">
-              <xsl:message> + [DEBUG] getReferencedModules: Found referenced module {$gatheredModule/*/@origURI}</xsl:message>
+              <xsl:message> + [DEBUG] getReferencedModules: Found referenced module {base-uri($gatheredModule/*)}</xsl:message>
             </xsl:if>
             <xsl:sequence select="$gatheredModule"/>
             <xsl:if test="$isProcessNestedIncludes">           
