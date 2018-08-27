@@ -289,14 +289,11 @@
         <xsl:variable name="domainModules" as="element()*"
           select="$modulesToProcess[rngfunc:isElementDomain(.)]/*" 
         />
-        <xsl:message>+ [INFO]    Domain modules to integrate: {$domainModules ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
+        <xsl:message>+ [INFO]     Domain modules to integrate: {$domainModules ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
         <xsl:variable name="domainExtensionPatterns" as="element()*"
           select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))] except ($notAllowedPatterns)"
         />
         <xsl:if test="$doDebug">
-          <!-- For reasons that are not clear, node comparison on notAllowedPatterns and domainExtensionPatterns
-               doesn't work. Must be something subtle about where each set of nodes is coming from.
-            -->
           <xsl:message>+ [DEBUG]   notAllowed patterns:
             {$notAllowedPatternNames => string-join(', ')}          
           </xsl:message>
@@ -304,15 +301,37 @@
             {$domainExtensionPatterns/@name => string-join(', ')}          
           </xsl:message>
           <xsl:message>+ [DEBUG]   [1] There are disallowed domain extension patterns: {
-            exists($domainExtensionPatterns intersect $notAllowedPatterns)}</xsl:message>
-          <xsl:message>+ [DEBUG]   [2] There are disallowed domain extension patterns: {
             exists($domainExtensionPatterns[@name = $notAllowedPatternNames])}</xsl:message>
         </xsl:if>
+        
         <xsl:for-each-group select="$domainExtensionPatterns" 
           group-by="substring-after(@name, concat(rngfunc:getModuleShortName(root(.)/*), '-'))">
+          
           <xsl:if test="$doDebug">            
             <xsl:message>+ [DEBUG]   current-grouping-key="{current-grouping-key()}"</xsl:message>
           </xsl:if>
+          
+          <xsl:variable name="base-element-pattern-name"
+            select="current-grouping-key() || '.element'"
+          />
+          <xsl:variable name="baseIsAllowed" as="xs:boolean" select="not($base-element-pattern-name = $notAllowedPatternNames)"/>          
+          <xsl:variable name="allowed-patterns" as="element(rng:define)*"
+            select="current-group()[not(@name = $notAllowedPatternNames)]"
+          />
+          <xsl:if test="$doDebug">
+            <xsl:message>+ [DEBUG]     base-element-pattern-name="{$base-element-pattern-name}"</xsl:message>
+            <xsl:message>+ [DEBUG]     notAllowed patterns:
+              {$notAllowedPatternNames => string-join(', ')}          
+            </xsl:message>
+            <xsl:message>+ [DEBUG]     baseIsAllowed="{$baseIsAllowed}"</xsl:message>
+            <xsl:message>+ [DEBUG]     allowed-patterns="{$allowed-patterns/@name ! name(.) => string-join(', ')}"</xsl:message>
+          </xsl:if>
+          <xsl:if test="not($baseIsAllowed) and empty($allowed-patterns)">
+            <xsl:message>- [ERROR]    Domain extension entity "%{$base-element-pattern-name}": Base element "{current-grouping-key()}" is not allowed and</xsl:message> 
+            <xsl:message>- [ERROR]    no other patterns are allowed. Effective value will be "" (empty string), which is not valid for DTD syntax.</xsl:message>
+            <xsl:message>- [ERROR]    Either set the entire pattern to notAllowed, allow the base element type, or allow at least one specialization of the base.</xsl:message>
+          </xsl:if>
+
           <xsl:variable name="firstPart" as="xs:string"
             select="concat('&#x0a;&lt;!ENTITY % ', current-grouping-key())"
           />
@@ -321,12 +340,12 @@
             select="if (string-length($firstPart) lt 26) 
             then str:indent(25 - string-length($firstPart)) 
             else ' ' "/>
-          <xsl:text>"{current-grouping-key()}</xsl:text>
-          <xsl:variable name="allowed-patterns" as="element(rng:define)*"
-            select="current-group()[not(@name = $notAllowedPatternNames)]"
-          />
+          
+          <xsl:text>"{if ($baseIsAllowed) then current-grouping-key() else ''}</xsl:text>
           <xsl:if test="exists($allowed-patterns)">
-            <xsl:text> |&#x0a;{str:indent(25)}</xsl:text>
+            <xsl:if test="$baseIsAllowed">
+              <xsl:text> |&#x0a;{str:indent(25)}</xsl:text>
+            </xsl:if>
             <xsl:variable name="sep" as="xs:string"
               select="concat(' |', '&#x0a;', str:indent(25))"
             />

@@ -60,6 +60,8 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" select="14"/>
     <xsl:param name="nlBeforeClosingQuote" as="xs:boolean" select="false()"/>
+    <xsl:param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*"/>    
+    <xsl:param name="notAllowedPatternNames" tunnel="yes" as="xs:string*"/>
     
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] generate-parment-decl-from-define: rng:define name="{@name}"</xsl:message>
@@ -130,6 +132,10 @@
       <xsl:message>+ [DEBUG]   base pattern for define "{@name}" ({base-uri(.)}):
         
 <xsl:sequence select="rngfunc:report-element(.)"/></xsl:message>
+      <xsl:if test="$doDebug">
+        <xsl:message>+ [DEBUG]   notAllowed pattern names:" {$notAllowedPatternNames => string-join(', ')}</xsl:message>
+      </xsl:if>
+      
       <xsl:message>+ [DEBUG]   effective pattern for define "{@name}" ({base-uri(.)}):
         
 <xsl:sequence select="rngfunc:report-element($effectivePattern)"/></xsl:message>

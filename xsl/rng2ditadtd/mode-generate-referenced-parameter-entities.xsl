@@ -23,7 +23,7 @@
        For constraint modules, generate copies of all referenced
        parameter entities used within content models or attribute
        lists defined in the constraint module and then generate
-       any .element or .attributes declarations.
+       any .content or .attributes declarations.
        
        This is required by the DTD syntax rules which require
        all referenced parameter entities to occur before their
