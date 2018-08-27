@@ -36,6 +36,7 @@
     <xsl:param name="dtdOutputDir" tunnel="yes" as="xs:string" />
     <xsl:param name="referencingGrammarUrl" tunnel="yes" as="xs:string"/>
     
+    
     <xsl:variable name="rngShellParent" as="xs:string"
       select="relpath:getParent($referencingGrammarUrl)"
     />

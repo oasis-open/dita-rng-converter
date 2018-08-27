@@ -80,19 +80,61 @@
       <xsl:message>+ [DEBUG] generate-parment-decl-from-define: name="{@name}"</xsl:message>
       <xsl:message>+ [DEBUG]   generate-parment-decl-from-define: isAttSet="{$isAttSet}"</xsl:message>
     </xsl:if>
-    <xsl:text>&lt;!ENTITY % </xsl:text>
-    <xsl:value-of select="@name" />
-    <xsl:text>&#x0a;</xsl:text>
-    <xsl:value-of select="str:indent($indent)"/>        
-    <xsl:text>&quot;</xsl:text>
+    
     <xsl:variable name="addparen" as="xs:boolean"
       select="not($isAttSet) and (count(rng:*) &gt; 1 or rng:text)"/>
+    
+    <xsl:text>&lt;!ENTITY % {@name}&#x0a;</xsl:text>
+    <xsl:text>{str:indent($indent)}&quot;</xsl:text>
     <xsl:if test="$addparen">
       <xsl:text>(</xsl:text>
     </xsl:if>
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG]   generate-parment-decl-from-define: Applying templates in mode element-decls</xsl:message>
+      <xsl:message>+ [DEBUG] generate-parment-decl-from-define: define, name="{@name}" - Applying templates in mode element-decls</xsl:message>
     </xsl:if>
+
+
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] Constructing effective pattern for define "{@name}"...</xsl:message>
+    </xsl:if>
+    
+    <!-- Apply any notAlloweds to determine the effective pattern.
+      
+         If the effective pattern contains no groups then the pattern is an empty
+         pattern and we have to report that and handle it in some way.
+         
+      -->
+    <xsl:variable name="effectivePattern" as="element(rng:define)">
+      <xsl:apply-templates mode="construct-effective-pattern" select=".">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>  
+    </xsl:variable>
+    
+    <xsl:variable name="isPatternEmpty" as="xs:boolean"
+      select="empty($effectivePattern/rng:*)"
+    />
+    
+    <xsl:if test="$isPatternEmpty">
+      <xsl:message>- [WARN] Pattern {@name} is empty after removing notAllowed patterns.</xsl:message>
+    </xsl:if>
+    
+    <xsl:variable name="doShowEffectivePattern" as="xs:boolean" 
+      select="
+        $isPatternEmpty or
+        @name = ('') or 
+        $doDebug
+      "
+    />
+    
+    <xsl:if test="$doShowEffectivePattern">
+      <xsl:message>+ [DEBUG]   base pattern for define "{@name}" ({base-uri(.)}):
+        
+<xsl:sequence select="rngfunc:report-element(.)"/></xsl:message>
+      <xsl:message>+ [DEBUG]   effective pattern for define "{@name}" ({base-uri(.)}):
+        
+<xsl:sequence select="rngfunc:report-element($effectivePattern)"/></xsl:message>
+    </xsl:if>
+    
     <xsl:apply-templates mode="element-decls">
       <xsl:with-param name="indent" 
         select="if ($addparen) then $indent + 2 else $indent + 1" 
@@ -105,8 +147,7 @@
     </xsl:apply-templates>
     <!-- Special case for @longdescre on object element: -->
     <xsl:if test="@name = 'object.attributes'">
-      <xsl:text>&#x0a;</xsl:text><xsl:value-of select="str:indent($indent + 1)"/>
-      <xsl:text>longdescre CDATA     #IMPLIED</xsl:text>
+      <xsl:text>&#x0a;{str:indent($indent + 1)}longdescre CDATA     #IMPLIED</xsl:text>
     </xsl:if>
     <xsl:if test="$addparen">
       <xsl:text>)</xsl:text>
@@ -116,8 +157,7 @@
       <xsl:text>*</xsl:text>
     </xsl:if>
     <xsl:if test="$nlBeforeClosingQuote">
-      <xsl:text>&#x0a;</xsl:text>
-      <xsl:value-of select="str:indent(2)"/>
+      <xsl:text>&#x0a;{str:indent(2)}</xsl:text>
     </xsl:if>
     <xsl:text>&quot;</xsl:text>
     <xsl:text>&#x0a;</xsl:text>

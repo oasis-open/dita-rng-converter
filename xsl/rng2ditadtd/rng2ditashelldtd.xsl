@@ -94,6 +94,9 @@
       select="(., $referencedModules/*)//rng:define[rng:notAllowed]"
     />
     
+    <xsl:variable name="notAllowedPatternNames" as="xs:string*"
+      select="$notAllowedPatterns/@name ! string(.)"
+    />
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] processShell: Not allowed patterns:</xsl:message>
       <xsl:for-each-group select="$notAllowedPatterns" group-by="base-uri(.)">
@@ -102,6 +105,7 @@
           <xsl:message>+ [DEBUG]   - {@name}</xsl:message>
         </xsl:for-each>
       </xsl:for-each-group>
+      <xsl:message>+ [DEBUG] processShell: notAllowedPatternNames: {$notAllowedPatternNames => string-join(', ')}</xsl:message>
     </xsl:if>
 
     <shell>
@@ -132,6 +136,7 @@
           <xsl:with-param name="modulesToProcess"  select="$referencedModules" tunnel="yes" as="document-node()*" />
           <xsl:with-param name="referencingGrammarUrl" select="$rngShellUrl" tunnel="yes" as="xs:string"/>
           <xsl:with-param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*" select="$notAllowedPatterns"/>
+          <xsl:with-param name="notAllowedPatternNames" tunnel="yes" as="xs:string*" select="$notAllowedPatternNames"/>
         </xsl:apply-templates>
       </xsl:result-document>
         
@@ -151,6 +156,7 @@
     <xsl:param name="dtdOutputDir" tunnel="yes" as="xs:string" />
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*" />
     <xsl:param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*"/>
+    <xsl:param name="notAllowedPatternNames" tunnel="yes" as="xs:string*"/>    
     
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] dtdFile: rng:grammar: dtdDir="<xsl:sequence select="$dtdOutputDir"/>"</xsl:message>
@@ -286,9 +292,6 @@
         <xsl:message>+ [INFO]    Domain modules to integrate: {$domainModules ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
         <xsl:variable name="domainExtensionPatterns" as="element()*"
           select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))] except ($notAllowedPatterns)"
-        />
-        <xsl:variable name="notAllowedPatternNames" as="xs:string*"
-          select="$notAllowedPatterns/@name ! string(.)"
         />
         <xsl:if test="$doDebug">
           <!-- For reasons that are not clear, node comparison on notAllowedPatterns and domainExtensionPatterns

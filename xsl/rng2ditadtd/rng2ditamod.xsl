@@ -36,5 +36,6 @@
   <xsl:include href="mode-class-att-decls.xsl"/>
   <xsl:include href="mode-header-comment.xsl"/>
   <xsl:include href="mode-generate-referenced-parameter-entities.xsl"/>
+  <xsl:include href="mode-construct-effective-pattern.xsl"/>
   
 </xsl:stylesheet>

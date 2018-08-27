@@ -806,6 +806,69 @@
     
   </xsl:function>
   
+  <xsl:function name="rngfunc:report-element" as="node()*">
+    <xsl:param name="elem" as="element()?"/>
+    
+    <xsl:variable name="newElem" as="node()*">
+      <xsl:apply-templates select="$elem" mode="rngfunc:report-element"/>
+    </xsl:variable>
+    <xsl:message><xsl:sequence select="$newElem"/></xsl:message>
+  </xsl:function>
+  
+  <xsl:template mode="rngfunc:report-element" match="*">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="indent" as="xs:integer" select="0"/>
+    
+    <xsl:variable name="attributes">
+      <xsl:apply-templates mode="#current" select="@*"/>
+    </xsl:variable>
+    <xsl:text>{str:indent($indent)}</xsl:text>
+    <xsl:element name="{name(.)}">
+      <xsl:apply-templates select="@*" mode="#current"/>
+      <xsl:choose>
+      <xsl:when test="exists(*)">
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] rngfunc:report-element: {name(..)}/{name(.)} has subelements...</xsl:message>
+        </xsl:if>
+        <xsl:text>&#x0a;</xsl:text>
+        <xsl:apply-templates mode="#current" select="node()">
+          <xsl:with-param name="indent" as="xs:integer" select="$indent + 2"/>
+        </xsl:apply-templates>
+        <xsl:text>{str:indent($indent)}</xsl:text>
+      </xsl:when>
+        <xsl:when test="not(matches(., '^\s*$'))">
+          <xsl:if test="$doDebug">
+            <xsl:message>+ [DEBUG] rngfunc:report-element {name(..)}/{name(.)}: String value is "{.}"</xsl:message>
+          </xsl:if>
+          <xsl:apply-templates select="text()" mode="#current"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:if test="$doDebug">
+            <xsl:message>+ [DEBUG] rngfunc:report-element: {name(..)}/{name(.)} no subelements, matches('^\s*$')</xsl:message>
+          </xsl:if>          
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:element>
+    <xsl:text>&#x0a;</xsl:text>
+  </xsl:template>
+  
+  <xsl:template mode="rngfunc:report-element" match="@xmlns | @xml:base">
+    <!-- Ignore -->
+  </xsl:template>
+  
+  <xsl:template mode="rngfunc:report-element" match="text()" priority="100">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] rngfunc:report-element: {name(..)}/text(): "{.}"</xsl:message>      
+    </xsl:if>
+    
+    <xsl:sequence select="."/>
+  </xsl:template>
+  
+  <xsl:template mode="rngfunc:report-element" match="@*">
+    <xsl:sequence select="."/>
+  </xsl:template>
   
   <!-- ==========================================
         String formatting functions

@@ -111,7 +111,7 @@
   </xsl:template>
   
   
-  <xsl:template match="rng:define[starts-with(@name, concat(rngfunc:getModuleShortName(ancestor::rng:grammar), '-'))]" 
+  <xsl:template match="rng:define[starts-with(@name, rngfunc:getModuleShortName(ancestor::rng:grammar) || '-')]" 
     mode="element-decls" priority="30"
   >
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
@@ -156,7 +156,7 @@
     </xsl:if>
   </xsl:template>
   
-  <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('attlistIndex',@name)]" 
+  <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and exists(key('attlistIndex',@name))]" 
     mode="element-decls" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- .attlist pointing to .attributes, ignore -->
@@ -166,17 +166,17 @@
     
   </xsl:template>
   
-  <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('definesByName',rng:ref/@name)/rng:element]" 
+  <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and exists(key('definesByName',rng:ref/@name)/rng:element)]" 
     mode="element-decls" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- reference to element name in this module, will be in the entity file -->
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: reference to ann element name in this module: ignoring.</xsl:message>
+      <xsl:message>+ [DEBUG] element-decls: reference to an element name in this module: ignoring.</xsl:message>
     </xsl:if>
     
   </xsl:template>
   
-  <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and not(key('definesByName',rng:ref/@name)) and ends-with(rng:ref/@name, '.element')]" 
+  <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and empty(key('definesByName',rng:ref/@name)) and ends-with(rng:ref/@name, '.element')]" 
     mode="element-decls" priority="20">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- reference to element name in another module, will be in entity file -->
@@ -189,7 +189,6 @@
   <xsl:template match="rng:define[rng:notAllowed]" 
     mode="element-decls" priority="30">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <!-- The DITA spec doesn't say anything about the use of notAllowed, so just ignore this declaration for now -->
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] element-decls: define containing rng:notAllowed: Ignoring.</xsl:message>
     </xsl:if>
@@ -223,7 +222,7 @@
       <xsl:message>+ [DEBUG] mode: element-decls: rng:define name="{@name}"</xsl:message>
     </xsl:if>
     <xsl:choose>
-      <xsl:when test="$domainPfx and not($domainPfx='') and starts-with(@name, $domainPfx)">
+      <xsl:when test="exists($domainPfx) and not($domainPfx='') and starts-with(@name, $domainPfx)">
         <!-- Should never get here so this is belt to go with suspenders -->
         <!-- Domain extension pattern, not output in the .mod file (goes in shell DTDs) -->
       </xsl:when>
@@ -438,10 +437,11 @@
        a rather significant refactor.
     -->
   <xsl:template mode="element-decls" priority="20"
-    match="rng:optional/rng:choice[not(preceding-sibling::rng:*)] | 
-    rng:zeroOrMore/rng:choice[not(preceding-sibling::rng:*)] | 
-    rng:oneOrMore/rng:choice[not(preceding-sibling::rng:*)]
-           "
+    match="
+      rng:optional/rng:choice[not(preceding-sibling::rng:*)] | 
+      rng:zeroOrMore/rng:choice[not(preceding-sibling::rng:*)] | 
+      rng:oneOrMore/rng:choice[not(preceding-sibling::rng:*)]
+    "
     >
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
@@ -460,70 +460,81 @@
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     <xsl:param name="isAttSet" as="xs:boolean" tunnel="yes"/>
     <xsl:param name="connector" as="xs:string" select="','"/>
-    
+    <xsl:param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*"/>    
+    <xsl:param name="notAllowedPatternNames" tunnel="yes" as="xs:string*"/>
+        
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] element-decls: {concat(name(../..), '/', name(..))}, ref name="{@name}"</xsl:message>
       <xsl:message>+ [DEBUG]                connector="{$connector}"</xsl:message>
     </xsl:if>
-    
-    <!-- rng:text is always treated as though it was first -->
-    <xsl:if test="preceding-sibling::rng:* or following-sibling::rng:text">
-      <!-- NOTE: It is up to the processor of the group
-                 this ref must be part of to emit
-                 a newline after whatever precedes this ref. 
-      -->
-      <xsl:value-of select="str:indent($indent)"/>
-    </xsl:if>
-    <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] element-decls: rng:ref "{@name}"</xsl:message>
-    </xsl:if>
+
     <xsl:choose>
-      <xsl:when test="@name='any'">
-        <xsl:text>ANY </xsl:text>
-      </xsl:when>
-      <xsl:when test="not(node()) and key('definesByName',@name)/rng:element" >
-        <!-- reference to element name -->
-        <xsl:value-of select="key('definesByName',@name)/rng:element/@name" />
-        <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
-          <xsl:value-of select="$connector"/>
-        </xsl:if>        
-      </xsl:when>
-      <xsl:when test="not(node()) and not(key('definesByName',@name)) and ends-with(@name, '.element')" >
-        <!-- reference to element name in another module -->
-        <xsl:value-of select="substring-before(@name,'.element')" />
-        <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
-          <xsl:value-of select="$connector"/>
-        </xsl:if>        
+      <xsl:when test="@name = $notAllowedPatternNames">
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] element-decls: rng:ref, name="{@name}" - Referenced pattern is notAllowed, ignoring.</xsl:message>
+        </xsl:if>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="entRef" as="node()*">
-          <xsl:text>%</xsl:text><xsl:value-of select="@name" /><xsl:text>;</xsl:text>
-        </xsl:variable>
+        <!-- rng:text is always treated as though it was first -->
+        <xsl:if test="preceding-sibling::rng:* or following-sibling::rng:text">
+          <!-- NOTE: It is up to the processor of the group
+                     this ref must be part of to emit
+                     a newline after whatever precedes this ref. 
+          -->
+          <xsl:value-of select="str:indent($indent)"/>
+        </xsl:if>
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] element-decls: rng:ref "{@name}"</xsl:message>
+        </xsl:if>
         <xsl:choose>
-          <xsl:when test="not($isAttSet) and 
-                          parent::rng:define and 
-                          (count(../rng:*) > 1 or ends-with(../@name, '.content'))
-                          and not(../@name = 'entry.content')">
-            <xsl:text>(</xsl:text>
-            <xsl:sequence select="$entRef"/>
-            <xsl:text>)</xsl:text>
+          <xsl:when test="@name='any'">
+            <xsl:text>ANY </xsl:text>
+          </xsl:when>
+          <xsl:when test="not(node()) and key('definesByName',@name)/rng:element" >
+            <!-- reference to element name -->
+            <xsl:value-of select="key('definesByName',@name)/rng:element/@name" />
             <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
               <xsl:value-of select="$connector"/>
-            </xsl:if>
+            </xsl:if>        
+          </xsl:when>
+          <xsl:when test="not(node()) and not(key('definesByName',@name)) and ends-with(@name, '.element')" >
+            <!-- reference to element name in another module -->
+            <xsl:value-of select="substring-before(@name,'.element')" />
+            <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
+              <xsl:value-of select="$connector"/>
+            </xsl:if>        
           </xsl:when>
           <xsl:otherwise>
-            <xsl:sequence select="$entRef"/>
-            <xsl:if test="not($isAttSet) and 
-                          (count(following-sibling::rng:*[not(self::rng:text)]) gt 0)">
-              <xsl:value-of select="$connector"/>
-            </xsl:if>
+            <xsl:variable name="entRef" as="node()*">
+              <xsl:text>%</xsl:text><xsl:value-of select="@name" /><xsl:text>;</xsl:text>
+            </xsl:variable>
+            <xsl:choose>
+              <xsl:when test="not($isAttSet) and 
+                              parent::rng:define and 
+                              (count(../rng:*) > 1 or ends-with(../@name, '.content'))
+                              and not(../@name = 'entry.content')">
+                <xsl:text>(</xsl:text>
+                <xsl:sequence select="$entRef"/>
+                <xsl:text>)</xsl:text>
+                <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
+                  <xsl:value-of select="$connector"/>
+                </xsl:if>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:sequence select="$entRef"/>
+                <xsl:if test="not($isAttSet) and 
+                              (count(following-sibling::rng:*[not(self::rng:text)]) gt 0)">
+                  <xsl:value-of select="$connector"/>
+                </xsl:if>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:otherwise>
         </xsl:choose>
+        <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
+          <xsl:text>&#x0a;</xsl:text>
+        </xsl:if>
       </xsl:otherwise>
-    </xsl:choose>
-    <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
-      <xsl:text>&#x0a;</xsl:text>
-    </xsl:if>
+    </xsl:choose>        
   </xsl:template>
   
   <xsl:template match="rng:externalRef" mode="element-decls" priority="10">

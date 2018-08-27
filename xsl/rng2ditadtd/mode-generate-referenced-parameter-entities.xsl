@@ -118,32 +118,53 @@
   
   <xsl:template mode="gfpe-collect-element-type-names" 
       match="rng:define[rng:ref[ends-with(@name, '.element')]]" 
-      as="map(xs:string, element(rng:define)*)"
+      as="map(xs:string, element(rng:define)*)?"
       priority="10"
     >
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*"/>    
+    <xsl:param name="notAllowedPatternNames" tunnel="yes" as="xs:string*"/>
+    
 
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] gfpe-collect-element-type-names:   Define {@name} is an element type</xsl:message>      
     </xsl:if>
     
-    <xsl:map-entry key="xs:string(@name)">
-      <xsl:sequence select="."/>
-    </xsl:map-entry>
-    
+    <xsl:choose>
+      <xsl:when test="@name = $notAllowedPatternNames">
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] gfpe-collect-element-type-names: define, name="{@name}" - Define is notAllowed, ignoring</xsl:message>
+        </xsl:if>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:map-entry key="xs:string(@name)">
+          <xsl:sequence select="."/>
+        </xsl:map-entry>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template mode="gfpe-collect-element-type-names" match="rng:define" as="map(xs:string, element(rng:define)*)*">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-
+    <xsl:param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*"/>    
+    <xsl:param name="notAllowedPatternNames" tunnel="yes" as="xs:string*"/>
+    
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] gfpe-collect-element-type-names: Define {@name}: processing its refs...</xsl:message>      
     </xsl:if>
     
-    <xsl:apply-templates select=".//rng:ref" mode="#current">
-      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-    </xsl:apply-templates>
-    
+    <xsl:choose>
+      <xsl:when test="@name = $notAllowedPatternNames">
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] gfpe-collect-element-type-names: define, name="{@name}" - Define is notAllowed, ignoring</xsl:message>
+        </xsl:if>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select=".//rng:ref" mode="#current">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
+      </xsl:otherwise>
+    </xsl:choose>    
   </xsl:template>
   
   <xsl:template mode="gfpe-collect-element-type-names" 
@@ -219,8 +240,6 @@
       <xsl:message>+ [DEBUG]   {$referenced-pattern-names => string-join(', ')}</xsl:message>
     </xsl:if>
     
-    <xsl:comment>+ [DEBUG] referenced-patterns: {$referenced-pattern-names => string-join(', ')}</xsl:comment>
-    
     <xsl:variable name="defines-to-process" as="element(rng:define)*"
     >
       <xsl:for-each select="$referenced-pattern-names">
@@ -263,7 +282,7 @@
     match="rng:define[ends-with(@name, '.content') or ends-with(@name, '.attributes')]"
     as="element(rng:define)*">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-
+    
     <xsl:apply-templates mode="#current" select=".//rng:ref">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug and false()"/>
     </xsl:apply-templates>
@@ -340,14 +359,14 @@
     match="rng:ref">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*"/>
+    <xsl:param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*"/>    
+    <xsl:param name="notAllowedPatternNames" tunnel="yes" as="xs:string*"/>
     
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] gfpe-defines-in-content-or-attributes: Handling ref "{@name}"...</xsl:message>
     </xsl:if>
     
-    <xsl:variable name="targetName" as="xs:string" select="@name"/>
-    
-    <!-- Process all referenced defines, local or not, before processing .content and .attlist patterns -->
+    <xsl:variable name="targetName" as="xs:string" select="@name"/>       
     
     <xsl:variable name="define" as="element(rng:define)?"
       select="key('definesByName', $targetName)[1]"
@@ -387,31 +406,40 @@
   <xsl:template mode="gfpe-refs-in-other-modules" match="rng:ref">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*"/>
+    <xsl:param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*"/>    
+    <xsl:param name="notAllowedPatternNames" tunnel="yes" as="xs:string*"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] gfpe-defines-in-content-or-attributes: Handling ref "{@name}"...</xsl:message>
+      <xsl:message>+ [DEBUG] gfpe-refs-in-other-modules: Handling ref "{@name}"...</xsl:message>
     </xsl:if>
     
     <xsl:variable name="targetName" as="xs:string" select="@name"/>
     
-    <xsl:variable name="defines" as="element(rng:define)*"
-      select="key('definesByName', $targetName)"
-    />
-    
-    <xsl:variable name="defines" as="element(rng:define)*"
-      select="
-        if (empty($defines)) 
-        then ($modulesToProcess ! key('definesByName', $targetName, .))
-        else $defines"
-    />
-    
-    <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] gfpe-refs-in-other-modules: targetName="{$targetName}", have {count($defines)} defines.</xsl:message>
-    </xsl:if>
-    
-    <xsl:apply-templates select="$defines" mode="gfpe-refs-in-content-or-attributes">
-      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-    </xsl:apply-templates>
+    <xsl:choose>
+      <xsl:when test="$targetName = $notAllowedPatternNames">
+        <xsl:message>+ [DEBUG] gfpe-refs-in-other-modules: rng:ref, name="{$targetName}" - Referenced define is notAllowed, ignoring.</xsl:message>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="defines" as="element(rng:define)*"
+          select="key('definesByName', $targetName)"
+        />
+        
+        <xsl:variable name="defines" as="element(rng:define)*"
+          select="
+            if (empty($defines)) 
+            then ($modulesToProcess ! key('definesByName', $targetName, .))
+            else $defines"
+        />
+        
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] gfpe-refs-in-other-modules: targetName="{$targetName}", have {count($defines)} defines.</xsl:message>
+        </xsl:if>
+        
+        <xsl:apply-templates select="$defines" mode="gfpe-refs-in-content-or-attributes">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
+      </xsl:otherwise>
+    </xsl:choose>        
       
   </xsl:template>
   

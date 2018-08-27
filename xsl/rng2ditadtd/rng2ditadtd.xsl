@@ -49,6 +49,7 @@
     </xd:desc>
   </xd:doc>
   
+  <xsl:include href="fallback.xsl"/>
   <xsl:include href="../lib/relpath_util.xsl" />
   <xsl:include href="../lib/rng2functions.xsl"/>
   <xsl:include href="../lib/rng2gatherModules.xsl"/>
@@ -319,14 +320,25 @@
       <xsl:if test="$doGenerateModules">
         <xsl:message>+ [INFO] =================================</xsl:message>
         <xsl:message>+ [INFO] Generating .mod and .ent files in directory "<xsl:sequence select="$dtdOutputDir"/>"...</xsl:message>
+        
+        <xsl:variable name="referencedModulesNoDivs" as="document-node()*"
+          select="$modulesNoDivs[
+                    ($doGenerateStandardModules) or
+                    not(rngfunc:isStandardModule(.))
+                  ]"
+        />
+        <xsl:variable name="notAllowedPatterns" as="element(rng:define)*"
+            select="($shellDocs, $referencedModulesNoDivs/*)//rng:define[rng:notAllowed]"
+        />        
+        <xsl:variable name="notAllowedPatternNames" as="xs:string*"
+          select="$notAllowedPatterns/@name ! string(.)"
+        />
+                
         <generatedModules>
           <xsl:apply-templates 
-            select="
-              $modulesNoDivs[
-                ($doGenerateStandardModules) or
-                not(rngfunc:isStandardModule(.))
-              ]" 
+            select="$referencedModulesNoDivs" 
             mode="processModules">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
             <xsl:with-param name="dtdOutputDir" as="xs:string" tunnel="yes"
               select="$dtdOutputDir"
             />
@@ -336,7 +348,8 @@
             <xsl:with-param name="shellDocs" tunnel="yes" as="document-node()*"
               select="$shellDocs"
             />
-            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>         
+            <xsl:with-param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*" select="$notAllowedPatterns"/>
+            <xsl:with-param name="notAllowedPatternNames" tunnel="yes" as="xs:string*" select="$notAllowedPatternNames"/>            
           </xsl:apply-templates>
         </generatedModules>
       </xsl:if>
@@ -531,20 +544,6 @@
   <!-- ==============================
        Other modes and functions
        ============================== -->
-
-  <xsl:template match="text()" mode="#all" priority="-1" />
-
-  
-  <xsl:template match="rng:div" mode="#all">
-    <!-- RNG div elements are "transparent" and have no special meaning
-         for DTD output (except possibly in a few special cases) 
-         
-         Note that this is really here for safety since we filter out
-         all the divs before doing any output processing once we have
-         gathered the modules to be processed.
-      -->
-    <xsl:apply-templates mode="#current"/>
-  </xsl:template>
   
   <xsl:template name="reportParameters">
 <xsl:message>+ [INFO] Parameters:
