@@ -59,6 +59,7 @@
   <xsl:include href="rng2ditashelldtd.xsl"/>
   <xsl:include href="rng2ditaent.xsl" />
   <xsl:include href="rng2ditamod.xsl" />
+  <xsl:include href="mode-filter-not-allowed-patterns.xsl" />
   <xsl:include href="rng2dtdOasisOverrides.xsl"/>  
   
   <!-- When true, turn on generation of modules, otherwise, only generate
@@ -333,10 +334,27 @@
         <xsl:variable name="notAllowedPatternNames" as="xs:string*"
           select="$notAllowedPatterns/@name ! string(.)"
         />
+        
+        <xsl:variable name="referencedModulesFiltered" as="document-node()*">
+          <xsl:apply-templates select="$referencedModulesNoDivs" mode="filter-notallowed-patterns">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            <xsl:with-param name="notAllowedPatternNames" as="xs:string*" tunnel="yes" select="$notAllowedPatternNames"/>
+          </xsl:apply-templates>
+        </xsl:variable>
+        
+        <xsl:if test="$doDebug or true()">
+          <xsl:for-each select="$referencedModulesFiltered">
+            <xsl:variable name="baseName" as="xs:string" select="relpath:getNamePart(base-uri(*[1]))"/>
+            <xsl:variable name="resultUri" as="xs:string" select="relpath:newFile($outdir, 'temp/' || $baseName || '_filteredNotAllowed.rng')"/>
+            <xsl:result-document href="{$resultUri}">
+              <xsl:sequence select="."/>
+            </xsl:result-document>
+          </xsl:for-each>
+        </xsl:if>
                 
         <generatedModules>
           <xsl:apply-templates 
-            select="$referencedModulesNoDivs" 
+            select="$referencedModulesFiltered" 
             mode="processModules">
             <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
             <xsl:with-param name="dtdOutputDir" as="xs:string" tunnel="yes"

@@ -476,7 +476,7 @@
       </xsl:when>
       <xsl:otherwise>
         <!-- rng:text is always treated as though it was first -->
-        <xsl:if test="preceding-sibling::rng:* or following-sibling::rng:text">
+        <xsl:if test="preceding-sibling::rng:*[rngfunc:isAllowed(., $notAllowedPatternNames)] or following-sibling::rng:text">
           <!-- NOTE: It is up to the processor of the group
                      this ref must be part of to emit
                      a newline after whatever precedes this ref. 
@@ -493,14 +493,14 @@
           <xsl:when test="not(node()) and key('definesByName',@name)/rng:element" >
             <!-- reference to element name -->
             <xsl:value-of select="key('definesByName',@name)/rng:element/@name" />
-            <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
+            <xsl:if test="count(following-sibling::rng:*[rngfunc:isAllowed(., $notAllowedPatternNames)][not(self::rng:text)]) gt 0">
               <xsl:value-of select="$connector"/>
             </xsl:if>        
           </xsl:when>
           <xsl:when test="not(node()) and not(key('definesByName',@name)) and ends-with(@name, '.element')" >
             <!-- reference to element name in another module -->
             <xsl:value-of select="substring-before(@name,'.element')" />
-            <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
+            <xsl:if test="count(following-sibling::rng:*[rngfunc:isAllowed(., $notAllowedPatternNames)][not(self::rng:text)]) gt 0">
               <xsl:value-of select="$connector"/>
             </xsl:if>        
           </xsl:when>
@@ -516,21 +516,21 @@
                 <xsl:text>(</xsl:text>
                 <xsl:sequence select="$entRef"/>
                 <xsl:text>)</xsl:text>
-                <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
+                <xsl:if test="count(following-sibling::rng:*[rngfunc:isAllowed(., $notAllowedPatternNames)][not(self::rng:text)]) gt 0">
                   <xsl:value-of select="$connector"/>
                 </xsl:if>
               </xsl:when>
               <xsl:otherwise>
                 <xsl:sequence select="$entRef"/>
                 <xsl:if test="not($isAttSet) and 
-                              (count(following-sibling::rng:*[not(self::rng:text)]) gt 0)">
+                              (count(following-sibling::rng:*[rngfunc:isAllowed(., $notAllowedPatternNames)][not(self::rng:text)]) gt 0)">
                   <xsl:value-of select="$connector"/>
                 </xsl:if>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:otherwise>
         </xsl:choose>
-        <xsl:if test="count(following-sibling::rng:*[not(self::rng:text)]) gt 0">
+        <xsl:if test="count(following-sibling::rng:*[rngfunc:isAllowed(., $notAllowedPatternNames)][not(self::rng:text)]) gt 0">
           <xsl:text>&#x0a;</xsl:text>
         </xsl:if>
       </xsl:otherwise>
@@ -877,4 +877,15 @@
   <xsl:template match="rng:*" priority="-1" mode="element-decls">
     <xsl:message> - [WARN] element-decls: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" />: <xsl:sequence select="." /></xsl:message>
   </xsl:template>
+  
+  <!-- Return true if the context element is not explicitly disallowed. -->
+  <xsl:function name="rngfunc:isAllowed" as="xs:boolean">
+    <xsl:param name="context" as="element()"/>
+    <xsl:param name="notAllowedPatternNames" as="xs:string*"/>
+    
+    <xsl:variable name="result" as="xs:boolean"
+      select="not($context/@name = $notAllowedPatternNames)"
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
 </xsl:stylesheet>

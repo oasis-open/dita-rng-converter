@@ -117,7 +117,7 @@
     />
     
     <xsl:if test="$isPatternEmpty">
-      <xsl:message>- [WARN] Pattern {@name} is empty after removing notAllowed patterns.</xsl:message>
+      <xsl:message>- [WARN] Pattern "{@name}" is empty after removing notAllowed patterns.</xsl:message>
     </xsl:if>
     
     <xsl:variable name="doShowEffectivePattern" as="xs:boolean" 
