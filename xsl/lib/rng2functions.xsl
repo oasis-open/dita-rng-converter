@@ -806,6 +806,103 @@
     
   </xsl:function>
   
+  <!-- Determine if the specified module is a content constraint module, as 
+       distinct from a domain constraint module.
+    -->
+  <xsl:function name="rngfunc:isContentConstraintModule" as="xs:boolean">
+    <xsl:param name="moduleDoc" as="document-node()"/>
+    
+    <xsl:variable name="result" as="xs:boolean">
+      <xsl:choose>
+        <xsl:when test="rngfunc:isConstraintModule($moduleDoc)">
+          <xsl:variable name="constrainedModule" as="document-node()?"
+            select="rngfunc:getConstrainedModule($moduleDoc)"
+          />
+          <xsl:choose>
+            <xsl:when test="exists($constrainedModule)">
+              <xsl:sequence select="rngfunc:isTypeModule($constrainedModule)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <!-- Could issue a message here but would get a lot of redundant messages. -->
+              <xsl:sequence select="false()"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="false()"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <!-- Determine if the specified module is a domain constraint module, as 
+       distinct from a content constraint module.
+    -->
+  <xsl:function name="rngfunc:isDomainConstraintModule" as="xs:boolean">
+    <xsl:param name="moduleDoc" as="document-node()"/>
+    
+    <xsl:variable name="result" as="xs:boolean">
+      <xsl:choose>
+        <xsl:when test="rngfunc:isConstraintModule($moduleDoc)">
+          <xsl:variable name="constrainedModule" as="document-node()?"
+            select="rngfunc:getConstrainedModule($moduleDoc)"
+          />
+          <xsl:choose>
+            <xsl:when test="exists($constrainedModule)">
+              <xsl:sequence select="rngfunc:isElementDomain($constrainedModule) or rngfunc:isAttributeDomain($constrainedModule)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <!-- Could issue a message here but would get a lot of redundant messages. -->
+              <xsl:sequence select="false()"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="false()"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <!-- Given a constraint module as input, look down the chain of includes
+       to find the non-constraint module that is ultimately referenced.
+    -->
+  <xsl:function name="rngfunc:getConstrainedModule" as="document-node()?">
+    <xsl:param name="constraintModule" as="document-node()"/>
+    
+    <xsl:choose>
+      <xsl:when test="rngfunc:isConstraintModule($constraintModule)">
+        <xsl:variable name="includes" as="element(rng:grammar)*"
+          select="rngfunc:getIncludedModules($constraintModule/*)"
+        />
+        <!-- There should be excactly one include for a constraint module. -->
+        <xsl:if test="count($includes) gt 1">
+          <xsl:message>+ [ERROR] Constraint module {base-uri($constraintModule/*)} has {count($includes)} inclusions. It should have exactly 1. Using first include.</xsl:message>
+        </xsl:if>
+        <xsl:if test="count($includes) eq 0">
+          <xsl:message>+ [ERROR] Constraint module {base-uri($constraintModule/*)} has no include. It should have exactly 1. Using first include.</xsl:message>
+        </xsl:if>
+        <xsl:variable name="include" as="element(rng:grammar)?"
+          select="$includes[1]"
+        />
+        <xsl:choose>
+          <xsl:when test="exists($include) and rngfunc:isConstraintModule(root($include))">
+            <xsl:sequence select="rngfunc:getConstrainedModule(root($include))"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:sequence select="root($include)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="()"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:function>
+  
   <xsl:function name="rngfunc:report-element" as="node()*">
     <xsl:param name="elem" as="element()?"/>
     

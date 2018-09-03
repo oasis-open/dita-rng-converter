@@ -230,7 +230,29 @@
             select="document-uri(root(.))"
           />
         </xsl:apply-templates>
-
+        <xsl:text>
+&lt;!-- ============================================================= -->
+&lt;!--             DOMAIN CONSTRAINT INTEGRATION                     -->
+&lt;!-- ============================================================= -->
+</xsl:text>
+        
+        <xsl:variable name="domainConstraintModules" as="document-node()*"
+          select="$modulesToProcess[rngfunc:isDomainConstraintModule(.)]"
+        />
+        <xsl:message>+ [INFO]    Constraint modules to integrate: {$domainConstraintModules/* ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
+        <xsl:apply-templates 
+          select="$domainConstraintModules" 
+          mode="entityDeclaration" 
+          >
+          <xsl:with-param 
+            name="entityType" 
+            select="'mod'" 
+            as="xs:string" 
+            tunnel="yes"
+          />
+        </xsl:apply-templates>
+        
+        
 <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--             DOMAIN ENTITY DECLARATIONS                        -->
@@ -539,12 +561,12 @@
 &lt;!--                    CONTENT CONSTRAINT INTEGRATION             -->
 &lt;!-- ============================================================= -->
 </xsl:text>
-        <xsl:variable name="constraintModules" as="document-node()*"
-          select="$modulesToProcess[rngfunc:getModuleType(*) = 'constraint']"
+        <xsl:variable name="contentConstraintModules" as="document-node()*"
+          select="$modulesToProcess[rngfunc:isContentConstraintModule(.)]"
         />
-        <xsl:message>+ [INFO]    Constraint modules to integrate: {$constraintModules/* ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
+        <xsl:message>+ [INFO]    Constraint modules to integrate: {$contentConstraintModules/* ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
         <xsl:apply-templates 
-          select="$constraintModules" 
+          select="$contentConstraintModules" 
           mode="entityDeclaration" 
         >
           <xsl:with-param 
