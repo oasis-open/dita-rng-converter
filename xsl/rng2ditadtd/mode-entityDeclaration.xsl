@@ -96,10 +96,9 @@
       else replace(relpath:newFile($relpathFromShell, $entFilename), '/rng/', '/dtd/')"
     />
     <!-- Special case the topic and map modules, which do not have a *.ent file like all the rest 
-         (topic has
-         topicDefn.ent, which is included in the topic.mod file. It has to be included *after* 
+         (topic has topicDefn.ent, which is included in the topic.mod file. It has to be included *after* 
          all the domain entity integration parameter entities so that those declarations will
-         take precedence over those in topicDefn.ent.
+         take precedence over those in topicDefn.ent).
       -->
     <xsl:if test="$entityType != 'ent' or 
       ($entityType = 'ent' and 
