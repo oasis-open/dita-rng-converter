@@ -313,7 +313,7 @@
         />
         <xsl:message>+ [INFO]    Domain modules to integrate: {$domainModules ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
         <xsl:variable name="domainExtensionPatterns" as="element()*"
-          select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))] except ($notAllowedPatterns)"
+          select="$domainModules//rng:define[not(@name = $notAllowedPatternNames)][starts-with(@name, rngfunc:getModuleShortName(root(.)/*))]"
         />
         <xsl:if test="$doDebug">
           <xsl:message>+ [DEBUG]   notAllowed patterns:

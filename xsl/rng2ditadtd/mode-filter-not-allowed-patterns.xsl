@@ -85,12 +85,20 @@
         </xsl:variable>
         <xsl:if test="$doDebug">
           <xsl:message>+ [DEBUG] filter-notallowed-patterns: Domain constraint module "{$moduleShortName}": Effective define is:
-            <xsl:sequence select="rngfunc:report-element($effective-define)"/>          
+<xsl:sequence select="rngfunc:report-element($effective-define)"/>          
           </xsl:message>
         </xsl:if>
-        <xsl:apply-templates select="$effective-define" mode="filter-notallowed-patterns">
-          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-        </xsl:apply-templates>
+        <xsl:variable name="filtered-define" as="element(rng:define)">
+          <xsl:apply-templates select="$effective-define" mode="filter-notallowed-patterns">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          </xsl:apply-templates>
+        </xsl:variable>
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] filter-notallowed-patterns: Domain constraint module "{$moduleShortName}": Filtered define is:
+<xsl:sequence select="rngfunc:report-element($filtered-define)"/>          
+          </xsl:message>
+        </xsl:if>
+        <xsl:sequence select="$filtered-define"/>
       </xsl:for-each>
       
       <xsl:apply-templates mode="#current" select="node()">

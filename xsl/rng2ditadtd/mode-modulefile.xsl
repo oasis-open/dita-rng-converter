@@ -36,7 +36,6 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
     <xsl:message>+ [DEBUG] moduleFile: rng:grammar = rngfunc:getModuleType(.)="{rngfunc:getModuleType(.)}"</xsl:message>
-    <xsl:variable name="doDebug" as="xs:boolean" select="rngfunc:getModuleType(.) = ('contraint')"/>
     
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] moduleFile: rng:grammar ...</xsl:message>
@@ -303,22 +302,26 @@
       <xsl:variable name="domain-extension-patterns" as="element(rng:define)*"
         select=".//rng:define[matches(@name, '^.+-d-.+$')]"
       />
-      <!-- NOTE: Base patterns do not reflect notAllowed filtering -->
       <xsl:for-each select="$domain-extension-patterns">
-        <xsl:variable name="doDebug" as="xs:boolean" select="$moduleShortName = ('par_softwareDomain-c')"/>
         <xsl:variable name="define-name" as="xs:string" select="@name"/>
-        <xsl:message>+ [DEBUG] moduleFile: Domain constraint module "{$moduleShortName}": Define is:
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] moduleFile: Domain constraint module "{$moduleShortName}": Define is:
 <xsl:sequence select="rngfunc:report-element(.)"/>          
-        </xsl:message>
+          </xsl:message>            
+        </xsl:if>
         <xsl:choose>
           <xsl:when test="empty(rng:empty) and empty(rng:notAllowed) and exists(rng:*)">
-            <xsl:message>+ [DEBUG] moduleFile: Domain constraint module "{$moduleShortName}": Domain extension pattern "{$define-name}" is not empty and is allowed, generating parameter entity for it.</xsl:message>
+            <xsl:if test="$doDebug">
+              <xsl:message>+ [DEBUG] moduleFile: Domain constraint module "{$moduleShortName}": Domain extension pattern "{$define-name}" is not empty and is allowed, generating parameter entity for it.</xsl:message>
+            </xsl:if>
             <xsl:apply-templates select="." mode="generate-parment-decl-from-define">
               <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug and false()"/>
             </xsl:apply-templates>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:message>+ [DEBUG] moduleFile: Domain constraint module "{$moduleShortName}": Domain extension pattern "{$define-name}" is empty or not allowed, not generating parameter entity for it.</xsl:message>
+            <xsl:if test="$doDebug">
+              <xsl:message>+ [DEBUG] moduleFile: Domain constraint module "{$moduleShortName}": Domain extension pattern "{$define-name}" is empty or not allowed, not generating parameter entity for it.</xsl:message>
+            </xsl:if>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:for-each>
