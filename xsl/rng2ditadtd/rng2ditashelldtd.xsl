@@ -239,7 +239,7 @@
         <xsl:variable name="domainConstraintModules" as="document-node()*"
           select="$modulesToProcess[rngfunc:isDomainConstraintModule(.)]"
         />
-        <xsl:message>+ [INFO]    Constraint modules to integrate: {$domainConstraintModules/* ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
+        <xsl:message>+ [INFO]    Domain constraint modules to integrate: {$domainConstraintModules/* ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
         <xsl:apply-templates 
           select="$domainConstraintModules" 
           mode="entityDeclaration" 
@@ -311,7 +311,7 @@
         <xsl:variable name="domainModules" as="element()*"
           select="$modulesToProcess[rngfunc:isElementDomain(.)]/*" 
         />
-        <xsl:message>+ [INFO]     Domain modules to integrate: {$domainModules ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
+        <xsl:message>+ [INFO]    Domain modules to integrate: {$domainModules ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
         <xsl:variable name="domainExtensionPatterns" as="element()*"
           select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))] except ($notAllowedPatterns)"
         />
@@ -562,9 +562,9 @@
 &lt;!-- ============================================================= -->
 </xsl:text>
         <xsl:variable name="contentConstraintModules" as="document-node()*"
-          select="$modulesToProcess[rngfunc:isContentConstraintModule(.)]"
+          select="$modulesToProcess[rngfunc:isContentConstraintModule(., $doDebug)]"
         />
-        <xsl:message>+ [INFO]    Constraint modules to integrate: {$contentConstraintModules/* ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
+        <xsl:message>+ [INFO]    Content constraint modules to integrate: {$contentConstraintModules/* ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
         <xsl:apply-templates 
           select="$contentConstraintModules" 
           mode="entityDeclaration" 

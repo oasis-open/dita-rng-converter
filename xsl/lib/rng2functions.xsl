@@ -732,24 +732,48 @@
     -->
   <xsl:function name="rngfunc:getIncludedModuleDocs" as="document-node()*">
     <xsl:param name="grammar" as="element(rng:grammar)"/>
+    <xsl:param name="doDebug" as="xs:boolean"/>       
+    
+    <xsl:variable name="result" as="document-node()*">
+      
+      <xsl:variable name="includedModules" as="document-node()*"
+        select="rngfunc:getDirectlyIncludedModuleDocs($grammar, $doDebug)"
+      />
+      <xsl:for-each select="$includedModules">
+        <xsl:variable name="module" select="."/>
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] rngfunc:getIncludedModuleDocs(): including module "{rngfunc:getModuleShortName($module/*)}"</xsl:message>
+        </xsl:if>
+        <xsl:sequence select="$module"/>            
+        <xsl:sequence  select="rngfunc:getIncludedModuleDocs($module/*, $doDebug)"/>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:sequence select="$result"/>
+    
+  </xsl:function>
+  
+  <!-- Returns the directly-included module documents for the specified grammar. 
+       Includes all modules, including base modules.
+    -->
+  <xsl:function name="rngfunc:getDirectlyIncludedModuleDocs" as="document-node()*">
+    <xsl:param name="grammar" as="element(rng:grammar)"/>
     <xsl:param name="doDebug" as="xs:boolean"/>
     
     <xsl:variable name="result" as="document-node()*">
       <xsl:for-each select="$grammar//rng:include">
         <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] rngfunc:getIncludedModuleDocs(): Include of "{@href}"</xsl:message>
+          <xsl:message> + [DEBUG] rngfunc:getDirectlyIncludedModules(): Include of "{@href}"</xsl:message>
         </xsl:if>
         <xsl:variable name="module" select="document(@href,.)"/>
         <xsl:choose>
           <xsl:when test="$module">            
             <xsl:if test="$doDebug">
-              <xsl:message> + [DEBUG] rngfunc:getIncludedModuleDocs(): including module "{rngfunc:getModuleShortName($module/*)}"</xsl:message>
+              <xsl:message> + [DEBUG] rngfunc:getDirectlyIncludedModules(): including module "{rngfunc:getModuleShortName($module/*)}"</xsl:message>
             </xsl:if>
             <xsl:sequence select="$module"/>            
-            <xsl:sequence  select="rngfunc:getIncludedModuleDocs($module/*, $doDebug)"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:message> - [WARN] rngfunc:getIncludedModules(): Failed to resolve URI "{@href}" to a module.</xsl:message>
+            <xsl:message> - [WARN] rngfunc:getDirectlyIncludedModules(): Failed to resolve URI "{@href}" to a module.</xsl:message>
             <xsl:message> - [WARN]    Base URI = "{base-uri(.)}"</xsl:message>
           </xsl:otherwise>
         </xsl:choose>
@@ -757,7 +781,7 @@
     </xsl:variable>
     <xsl:sequence select="$result"/>
     
-  </xsl:function>
+  </xsl:function>  
   
  
   <!-- Returns the set of grammar elements for the modules included by the
@@ -812,12 +836,36 @@
   <xsl:function name="rngfunc:isContentConstraintModule" as="xs:boolean">
     <xsl:param name="moduleDoc" as="document-node()"/>
     
+    <xsl:variable name="doDebug" as="xs:boolean" select="false()"/>
+    <xsl:sequence select="rngfunc:isContentConstraintModule($moduleDoc, $doDebug)"/>
+  </xsl:function>
+  
+  <!-- Determine if the specified module is a content constraint module, as 
+       distinct from a domain constraint module.
+    -->
+  <xsl:function name="rngfunc:isContentConstraintModule" as="xs:boolean">
+    <xsl:param name="moduleDoc" as="document-node()"/>    
+    <xsl:param name="doDebug" as="xs:boolean"/>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] rngfunc:isContentConstraintModule(): Handling module {base-uri($moduleDoc/*)}...</xsl:message>
+    </xsl:if>
+    
     <xsl:variable name="result" as="xs:boolean">
       <xsl:choose>
         <xsl:when test="rngfunc:isConstraintModule($moduleDoc)">
+          <xsl:if test="$doDebug">
+            <xsl:message>+ [DEBUG] rngfunc:isContentConstraintModule():   Module is a constraint module</xsl:message>
+          </xsl:if>
           <xsl:variable name="constrainedModule" as="document-node()?"
             select="rngfunc:getConstrainedModule($moduleDoc)"
           />
+          <xsl:if test="$doDebug">
+            <xsl:message>+ [DEBUG] rngfunc:isContentConstraintModule():   constrainedModule: {base-uri($constrainedModule/*)}</xsl:message>
+            <xsl:if test="exists($constrainedModule)">
+              <xsl:message>+ [DEBUG] rngfunc:isContentConstraintModule():   rngfunc:isTypeModule={rngfunc:isTypeModule($constrainedModule)}</xsl:message>
+            </xsl:if>
+          </xsl:if>
           <xsl:choose>
             <xsl:when test="exists($constrainedModule)">
               <xsl:sequence select="rngfunc:isTypeModule($constrainedModule)"/>
@@ -834,6 +882,10 @@
       </xsl:choose>
     </xsl:variable>
     <xsl:sequence select="$result"/>
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] rngfunc:isContentConstraintModule():   Returning "{$result}"</xsl:message>
+    </xsl:if>
+    
   </xsl:function>
   
   <!-- Determine if the specified module is a domain constraint module, as 
@@ -872,27 +924,39 @@
   <xsl:function name="rngfunc:getConstrainedModule" as="document-node()?">
     <xsl:param name="constraintModule" as="document-node()"/>
     
+    <xsl:variable name="doDebug" as="xs:boolean" select="false()"/>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] rngfunc:getConstrainedModule(): constraintModule is "{base-uri($constraintModule/*)}"</xsl:message>
+    </xsl:if>
+    
     <xsl:choose>
       <xsl:when test="rngfunc:isConstraintModule($constraintModule)">
-        <xsl:variable name="includes" as="element(rng:grammar)*"
-          select="rngfunc:getIncludedModules($constraintModule/*)"
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] rngfunc:getConstrainedModule():    constraintModule is a constraint module.</xsl:message>
+        </xsl:if>
+        <xsl:variable name="includes" as="document-node()*"
+          select="rngfunc:getDirectlyIncludedModuleDocs($constraintModule/*, $doDebug)"
         />
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] rngfunc:getConstrainedModule():    Found {count($includes)} includes.</xsl:message>
+        </xsl:if>
         <!-- There should be excactly one include for a constraint module. -->
         <xsl:if test="count($includes) gt 1">
           <xsl:message>+ [ERROR] Constraint module {base-uri($constraintModule/*)} has {count($includes)} inclusions. It should have exactly 1. Using first include.</xsl:message>
         </xsl:if>
         <xsl:if test="count($includes) eq 0">
-          <xsl:message>+ [ERROR] Constraint module {base-uri($constraintModule/*)} has no include. It should have exactly 1. Using first include.</xsl:message>
+          <xsl:message>+ [ERROR] Constraint module {base-uri($constraintModule/*)} has no include. It should have exactly 1.</xsl:message>
         </xsl:if>
-        <xsl:variable name="include" as="element(rng:grammar)?"
+        <xsl:variable name="include" as="document-node()?"
           select="$includes[1]"
         />
         <xsl:choose>
-          <xsl:when test="exists($include) and rngfunc:isConstraintModule(root($include))">
-            <xsl:sequence select="rngfunc:getConstrainedModule(root($include))"/>
+          <xsl:when test="exists($include) and rngfunc:isConstraintModule($include)">
+            <xsl:sequence select="rngfunc:getConstrainedModule($include)"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:sequence select="root($include)"/>
+            <xsl:sequence select="$include"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
