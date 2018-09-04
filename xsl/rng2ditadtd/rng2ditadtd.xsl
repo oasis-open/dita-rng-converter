@@ -529,6 +529,9 @@
       <xsl:if test="$doDebug">
         <xsl:message>+ [DEBUG] processModules: Applying templates in mode entityFile to generate "{$entResultUrl}"</xsl:message>
       </xsl:if>
+      <!-- Constraint modules of all types do not have .ent files. Rather they declare all 
+           required parameter entities in the main module.
+        -->
       <xsl:if test="not($moduleType = ('constraint'))">
         <xsl:result-document href="{$entResultUrl}" format="dtd">
           <xsl:apply-templates mode="entityFile">
@@ -538,7 +541,6 @@
       </xsl:if>
     </xsl:if>
     
-<!--    <xsl:variable name="doDebug" as="xs:boolean" select="rngfunc:getModuleShortName(*) eq 'commonElements'"/>    -->
     <!-- Generate the .mod file: NOTE: Attribute modules only have .ent files -->
     <xsl:if test="not($moduleType = ('attributedomain'))">
       <xsl:if test="$doDebug">

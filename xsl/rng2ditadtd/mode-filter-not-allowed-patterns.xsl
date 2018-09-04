@@ -43,6 +43,63 @@
     </xsl:document>
   </xsl:template>
   
+  <xsl:template mode="filter-notallowed-patterns" match="rng:grammar[rngfunc:isDomainConstraintModule(root(.))]//rng:include">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+        
+    <xsl:copy>
+      <xsl:apply-templates select="@*" mode="#current">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
+      
+      <xsl:variable name="moduleShortName" as="xs:string" select="rngfunc:getModuleShortName(./ancestor::rng:grammar)"/>
+  
+      <!-- Copy any domain extension patterns from the constrained base module and filter them so that the resulting
+           filtered module can be used to generate correct domain extension entities and references to them (or not).
+        -->
+      <xsl:variable name="constrainedModule" as="document-node()?"
+        select="rngfunc:getConstrainedModule(root(.))"
+      />
+      <xsl:variable name="base-domain-extension-patterns" as="element(rng:define)*"
+        select="$constrainedModule//rng:define[matches(@name, '^.+-d-.+$')]"
+      />
+      
+      <xsl:for-each select="$base-domain-extension-patterns">
+        <xsl:variable name="doDebug" as="xs:boolean" select="$moduleShortName = ('par_softwareDomain-c')"/>
+        <xsl:variable name="define-name" as="xs:string" select="@name"/>
+        <xsl:variable name="local-define" as="element(rng:define)?" select=".//rng:define[@name = $define-name]"/>
+        <xsl:variable name="effective-define" as="element(rng:define)">
+          <xsl:choose>
+            <xsl:when test="empty($local-define)">
+              <xsl:if test="$doDebug">
+                <xsl:message>+ [DEBUG] filter-notallowed-patterns: Domain constraint module "{$moduleShortName}": No local pattern for domain extension pattern "{$define-name}"</xsl:message>
+              </xsl:if>
+              <xsl:sequence select="."/>              
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:if test="$doDebug">
+                <xsl:message>+ [DEBUG] filter-notallowed-patterns: Domain constraint module "{$moduleShortName}": Have local pattern for domain extension pattern "{$define-name}"</xsl:message>
+              </xsl:if>
+              <xsl:sequence select="$local-define"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] filter-notallowed-patterns: Domain constraint module "{$moduleShortName}": Effective define is:
+            <xsl:sequence select="rngfunc:report-element($effective-define)"/>          
+          </xsl:message>
+        </xsl:if>
+        <xsl:apply-templates select="$effective-define" mode="filter-notallowed-patterns">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
+      </xsl:for-each>
+      
+      <xsl:apply-templates mode="#current" select="node()">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
+    </xsl:copy>
+    
+  </xsl:template>
+  
   <xsl:template mode="filter-notallowed-patterns" match="rng:define">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="notAllowedPatternNames" as="xs:string*" tunnel="yes" select="()"/>

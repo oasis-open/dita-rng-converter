@@ -19,12 +19,9 @@
   <!-- ====================================================
        Mode "moduleFile"
        
+       Generates .mod files from RNG module files.
        ==================================================== -->
-  
-  <!-- ==============================
-       .mod file generation mode
-       ============================== -->
-  
+
   <xsl:template match="/" mode="moduleFile">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
@@ -295,11 +292,38 @@
     <xsl:apply-templates select="." mode="generate-referenced-parameter-entities">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
     </xsl:apply-templates>
+    
+    <xsl:if test="rngfunc:isDomainConstraintModule(root(.))">
+      <!-- Construct the domain extension entity declaration overrides.
+      
+           NOTE: The earlier filter not allowed patterns process should have
+           created filtered copies of all the domain extension patterns
+           from the constrained module.
+      -->
+      <xsl:variable name="domain-extension-patterns" as="element(rng:define)*"
+        select=".//rng:define[matches(@name, '^.+-d-.+$')]"
+      />
+      <!-- NOTE: Base patterns do not reflect notAllowed filtering -->
+      <xsl:for-each select="$domain-extension-patterns">
+        <xsl:variable name="doDebug" as="xs:boolean" select="$moduleShortName = ('par_softwareDomain-c')"/>
+        <xsl:variable name="define-name" as="xs:string" select="@name"/>
+        <xsl:message>+ [DEBUG] moduleFile: Domain constraint module "{$moduleShortName}": Define is:
+<xsl:sequence select="rngfunc:report-element(.)"/>          
+        </xsl:message>
+        <xsl:choose>
+          <xsl:when test="empty(rng:empty) and empty(rng:notAllowed) and exists(rng:*)">
+            <xsl:message>+ [DEBUG] moduleFile: Domain constraint module "{$moduleShortName}": Domain extension pattern "{$define-name}" is not empty and is allowed, generating parameter entity for it.</xsl:message>
+            <xsl:apply-templates select="." mode="generate-parment-decl-from-define">
+              <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug and false()"/>
+            </xsl:apply-templates>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:message>+ [DEBUG] moduleFile: Domain constraint module "{$moduleShortName}": Domain extension pattern "{$define-name}" is empty or not allowed, not generating parameter entity for it.</xsl:message>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each>
+    </xsl:if>
        
-<!--    <xsl:apply-templates select="rng:include | rng:define" mode="generate-parment-decl-from-define">
-      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>  
-    </xsl:apply-templates>
--->    
     <xsl:text>
 &lt;!-- ================== </xsl:text><xsl:value-of select="$moduleTitle"/><xsl:text> ==================== -->&#x0a; </xsl:text>    
     
