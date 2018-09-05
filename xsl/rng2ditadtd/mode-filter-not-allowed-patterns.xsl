@@ -45,7 +45,7 @@
   
   <xsl:template mode="filter-notallowed-patterns" match="rng:grammar[rngfunc:isDomainConstraintModule(root(.))]//rng:include">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-        
+    
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
@@ -64,16 +64,25 @@
       />
       
       <xsl:for-each select="$base-domain-extension-patterns">
-        <xsl:variable name="doDebug" as="xs:boolean" select="$moduleShortName = ('par_softwareDomain-c')"/>
         <xsl:variable name="define-name" as="xs:string" select="@name"/>
         <xsl:variable name="local-define" as="element(rng:define)?" select=".//rng:define[@name = $define-name]"/>
         <xsl:variable name="effective-define" as="element(rng:define)">
           <xsl:choose>
             <xsl:when test="empty($local-define)">
               <xsl:if test="$doDebug">
-                <xsl:message>+ [DEBUG] filter-notallowed-patterns: Domain constraint module "{$moduleShortName}": No local pattern for domain extension pattern "{$define-name}"</xsl:message>
+                <xsl:message>+ [DEBUG] filter-notallowed-patterns: Domain constraint module "{$moduleShortName}": No local pattern for domain extension pattern "{$define-name}", filtering base definition...</xsl:message>
               </xsl:if>
-              <xsl:sequence select="."/>              
+              <xsl:variable name="filtered-define" as="element(rng:define)">
+                <xsl:apply-templates select="." mode="filter-notallowed-patterns">
+                  <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+                </xsl:apply-templates>
+              </xsl:variable>
+              <xsl:if test="$doDebug">
+                <xsl:message>+ [DEBUG] filter-notallowed-patterns: Domain constraint module "{$moduleShortName}": Filtered base define is:
+                  <xsl:sequence select="rngfunc:report-element($filtered-define)"/>          
+                </xsl:message>
+              </xsl:if>
+              <xsl:sequence select="$filtered-define"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:if test="$doDebug">
@@ -184,7 +193,9 @@
         </xsl:copy>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message>+ [DEBUG] filter-notallowed-patterns: Grouping element {name(..)}/{name(.)} in pattern "{ancestor::rng:define[1]/@name}" has empty children after filtering.</xsl:message>
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG] filter-notallowed-patterns: Grouping element {name(..)}/{name(.)} in pattern "{ancestor::rng:define[1]/@name}" has empty children after filtering.</xsl:message>
+        </xsl:if>
       </xsl:otherwise>
     </xsl:choose>
    
