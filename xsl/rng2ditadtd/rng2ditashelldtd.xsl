@@ -66,7 +66,7 @@
       select="relpath:toUrl(relpath:newFile(relpath:newFile(relpath:newFile($dtdOutputDir, $packageName), 'dtd'), $dtdFilename))" 
     />
     
-    <xsl:variable name="referencedModules" as="document-node()*">
+    <xsl:variable name="referencedModulesBase" as="document-node()*">
       <xsl:if test="$doDebug">
         <xsl:message>+ [DEBUG] processShell: Applying templates in mode "getReferencedModules"...</xsl:message>
       </xsl:if>
@@ -75,12 +75,22 @@
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="modulesToProcess" as="document-node()*" tunnel="yes"
           select="$modulesToProcess" 
-        />
-        
+        />        
       </xsl:apply-templates>
       <xsl:if test="$doDebug">
         <xsl:message>+ [DEBUG] processShell: Apply templates done.</xsl:message>
       </xsl:if>
+    </xsl:variable>
+    
+    <!-- If there are multiple constraint modules for a given base module (for example,
+         because there is a chain of constraint modules) then there will be multiple
+         instances of the referenced module in referencedModulesBase so we need
+         to reduce this list to a single item for each module.
+      -->
+    <xsl:variable name="referencedModules" as="document-node()*">
+      <xsl:for-each-group select="$referencedModulesBase" group-by="base-uri(./*)">
+        <xsl:sequence select="."/>
+      </xsl:for-each-group>
     </xsl:variable>
     
     <!-- Get the set of all notAllowed patterns. This will be used to remove references
