@@ -174,7 +174,7 @@
       select="collection(iri-to-uri($collectionUri))"
     />
 
-    <xsl:if test="$doDebug or true()">
+    <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] rngDocs:
  {
         $rngDocs ! (relpath:getName(string(base-uri(.))) ||
@@ -269,12 +269,28 @@
       </xsl:for-each>
     </xsl:variable>
     
-    <xsl:if test="count($modulesNoDivs) lt count($modulesToProcess)">
-      <xsl:message terminate="yes"> - [ERROR] construction of modulesNoDivs failed. Count is {count($modulesNoDivs)}, should be {count($modulesToProcess)}</xsl:message>
+    <xsl:message>+ [INFO] Removing notAllowed patterns from modules</xsl:message>
+
+    <xsl:variable name="notAllowedPatterns" as="element(rng:define)*"
+      select="($shellDocs, $modulesNoDivs/*)//rng:define[rng:notAllowed]"
+    />        
+    <xsl:variable name="notAllowedPatternNames" as="xs:string*"
+      select="$notAllowedPatterns/@name ! string(.)"
+    />
+
+    <xsl:variable name="modulesFiltered" as="document-node()*">
+      <xsl:apply-templates select="$modulesNoDivs" mode="filter-notallowed-patterns">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="notAllowedPatternNames" as="xs:string*" tunnel="yes" select="$notAllowedPatternNames"/>
+      </xsl:apply-templates>
+    </xsl:variable>
+    
+    <xsl:if test="count($modulesFiltered) lt count($modulesToProcess)">
+      <xsl:message terminate="yes"> - [ERROR] construction of modulesFiltered failed. Count is {count($modulesFiltered)}, should be {count($modulesToProcess)}</xsl:message>
     </xsl:if>
     
     <xsl:if test="$doDebug">
-      <xsl:message>+ [DEBUG] Got {count($modulesNoDivs)} modulesNoDivs.</xsl:message>
+      <xsl:message>+ [DEBUG] Got {count($modulesFiltered)} modulesFiltered.</xsl:message>
     </xsl:if>
     
     <!-- NOTE: At this point, the modules have been preprocessed to remove
@@ -327,12 +343,6 @@
                     ($doGenerateStandardModules) or
                     not(rngfunc:isStandardModule(.))
                   ]"
-        />
-        <xsl:variable name="notAllowedPatterns" as="element(rng:define)*"
-            select="($shellDocs, $referencedModulesNoDivs/*)//rng:define[rng:notAllowed]"
-        />        
-        <xsl:variable name="notAllowedPatternNames" as="xs:string*"
-          select="$notAllowedPatterns/@name ! string(.)"
         />
         
         <xsl:variable name="referencedModulesFiltered" as="document-node()*">
@@ -449,7 +459,7 @@
       as="xs:string"
     />
     
-    <xsl:variable name="doDebug" as="xs:boolean" select="rngfunc:getModuleType(*) = ('contraint')"/>
+<!--    <xsl:variable name="doDebug" as="xs:boolean" select="rngfunc:getModuleType(*) = ('contraint')"/>-->
 
     <xsl:variable name="rngModuleUrl" as="xs:string"
       select="string(base-uri(./*))"

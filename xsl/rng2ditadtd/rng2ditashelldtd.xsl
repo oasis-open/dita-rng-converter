@@ -49,6 +49,7 @@
     <!-- For OASIS modules, any shell will be in rng/{package}/rng
          The output needs to be in dtd/{package}/dtd
       -->
+    
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] processShell: Handling doc {document-uri(root(.))} ("{base-uri(root(.)/*)}")</xsl:message>
       <xsl:message>+ [DEBUG] Initial process: Found {count($modulesToProcess)} modules.</xsl:message>
@@ -72,8 +73,6 @@
       
       <xsl:apply-templates select="." mode="getReferencedModules">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-        <!-- FIXME: This will not be needed once xml:base is in place -->
-        <xsl:with-param name="origModule" select="root(.)" as="document-node()" tunnel="yes"/>
         <xsl:with-param name="modulesToProcess" as="document-node()*" tunnel="yes"
           select="$modulesToProcess" 
         />
@@ -91,12 +90,16 @@
       -->
     
     <xsl:variable name="notAllowedPatterns" as="element(rng:define)*"
-      select="(., $referencedModules/*)//rng:define[rng:notAllowed]"
+      select="(., $referencedModules)//rng:define[rng:notAllowed]"
     />
+    
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] referencedModules: {$referencedModules ! rngfunc:getModuleShortName(./*) => string-join(', ')}</xsl:message>
+    </xsl:if>
     
     <xsl:variable name="notAllowedPatternNames" as="xs:string*"
       select="$notAllowedPatterns/@name ! string(.)"
-    />
+    />       
     <xsl:if test="$doDebug">
       <xsl:message>+ [DEBUG] processShell: Not allowed patterns:</xsl:message>
       <xsl:for-each-group select="$notAllowedPatterns" group-by="base-uri(.)">
@@ -107,6 +110,21 @@
       </xsl:for-each-group>
       <xsl:message>+ [DEBUG] processShell: notAllowedPatternNames: {$notAllowedPatternNames => string-join(', ')}</xsl:message>
     </xsl:if>
+
+    <xsl:variable name="referencedModulesNoDivs" as="document-node()*"
+      select="
+        $referencedModules[
+        ($doGenerateStandardModules) or
+        not(rngfunc:isStandardModule(.))
+        ]
+      "
+    />
+    <xsl:variable name="referencedModulesFiltered" as="document-node()*">
+      <xsl:apply-templates select="$referencedModulesNoDivs" mode="filter-notallowed-patterns">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="notAllowedPatternNames" as="xs:string*" tunnel="yes" select="$notAllowedPatternNames"/>
+      </xsl:apply-templates>
+    </xsl:variable>
 
     <shell>
       <inputDoc><xsl:sequence select="base-uri(root(.))"></xsl:sequence></inputDoc>
@@ -134,6 +152,7 @@
           <xsl:with-param name="dtdFilename" select="$dtdFilename" tunnel="yes" as="xs:string" />
           <xsl:with-param name="dtdOutputDir" select="$dtdOutputDir" tunnel="yes" as="xs:string" />
           <xsl:with-param name="modulesToProcess"  select="$referencedModules" tunnel="yes" as="document-node()*" />
+          <xsl:with-param name="referencedModulesFiltered" tunnel="yes" as="document-node()*" select="$referencedModulesFiltered"/>
           <xsl:with-param name="referencingGrammarUrl" select="$rngShellUrl" tunnel="yes" as="xs:string"/>
           <xsl:with-param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*" select="$notAllowedPatterns"/>
           <xsl:with-param name="notAllowedPatternNames" tunnel="yes" as="xs:string*" select="$notAllowedPatternNames"/>
@@ -155,6 +174,7 @@
     <xsl:param name="dtdFilename" tunnel="yes" as="xs:string" />
     <xsl:param name="dtdOutputDir" tunnel="yes" as="xs:string" />
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*" />
+    <xsl:param name="referencedModulesFiltered" tunnel="yes" as="document-node()*"/>
     <xsl:param name="notAllowedPatterns" tunnel="yes" as="element(rng:define)*"/>
     <xsl:param name="notAllowedPatternNames" tunnel="yes" as="xs:string*"/>    
     
@@ -299,84 +319,119 @@
                         extension was declared                     -->
 </xsl:text>
         <!-- Get the set of element domain modules then get the set of 
-             domain extension patterns from all of them then process
-             that set to generate one parameter entity for each unique
-             element type being extended.
+             domain extension patterns from all of them and from
+             any constraint modules then process that set to generate one parameter 
+             entity for each unique element type being extended.
+             
+             Constraint modules will override the domain extension
+             patterns for the domain modules they override (as 
+             generated during the notAllowed filtering process).
              
              Note: No space between declarations within this group.
           -->
         <xsl:if test="$doDebug">
-          <xsl:message>+ [DEBUG] dtdFile: rng:grammar - Generating domain extension integration entities... </xsl:message>
-        </xsl:if>
-        <xsl:variable name="domainModules" as="element()*"
-          select="$modulesToProcess[rngfunc:isElementDomain(.)]/*" 
-        />
-        <xsl:message>+ [INFO]    Domain modules to integrate: {$domainModules ! rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
-        <xsl:variable name="domainExtensionPatterns" as="element()*"
-          select="$domainModules//rng:define[not(@name = $notAllowedPatternNames)][starts-with(@name, rngfunc:getModuleShortName(root(.)/*))]"
-        />
-        <xsl:if test="$doDebug">
-          <xsl:message>+ [DEBUG]   notAllowed patterns:
-            {$notAllowedPatternNames => string-join(', ')}          
-          </xsl:message>
-          <xsl:message>+ [DEBUG]   domainExtension patterns:
-            {$domainExtensionPatterns/@name => string-join(', ')}          
-          </xsl:message>
-          <xsl:message>+ [DEBUG]   [1] There are disallowed domain extension patterns: {
-            exists($domainExtensionPatterns[@name = $notAllowedPatternNames])}</xsl:message>
+          <xsl:message>+ [DEBUG] dtdFile: rng:grammar - Generating domain extension integration
+            entities... </xsl:message>
         </xsl:if>
         
-        <xsl:for-each-group select="$domainExtensionPatterns" 
+        <xsl:variable name="domainModules" as="element(rng:grammar)*"
+          select="$modulesToProcess[rngfunc:isElementDomain(.)]/*"
+        />
+        <xsl:variable name="constraintModules" as="element(rng:grammar)*"
+          select="$referencedModulesFiltered[rngfunc:isDomainConstraintModule(.)]/*"
+        />
+        <xsl:message>+ [INFO] Domain modules to integrate: {$domainModules !
+          rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
+        <xsl:message>+ [INFO] Domain constraint modules to integrate: {$constraintModules !
+          rngfunc:getModuleShortName(.) => string-join(', ')}</xsl:message>
+        
+        <xsl:variable name="baseDomainExtensionPatterns" as="element(rng:define)*"
+          select="
+          ($domainModules | $constraintModules)//
+          rng:define[not(@name = $notAllowedPatternNames)][starts-with(@name, rngfunc:getModuleShortName(root(.)/*))]
+          "
+        />
+        <xsl:if test="$doDebug">
+          <xsl:message>+ [DEBUG]  baseDomainExtensionPatterns:
+            <xsl:sequence select="$baseDomainExtensionPatterns ! rngfunc:report-element(.)"/>        
+          </xsl:message>
+        </xsl:if>
+        
+        <!-- Set of domain extension patterns from base domain modules or from domain constraint
+             modules. This excludes any patterns that empty or notAllowed.
+          -->
+        <xsl:variable name="domainExtensionPatterns" as="element(rng:define)*">
+          <xsl:call-template name="get-domain-extension-patterns">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            <xsl:with-param name="dtdFilename" select="$dtdFilename"/>
+            <xsl:with-param name="baseDomainExtensionPatterns" select="$baseDomainExtensionPatterns"/>
+          </xsl:call-template>
+        </xsl:variable>                
+        
+        <xsl:if test="$doDebug">
+          <!--      <xsl:message>+ [DEBUG] notAllowed patterns: {$notAllowedPatternNames => string-join(', ')} </xsl:message>-->
+          <xsl:message>+ [DEBUG] domainExtension patterns: {$domainExtensionPatterns/@name =>
+            string-join(', ')} </xsl:message>
+        </xsl:if>
+        
+        <xsl:message>+ [INFO] Generating domain extension entities from domain extension patterns...</xsl:message>
+        
+        <xsl:for-each-group select="$domainExtensionPatterns"
           group-by="substring-after(@name, concat(rngfunc:getModuleShortName(root(.)/*), '-'))">
-          
-          <xsl:if test="$doDebug">            
-            <xsl:message>+ [DEBUG]   current-grouping-key="{current-grouping-key()}"</xsl:message>
+          <xsl:if test="$doDebug">
+            <xsl:message>+ [DEBUG]   notAllowedPatternNames:
+{$notAllowedPatternNames => distinct-values() => sort() => string-join(', ')}
+</xsl:message>
           </xsl:if>
           
-          <xsl:variable name="base-element-pattern-name"
-            select="current-grouping-key() || '.element'"
-          />
-          <xsl:variable name="baseIsAllowed" as="xs:boolean" select="not($base-element-pattern-name = $notAllowedPatternNames)"/>          
+          <xsl:if test="$doDebug">
+            <xsl:message>+ [DEBUG] current-grouping-key="{current-grouping-key()}"</xsl:message>
+          </xsl:if>
+          
+          <xsl:variable name="base-element-pattern-name" select="current-grouping-key() || '.element'"/>
+          <xsl:variable name="baseIsAllowed" as="xs:boolean"
+            select="not($base-element-pattern-name = $notAllowedPatternNames)"
+          />      
           <xsl:variable name="allowed-patterns" as="element(rng:define)*"
-            select="current-group()[not(@name = $notAllowedPatternNames)]"
+            select="current-group()[not(@name = $notAllowedPatternNames) and empty(rng:empty | rng:notAllowed)]"
+          />
+          <xsl:variable name="declaration-tokens" as="xs:string*"
+            select="
+              (if ($baseIsAllowed) then current-grouping-key() else (),
+               $allowed-patterns/@name ! ('%' || . || ';')
+              )
+            "
           />
           <xsl:if test="$doDebug">
-            <xsl:message>+ [DEBUG]     base-element-pattern-name="{$base-element-pattern-name}"</xsl:message>
-            <xsl:message>+ [DEBUG]     notAllowed patterns:
-              {$notAllowedPatternNames => string-join(', ')}          
+            <xsl:message>+ [DEBUG]   base-element-pattern-name="{$base-element-pattern-name}"</xsl:message>
+            <!--        <xsl:message>+ [DEBUG] notAllowed patterns: {$notAllowedPatternNames => string-join(', ')} </xsl:message>-->
+            <xsl:message>+ [DEBUG]   baseIsAllowed="{$baseIsAllowed}"</xsl:message>
+            <xsl:message>+ [DEBUG]   allowed-patterns="{$allowed-patterns/@name ! string(.) => string-join(', ')}"
+             {$allowed-patterns ! rngfunc:report-element(.) => string-join('&#x0a;')}      
             </xsl:message>
-            <xsl:message>+ [DEBUG]     baseIsAllowed="{$baseIsAllowed}"</xsl:message>
-            <xsl:message>+ [DEBUG]     allowed-patterns="{$allowed-patterns/@name ! name(.) => string-join(', ')}"</xsl:message>
           </xsl:if>
-          <xsl:if test="not($baseIsAllowed) and empty($allowed-patterns)">
-            <xsl:message>- [ERROR]    Domain extension entity "%{$base-element-pattern-name}": Base element "{current-grouping-key()}" is not allowed and</xsl:message> 
-            <xsl:message>- [ERROR]    no other patterns are allowed. Effective value will be "" (empty string), which is not valid for DTD syntax.</xsl:message>
-            <xsl:message>- [ERROR]    Either set the entire pattern to notAllowed, allow the base element type, or allow at least one specialization of the base.</xsl:message>
+          <xsl:if test="empty($allowed-patterns)">
+            <xsl:message>- [ERROR] Domain extension entity "%{$base-element-pattern-name}": Base element
+              "{current-grouping-key()}" is not allowed and</xsl:message>
+            <xsl:message>- [ERROR] no other patterns are allowed. Effective value will be "" (empty
+              string), which is not valid for DTD syntax.</xsl:message>
+            <xsl:message>- [ERROR] Either set the entire pattern to notAllowed, allow the base element
+              type, or allow at least one specialization of the base.</xsl:message>
           </xsl:if>
-
-          <xsl:variable name="firstPart" as="xs:string"
-            select="concat('&#x0a;&lt;!ENTITY % ', current-grouping-key())"
-          />
-          <xsl:value-of select="$firstPart"/>
-          <xsl:value-of 
-            select="if (string-length($firstPart) lt 26) 
-            then str:indent(25 - string-length($firstPart)) 
-            else ' ' "/>
           
-          <xsl:text>"{if ($baseIsAllowed) then current-grouping-key() else ''}</xsl:text>
+          <xsl:variable name="firstPart" as="xs:string"
+            select="concat('&#x0a;&lt;!ENTITY % ', current-grouping-key())"/>
+          <xsl:text>
+            {$firstPart}{
+              if (string-length($firstPart) lt 26)
+              then str:indent(25 - string-length($firstPart))
+              else ' '
+            }"</xsl:text>
           <xsl:if test="exists($allowed-patterns)">
-            <xsl:if test="$baseIsAllowed">
-              <xsl:text> |&#x0a;{str:indent(25)}</xsl:text>
-            </xsl:if>
-            <xsl:variable name="sep" as="xs:string"
-              select="concat(' |', '&#x0a;', str:indent(25))"
-            />
-            <xsl:if test="$doDebug">
-              <xsl:message>+ [DEBUG]   allowed-patterns: {$allowed-patterns/@name => string-join(', ')}</xsl:message>            
-            </xsl:if>
-            <xsl:text>{$allowed-patterns/@name ! ('%' || . || ';') => string-join($sep)}&#x0a;{str:indent(24)}</xsl:text>
+            <xsl:variable name="sep" as="xs:string" select="concat(' |', '&#x0a;', str:indent(25))"/>
+            <xsl:text>{$declaration-tokens => string-join($sep)}&#x0a;{str:indent(24)}</xsl:text>
           </xsl:if>
-          <xsl:text>"&gt;</xsl:text>          
+          <xsl:text>"&gt;</xsl:text>
         </xsl:for-each-group>
         <xsl:text>&#x0a;</xsl:text>
         
@@ -707,6 +762,78 @@
     
     <xsl:message>+ [INFO] === DTD shell {$dtdFilename} generated.</xsl:message>
 
+  </xsl:template>
+  
+  <!-- Gather the effective (not empty, not notAllowed) domain extension patterns
+       from the domain and domain constraint modules.
+    -->
+  <xsl:template name="get-domain-extension-patterns">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="dtdFilename" as="xs:string"/>
+    <xsl:param name="baseDomainExtensionPatterns"/>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message>+ [DEBUG] Constructing domainExtensionPatterns...</xsl:message>
+    </xsl:if>
+    <xsl:for-each-group select="$baseDomainExtensionPatterns" group-by="@name">
+      <xsl:if test="$doDebug">
+        <xsl:message>+ [DEBUG] grouping key: "{current-grouping-key()}"</xsl:message>
+        <xsl:message>+ [DEBUG] Number of patterns: "{count(current-group())}"</xsl:message>
+      </xsl:if>
+      <xsl:variable name="candidate-pattern" as="element(rng:define)?">
+        <xsl:choose>
+          <xsl:when test="count(current-group()) gt 1">
+            <xsl:if test="$doDebug">
+              <xsl:message>+ [DEBUG] More than one pattern for name "{current-grouping-key()}",
+                looking for constraint module version.</xsl:message>
+            </xsl:if>
+            <!-- There should be a constraint module version of the pattern. Get it -->
+            <xsl:for-each select="current-group()">
+              <xsl:if test="$doDebug">
+                <xsl:message>+ [DEBUG] Pattern from {base-uri(.)}: <xsl:sequence
+                    select="rngfunc:report-element(.)"/>
+                </xsl:message>
+              </xsl:if>
+              <xsl:if test="rngfunc:isConstraintModule(root(.))">
+                <xsl:if test="$doDebug">
+                  <xsl:message>+ [DEBUG] Module is a constraint module, using this
+                    version</xsl:message>
+                </xsl:if>
+                <!-- Use the constrained version -->
+                <xsl:sequence select="."/>
+              </xsl:if>
+            </xsl:for-each>
+          </xsl:when>
+          <xsl:when test="count(current-group()) eq 1">
+            <xsl:if test="$doDebug">
+              <xsl:message>+ [DEBUG] Exactly one pattern for name "{current-grouping-key()}" from
+                module "{base-uri(.)}", using it.</xsl:message>
+            </xsl:if>
+            <xsl:sequence select="."/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:if test="$doDebug">
+              <xsl:message>+ [DEBUG] Current group is empty. This should not happen.</xsl:message>
+            </xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:choose>
+        <xsl:when test="exists($candidate-pattern/rng:empty | $candidate-pattern/rng:notAllowed)">
+          <xsl:if test="$doDebug">
+            <xsl:message>+ [DEBUG] Pattern "{$candidate-pattern/@name}" is empty or notAllowed,
+              ignoring it.</xsl:message>
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:if test="$doDebug">
+            <xsl:message>+ [DEBUG] Pattern "{$candidate-pattern/@name}" is not empty or notAllowed,
+              using it.</xsl:message>
+          </xsl:if>
+          <xsl:sequence select="$candidate-pattern"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:for-each-group>
   </xsl:template>
   
   <xsl:template mode="generateDomainsContributionEntityReference" match="rng:grammar">

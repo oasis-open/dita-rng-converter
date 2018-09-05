@@ -34,12 +34,10 @@
 
   <xsl:template match="rng:include" mode="getReferencedModules">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->
-    <xsl:param name="origModule" as="document-node()" tunnel="yes" select="root(.)"/>
     <xsl:param name="modulesToProcess" as="document-node()*" tunnel="yes"/>
     <xsl:param name="isProcessNestedIncludes" as="xs:boolean" tunnel="yes" select="true()"/>
 
-    <xsl:variable name="rngModule" as="document-node()?" select="document(@href, $origModule)" />
+    <xsl:variable name="rngModule" as="document-node()?" select="document(@href, .)" />
     <xsl:if test="$doDebug">    
       <xsl:message> + [DEBUG] getReferencedModules: rng:include: document-uri($rngModule)="{document-uri($rngModule)}" ("{base-uri($rngModule/*)}")</xsl:message>
     </xsl:if>    
@@ -82,7 +80,7 @@
         </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> - [WARN] getReferencedModules: Failed to resolve reference to module for href "{@href} relative to URI "{document-uri($origModule)}" ("{base-uri($origModule/*)}").</xsl:message>
+        <xsl:message> - [WARN] getReferencedModules: Failed to resolve reference to module for href "{@href} relative to URI "{base-uri(.)}".</xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
