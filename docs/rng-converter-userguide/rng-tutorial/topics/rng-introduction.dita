@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="rng-introduction">
+    <title>Introduction to RELAX NG</title>
+    <conbody>
+        <p>The RELAX NG (RNG) standard is designed as a replacement for XML document type
+      definitions while being conceptually as close to DTDs as possible. Essentially, RELAX NG is
+      what DTDs should have always been.</p>
+    <p>If you are already familiar with XML DTDs then RELAX NG should seem like a natural way to
+      define XML document grammars. If you are not familiar with DTDs but you are familiar with XML
+      you should find RELAX NG to be a logical way to define XML document grammars.</p>
+    <p>This tutorial assumes you are familiar with XML basics and with DITA basics but it does not
+      assume you have much, if any, prior experience with DTDs.</p>
+    <p>One of the nice things about RELAX NG for DITA grammars is that it makes working with
+      grammars accessible to pretty much anyone who is already capable of authoring DITA
+      documents.</p>
+    </conbody>
+  <concept id="concept_utm_fqt_bfb">
+    <title>What is an XML Document Grammar?</title>
+    <conbody>
+      <p>An <term>XML document grammar</term> is simply a set of rules that defines what elements
+        and attributes are allowed in a given document and how those elements and attributes can be
+        combined with each other. DTD, XSD, RELAX NG, and Schematron are all forms of document
+        grammar. You associate grammars with XML documents in order to then enable validation of
+        those documents against the rules defined by those grammars. </p>
+      <p>In the context of DITA, every DITA document has a specific <term>DITA document type</term>
+        that is normally formally defined in a grammar represented by a top-level <term>document
+          type shell</term> and one or more <term>modules</term>, which define specific topic types,
+        map types, domains, and constraints. The DITA standard defines specific rules for using
+        RELAX NG, DTD, and XSD to create conforming DITA grammars.</p>
+      <p>An XML document type needs to define the following types of rules:<ul id="ul_ccc_lqt_bfb">
+          <li>The set of <term>element types</term> that may be used in documents of that type</li>
+          <li>For each element type, the <term>content model</term> for the element, meaning the
+            rules for the text or element content of the element type (if any). For example, the
+            content model rule for the base DITA <xmlelement>topic</xmlelement> type says a topic
+            must have a <xmlelement>title</xmlelement>, may have a
+              <xmlelement>shortdesc</xmlelement> or <xmlelement>abstract</xmlelement>, may have a
+              <xmlelement>prolog</xmlelement>, may have a <xmlelement>body</xmlelement>, may have a
+              <xmlelement>related-links</xmlelement>, and may have zero or more nested topics.</li>
+          <li>For each element type, the <term>attribute list</term> for the element, meaning the
+            set of attributes that can or must appear on the element, along with any default values.
+            DITA makes heavy use of default attribute values, most importantly the
+              <xmlatt>class</xmlatt> attribute, which defines the specialization hierarchy for each
+            DITA element type. Attributes may allow unconstrained text, a more constrained lexical
+            type, like NMTOKEN, or require a value from a list of possible values.</li>
+        </ul></p>
+      <p>All XML grammar languages provide mechanisms for organizing grammars into multiple
+        files.</p>
+      <p>All XML grammar languages provide mechanisms for defining reusable components to make it
+        easy to construct complete declarations from named parts.</p>
+    </conbody>
+  </concept>
+  <concept id="concept_sjc_xrt_bfb">
+    <title>RELAX NG Is a Pattern Matching Language</title>
+    <conbody>
+      <p>A RELAX NG grammar is essentially a giant regular expression that a document must
+        match.</p>
+      <p>A RELAX NG grammar consists of a number of <term>patterns</term> that define the rules for
+        content models and attribute lists. </p>
+      <p>Patterns are defined using the <xmlelement>define</xmlelement> element. In addition, RELAX
+        NG grammars define the allowed root elements that a document can have
+          (<xmlelement>start</xmlelement>):<codeblock><coderef href="../resources/rng-examples/simple-rng.rng"/></codeblock></p>
+      <p>If you imagine how a processor would evaluate a document against this RNG grammar it would
+        proceed as follows:<ol id="ol_hdn_jtt_bfb">
+          <li>Is the root element of the document <xmlelement>my-root-element</xmlelement>? <ul
+              id="ul_qnp_qtt_bfb">
+              <li>Yes: Continue</li>
+              <li>No: Fail validation</li>
+            </ul></li>
+          <li>Does the root element have any attributes?<ul id="ul_bv5_x5t_bfb">
+              <li>Yes:<ul id="ul_agl_y5t_bfb">
+                  <li>Is the attribute named "id"?<ul id="ul_m1y_y5t_bfb">
+                      <li>Yes: Continue</li>
+                      <li>No: Fail validation</li>
+                    </ul></li>
+                </ul></li>
+              <li>No: Continue</li>
+            </ul></li>
+          <li>Is the first subelement of <xmlelement>my-root-element</xmlelement> an
+              <xmlelement>a</xmlelement> element?<ul id="ul_plw_ttt_bfb">
+              <li>Yes: Continue</li>
+              <li>No: Fail validation</li>
+            </ul></li>
+          <li>Is the <xmlelement>a</xmlelement> element empty or contain only text characters?<ul
+              id="ul_c5q_vtt_bfb">
+              <li>Yes: Continue</li>
+              <li>No: Fail validation</li>
+            </ul></li>
+          <li>Is there an element following the <xmlelement>a</xmlelement> element?<ul
+              id="ul_cjl_wtt_bfb">
+              <li>No: Document is valid if <xmlelement>a</xmlelement> is child of
+                  <xmlelement>my-root-element</xmlelement>, otherwise return to rule for containing
+                element.</li>
+              <li>Yes: Continue</li>
+            </ul></li>
+          <li>Is the element a <xmlelement>b</xmlelement> element?<ul id="ul_gzm_ytt_bfb">
+              <li>Yes: Continue</li>
+              <li>No: Fail validation</li>
+            </ul></li>
+          <li>Does the <xmlelement>b</xmlelement> element have a subelement?<ul id="ul_y25_svt_bfb">
+              <li>No: Fail validation</li>
+              <li>Yes: Continue</li>
+            </ul></li>
+          <li>Is the subelement an <xmlelement>a</xmlelement> or <xmlelement>b</xmlelement>
+              element?<ul id="ul_cvz_5vt_bfb">
+              <li>No: Fail validation</li>
+              <li>Yes: Continue to rule for <xmlelement>a</xmlelement> or <xmlelement>b</xmlelement>
+                element as appropriate. <p>Return here if validation succeeds.</p></li>
+            </ul></li>
+          <li>Is there an element following the <xmlelement>b</xmlelement> element?<ul
+              id="ul_tqm_15t_bfb">
+              <li>No: Document is valid</li>
+              <li>Yes: Fail validation.</li>
+            </ul></li>
+        </ol></p>
+      <p>The structure of the RNG grammar file should be fairly obvious from the element type
+          names:<ul id="ul_m2y_25t_bfb">
+          <li>The <xmlelement>grammar</xmlelement> element defines a single grammar (or grammar
+            included into another grammar).</li>
+          <li>The <xmlelement>start</xmlelement> element defines the allowed root elements.</li>
+          <li>The <xmlelement>ref</xmlelement> elements refer to <term>pattern</term>s by name using
+            the <xmlatt>name</xmlatt> attribute. The referenced name is the value of a
+              <xmlelement>define</xmlelement> element's <xmlatt>name</xmlatt> attribute.</li>
+          <li>The <xmlelement>define</xmlelement> elements define named patterns. Patterns can be
+            constructed from a number of different components, most of which correspond directly to
+            things you can specify in DTDs or XSDs.</li>
+          <li>The <xmlelement>element</xmlelement>  element defines an element type. It contains the
+            definition of the pattern for the element's content (it's <term>content
+            model</term>).</li>
+          <li>The <xmlelement>attribute</xmlelement> element defines a single attribute. It contains
+            the definition of the rules for the attribute value. In this case the default rule of
+            "any text string" applies, equivalent to "#CDATA" in DTD syntax.</li>
+          <li>The <xmlelement>optional</xmlelement> element indicates that whatever it contains is
+            optional. Related elements are <xmlelement>zeroOrMore</xmlelement>,
+              <xmlelement>oneOrMore</xmlelement>, and <xmlelement>notAllowed</xmlelement>.</li>
+          <li>The <xmlelement>text</xmlelement> element indicates that the element allows PCDATA in
+            its content (equivalent to the <codeph>#PCDATA</codeph> token in DTD content models). A
+            content model can also contain an <xmlelement>empty</xmlelement> element, indicating
+            that the element cannot have any text or subelement content at all.</li>
+          <li>The <xmlelement>choice</xmlelement> element indicates a choice among two or more
+            alternatives.</li>
+        </ul></p>
+      <p>That's about all there is to it, although there are few more details, of course.</p>
+      <p>Because RELAX NG uses XML syntax it is easy to work with in XML editors like oXygenXML,
+        XMetal, and FrameMaker. </p>
+      <p>The oXygenXML editor has particularly good features for working with RELAX NG grammars,
+        such as being able to go from a reference to a pattern to its definition. Oxygen also
+        provides a graphical view of RELAX NG grammars that can be helpful.</p>
+    </conbody>
+  </concept>
+  <concept id="concept_pgb_ywt_bfb">
+    <title>RELAX NG Default Attribute Values: <xmlatt>a:defaultValue</xmlatt></title>
+    <conbody>
+      <p>The base RELAX NG standard does not define a way to define default values for attributes.
+        However, the companion "DTD compatibility" specification does provide a way to define
+        attribute values. Not surprisingly, DITA's use of RELAX NG depends on use of the DTD
+        compatibility standard.</p>
+      <p>The namespace <xmlnsname>http://relaxng.org/ns/compatibility/annotations/1.0</xmlnsname> is
+        used for DTD compatibility elements and attributes and is bound to the prefix "a" by
+        convention.</p>
+      <p>The attribute <xmlatt>a:defaultValue</xmlatt> is used to define the default value for
+        attributes:<codeblock><coderef href="../resources/rng-examples/attribute-default-sample-01.rng"/></codeblock></p>
+      <p>Here the default value of the <xmlatt>translate</xmlatt> attribute is defined to be the
+        value "no".</p>
+    </conbody>
+  </concept>
+  <concept id="concept_sxb_byt_bfb">
+    <title>RELAX NG Documentation: <xmlelement>a:documentation</xmlelement></title>
+    <conbody>
+      <p>The DTD compatibility specification also provides a general documentation container,
+          <xmlelement>a:documentation</xmlelement>, which can be used anywhere within a RELAX NG
+        grammar. The DITA grammars use <xmlelement>a:documentation</xmlelement> where the DTDs would
+        have
+        comments:<codeblock>...
+<coderef href="../resources/rng-examples/dita-documentation-sample-01.rng#line-range(6,12)"/>
+...</codeblock></p>
+      <p>The DITA RNG converter uses <xmlelement>a:documentation</xmlelement> elements to generate
+        the corresponding comments in generated DTDs.</p>
+    </conbody>
+  </concept>
+  <concept id="concept_ktn_qzt_bfb">
+    <title>RELAX NG Magic: Extending Patterns by Reference (Domain Integration)</title>
+    <conbody>
+      <p>The RELAX NG feature that makes RELAX NG particularly handy for DITA is the ability to
+        extend a base pattern by pointing to it from another pattern and saying "add me to this
+        pattern".</p>
+      <p>This is the way that RELAX NG enables integrating DITA domain modules with base map or
+        topic types simply by including the domain module, making RNG domain modules "self
+        integrating".</p>
+      <p>In DITA an <term>element domain</term> defines specialized elements that are intended to be
+        available anywhere their base element types are allowed.</p>
+      <p>For example, the highlight domain defines specializations of <xmlelement>ph</xmlelement>
+        like <xmlelement>b</xmlelement> and <xmlelement>i</xmlelement>.</p>
+      <p>To allow domain-defined elements to be <term>integrated</term> into the base types, each
+        base element type is represented by a pattern whose name is the same as the element type
+        name,
+        e.g.:<codeblock>...
+<coderef href="../resources/rng-examples/domain-integration-details.rng#line-range(7,12)"/>
+...</codeblock></p>
+      <p>By itself, this pattern only allows the <xmlelement>ph</xmlelement> element (by reference
+        to the pattern "ph.element", which then defines the actual "ph" element). Content models
+        that want to allow <xmlelement>ph</xmlelement>
+        <i>and any of its specializations</i> refer to the "ph" pattern (and not to the "ph.element"
+        pattern).</p>
+      <p>To extend the "ph" pattern you can define another pattern named "ph" and use the
+          <xmlatt>combine</xmlatt> attribute to indicate how to combine this new "ph" pattern with
+        the existing
+        pattern:<codeblock>...
+<coderef href="../resources/rng-examples/domain-integration-details.rng#line-range(29,32)"/>
+...</codeblock></p>
+      <p>The value "choice" for the <xmlatt>combine</xmlatt> attribute says "add the contents of
+        this pattern to the base pattern as though the base pattern were a choice group."</p>
+      <p>In this case, the added pattern is defined by the referenced pattern "hi-d-ph", which lists
+        the individual hightlight domain specializations of <xmlelement>ph</xmlelement> within a
+        choice group:</p>
+      <codeblock>...
+<coderef href="../resources/rng-examples/domain-integration-details.rng#line-range(16,27)"/>
+...</codeblock>
+      <p>Thus the resulting effective definition for the "ph" pattern is:</p>
+      <codeblock>...
+<coderef href="../resources/rng-examples/domain-integration-details.rng#line-range(40,51)"/>
+...</codeblock>
+      <p>That is, the union of the base pattern ("ph.element") and the items in "hi-d-ph" as a
+        choice group.</p>
+      <p>The definition of the highlight domain's "ph" pattern is in the highlight domain module
+          (<filepath>highlightDomain.rng</filepath>).</p>
+      <p>There is <b>nothing</b> in the document type shells other than an include of the highlight
+        domain module. The <codeph>combine="choice"</codeph> magic takes care of automatically
+        integrating the highlight domain phrase specializations with the base
+          <xmlelement>ph</xmlelement> element.</p>
+      <p>Compare this to the DTD version, where you must manually set up, in each document type
+        shell, the parameter entities that integrate the contributions from each domain for each
+        element type (here from
+        <filepath>concept.dtd</filepath>):<codeblock>...
+<coderef href="../resources/rng-examples/concept.dtd#line-range(146,202)"/>
+...</codeblock>
+      </p>
+    </conbody>
+  </concept>
+  <concept id="concept_mwh_zy5_bfb">
+    <title>Including Modules: <xmlelement>include</xmlelement></title>
+    <conbody>
+      <p>To include one RNG module into another you use the <xmlelement>include</xmlelement> element
+        (here from
+        <filepath>basetopic.rng</filepath>):<codeblock>...
+<coderef href="../resources/rng-examples/basetopic.rng#line-range(93,97)"/>
+...</codeblock></p>
+      <p>The patterns from the included modules are combined with the patterns from the including
+        module to create the full set of effective patterns.</p>
+      <p>The order that the includes occur does not matter as it does in DTDs. That is, any pattern
+        can refer to any other pattern regardless of where it occurs in the set of included modules.
+        (However, for the purposes of generating DTDs the order of includes will determine the order
+        of the corresponding external parameter entity declarations and references, in which case
+        the order is important.)</p>
+      <p>As part of the include you can override the definition of any pattern defined in the
+        referenced module. This is used in DITA grammars for setting the topic nesting rules and for
+        doing simple constraints for domain or structural modules.</p>
+      <p>For example, the <filepath>basetopic.rng</filepath> document type shell sets the
+        "topic-info-types" pattern to allow only topics to nest (because this shell does not include
+        any other topic
+        types):<codeblock>...
+<coderef href="../resources/rng-examples/basetopic.rng#line-range(87,90)"/>
+...</codeblock></p>
+      <p>By contrast, the ditabase document type, which defines the <xmlelement>dita</xmlelement>
+        element used for composite documents, allows all topic types to nest within all other topic
+        types. It does this by overriding the pattern "info-types" to include all the topic types
+        included in the <filepath>ditabase.rng</filepath> document type
+        shell:<codeblock>...
+<coderef href="../resources/rng-examples/ditabase.rng#line-range(120,132)"/>
+...</codeblock></p>
+      <p>The "info-types" pattern is referenced from the content model for each topic type (here in
+          <filepath>topicMod.rng)</filepath>:</p>
+      <codeblock>...
+<coderef href="../resources/rng-examples/topicMod.rng#line-range(103,110)"/>
+...</codeblock>
+      <p>So overriding "info-types" in <filepath>ditabase.rng</filepath> changes it from allowing
+        only <xmlelement>topic</xmlelement> to allowing any of <xmlelement>topic</xmlelement>,
+          <xmlelement>concept</xmlelement>, <xmlelement>task</xmlelement>, etc.</p>
+      <p>Because RELAX-NG-based domain modules are "self integrating" through the use of the
+          <xmlatt>combine</xmlatt> attribute, all you need to do to create a custom document type
+        shell is remove the includes for the modules you don't want and add the includes for the
+        modules you do want. If you need to impose simple constraints (such as disallowing some of
+        the elements provided by a given domain) you can do it as part of the import.</p>
+      <p>This makes creating DITA document type shells and simple constraints about as easy as it
+        can be.</p>
+    </conbody>
+  </concept>
+  <concept id="concept_ngx_sbv_bfb">
+    <title>Defining Things Away: <xmlelement>notAllowed</xmlelement></title>
+    <conbody>
+      <p>Another thing you can do with RELAX NG that you can't do with DTDs or XSDs is to simply
+        define a pattern as being "not allowed", meaning that anywhere that pattern is referred to
+        in another pattern, the not-allowed pattern is just that: not allowed. This allows you to
+        effectively remove things from patterns without having to completely redeclare the patterns
+        you want to remove things from.</p>
+      <p>For example, say you want to include the OASIS-defined software domain module but you don't
+        care about messages so you want to remove (disallow) the <xmlelement>msgblock</xmlelement>
+        and <xmlelement>msgph</xmlelement> elements.</p>
+      <p>You can do this using <xmlelement>notAllowed</xmlelement> for those element types' patterns
+        when you include the software domain into your
+        shell:<codeblock>...
+<coderef href="../resources/rng-examples/my-topic.rng#line-range(77,85)"/>
+...</codeblock></p>
+      <p>The convention for patterns that define individual element types in the DITA grammars is
+          "<varname>tagname</varname>.element", so the "msgblock.element" pattern defines just the
+          <xmlelement>msgblock</xmlelement> element type. By setting this pattern to "not allowed",
+        it makes it impossible to have a <xmlelement>msgblock</xmlelement> element anywhere in
+        documents that use this shell.</p>
+      <p>Note that this constitutes a constraint and needs to be declared in the
+          <xmlatt>domains</xmlatt> attribute value just as you would for a separate constraint
+        module.</p>
+    </conbody>
+  </concept>
+  <concept id="concept_e5q_4mv_bfb">
+    <title>Limitations on <xmlelement>notAllowed</xmlelement> When Generating DTDs</title>
+    <conbody>
+      <p>There is a limitation on the use of <xmlelement>notAllowed</xmlelement> if you are planning
+        to generate DTDs from your RELAX NG grammars: you cannot set patterns to not-allowed that
+        are referred to from content models or patterns referred to from content models unless you
+        are also creating a constraint module that overrides patterns such that all the patterns
+        that refer to your not-allowed pattern are directly or indirectly referred to from your
+        constraint module.</p>
+      <p>In addition, you cannot make a base element type not allowed unless you also allow at least
+        one specialization of it or explicitly override every pattern that either directly or
+        indirectly refers to the pattern element type's pattern (e.g, the "data" pattern for the
+          <xmlelement>data</xmlelement> element and all of its specializations, if any).</p>
+      <p>For example, say you want to completely disallow the use of the
+          <xmlelement>data</xmlelement> element and any of its specializations everywhere. </p>
+      <p>You might be tempted to simply override the "data" pattern as not-allowed. This would work
+        for RNG-based validation but it would <b>not</b> work for DTD generation.</p>
+      <p>The problem is that in order to disallow the use of <xmlelement>data</xmlelement> in DTD
+        syntax you must remove the reference to the <parameterentity>data</parameterentity>
+        parameter entity and the "<codeph>|</codeph>" or "<codeph>,</codeph>" content model
+        connector that follows it from any content model or parameter entity that refers to
+          <parameterentity>%data</parameterentity>. You cannot simply set the
+          <parameterentity>data</parameterentity> parameter entity to an empty string because that
+        would result in invalid content model syntax (e.g, "<codeph>keyword | | ph</codeph>" instead
+        of "<codeph>keyword | data | ph</codeph>").</p>
+      <p>For domain-level removal of elements the DTD generator can automatically construct the
+        domain extension parameter entities to omit any not-allowed elements but to remove a base
+        element like <xmlelement>data</xmlelement>
+        <i>and all of its specializations</i> requires rewriting every parameter entity or content
+        model that refers to <parameterentity>data</parameterentity>. </p>
+      <p>Likewise, if you want to disallow the base type but allow specializations of it, you can
+        simply set the ".element" pattern to not allowed <i>as long as</i> you are also including at
+        least one specialization of that type. For example, in DITA 1.3 the utility domain provides
+        the <xmlelement>data</xmlelement> specializations <xmlelement>sort-as</xmlelement>, so if
+        you include the utility domain (which most shells, even basetopic, do) you could set
+        "data.element" to not-allowed because there would still be at least one specialization of
+          <xmlelement>data</xmlelement>, namely <xmlelement>sort-as</xmlelement>. In this case the
+        DTD generator will do the right thing, which is to generate the
+          <parameterentity>data</parameterentity> parameter with "<codeph>data |</codeph>" omitted
+        and "<codeph>%ut-d-data;</codeph>" included.</p>
+      <p>If you have a constraint module that defines a pattern that refers to other patterns, the
+        DTD generator will generate copies of all the referenced patterns and omit any patterns that
+        are set to not-allowed (or to empty), as well as omit patterns that become empty after
+        filtering out all not-allowed patterns.</p>
+      <p>But this requires that there be a literal RELAX NG module for the constraint—the DTD
+        generator does not currently provide a way to automatically generate constraint modules that
+        simply reflect the removal of a base element.</p>
+      <p>However, with the RNG XML syntax it's relatively easy to use XML-aware search and replace
+        or even XQuery or XSLT to determine what the set of patterns is that would need to be
+        redefined in order to disallow a given base element and then create a constraint module or
+        modules that reflects that constraint.</p>
+      <p>But, because the DTD generator can generate the required parameter entities for referenced
+        patterns in a constraint module, it does make defining structural constraints much easier,
+        because you only need to redefine the content models or attribute lists of the elements
+        you're constraining and set to not-allowed any elements or patterns you simply don't want to
+        be allowed without having to worry about what other patterns might refer to the not-allowed
+        elements (as long as the are not base elements).</p>
+      <p>This case is covered in more detail in the tutorial.</p>
+    </conbody>
+  </concept>
+</concept>

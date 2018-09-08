@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+  <booktitle>
+    <mainbooktitle>Generating DTDs</mainbooktitle>
+  </booktitle>
+  <chapter keys="generating-dtds" href="topics/generating_dtds.dita">
+    <topicref keys="generating-dtd-doctype-shells"
+      href="topics/generating_dtd_document_type_shells.dita"/>
+    <topicref keys="generating-dtd-modules"
+      href="topics/generating_vocabulary_and_constraint_modules.dita"/>
+  </chapter>
+</bookmap>

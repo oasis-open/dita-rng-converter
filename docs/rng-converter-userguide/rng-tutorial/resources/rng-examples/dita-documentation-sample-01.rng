@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <div>
+    <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
+    <div>
+      <a:documentation>GENERAL ELEMENT TYPES OR SPECIALIZATION BASES</a:documentation>
+      <div>
+        <a:documentation>LONG NAME: Data About</a:documentation>
+        <define name="data-about.content">
+      <!-- ... -->
+        </define>
+      </div>
+    </div>
+  </div>
+</grammar>

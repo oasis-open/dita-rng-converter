@@ -6,6 +6,9 @@
     <p>The DITA RNG Converter Ant script needs to be told where your Open Toolkit installation is
       using the Ant property <parmname>dita-ot-dir</parmname>. You can set this property in either
       of two ways:<ol id="ol_dqt_13q_fw">
+        <li>Have the <cmdname>ant</cmdname> command in your PATH. Normal DITA Open Toolkit packages
+          include the <cmdname>ant</cmdname> command in the <filepath>bin/</filepath> directory if
+          you don't already have Ant installed for general use.</li>
         <li>Create a file named "<filepath>.build.properties</filepath>" or
             "<filepath>build.properties</filepath>" in your home directory or in the directory
           containing the DITA RNG Converter <filepath>build.xml</filepath> file and set the

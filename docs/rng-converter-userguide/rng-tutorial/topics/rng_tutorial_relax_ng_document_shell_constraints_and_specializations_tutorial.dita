@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="rng_tutorial_relax_ng_document_shell__constraints__and_modules_tutorial">
+    <title>RELAX NG Document Shell, Constraints, and Specializations Tutorial</title>
+  <shortdesc>A tutorial guide to creating document type shells, constraints, and specializations
+    using RELAX NG.</shortdesc>
+    <body>
+        <p>These tutorials walk you through the process of creating your own RELAX NG (RNG) document
+      type shells, constraints, and specializations.</p>
+    <p>RELAX NG is an OASIS standard for XML document grammars that provides the best fit to DITA's
+      document type definition requirements. As an XML-based format it is easier to work with than
+      DTDs. The way RELAX NG works is easier to understand and use than XSD, especially in the area
+      of constraints and content model extension. In particular, RELAX NG makes it about as easy as
+      it can be to add and remove domains from your document type shells and makes it much easier to
+      define constraints than with either DTD or XSD.</p>
+    <p>The RELAX NG converter tool makes it easy to generate conforming DITA DTD shells,
+      constraints, and specialization modules for use with tools that do not yet support RELAX NG
+      directly. The RELAX NG converter also generates XSDs (with some limitations) for use with
+      tools that require XSDs.</p>
+    <p>This tutorial uses files from the <filepath>resources/</filepath> directory under the
+        <filepath>rng-tutorial/</filepath> directory in the dtd-rng-converter project source. These
+      resources are also packaged as a separate Zip file in the dtd-rng-converter release package
+      for your convenience.</p>
+    </body>
+</topic>

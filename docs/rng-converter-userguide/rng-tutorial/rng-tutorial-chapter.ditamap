@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+    <booktitle>
+        <mainbooktitle></mainbooktitle>
+    </booktitle>
+  <chapter href="topics/rng_tutorial_relax_ng_document_shell_constraints_and_specializations_tutorial.dita">
+    <topicref href="topics/rng-introduction.dita"/>
+    <topicref href="topics/rng_tutorial_tutorial_create_local_rng_shells.dita"/>
+    <topicref href="topics/rng_tutorial_tutorial_add_and_remove_domains.dita"/>
+    <topicref href="topics/rng_tutorial_tutorial_simple_domain_constraint.dita"/>
+    <topicref href="topics/rng_tutorial_tutorial_content_model_constraint.dita"/>
+    <topicref href="topics/rng_tutorial_tutorial_attribute_list_constraint.dita"/>
+    <topicref href="topics/rng_tutorial_tutorial_attribute_domain_specialization.dita"/>
+    <topicref href="topics/rng_tutorial_tutorial_element_domain_specialization.dita"/>
+    <topicref href="topics/rng_tutorial_tutorial_new_topic_type_specialization.dita"/>
+    <topicref href="topics/rng_tutorial_tutorial_new_map_type_specialization.dita"/>
+  </chapter>
+</bookmap>
