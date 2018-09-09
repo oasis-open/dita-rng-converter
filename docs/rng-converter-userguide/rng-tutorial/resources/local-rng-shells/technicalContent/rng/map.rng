@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="urn:oasis:names:tc:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+<?xml-model href="urn:pubid:example.com:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
          xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
@@ -67,12 +67,12 @@ ORIGINAL CREATION DATE:
          <moduleType>mapshell</moduleType>
          <moduleShortName>map</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA<var presep=" " name="ditaver"/> Map//EN</dtdShell>
-            <rncShell>urn:oasis:names:tc:dita:rnc:map.rnc<var presep=":" name="ditaver"/>
+            <dtdShell>-//OASIS//DTD DITA Map//EN</dtdShell>
+            <rncShell>urn:pubid:example.com:dita:rnc:map.rnc
             </rncShell>
-            <rngShell>urn:oasis:names:tc:dita:rng:map.rng<var presep=":" name="ditaver"/>
+            <rngShell>urn:pubid:example.com:dita:rng:map.rng
             </rngShell>
-            <xsdShell>urn:oasis:names:tc:dita:xsd:map.xsd<var presep=":" name="ditaver"/>
+            <xsdShell>urn:pubid:example.com:dita:xsd:map.xsd
             </xsdShell>
          </shellPublicIds>
       </moduleMetadata>
@@ -111,24 +111,24 @@ ORIGINAL CREATION DATE:
   </div>
   <div>
       <a:documentation>MODULE INCLUSIONS</a:documentation>
-      <include href="../../base/rng/mapMod.rng"/>
-      <include href="../../base/rng/mapGroupDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:mapMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:mapGroupMod.rng"/>
 
       <include href="abbreviateDomain.rng"/>
-      <include href="../../base/rng/delayResolutionDomain.rng"/>
-      <include href="../../base/rng/deliveryTargetAttDomain.rng" dita:since="1.3"/>
-      <include href="../../base/rng/ditavalrefDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:ditavalrefDomain.rng"/>
       <include href="glossrefDomain.rng"/>
-      <include href="../../base/rng/hazardstatementDomain.rng"/>
-      <include href="../../base/rng/highlightDomain.rng"/>
-      <include href="../../base/rng/indexingDomain.rng"/>
-      <include href="markupDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+      <include href="markupDomain.rng"/>
       <include href="programmingDomain.rng"/>
-      <include href="releaseManagementDomain.rng" dita:since="1.3"/>
+      <include href="releaseManagementDomain.rng"/>
       <include href="softwareDomain.rng"/>
       <include href="uiDomain.rng"/>
-      <include href="../../base/rng/utilitiesDomain.rng"/>
-      <include href="xmlDomain.rng" dita:since="1.3"/>    
+      <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+      <include href="xmlDomain.rng"/>    
   </div>
   <div>
       <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>

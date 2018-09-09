@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="urn:oasis:names:tc:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+<?xml-model href="urn:pubid:example.com:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
          xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
@@ -11,40 +11,19 @@
 =============================================================
                    HEADER                                    
 =============================================================
-Darwin Information Typing Architecture (DITA) Version 1.3 Plus Errata 02
-OASIS Standard
-16 January 2018 
-Copyright (c) OASIS Open 2018. All rights reserved. 
-Source: http://docs.oasis-open.org/dita/dita/v1.3/errata02/csprd01/complete/part0-overview/dita-v1.3-errata02-csprd01-part0-overview-complete.html
+Local shell for example.com
 
-============================================================
- MODULE:    DITA learningObjectMap                             
- VERSION:   1.3                                              
- DATE:      March 2014                                    
-=============================================================
-SYSTEM:     Darwin Information Typing Architecture (DITA)    
-                                                             
-PURPOSE:    DTD to describe DITA Learning Map                
-                                                             
-ORIGINAL CREATION DATE:                                      
-            March 2014                                         
-                                                             
-            (C) Copyright OASIS Open 2014             
-            All Rights Reserved.                             
-                                                             
+Learning Object Map
 =============================================================  
 </headerComment>
       <moduleMetadata>
          <moduleType>mapshell</moduleType>
          <moduleShortName>learningObjectMap</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA<var presep=" " name="ditaver"/> Learning Object Map//EN</dtdShell>
-            <rncShell>urn:oasis:names:tc:dita:spec:learning:rnc:learningObjectMap.rnc<var presep=":" name="ditaver"/>
-            </rncShell>
-            <rngShell>urn:oasis:names:tc:dita:spec:learning:rng:learningObjectMap.rng<var presep=":" name="ditaver"/>
-            </rngShell>
-            <xsdShell>urn:oasis:names:tc:dita:spec:learning:xsd:learningObjectMap.xsd<var presep=":" name="ditaver"/>
-            </xsdShell>
+            <dtdShell>-//OASIS//DTD DITA Learning Object Map//EN</dtdShell>
+            <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningObjectMap.rnc</rncShell>
+            <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningObjectMap.rng</rngShell>
+            <xsdShell>urn:pubid:example.com:dita:spec:learning:xsd:learningObjectMap.xsd</xsdShell>
          </shellPublicIds>
       </moduleMetadata>
   </moduleDesc>
@@ -77,24 +56,23 @@ ORIGINAL CREATION DATE:
   </div>
   <div>
       <a:documentation>CONTENT CONSTRAINT INTEGRATION</a:documentation>
-      <include href="learningAggregationsTopicrefConstraintMod.rng">
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningAggregationsTopicrefConstraintMod.rng">
         <a:documentation>Overrides map and mapgroup domain modules</a:documentation>        
       </include>
   </div>
   <div>
       <a:documentation>MODULE INCLUSIONS</a:documentation>
-      <include href="learningObjectMapMod.rng"/>
-      <include href="../../base/rng/delayResolutionDomain.rng"/>
-      <include href="../../base/rng/deliveryTargetAttDomain.rng"/>
-      <include href="../../base/rng/ditavalrefDomain.rng"/>
-      <include href="../../base/rng/hazardstatementDomain.rng"/>
-      <include href="../../base/rng/highlightDomain.rng"/>
-      <include href="../../base/rng/indexingDomain.rng"/>
-      <include href="learningMapDomain.rng"/>
-      <include href="learningMetadataDomain.rng"/>
-      <include href="../../technicalContent/rng/releaseManagementDomain.rng"
-               dita:since="1.3"/>
-      <include href="../../base/rng/utilitiesDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningObjectMapMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:ditavalrefDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningMapDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningMetadataDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
   </div>
   <div>
       <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>

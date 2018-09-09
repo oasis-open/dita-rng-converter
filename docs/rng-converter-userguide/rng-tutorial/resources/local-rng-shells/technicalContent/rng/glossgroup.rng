@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="urn:oasis:names:tc:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+<?xml-model href="urn:pubid:example.com:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
@@ -50,10 +50,10 @@ ORIGINAL CREATION DATE:
       <moduleType>topicshell</moduleType>
       <moduleShortName>glossgroup</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA<var presep=" " name="ditaver"/> Glossary Group//EN</dtdShell>
-        <xsdShell>urn:oasis:names:tc:dita:xsd:glossgroup.xsd<var presep=":" name="ditaver"/></xsdShell>
-        <rncShell>urn:oasis:names:tc:dita:rnc:glossgroup.rnc<var presep=":" name="ditaver"/></rncShell>
-        <rngShell>urn:oasis:names:tc:dita:rng:glossgroup.rng<var presep=":" name="ditaver"/></rngShell>
+        <dtdShell>-//OASIS//DTD DITA Glossary Group//EN</dtdShell>
+        <xsdShell>urn:pubid:example.com:dita:xsd:glossgroup.xsd</xsdShell>
+        <rncShell>urn:pubid:example.com:dita:rnc:glossgroup.rnc</rncShell>
+        <rngShell>urn:pubid:example.com:dita:rng:glossgroup.rng</rngShell>
       </shellPublicIds>
     </moduleMetadata>
   </moduleDesc>
@@ -94,25 +94,25 @@ ORIGINAL CREATION DATE:
   </div>
   <div>
     <a:documentation>MODULE INCLUSIONS</a:documentation>
-    <include href="../../base/rng/topicMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:topicMod.rng"/>
     <include href="conceptMod.rng"/>
     <include href="glossentryMod.rng"/>
     <include href="glossgroupMod.rng"/>
-    <include href="../../base/rng/deliveryTargetAttDomain.rng" dita:since="1.3"/>
-    <include href="equationDomain.rng" dita:since="1.3"/>
-    <include href="../../base/rng/hazardstatementDomain.rng"/>
-    <include href="../../base/rng/highlightDomain.rng"/>
-    <include href="../../base/rng/indexingDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
+    <include href="equationDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
     <include href="abbreviateDomain.rng"/>
-    <include href="markupDomain.rng" dita:since="1.3"/>
-    <include href="mathmlDomain.rng" dita:since="1.3"/>
-    <include href="programmingDomain.rng" dita:since="1.3"/>
-    <include href="releaseManagementDomain.rng" dita:since="1.3"/>
+    <include href="markupDomain.rng"/>
+    <include href="mathmlDomain.rng"/>
+    <include href="programmingDomain.rng"/>
+    <include href="releaseManagementDomain.rng"/>
     <include href="softwareDomain.rng"/>
-    <include href="svgDomain.rng" dita:since="1.3"/>
+    <include href="svgDomain.rng"/>
     <include href="uiDomain.rng"/>
-    <include href="../../base/rng/utilitiesDomain.rng"/>
-    <include href="xmlDomain.rng" dita:since="1.3"/>
+    <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+    <include href="xmlDomain.rng"/>
 
   </div>
   <div>
