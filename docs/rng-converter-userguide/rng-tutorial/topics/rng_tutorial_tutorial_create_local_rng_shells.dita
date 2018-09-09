@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
-<topic id="rng_tutorial_tutorial_1__create_local_rng_shells">
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="rng_tutorial_tutorial_1__create_local_rng_shells">
     <title>Tutorial 1: Create Local RNG Shells</title>
-    <body>
-        <p></p>
-    </body>
-</topic>
+  <shortdesc>This is where all DITA users should start.</shortdesc>
+    <taskbody>
+      <context>
+        <p>The first thing you should <b><i>always</i></b> do when beginning a new DITA project that
+      will be used to author real documents (as opposed to just experimenting with DITA or using
+      DITA to create one-off or ad-hoc documents) is to create <term>local shells</term>, even if
+      you have no immediate plans to do any configuration,  constraining, or specialization.</p>
+    <p>The reason local shells are essential is that local shells are required as soon as you do
+      need to make any kind of change to the OASIS-defined document type configuration. Because
+      documents point to the document types that govern them, if you start with the OASIS-provided
+      shells you will need to update all of your documents (and very likely the configuration of
+      your content management system if you're using one) once you determine that you need to
+      customize your document types in some way. And that change can be very disruptive once you
+      have a large body of documents and a working set of tools built up around them. Better to
+      avoid that problem all together and start with local shells from the beginning. </p>
+    <p>And you will want to customize your document types, even if it's simply to omit the domains
+        you don't need. But more likely you will determine that you could really use some custom
+        conditional attributes or you'd like to add some constraints or you may decide you really
+        need some more sophisticated specializations. Regardless of your requirements you will need
+        your own local shells at that time. So again, better to start with local shells and avoid
+        the issue altogether. Once you have your own local shells in place you can adjust and refine
+        your configuration, constraints, and so on as much as you need to without the need to
+        necessarily update all of your documents and your tool configurations.</p>
+    <p>Fortunately, RELAX NG makes setting up and configuring your local shells about as easy as it
+      can be. The DITA DTD generator can generate working DTD and XSD shells from your RNG shells
+      quickly and easily.</p>
+      <p>Creating your initial set of local shells is simply a matter of copying a bunch of files and
+        deciding what public IDs you'll use for your shells.</p>
+      </context>
+    <steps id="steps_htv_nh1_cfb">
+      <step>
+        <cmd/>
+      </step>
+    </steps>
+    </taskbody>
+</task>

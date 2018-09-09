@@ -371,4 +371,18 @@
       <p>This case is covered in more detail in the tutorial.</p>
     </conbody>
   </concept>
+  <concept id="concept_a4v_q21_cfb">
+    <title>Keeping it Neat: <xmlelement>div</xmlelement></title>
+    <conbody>
+      <p>If you look at any of the OASIS-defined RNG files you'll see the RELAX NG
+          <xmlelement>div</xmlelement>
+        element:<codeblock>...
+<coderef href="../resources/rng-examples/basetopic.rng#line-range(65,87)"/>
+...</codeblock></p>
+      <p>The <xmlelement>div</xmlelement> element is simply a grouping element, just like in DITA
+        1.3 and HTML. Use <xmlelement>div</xmlelement> to organize your modules into logical
+        sections. Using <xmlelement>div</xmlelement> makes it easier to work with complex grammars
+        in XML editors that provide some kind of outline view of the markup.</p>
+    </conbody>
+  </concept>
 </concept>
