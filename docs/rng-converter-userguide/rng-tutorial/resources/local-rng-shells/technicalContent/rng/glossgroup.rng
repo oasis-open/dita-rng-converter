@@ -18,7 +18,7 @@ Glossary group
       <moduleType>topicshell</moduleType>
       <moduleShortName>glossgroup</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Glossary Group//EN</dtdShell>
+        <dtdShell>-//EXAMPLE.COM//DTD DITA Glossary Group//EN</dtdShell>
         <xsdShell>urn:pubid:example.com:dita:xsd:glossgroup.xsd</xsdShell>
         <rncShell>urn:pubid:example.com:dita:rnc:glossgroup.rnc</rncShell>
         <rngShell>urn:pubid:example.com:dita:rng:glossgroup.rng</rngShell>

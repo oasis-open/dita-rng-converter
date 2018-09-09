@@ -21,7 +21,7 @@ Learning BookMap
          <moduleType>mapshell</moduleType>
          <moduleShortName>learningBookmap</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Learning BookMap//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Learning BookMap//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningBookmap.rnc
             </rncShell>
             <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningBookmap.rng
@@ -59,23 +59,22 @@ Learning BookMap
       </define>
   </div>
   <div>
-      <a:documentation>MODULE INCLUSIONS</a:documentation>
-      <include href="urn:oasis:names:tc:dita:rng:mapMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:mapGroupMod.rng"/>
+    <a:documentation>MODULE INCLUSIONS</a:documentation>
+    <include href="urn:oasis:names:tc:dita:rng:mapMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:mapGroupMod.rng"/>
 
-      <include href="../../bookmap/rng/bookmapMod.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:ditavalrefDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:bookmapMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:ditavalrefDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
     <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningMapDomain.rng"/>
     <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningMetadataDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng"
-              />
-      <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
-      <include href="../../xnal/rng/xnalDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:xnalDomain.rng"/>
   </div>
   <div>
       <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>

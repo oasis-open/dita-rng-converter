@@ -25,7 +25,7 @@ Learning Content
          <moduleType>topicshell</moduleType>
          <moduleShortName>learningContent</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Learning Content//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Content//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningContent.rnc</rncShell>
             <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningContent.rng</rngShell>
             <xsdShell>urn:pubid:example.com:dita:spec:learning:xsd:learningContent.xsd</xsdShell>

@@ -20,7 +20,7 @@ Learning Plan
          <moduleType>topicshell</moduleType>
          <moduleShortName>learningPlan</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Learning Plan//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Plan//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningPlan.rnc</rncShell>
             <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningPlan.rng</rngShell>
             <xsdShell>urn:pubid:example.com:dita:spec:learning:xsd:learningPlan.xsd</xsdShell>

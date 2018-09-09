@@ -20,7 +20,7 @@ Learning assessment
          <moduleType>topicshell</moduleType>
          <moduleShortName>learningAssessment</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Learning Assessment//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Assessment//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningAssessment.rnc
             </rncShell>
             <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningAssessment.rng

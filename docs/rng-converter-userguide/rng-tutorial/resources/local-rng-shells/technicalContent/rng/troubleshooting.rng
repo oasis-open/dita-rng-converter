@@ -20,7 +20,7 @@ Troubleshooting topic
          <moduleType>topicshell</moduleType>
          <moduleShortName>troubleshooting</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Troubleshooting//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Troubleshooting//EN</dtdShell>
             <xsdShell>urn:pubid:example.com:dita:xsd:troubleshooting.xsd
             </xsdShell>
             <rncShell>urn:pubid:example.com:dita:rnc:troubleshooting.rnc

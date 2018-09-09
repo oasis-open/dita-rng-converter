@@ -19,7 +19,7 @@ Base Map
       <moduleType>topicshell</moduleType>
       <moduleShortName>Base topic</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Base Topic//EN</dtdShell>
+        <dtdShell>-//EXAMPLE.COM//DTD DITA Base Topic//EN</dtdShell>
         <rncShell>urn:pubid:example.com:dita:rnc:basetopic.rnc</rncShell>
         <rngShell>urn:pubid:example.com:dita:rng:basetopic.rng</rngShell>
         <xsdShell>urn:pubid:example.com:dita:xsd:basetopic.xsd</xsdShell>

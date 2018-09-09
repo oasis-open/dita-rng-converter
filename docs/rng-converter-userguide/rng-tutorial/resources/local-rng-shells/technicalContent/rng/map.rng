@@ -20,7 +20,7 @@ Generic Map
          <moduleType>mapshell</moduleType>
          <moduleShortName>map</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Map//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Map//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:rnc:map.rnc
             </rncShell>
             <rngShell>urn:pubid:example.com:dita:rng:map.rng

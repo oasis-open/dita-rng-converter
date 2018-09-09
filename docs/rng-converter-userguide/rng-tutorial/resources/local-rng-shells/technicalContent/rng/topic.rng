@@ -19,7 +19,7 @@ Generic topic
       <moduleType>topicshell</moduleType>
       <moduleShortName>topic</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Topic//EN</dtdShell>
+        <dtdShell>-//EXAMPLE.COM//DTD DITA Topic//EN</dtdShell>
         <rncShell>urn:pubid:example.com:dita:rnc:topic.rnc</rncShell>
         <rngShell>urn:pubid:example.com:dita:rng:topic.rng</rngShell>
         <xsdShell>urn:pubid:example.com:dita:xsd:topic.xsd</xsdShell>

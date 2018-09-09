@@ -21,7 +21,7 @@ Learning Group Map
          <moduleType>mapshell</moduleType>
          <moduleShortName>learningGroupMap</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Learning Group Map//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Group Map//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningGroupMap.rnc
             </rncShell>
             <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningGroupMap.rng

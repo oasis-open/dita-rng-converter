@@ -23,7 +23,7 @@ Base Map
          <moduleType>mapshell</moduleType>
          <moduleShortName>basemap</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Base Map//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Base Map//EN</dtdShell>
             <xsdShell>urn:pubid:example.com:dita:xsd:basemap.xsd</xsdShell>
             <rncShell>urn:pubid:example.com:dita:rnc:basemap.rnc</rncShell>
             <rngShell>urn:pubid:example.com:dita:rng:basemap.rng</rngShell>

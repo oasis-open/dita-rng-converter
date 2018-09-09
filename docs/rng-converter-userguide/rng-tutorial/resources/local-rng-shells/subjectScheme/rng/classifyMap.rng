@@ -21,7 +21,7 @@ Classify Map
          <moduleType>mapshell</moduleType>
          <moduleShortName>classifyMap</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Classification Map//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Classification Map//EN</dtdShell>
             <rncShell>urn:oasis:tc:tc:dita:spec:classification:rnc:classifyMap.rnc
             </rncShell>
             <rngShell>urn:oasis:tc:tc:dita:spec:classification:rng:classifyMap.rng

@@ -21,7 +21,7 @@ Glossary entry
          <moduleType>topicshell</moduleType>
          <moduleShortName>Glossary Entry</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Glossary Entry//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Glossary Entry//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:rnc:glossentry.rnc
             </rncShell>
             <rngShell>urn:pubid:example.com:dita:rng:glossentry.rng

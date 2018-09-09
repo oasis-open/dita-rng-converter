@@ -21,7 +21,7 @@ Ditabase
          <moduleType>topicshell</moduleType>
          <moduleShortName>ditabase</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Composite//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Composite//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:rnc:ditabase.rnc</rncShell>
             <rngShell>urn:pubid:example.com:dita:rng:ditabase.rng</rngShell>
             <xsdShell>urn:pubid:example.com:dita:xsd:ditabase.xsd</xsdShell>

@@ -22,7 +22,7 @@ bookmap
          <moduleType>mapshell</moduleType>
          <moduleShortName>bookmap</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA BookMap//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA BookMap//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:rnc:bookmap.rnc</rncShell>
             <rngShell>urn:pubid:example.com:dita:rng:bookmap.rng</rngShell>
             <xsdShell>urn:pubid:example.com:dita:xsd:bookmap.xsd</xsdShell>

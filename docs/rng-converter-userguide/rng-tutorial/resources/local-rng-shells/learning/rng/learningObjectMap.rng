@@ -20,7 +20,7 @@ Learning Object Map
          <moduleType>mapshell</moduleType>
          <moduleShortName>learningObjectMap</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Learning Object Map//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Object Map//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningObjectMap.rnc</rncShell>
             <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningObjectMap.rng</rngShell>
             <xsdShell>urn:pubid:example.com:dita:spec:learning:xsd:learningObjectMap.xsd</xsdShell>

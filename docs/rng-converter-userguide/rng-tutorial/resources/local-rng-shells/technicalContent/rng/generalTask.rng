@@ -18,7 +18,7 @@ General (unconstrained) task
       <moduleType>topicshell</moduleType>
       <moduleShortName>General Task</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA General Task//EN</dtdShell>
+        <dtdShell>-//EXAMPLE.COM//DTD DITA General Task//EN</dtdShell>
         <rncShell>urn:pubid:example.com:dita:rnc:generalTask.rnc</rncShell>
         <rngShell>urn:pubid:example.com:dita:rng:generalTask.rng</rngShell>
         <xsdShell>urn:pubid:example.com:dita:xsd:generalTask.xsd</xsdShell>

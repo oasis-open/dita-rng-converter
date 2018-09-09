@@ -21,7 +21,7 @@ Learning Map
          <moduleType>mapshell</moduleType>
          <moduleShortName>learningMap</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Learning Map//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Map//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningMap.rnc
             </rncShell>
             <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningMap.rng

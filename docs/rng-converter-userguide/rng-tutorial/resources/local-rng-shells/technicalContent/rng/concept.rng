@@ -18,7 +18,7 @@ Concept topic
       <moduleType>topicshell</moduleType>
       <moduleShortName>concept</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Concept//EN</dtdShell>
+        <dtdShell>-//EXAMPLE.COM//DTD DITA Concept//EN</dtdShell>
         <rncShell>urn:pubid:example.com:dita:rnc:concept.rnc</rncShell>
         <rngShell>urn:pubid:example.com:dita:rng:concept.rng</rngShell>
         <xsdShell>urn:pubid:example.com:dita:xsd:concept.xsd</xsdShell>

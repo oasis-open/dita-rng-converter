@@ -19,7 +19,7 @@ Reference topic
       <moduleType>topicshell</moduleType>
       <moduleShortName>reference</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Reference//EN</dtdShell>
+        <dtdShell>-//EXAMPLE.COM//DTD DITA Reference//EN</dtdShell>
         <rncShell>urn:pubid:example.com:dita:rnc:reference.rnc</rncShell>
         <rngShell>urn:pubid:example.com:dita:rng:reference.rng</rngShell>
         <xsdShell>urn:pubid:example.com:dita:xsd:reference.xsd</xsdShell>

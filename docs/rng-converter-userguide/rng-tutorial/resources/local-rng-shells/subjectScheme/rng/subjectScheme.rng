@@ -20,7 +20,7 @@ Subject Scheme Map
          <moduleType>mapshell</moduleType>
          <moduleShortName>subjectScheme</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//OASIS//DTD DITA Subject Scheme Map//EN</dtdShell>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Subject Scheme Map//EN</dtdShell>
             <rncShell>urn:pubid:example.com:dita:spec:classification:rnc:subjectScheme.rnc
             </rncShell>
             <rngShell>urn:pubid:example.com:dita:spec:classification:rng:subjectScheme.rng
