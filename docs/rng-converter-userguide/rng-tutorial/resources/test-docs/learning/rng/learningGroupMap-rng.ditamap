@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../local-rng-shells/learning/rng/learningGroupMap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<learningGroupMap>
+  <title>Test of example.com Learning Map</title>
+  <learningObjectMapRef href="learningObjectMap-rng.ditamap" format="ditamap"/>
+  <learningObject>
+    <topicmeta>
+      <navtitle>A Learning Object</navtitle>
+    </topicmeta>
+    <learningContentRef keyref="test-learningContent"/>
+  </learningObject>
+</learningGroupMap>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../local-rng-shells/technicalContent/rng/task.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<task id="test-task">
+  <title>Test of example.com (constrained) task document type shell</title>
+  <taskbody>
+    <context>
+      <p>This topic tests the example.com constrained task document type shell.</p>
+    </context>
+    <steps>
+      <step>
+        <cmd>This is a task step</cmd>
+      </step>
+      <step>
+        <cmd>Second step</cmd>
+      </step>
+    </steps>
+    <result>
+      <p>The task result.</p>
+    </result>
+  </taskbody>
+</task>

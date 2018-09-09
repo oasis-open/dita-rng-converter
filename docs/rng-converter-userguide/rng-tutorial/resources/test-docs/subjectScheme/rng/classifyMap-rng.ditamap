@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../local-rng-shells/subjectScheme/rng/classifyMap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+  <title>Test of example.com classify map</title>
+  <topicgroup>
+    <mapref href="../../keydefs-topics-rng.ditamap"/>
+    <mapref href="subjectScheme-rng.ditamap"/>
+  </topicgroup>
+  <topicSubjectTable>
+    <topicSubjectRow>
+      <topicCell>
+        <topicref keyref="test-basetopic"></topicref>
+      </topicCell>
+      <subjectCell>
+        <topicsubject keyref="some-subject"/>
+      </subjectCell>
+    </topicSubjectRow>
+  </topicSubjectTable>
+</map>

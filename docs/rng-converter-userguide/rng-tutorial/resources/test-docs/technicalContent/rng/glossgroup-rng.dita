@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../local-rng-shells/technicalContent/rng/glossgroup.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<glossgroup id="test-concept">
+  <title>Test of example.com glossgroup document type shell</title>
+  <glossentry id="glossentry-nested">
+    <glossterm>Glossentry in glossgroup.</glossterm>
+  </glossentry>
+</glossgroup>

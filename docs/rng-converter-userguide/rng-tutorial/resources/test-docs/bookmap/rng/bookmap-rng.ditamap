@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../local-rng-shells/bookmap/rng/bookmap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<bookmap>
+  <booktitle>
+    <mainbooktitle>Test of example.com BookMap document type shell</mainbooktitle>
+  </booktitle>
+  <bookmeta>
+    <othermeta name="rng-urn" content="urn:pubid:example.com:dita:rng:bookmap.rng"/>   
+  </bookmeta>
+  <frontmatter>
+    <mapref href="../../keydefs-topics-rng.ditamap"/>
+  </frontmatter>
+  <chapter keyref="test-basetopic">
+    
+  </chapter>
+  
+</bookmap>

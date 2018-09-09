@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../local-rng-shells/base/rng/basemap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+  <title>Test of example.com document type shells</title>
+  <topicmeta>
+    <othermeta name="rng-urn" content="urn:pubid:example.com:dita:rng:basemap.rng"/>
+  </topicmeta>
+  <mapref href="../../keydefs-topics-rng.ditamap"/>
+  <topicgroup>
+    <topicref keyref="test-basetopic">
+      
+    </topicref>
+  </topicgroup>
+</map>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../local-rng-shells/learning/rng/learningMap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+  <title>Test of example.com Learning Map</title>
+  <topicgroup>
+    <mapref href="../../keydefs-topics-rng.ditamap"/>
+  </topicgroup>
+  <topicref keyref="test-learningPlan"/>
+  <topicref keyref="test-learningOverview"/>
+  <learningGroupMapRef href="learningGroupMap-rng.ditamap" format="ditamap"/>
+</map>

@@ -1,0 +1,6 @@
+<!-- ====================================
+     Document types RNG tutorial
+     ==================================== -->
+<plugin id="com.example.rngtutorial.doctypes">
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
+</plugin>

@@ -1,0 +1,19 @@
+<?xml-model href="../../../local-rng-shells/technicalContent/rng/troubleshooting.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<troubleshooting id="test-concept">
+  <title>Test of example.com troubleshooting document type shell</title>
+  <troublebody>
+    <condition>
+      <p>This is a condition to be trouble shot.</p>
+    </condition>
+    <troubleSolution>
+      <cause>
+        <p>The cause</p>
+      </cause>
+      <remedy>
+        <steps-informal>
+          <p>Informal steps for the remedy</p>
+        </steps-informal>
+      </remedy>
+    </troubleSolution>
+  </troublebody>
+</troubleshooting>

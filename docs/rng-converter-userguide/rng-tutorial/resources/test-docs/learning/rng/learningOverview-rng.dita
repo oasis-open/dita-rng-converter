@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../local-rng-shells/learning/rng/learningOverview.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<learningOverview id="test-learning-overview">
+  <title>Test of example.com Learning Overview Topic</title>
+  <learningOverviewbody>
+    <lcIntro>
+      <p>The intro of the learning overview.</p>
+    </lcIntro>
+  </learningOverviewbody>
+</learningOverview>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../local-rng-shells/learning/rng/learningPlan.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<learningPlan id="test-learning-overview">
+  <title>Test of example.com Learning Plan Topic</title>
+  <learningPlanbody>
+    <lcProject>
+      <lcPlanDescrip>
+        <p>This is the learning plan description.</p>
+      </lcPlanDescrip>
+    </lcProject>
+  </learningPlanbody>
+</learningPlan>

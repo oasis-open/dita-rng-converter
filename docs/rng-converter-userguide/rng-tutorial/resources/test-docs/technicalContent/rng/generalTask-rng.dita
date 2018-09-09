@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../local-rng-shells/technicalContent/rng/generalTask.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<task id="test-general-task">
+  <title>Test of example.com general (unconstrained) task document type shell</title>
+  <taskbody>
+    <context>
+      <p>This topic tests the example.com general task document type shell.</p>
+      <pre><![CDATA[
+      <rngShell>urn:pubid:example.com:dita:rng:generalTask.rng</rngShell>      
+    ]]></pre>
+    </context>    
+    <steps-informal>
+      <p>Informal steps</p>
+    </steps-informal>
+  </taskbody>
+</task>

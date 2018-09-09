@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+      <moduleTitle>DITA BASE</moduleTitle>
+      <headerComment xml:space="preserve"><![CDATA[
+=============================================================
+                   HEADER                                    
+=============================================================
+Local shell for example.com
+
+Ditabase 
+=============================================================
+
+]]></headerComment>
+      <moduleMetadata>
+         <moduleType>topicshell</moduleType>
+         <moduleShortName>ditabase</moduleShortName>
+         <shellPublicIds>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Composite//EN</dtdShell>
+            <rncShell>urn:pubid:example.com:dita:rnc:ditabase.rnc</rncShell>
+            <rngShell>urn:pubid:example.com:dita:rng:ditabase.rng</rngShell>
+            <xsdShell>urn:pubid:example.com:dita:xsd:ditabase.xsd</xsdShell>
+         </shellPublicIds>
+      </moduleMetadata>
+  </moduleDesc>
+  <div>
+      <a:documentation>ROOT ELEMENT DECLARATION</a:documentation>
+      <start>
+         <ref name="dita.element"/>
+      </start>
+
+  </div>
+  <div>
+      <a:documentation>DOMAINS ATTRIBUTE</a:documentation>
+      <define name="domains-att" combine="interleave">
+         <optional>
+            <attribute name="domains"
+                       a:defaultValue="(topic abbrev-d)
+                         (topic concept glossentry)
+                         (topic concept glossgroup)
+                         (topic concept)
+                         (topic equation-d)
+                         (topic hazard-d)
+                         (topic hi-d)
+                         (topic indexing-d)
+                         (topic markup-d xml-d)
+                         (topic markup-d)
+                         (topic mathml-d)
+                         (topic pr-d)
+                         (topic reference)
+                         (topic relmgmt-d)
+                         (topic svg-d)
+                         (topic sw-d)
+                         (topic task strictTaskbody-c)
+                         (topic task)
+                         (topic troubleshooting++task)
+                         (topic ui-d)
+                         (topic ut-d)
+                         a(props deliveryTarget)"/>
+         </optional>
+      </define>
+  </div>
+  <div>
+    <a:documentation>MODULE INCLUSIONS</a:documentation>
+    <div>
+      <include href="urn:oasis:names:tc:dita:rng:strictTaskbodyConstraintMod.rng"/>    
+    </div>
+    <include href="urn:oasis:names:tc:dita:rng:topicMod.rng">
+       <define name="info-types">
+          <choice>
+             <ref name="topic.element"/>
+             <ref name="concept.element"/>
+             <ref name="task.element"/>
+             <ref name="troubleshooting.element"/>
+             <ref name="reference.element"/>
+             <ref name="glossentry.element"/>
+             <ref name="glossgroup.element"/>
+          </choice>
+       </define>      
+    </include>
+    <include href="urn:oasis:names:tc:dita:rng:conceptMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:glossentryMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:glossgroupMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:referenceMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:troubleshootingMod.rng"/>
+    
+    <include href="urn:oasis:names:tc:dita:rng:abbreviateDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:equationDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:markupDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:mathmlDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:programmingDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:softwareDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:svgDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:uiDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:xmlDomain.rng"/>
+  </div>
+  <div>
+      <a:documentation>Define a containment for topics for editor support </a:documentation>
+      <define name="dita.element">
+         <element name="dita">
+            <a:documentation>The &lt;dita&gt; element provides a top-level container for multiple topics when you create documents using the ditabase document type. The &lt;dita&gt; element lets you create any
+          sequence of concept, task, and reference topics, and the ditabase document type lets you further nest these topic types inside each other. The &lt;dita&gt; element has no particular output
+          implications; it simply allows you to create multiple topics of different types at the same level in a single document. Category: Ditabase document type</a:documentation>
+            <ref name="dita.attlist"/>
+            <oneOrMore>
+               <ref name="info-types"/>
+            </oneOrMore>
+         </element>
+      </define>
+
+      <define name="dita.attlist" combine="interleave">
+        <ref name="arch-atts"/>
+        <ref name="localization-atts" dita:since="DITA 1.3"/>
+        <ref name="global-atts"/>
+      </define>
+
+  </div>
+  <div>
+      <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
+      <define name="any">
+         <zeroOrMore>
+            <choice>
+               <ref name="idElements"/>
+               <element>
+                  <anyName>
+                    <except>
+                        <name>topic</name>
+                        <name>concept</name>
+                        <name>glossgroup</name>
+                        <name>glossentry</name>
+                        <name>reference</name>
+                        <name>task</name>
+                        <name>troubleshooting</name>
+                        <nsName ns="http://www.w3.org/2000/svg"/>
+                        <nsName ns="http://www.w3.org/1998/Math/MathML"/>
+                    </except>
+                  </anyName>
+                  <zeroOrMore>
+                     <attribute>
+                        <anyName/>
+                     </attribute>
+                  </zeroOrMore>
+                  <ref name="any"/>
+               </element>
+               <text/>
+            </choice>
+         </zeroOrMore>
+      </define>
+  </div>
+</grammar>

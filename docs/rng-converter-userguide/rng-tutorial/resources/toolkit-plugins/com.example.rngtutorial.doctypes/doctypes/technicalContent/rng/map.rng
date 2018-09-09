@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+      <moduleTitle>DITA Map Shell</moduleTitle>
+      <headerComment xml:space="preserve">
+=============================================================
+                   HEADER                                    
+=============================================================
+Local shell for example.com
+
+Generic Map
+=============================================================   
+  </headerComment>
+      <moduleMetadata>
+         <moduleType>mapshell</moduleType>
+         <moduleShortName>map</moduleShortName>
+         <shellPublicIds>
+            <dtdShell>-//EXAMPLE.COM//DTD DITA Map//EN</dtdShell>
+            <rncShell>urn:pubid:example.com:dita:rnc:map.rnc
+            </rncShell>
+            <rngShell>urn:pubid:example.com:dita:rng:map.rng
+            </rngShell>
+            <xsdShell>urn:pubid:example.com:dita:xsd:map.xsd
+            </xsdShell>
+         </shellPublicIds>
+      </moduleMetadata>
+  </moduleDesc>
+  <div>
+      <a:documentation>ROOT ELEMENT DECLARATION</a:documentation>
+      <start>
+         <ref name="map.element"/>
+      </start>
+  </div>
+  <div>
+      <a:documentation>DITA DOMAINS ATTRIBUTE</a:documentation>
+
+      <define name="domains-att">
+         <optional>
+            <attribute name="domains"
+                       a:defaultValue="
+                         (topic abbrev-d)
+                         (topic delay-d)
+                         (map ditavalref-d)
+                         (map glossref-d)
+                         (topic hazard-d)
+                         (topic hi-d)
+                         (topic indexing-d)
+                         (map mapgroup-d)
+                         (topic markup-d xml-d)
+                         (topic markup-d)
+                         (topic pr-d)
+                         (topic relmgmt-d)
+                         (topic sw-d)
+                         (topic ui-d)
+                         (topic ut-d)
+                         a(props deliveryTarget)"/>
+         </optional>
+      </define>
+  </div>
+  <div>
+    <a:documentation>MODULE INCLUSIONS</a:documentation>
+    <include href="urn:oasis:names:tc:dita:rng:mapMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:mapGroupMod.rng"/>
+
+    <include href="urn:oasis:names:tc:dita:rng:abbreviateDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:ditavalrefDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:glossrefDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:markupDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:programmingDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:softwareDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:uiDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:xmlDomain.rng"/>    
+  </div>
+  <div>
+      <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
+      <define name="any">
+         <zeroOrMore>
+            <choice>
+               <ref name="idElements"/>
+               <element>
+                  <anyName>
+                     <except>
+                        <name>map</name>
+                        <name>anchor</name>
+                     </except>
+                  </anyName>
+                  <zeroOrMore>
+                     <attribute>
+                        <anyName/>
+                     </attribute>
+                  </zeroOrMore>
+                  <ref name="any"/>
+               </element>
+               <text/>
+            </choice>
+         </zeroOrMore>
+      </define>
+  </div>
+</grammar>

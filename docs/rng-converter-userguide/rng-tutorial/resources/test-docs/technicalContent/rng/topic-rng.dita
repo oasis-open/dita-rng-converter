@@ -1,0 +1,11 @@
+<?xml-model href="../../../local-rng-shells/technicalContent/rng/topic.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<topic id="test-topic">
+  <title>Test of example.com concept document type shell</title>
+  <body>
+    <p>This topic tests the example.com tech comm topic document type shell.</p>
+    <codeblock><![CDATA[
+      <rngShell>urn:pubid:example.com:dita:rng:topic.rng</rngShell>      
+    ]]></codeblock>
+    
+  </body>
+</topic>
