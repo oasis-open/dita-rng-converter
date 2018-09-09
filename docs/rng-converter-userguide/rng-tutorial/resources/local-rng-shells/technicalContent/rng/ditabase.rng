@@ -11,56 +11,9 @@
 =============================================================
                    HEADER                                    
 =============================================================
-Darwin Information Typing Architecture (DITA) Version 1.3 Plus Errata 02
-OASIS Standard
-16 January 2018 
-Copyright (c) OASIS Open 2018. All rights reserved. 
-Source: http://docs.oasis-open.org/dita/dita/v1.3/errata02/csprd01/complete/part0-overview/dita-v1.3-errata02-csprd01-part0-overview-complete.html
+Local shell for example.com
 
-============================================================
- MODULE:    DITA BASE DTD                                    
- VERSION:   1.3                                              
- DATE:      March 2014                                    
-                                                             
-=============================================================
-
-=============================================================
-                   PUBLIC DOCUMENT TYPE DEFINITION           
-                   TYPICAL INVOCATION                        
-                                                             
- Refer to this file by the following public identifier or an 
-      appropriate system identifier 
-      
-PUBLIC "-//OASIS//DTD DITA Composite//EN"
-
-The public ID above refers to the latest version of this DTD.
-     To refer to this specific version, you may use this value:
-     
-PUBLIC "-//OASIS//DTD DITA 1.3 Composite//EN"                     
- 
-=============================================================
-SYSTEM:     Darwin Information Typing Architecture (DITA)    
-                                                             
-PURPOSE:    Base DTD holds all the information types         
-                                                             
-ORIGINAL CREATION DATE:                                      
-            March 2001                                       
-                                                             
-            (C) Copyright OASIS Open 2005, 2009.             
-            (C) Copyright IBM Corporation 2001, 2004.        
-            All Rights Reserved.                             
-                                                             
- UPDATES:                                                    
-   2005.11.15 RDA: Updated these comments to match template  
-   2006.06.07 RDA: Added indexing domain                     
-   2006.06.21 RDA: Added props attribute extensions          
-   2008.01.25 RDA: Added xml:lang, DITAArchVersion to <dita> 
-   2008.02.01 RDA: Added references to topic ENT files       
-   2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
-   2008.04.15 RDA: Added hazard domain                       
-   2009.11.10 RDA: Added taskbody constraint                 
-   2009.11.10 RDA: Added glossgroup                          
-   2014.03.16 WEK: Updated for DITA 1.3, reimplemented as RNG                          
+Ditabase 
 =============================================================
 
 ]]></headerComment>
@@ -113,44 +66,44 @@ ORIGINAL CREATION DATE:
       </define>
   </div>
   <div>
-      <a:documentation>MODULE INCLUSIONS</a:documentation>
-      <div>
-         <include href="strictTaskbodyConstraintMod.rng"/>    
-      </div>
-      <include href="urn:oasis:names:tc:dita:rng:topicMod.rng">
-         <define name="info-types">
-            <choice>
-               <ref name="topic.element"/>
-               <ref name="concept.element"/>
-               <ref name="task.element"/>
-               <ref name="troubleshooting.element"/>
-               <ref name="reference.element"/>
-               <ref name="glossentry.element"/>
-               <ref name="glossgroup.element"/>
-            </choice>
-         </define>      
-      </include>
-      <include href="conceptMod.rng"/>
-      <include href="glossentryMod.rng"/>
-      <include href="glossgroupMod.rng"/>
-      <include href="referenceMod.rng"/>
-      <include href="troubleshootingMod.rng"/>
+    <a:documentation>MODULE INCLUSIONS</a:documentation>
+    <div>
+      <include href="urn:oasis:names:tc:dita:rng:strictTaskbodyConstraintMod.rng"/>    
+    </div>
+    <include href="urn:oasis:names:tc:dita:rng:topicMod.rng">
+       <define name="info-types">
+          <choice>
+             <ref name="topic.element"/>
+             <ref name="concept.element"/>
+             <ref name="task.element"/>
+             <ref name="troubleshooting.element"/>
+             <ref name="reference.element"/>
+             <ref name="glossentry.element"/>
+             <ref name="glossgroup.element"/>
+          </choice>
+       </define>      
+    </include>
+    <include href="urn:oasis:names:tc:dita:rng:conceptMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:glossentryMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:glossgroupMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:referenceMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:troubleshootingMod.rng"/>
     
-      <include href="abbreviateDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
-      <include href="equationDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
-      <include href="markupDomain.rng"/>
-      <include href="mathmlDomain.rng"/>
-      <include href="programmingDomain.rng"/>
-      <include href="releaseManagementDomain.rng"/>
-      <include href="softwareDomain.rng"/>
-      <include href="svgDomain.rng"/>
-      <include href="uiDomain.rng"/>
-      <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
-      <include href="xmlDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:abbreviateDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:equationDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:markupDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:mathmlDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:programmingDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:softwareDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:svgDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:uiDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:xmlDomain.rng"/>
   </div>
   <div>
       <a:documentation>Define a containment for topics for editor support </a:documentation>

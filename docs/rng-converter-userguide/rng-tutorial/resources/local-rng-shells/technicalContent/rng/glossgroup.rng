@@ -9,41 +9,9 @@
  =============================================================
                    HEADER                                     
 ============================================================= 
-Darwin Information Typing Architecture (DITA) Version 1.3 Plus Errata 02
-OASIS Standard
-16 January 2018 
-Copyright (c) OASIS Open 2018. All rights reserved. 
-Source: http://docs.oasis-open.org/dita/dita/v1.3/errata02/csprd01/complete/part0-overview/dita-v1.3-errata02-csprd01-part0-overview-complete.html
+Local shell for example.com
 
-============================================================
- MODULE:    DITA Glossary Group Shell                         
- VERSION:   1.3                                       
- DATE:      March 2014                                     
-                                                              
-============================================================= 
-
-============================================================= 
-                   PUBLIC DOCUMENT TYPE DEFINITION            
-                   TYPICAL INVOCATION                         
-                                                              
- Refer to this file by the following public identifier or an 
-      appropriate system identifier 
-      
-PUBLIC "-//OASIS//ELEMENTS DITA Glossary Group//EN"
-
-============================================================= 
-SYSTEM:     Darwin Information Typing Architecture (DITA)     
-                                                              
-PURPOSE:    Define elements and specialization atttributes    
-            for Glossary Group topics                         
-                                                              
-ORIGINAL CREATION DATE:                                       
-            June 2008                                         
-                                                              
-            (C) Copyright OASIS Open 2008, 2014.              
-            All Rights Reserved.                              
-                                                              
- UPDATES:                                                     
+Glossary group
 ============================================================= 
   </headerComment>
     <moduleMetadata>
@@ -95,25 +63,25 @@ ORIGINAL CREATION DATE:
   <div>
     <a:documentation>MODULE INCLUSIONS</a:documentation>
     <include href="urn:oasis:names:tc:dita:rng:topicMod.rng"/>
-    <include href="conceptMod.rng"/>
-    <include href="glossentryMod.rng"/>
-    <include href="glossgroupMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:conceptMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:glossentryMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:glossgroupMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:abbreviateDomain.rng"/>
     <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
-    <include href="equationDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:equationDomain.rng"/>
     <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
     <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
     <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
-    <include href="abbreviateDomain.rng"/>
-    <include href="markupDomain.rng"/>
-    <include href="mathmlDomain.rng"/>
-    <include href="programmingDomain.rng"/>
-    <include href="releaseManagementDomain.rng"/>
-    <include href="softwareDomain.rng"/>
-    <include href="svgDomain.rng"/>
-    <include href="uiDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:markupDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:mathmlDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:programmingDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:softwareDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:svgDomain.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:uiDomain.rng"/>
     <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
-    <include href="xmlDomain.rng"/>
-
+    <include href="urn:oasis:names:tc:dita:rng:xmlDomain.rng"/>
+    
   </div>
   <div>
     <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
