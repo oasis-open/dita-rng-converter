@@ -15,5 +15,6 @@
     <topicref href="topics/rng_tutorial_tutorial_element_domain_specialization.dita"/>
     <topicref href="topics/rng_tutorial_tutorial_new_topic_type_specialization.dita"/>
     <topicref href="topics/rng_tutorial_tutorial_new_map_type_specialization.dita"/>
+    <topicref href="topics/rng-tutorial-overview.dita"/>
   </chapter>
 </bookmap>

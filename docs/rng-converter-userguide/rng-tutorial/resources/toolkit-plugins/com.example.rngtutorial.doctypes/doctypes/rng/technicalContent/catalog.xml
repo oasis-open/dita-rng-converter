@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!-- DITA Troubleshooting Shell -->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:pubid:example.com:dita:rng:troubleshooting.rng"
+              uri="rng/troubleshooting.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:concept.rng"
+              uri="rng/concept.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:ditabase.rng"
+              uri="rng/ditabase.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:topic.rng" uri="rng/topic.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:glossgroup.rng"
+              uri="rng/glossgroup.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:map.rng" uri="rng/map.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:glossentry.rng"
+              uri="rng/glossentry.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:reference.rng"
+              uri="rng/reference.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:task.rng" uri="rng/task.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:generalTask.rng"
+              uri="rng/generalTask.rng"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:pubid:example.com:dita:rng:troubleshooting.rng"
+           uri="rng/troubleshooting.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:concept.rng" uri="rng/concept.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:ditabase.rng"
+           uri="rng/ditabase.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:topic.rng" uri="rng/topic.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:glossgroup.rng"
+           uri="rng/glossgroup.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:map.rng" uri="rng/map.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:glossentry.rng"
+           uri="rng/glossentry.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:reference.rng"
+           uri="rng/reference.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:task.rng" uri="rng/task.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:generalTask.rng"
+           uri="rng/generalTask.rng"/>
+   </group>
+</catalog>
