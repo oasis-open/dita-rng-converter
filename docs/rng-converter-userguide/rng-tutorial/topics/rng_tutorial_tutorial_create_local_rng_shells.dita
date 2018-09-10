@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
 <task id="rng_tutorial_tutorial_1__create_local_rng_shells">
-    <title>Tutorial 1: Create Local RNG Shells</title>
+    <title>Tutorial 1.a: Create Local RNG Shells</title>
   <shortdesc>This is where all DITA users should start.</shortdesc>
     <taskbody>
+    <prereq id="prereq_vbb_fd2_cfb">Set up your workspace, get the tutorial resources, and set up
+      your DITA Open Toolkit as described in <xref keyref="one-time-setup"/>.</prereq>
       <context>
         <p>The first thing you should <b><i>always</i></b> do when beginning a new DITA project that
       will be used to author real documents (as opposed to just experimenting with DITA or using
@@ -33,7 +35,327 @@
       </context>
     <steps id="steps_htv_nh1_cfb">
       <step>
-        <cmd/>
+        <cmd>Copy the <filepath>toolkit-plugins</filepath> directory from
+            <filepath>resources</filepath> into the <filepath>rng-tutorial</filepath>
+          directory.</cmd>
+        <stepresult>
+          <p>You should now have the directory <filepath>rng-tutorial/toolkit-plugins</filepath> and
+            it should contain the directory
+            <filepath>com.example.rngtutorial.doctypes</filepath>.</p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Copy the <filepath>test-docs</filepath> directory from <filepath>resources</filepath>
+          into the <filepath>rng-tutorial</filepath> directory.</cmd>
+        <stepresult>
+          <p>You should now have two directories under <filepath>rng-tutorial</filepath>:
+              <filepath>test-docs</filepath> and <filepath>toolkit-plugins</filepath>.</p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Open any one of the RNG test documents from the <filepath>test-docs/</filepath>
+          directory, e.g., <filepath>test-docs/technicalContent/rng/concept-rng.dita</filepath> in
+          your RNG-aware editor.</cmd>
+        <stepresult>
+          <p>The document should be reported as invalid and will likely not be recognized as a DITA
+            document at all.</p>
+          <p>This is because the document uses a URN to refer to the RNG grammar, a URN that can't
+            be resolved yet because you haven't done anything yet to make it resolvable.</p>
+          <p>This kind of initial validation failure is very important when setting up new document
+            type shells: you want to be absolutely sure that any validation success is due to your
+            having properly set things up and not some false positive that will only work on your
+            machine.</p>
+          <p>If you look at the top of the <filepath>concept-rng.dita</filepath> file you will see
+            this processing
+            instruction:<codeblock><coderef href="../resources/test-docs/technicalContent/rng/concept-rng.dita#line-range(2,2)"/></codeblock></p>
+          <p>This processing instruction is what associates the document with the
+              <filepath>concept.rng</filepath> grammar.</p>
+          <p>The value of the <xmlatt>href</xmlatt> attribute is
+              "<codeph>urn:pubid:example.com:dita:technicalContent:rng:concept.rng</codeph>", which
+            is a URN, as opposed to a URL.</p>
+          <p>URNs are, by definition, not directly resolvable. In the context of XML processing they
+            function as "public identifiers" in just the way that SGML and XML public identifiers
+            do: they require some separate resolution mechanism to be resolved.</p>
+          <p>For most XML environments that resolution mechanism is OASIS entity resolution
+            catalogs, which enable mapping from public IDs, URNs, and other "magic strings" to real
+            files.</p>
+          <p>The DITA Open Toolkit provides a general service for managing a master entity
+            resolution catalog to which plugins can contribute catalogs. If your XML processing tool
+            uses the Open Toolkit's master catalog then all you have to do to make your public IDs
+            or URNs resolvable is provide a plugin with the necessary catalogs. This configuration
+            management service is a really powerful feature of the DITA Open Toolkit, one that is
+            useful to any XML tool separate from any output generation the Open Toolkit might do. If
+            all you ever used the DITA Open Toolkit for was to manage entity resolution catalogs for
+            your DITA document types it would still be one of the most useful and powerful XML tools
+            every built. Before the Open Toolkit, setting up, maintaining, and deploying entity
+            resolution catalogs was a manager source of pain and frustration for SGML and XML
+            practitioners everywhere. The Open Toolkit's catalog management services make most of
+            that pain go away.</p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Copy the directory <filepath>com.example.rngtutorial.doctypes</filepath> from your
+          workspace into the <filepath>plugins</filepath> directory of the Open Toolkit.</cmd>
+        <info>
+          <p>After the copy the <filepath>plugins</filepath> directory should look
+            like:<codeblock>plugins/
+  com.example.rngtutorial.doctypes
+  com.sophos.tocjs
+  org.dita.base
+  org.dita.eclipsehelp
+  org.dita.html5
+  org.dita.htmlhelp
+  org.dita.normalize
+  org.dita.pdf2
+  org.dita.pdf2.axf
+  org.dita.pdf2.fop
+  org.dita.pdf2.xep
+  org.dita.specialization.dita11
+  org.dita.troff
+  org.dita.xhtml
+  org.lwdita
+  org.oasis-open.dita.v1_2
+  org.oasis-open.dita.v1_3</codeblock></p>
+        </info>
+      </step>
+      <step>
+        <cmd>Retry validating <filepath>concept-rng.dita</filepath>.</cmd>
+        <stepresult>
+          <p>It should still fail to validate.</p>
+          <p>This is because, while you copied the plugin, you did not "integrate" the plugin so
+            that the master catalog would refer to the catalogs provided by the plugin.</p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>From the command line, run the command <codeph>dita --install</codeph></cmd>
+        <info>
+          <p>The <option>--install</option> option runs the Open Toolkit's "integration" process,
+            which hooks up any extensions provided by any plugins. For document type plugins, this
+            hooks the plugin's catalog files into the Toolkit's master catalog
+              (<filepath>catalog-dita.xml)</filepath>.</p>
+          <p>It is always safe to rerun the integration process at any time and it's best to get in
+            the habit of running it any time you deploy a new or updated plugin to your toolkit.</p>
+        </info>
+        <stepresult>
+          <codeblock>ekimber@Mako$ dita --install
+ekimber@Mako$</codeblock>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Retry validating <filepath>concept-rng.dita</filepath>.</cmd>
+        <stepresult>
+          <p>It should be reported as valid.</p>
+          <p>If the test document validates it means that your plugin is correctly deployed and the
+            Toolkit's master catalog is correctly configured in your editor.</p>
+          <p>If the test document does not validate it means something is off. The challenge is
+            figuring out what. In this case the most likely mistakes are:<ul id="ul_kh2_r32_cfb">
+              <li>You're not using the same Open Toolkit to validate that you copied the plugin to.
+                Double check your editor configuration, the location of the Open Toolkit, and your
+                location in your command window. For example, you might have run the integration on
+                the wrong Toolkit instance.</li>
+              <li>You didn't copy the plugin the right place. Make sure your Toolkit's
+                  <filepath>plugins</filepath> directory looks similar to the listing shown
+                above.</li>
+            </ul></p>
+          <p>Beyond these two errors, it's very difficult to go wrong at this point. The plugin as
+            provided in the tutorial resources should be good so if it's in the right place and you
+            ran the integration process it should work<fn>The famous car repair book <cite>How to
+                Keep Your Volkswagen Alive: A Manual of Step by Step Procedures for the Compleat
+                Idiot</cite> provides step-by-step instructions for rebuilding a Volkswagen engine.
+              At the end of the last step it says "it should start.". When I was rebuilding my
+              Volkswagen's engine many years ago I got to that step and it did not start. In fact,
+              the engine wouldn't turn at all. Turned out that the little brass ferrule that screws
+              onto the end of a spark plug had fallen into one of the cylinders and when I cranked
+              the engine the piston jammed on the brass piece and locked the engine up. I had to
+              tear it down quite a ways before I found the problem. After I put it all back together
+              it did in fact start (and ran for many years after that, until it decided to once
+              again not turn over at all for no apparent reason, one week before we were to move to
+              Texas; we towed it from North Carolina to Texas but I never drove it again).</fn>.</p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Decide what the "owner name" will be for your local shells and related materials, e.g.,
+          "tutorials.org".</cmd>
+        <info>
+          <p>You have at this point demonstrated that the document type shells in the
+            com.example.rngtutorial.doctypes plugin are valid and working in your local
+            environment.</p>
+          <p>However, they are not yet <i>yours</i>. They still reflect the original owner,
+            example.com, and not you.</p>
+          <p>Your goal is to create local shells that are entirely yours. To do that, you need to
+            change all references to "example.com" to something that reflects your ownership,
+            whatever that might be.</p>
+          <p>Typical usage is to use a domain name owned by whoever the owner or provider of the
+            shells is, e.g., "contrext.com" would be appropriate for me in my role as owner of
+            Contrext, LLC. It doesn't have to be a domain name but since it will be used mostly in
+            URNs it makes sense to use a domain name and it's what people expect to find.</p>
+          <p>In addition, Open Toolkit plugins are usually named using the Java-style convention of
+            reverse domain names for the plugin itself, e.g. "com.example.*", so again, using a
+            domain name makes sense.</p>
+          <p>If you are representing an organization within a larger enterprise you may need to add
+            an additional qualifier to your domain name to distinguish your stuff from any other
+            organization within your enterprise, e.g., "training.example.com". The domain name
+            doesn't need to be a real domain name, of course, but it's best if at least the last
+            part of it is something you actually control.</p>
+          <p>For the purposes of this tutorial, our owner name will be "tutorials.org".</p>
+        </info>
+      </step>
+      <step>
+        <cmd>In your project, copy the <filepath>com.example.rngtutorial.doctypes</filepath>
+          directory under the <filepath>toolkit-plugins</filepath> directory and rename it to
+            <filepath>org.training.doctypes</filepath>.</cmd>
+        <info>
+          <p>If you are using git to manage your work space, add and commit these changes now. This
+            creates a checkpoint you can return to should the global changes you're about to make go
+            wrong in some way.</p>
+        </info>
+        <stepresult>
+          <p>Your <filepath>toolkit-plugins</filepath> directory should
+            be:<codeblock>toolkit-plugins/
+  com.example.rngtutorial.doctypes/
+  org.training.doctypes/</codeblock></p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Using a <i>case-sensitive</i> global search and replace on all the files in the
+            <filepath>org.training.doctypes</filepath> directory, change
+            "<codeph>example.com</codeph>" to "<codeph>tutorials.org</codeph>".</cmd>
+        <stepresult>
+          <p>This change updates the metadata in each RNG file to reflect tutorials.org and each
+            entry in the <filepath>catalog.xml</filepath> files as well.</p>
+          <p>Before:<codeblock>...
+    &lt;moduleMetadata>
+      &lt;moduleType>topicshell&lt;/moduleType>
+      &lt;moduleShortName>concept&lt;/moduleShortName>
+      &lt;shellPublicIds>
+        &lt;dtdShell>-//EXAMPLE.COM//DTD DITA Concept//EN&lt;/dtdShell>
+        &lt;rncShell>urn:pubid:example.com:dita:rnc:concept.rnc&lt;/rncShell>
+        &lt;rngShell>urn:pubid:example.com:dita:rng:concept.rng&lt;/rngShell>
+        &lt;xsdShell>urn:pubid:example.com:dita:xsd:concept.xsd&lt;/xsdShell>
+      &lt;/shellPublicIds>
+    &lt;/moduleMetadata>
+...</codeblock></p>
+          <p>After:<codeblock>...
+            &lt;moduleMetadata>
+            &lt;moduleType>topicshell&lt;/moduleType>
+            &lt;moduleShortName>concept&lt;/moduleShortName>
+            &lt;shellPublicIds>
+            &lt;dtdShell>-//EXAMPLE.COM//DTD DITA Concept//EN&lt;/dtdShell>
+            &lt;rncShell>urn:pubid:tutorials.org:dita:rnc:concept.rnc&lt;/rncShell>
+            &lt;rngShell>urn:pubid:tutorials.org:dita:rng:concept.rng&lt;/rngShell>
+            &lt;xsdShell>urn:pubid:tutorials.org:dita:xsd:concept.xsd&lt;/xsdShell>
+            &lt;/shellPublicIds>
+            &lt;/moduleMetadata>
+            ...</codeblock></p>
+          <p>This change should cover everything except the DTD public IDs, which use a different
+            syntax and are, by convention, mostly in uppercase.</p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Using a <i>case-sensitive</i> global search and replace on all the files in the
+            <filepath>org.training.doctypes</filepath> directory, change
+            "<codeph>EXAMPLE.COM</codeph>" to "<codeph>TUTORIALS.ORG</codeph>".</cmd>
+        <info>
+          <p>Another good time to commit your changes to your local git repository.</p>
+        </info>
+        <stepresult>
+          <p>This should handle the DTD public IDs in the metadata and in the catalogs.</p>
+          <p>Before:<codeblock>...
+    &lt;moduleMetadata>
+      &lt;moduleType>topicshell&lt;/moduleType>
+      &lt;moduleShortName>concept&lt;/moduleShortName>
+      &lt;shellPublicIds>
+        &lt;dtdShell>-//EXAMPLE.COM//DTD DITA Concept//EN&lt;/dtdShell>
+        &lt;rncShell>urn:pubid:example.com:dita:rnc:concept.rnc&lt;/rncShell>
+        &lt;rngShell>urn:pubid:example.com:dita:rng:concept.rng&lt;/rngShell>
+        &lt;xsdShell>urn:pubid:example.com:dita:xsd:concept.xsd&lt;/xsdShell>
+      &lt;/shellPublicIds>
+    &lt;/moduleMetadata>
+...</codeblock></p>
+          <p>After:<codeblock>...
+            &lt;moduleMetadata>
+            &lt;moduleType>topicshell&lt;/moduleType>
+            &lt;moduleShortName>concept&lt;/moduleShortName>
+            &lt;shellPublicIds>
+            &lt;dtdShell>-//TUTORIALS.ORG//DTD DITA Concept//EN&lt;/dtdShell>
+            &lt;rncShell>urn:pubid:tutorials.org:dita:rnc:concept.rnc&lt;/rncShell>
+            &lt;rngShell>urn:pubid:tutorials.org:dita:rng:concept.rng&lt;/rngShell>
+            &lt;xsdShell>urn:pubid:tutorials.org:dita:xsd:concept.xsd&lt;/xsdShell>
+            &lt;/shellPublicIds>
+            &lt;/moduleMetadata>
+            ...</codeblock></p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Copy the directory <filepath>org.training.doctypes</filepath> to your Toolkit's
+            <filepath>plugins</filepath> directory and run the <codeph>dita --install</codeph>
+          command as before.</cmd>
+        <stepresult>
+          <p>After the copy the <filepath>plugins</filepath> directory should look
+            like:<codeblock>plugins/
+  com.example.rngtutorial.doctypes
+  com.sophos.tocjs
+  org.dita.base
+  org.dita.eclipsehelp
+  org.dita.html5
+  org.dita.htmlhelp
+  org.dita.normalize
+  org.dita.pdf2
+  org.dita.pdf2.axf
+  org.dita.pdf2.fop
+  org.dita.pdf2.xep
+  org.dita.specialization.dita11
+  org.dita.troff
+  org.dita.xhtml
+  org.lwdita
+  org.oasis-open.dita.v1_2
+  org.oasis-open.dita.v1_3
+  org.tutorials.doctypes</codeblock></p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Remove the <filepath>com.example.rngtutorial.doctypes</filepath> directory from the
+            <filepath>plugins</filepath> directory and run the <codeph>dita --install</codeph>
+          command.</cmd>
+        <info>
+          <p>Removing this plug-in ensures that you don't get any false positives as you're
+            verifying that your tutorials.org shells are working.</p>
+        </info>
+        <stepresult>
+          <p>The previously-valid test documents should now be invalid.</p>
+          <note type="tip">In oXygenXML's project view, you can select any directory and using the <menucascade>
+              <uicontrol>Validate</uicontrol>
+              <uicontrol>Validate</uicontrol>
+            </menucascade> action to validate all the files in the directory.</note>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Using <i>case-sensitive</i> global search and replace against all the files in the
+            <filepath>test-docs</filepath> directory, change "example.com" to "tutorials.org".</cmd>
+        <stepresult>
+          <p>The previously invalid documents should now be valid.</p>
+          <p>The grammar association processing instructions should look like
+            this:<codeblock>&lt;?xml-model href="urn:pubid:tutorials.org:dita:rng:concept.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?></codeblock></p>
+          <p>If the test documents are now valid, it proves that your global changes worked and that
+            your RNG shells are ready to use. The last steps are to generate the DTD versions of
+            your shells and verify those with new DTD-specific test documents.</p>
+          <p>If the test documents are not valid, it means that something isn't right. Again, the
+            most likely mistake is a problem in copying the plugin or a typo when doing the global
+            change. But here the change is so simple that it's hard for it to go wrong. Worst case,
+            wipe out what you've done and start over. Having going through it once you should see
+            how fundamentally simple the process is: copy the files, update the URNs and public IDs
+            in the shells, catalogs, and test documents, deploy to your Toolkit, and validate.</p>
+          <p>Note also that you are <b>not</b> working directly in the copy of the plugin in the
+            Open Toolkit. Rather, you are updating your development version and then deploying it to
+            your Toolkit. This preserves a clean separation between your development environment and
+            your test/verify/production environment.</p>
+          <p>While it is tempting to work directly in your Toolkit it is very dangerous and easy to
+            lose changes, especially if you have automatic deployment of plugins from your
+            development area to your Open Toolkit. So better to just never do it.</p>
+          <p>Assuming that you're doing all this work for the benefit of others, not just yourself,
+            you want your processes to be clean and repeatable so that deployment to others is as
+            smooth and reliable as possible.</p>
+        </stepresult>
       </step>
     </steps>
     </taskbody>

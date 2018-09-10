@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="tutorial-1b-generate-dtd-shells">
+    <title>Tutorial 1b: Generate DTD Shells From the RNG Shells</title>
+    <taskbody>
+        <context>Magic!<p/></context>
+        <steps>
+            <step>
+                <cmd></cmd>
+            </step>
+        </steps>
+    </taskbody>
+</task>

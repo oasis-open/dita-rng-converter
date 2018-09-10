@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="one-time-setup">
+    <title>Tuturial 0: One-Time Setup</title>
+    <shortdesc>The stuff you have to do before you can do the stuff you want to do.</shortdesc>
+    <taskbody>
+        <context>
+            <p>You may already have an Open Toolkit installed and may have already downloaded the
+        resources for the tutorials. If you haven't now is the time to do so.</p>
+        </context>
+        <steps>
+      <step>
+        <cmd>Set up your workspace where you'll manage the development of your local shells and any
+          constraint or specialization modules you may create.</cmd>
+        <info>
+          <p>For the purposes of this tutorial, create a directory named
+              <filepath>rng-tutorial</filepath> in some convenient place.</p>
+          <p>I recommend making this directory into a git repository at this point so that you can
+            commit your work frequently as you work through the tutorial. The use of git is beyond
+            the scope of this tutorial, but if you have git installed on your machine the command
+              <codeph>git init</codeph> executed in the <filepath>rng-tutorial</filepath> directory
+            you just created will turn it into a git repository, ready to accept commits. Graphical
+            git tools like SourceTree should provide a way to do the same thing. In SourceTree the
+            action is <menucascade>
+              <uicontrol>File</uicontrol>
+              <uicontrol>New</uicontrol>
+              <uicontrol>Create Local Repository</uicontrol>
+            </menucascade>.</p>
+        </info>
+      </step>
+      <step>
+        <cmd>If you haven't already, download and unzip the RNG tutorials ZIP package somewhere
+          convenient. This will be referred to as the <filepath>resources</filepath> directory in
+          the rest of this tutorial.</cmd>
+      </step>
+      <step>
+        <cmd>If you haven't already, download the latest DITA Open Toolkit distribution and unpack
+          it somewhere convenient.</cmd>
+        <info>
+          <p>The latest version at the time of writing is 3.1.2, but new releases are released every
+            few weeks. This tutorial should work with 2.5.4 (the last 2.x version) or any newer
+            version.</p>
+          <p>For this tutorial, it's best to use a fresh Open Toolkit that you can modify without
+            risking anything else you might be doing with DITA.</p>
+          <p>If you are using oXygenXML, I recommend creating a new project for this tutorial and
+            then use the DITA options pane to set the Open Toolkit to one you just installed as a
+            project-level option. This will configure oXygenXML to use your custom document types
+            through the Open Toolkit's master catalog and will also let you use oXygenXML to run the
+            Toolkit against your test files. Note that when oXygenXML runs the Open Toolkit for you,
+            it automatically adds the Java jars needed by the Open Toolkit to process RELAX-NG-based
+            documents. To do the same thing from the command line you will need to another plugin
+            (assuming the version of the OT you're using doesn't have the RELAX-NG support built in,
+            which it may have by the time you read this).</p>
+        </info>
+      </step>
+      <step>
+        <cmd>Set up a command window for running the DITA Open Toolkit you just installed.</cmd>
+        <info>
+          <p>To run the Open Toolkit from the command, simply open a command window and navigate to
+            the directory for the Toolkit you just installed. Alternatively you can add the
+            Toolkit's <filepath>bin</filepath> directory to the PATH environment variable in that
+            command window (don't do it globally unless you intend to use this particular Open
+            Toolkit for other things):</p>
+          <p>For
+            Windows:<codeblock>c:\dita-ot-3.1.2 > set PATH=%PATH%;C:\dita-ot-3.1.2\bin
+c:\dita-ot-3.1.2 > dita
+Usage: dita -i &lt;file> -f &lt;name> [options]
+   or: dita --propertyfile=&lt;file> [options]
+   or: dita --install [=&lt;file>]
+   or: dita --uninstall &lt;id>
+   or: dita --help
+   or: dita --version
+Arguments: 
+  -i &lt;file>, --input=&lt;file>   input file
+...
+c:\dita-ot-3.1.2 > _</codeblock></p>
+          <p>For macOS or Linux (or a git bash shell window under
+            Windows):<codeblock>ekimber@mako$ export PATH=$PATH:$PWD/bin
+ekimber@mako$ dita
+Usage: dita -i &lt;file> -f &lt;name> [options]
+   or: dita --propertyfile=&lt;file> [options]
+   or: dita --install [=&lt;file>]
+   or: dita --uninstall &lt;id>
+   or: dita --help
+   or: dita --version
+Arguments: 
+  -i &lt;file>, --input=&lt;file>   input file
+...
+ekimber@mako$ _</codeblock></p>
+        </info>
+      </step>
+        </steps>
+    </taskbody>
+</task>
