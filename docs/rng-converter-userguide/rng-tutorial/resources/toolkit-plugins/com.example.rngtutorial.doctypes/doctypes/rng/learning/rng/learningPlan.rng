@@ -21,9 +21,9 @@ Learning Plan
          <moduleShortName>learningPlan</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Plan//EN</dtdShell>
-            <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningPlan.rnc</rncShell>
-            <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningPlan.rng</rngShell>
-            <xsdShell>urn:pubid:example.com:dita:spec:learning:xsd:learningPlan.xsd</xsdShell>
+            <rncShell>urn:pubid:example.com:dita:learning:rnc:learningPlan.rnc</rncShell>
+            <rngShell>urn:pubid:example.com:dita:learning:rng:learningPlan.rng</rngShell>
+            <xsdShell>urn:pubid:example.com:dita:learning:xsd:learningPlan.xsd</xsdShell>
          </shellPublicIds>
       </moduleMetadata>
   </moduleDesc>

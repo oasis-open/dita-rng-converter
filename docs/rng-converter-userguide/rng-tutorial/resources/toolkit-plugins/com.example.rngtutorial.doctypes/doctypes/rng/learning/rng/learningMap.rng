@@ -22,11 +22,11 @@ Learning Map
          <moduleShortName>learningMap</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Map//EN</dtdShell>
-            <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningMap.rnc
+            <rncShell>urn:pubid:example.com:dita:learning:rnc:learningMap.rnc
             </rncShell>
-            <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningMap.rng
+            <rngShell>urn:pubid:example.com:dita:learning:rng:learningMap.rng
             </rngShell>
-            <xsdShell>urn:pubid:example.com:dita:spec:learning:xsd:learningMap.xsd
+            <xsdShell>urn:pubid:example.com:dita:learning:xsd:learningMap.xsd
             </xsdShell>
          </shellPublicIds>
       </moduleMetadata>

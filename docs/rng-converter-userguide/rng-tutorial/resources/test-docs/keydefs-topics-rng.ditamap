@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../local-rng-shells/base/rng/basemap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:basemap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <map>
   <title>Test Document Keydefs for Topics</title>
   <topicgroup>
@@ -20,6 +20,7 @@
       <keydef keys="test-learningContent" href="learning/rng/learningContent-rng.dita"/>
       <keydef keys="test-learningOverview" href="learning/rng/learningOverview-rng.dita"/>
       <keydef keys="test-learningPlan" href="learning/rng/learningPlan-rng.dita"/>
+      <keydef keys="test-learningSummary" href="learning/rng/learningSummary-rng.dita"/>
     </topicgroup>
     <topicgroup>
       <topicmeta>

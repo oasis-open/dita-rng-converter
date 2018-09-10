@@ -26,9 +26,9 @@ Learning Content
          <moduleShortName>learningContent</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Content//EN</dtdShell>
-            <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningContent.rnc</rncShell>
-            <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningContent.rng</rngShell>
-            <xsdShell>urn:pubid:example.com:dita:spec:learning:xsd:learningContent.xsd</xsdShell>
+            <rncShell>urn:pubid:example.com:dita:learning:rnc:learningContent.rnc</rncShell>
+            <rngShell>urn:pubid:example.com:dita:learning:rng:learningContent.rng</rngShell>
+            <xsdShell>urn:pubid:example.com:dita:learning:xsd:learningContent.xsd</xsdShell>
          </shellPublicIds>
       </moduleMetadata>
   </moduleDesc>

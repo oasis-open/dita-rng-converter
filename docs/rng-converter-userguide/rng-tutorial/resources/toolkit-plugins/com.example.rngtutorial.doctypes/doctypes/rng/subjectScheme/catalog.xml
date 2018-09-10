@@ -3,15 +3,15 @@
 <!-- DITA Subject Scheme Map Shell -->
 
    <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:pubid:example.com:dita:spec:classification:rng:subjectScheme.rng"
+      <system systemId="urn:pubid:example.com:dita:rng:subjectScheme.rng"
               uri="rng/subjectScheme.rng"/>
-      <system systemId="urn:oasis:tc:tc:dita:spec:classification:rng:classifyMap.rng"
+     <system systemId="urn:pubid:example.com:dita:rng:classifyMap.rng"
               uri="rng/classifyMap.rng"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:pubid:example.com:dita:spec:classification:rng:subjectScheme.rng"
+      <uri name="urn:pubid:example.com:dita:rng:subjectScheme.rng"
            uri="rng/subjectScheme.rng"/>
-      <uri name="urn:oasis:tc:tc:dita:spec:classification:rng:classifyMap.rng"
+     <uri name="urn:pubid:example.com:rng:classifyMap.rng"
            uri="rng/classifyMap.rng"/>
    </group>
 </catalog>

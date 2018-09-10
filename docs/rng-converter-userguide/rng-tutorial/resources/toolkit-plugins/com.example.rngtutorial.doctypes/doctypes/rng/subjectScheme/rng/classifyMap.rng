@@ -21,13 +21,10 @@ Classify Map
          <moduleType>mapshell</moduleType>
          <moduleShortName>classifyMap</moduleShortName>
          <shellPublicIds>
-            <dtdShell>-//EXAMPLE.COM//DTD DITA Classification Map//EN</dtdShell>
-            <rncShell>urn:oasis:tc:tc:dita:spec:classification:rnc:classifyMap.rnc
-            </rncShell>
-            <rngShell>urn:oasis:tc:tc:dita:spec:classification:rng:classifyMap.rng
-            </rngShell>
-            <xsdShell>urn:oasis:tc:tc:dita:spec:classification:xsd:classifyMap.xsd
-            </xsdShell>
+           <dtdShell>-//EXAMPLE.COM//DTD DITA Classification Map//EN</dtdShell>
+           <rncShell>urn:pubid:example.com:dita:rnc:classifyMap.rnc</rncShell>
+           <rngShell>urn:pubid:example.com:dita:classification:rng:classifyMap.rng</rngShell>
+           <xsdShell>urn:pubid:example.com:dita:classification:xsd:classifyMap.xsd</xsdShell>
          </shellPublicIds>
       </moduleMetadata>
   </moduleDesc>

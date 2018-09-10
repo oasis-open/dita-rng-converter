@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../local-rng-shells/learning/rng/learningAssessment.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:learningAssessment.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <learningAssessment id="test-learning-assessment">
   <title>Test of example.com Learning Assessment</title>
   <learningAssessmentbody>

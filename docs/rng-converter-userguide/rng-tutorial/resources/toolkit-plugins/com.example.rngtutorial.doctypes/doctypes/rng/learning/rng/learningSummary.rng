@@ -21,9 +21,9 @@ Learning assessment
          <moduleShortName>learningSummary</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Summary//EN</dtdShell>
-            <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningSummary.rnc</rncShell>
-            <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningSummary.rng</rngShell>
-            <xsdShell>urn:pubid:example.com:dita:spec:learning:xsd:learningSummary.xsd</xsdShell>
+            <rncShell>urn:pubid:example.com:dita:learning:rnc:learningSummary.rnc</rncShell>
+            <rngShell>urn:pubid:example.com:dita:learning:rng:learningSummary.rng</rngShell>
+            <xsdShell>urn:pubid:example.com:dita:learning:xsd:learningSummary.xsd</xsdShell>
          </shellPublicIds>
       </moduleMetadata>
   </moduleDesc>

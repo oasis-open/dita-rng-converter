@@ -3,43 +3,43 @@
 <!-- DITA learningObjectMap Shell -->
 
    <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:pubid:example.com:dita:spec:learning:rng:learningObjectMap.rng"
+      <system systemId="urn:pubid:example.com:dita:rng:learningObjectMap.rng"
               uri="rng/learningObjectMap.rng"/>
-      <system systemId="urn:pubid:example.com:dita:spec:learning:rng:learningBookmap.rng"
+      <system systemId="urn:pubid:example.com:dita:rng:learningBookmap.rng"
               uri="rng/learningBookmap.rng"/>
-      <system systemId="urn:pubid:example.com:dita:spec:learning:rng:learningOverview.rng"
+      <system systemId="urn:pubid:example.com:dita:rng:learningOverview.rng"
               uri="rng/learningOverview.rng"/>
-      <system systemId="urn:pubid:example.com:dita:spec:learning:rng:learningSummary.rng"
+      <system systemId="urn:pubid:example.com:dita:rng:learningSummary.rng"
               uri="rng/learningSummary.rng"/>
-      <system systemId="urn:pubid:example.com:dita:spec:learning:rng:learningMap.rng"
+      <system systemId="urn:pubid:example.com:dita:rng:learningMap.rng"
               uri="rng/learningMap.rng"/>
-      <system systemId="urn:pubid:example.com:dita:spec:learning:rng:learningAssessment.rng"
+      <system systemId="urn:pubid:example.com:dita:rng:learningAssessment.rng"
               uri="rng/learningAssessment.rng"/>
-      <system systemId="urn:pubid:example.com:dita:spec:learning:rng:learningGroupMap.rng"
+      <system systemId="urn:pubid:example.com:dita:rng:learningGroupMap.rng"
               uri="rng/learningGroupMap.rng"/>
-      <system systemId="urn:pubid:example.com:dita:spec:learning:rng:learningPlan.rng"
+      <system systemId="urn:pubid:example.com:dita:rng:learningPlan.rng"
               uri="rng/learningPlan.rng"/>
-      <system systemId="urn:pubid:example.com:dita:spec:learning:rng:learningContent.rng"
+      <system systemId="urn:pubid:example.com:dita:rng:learningContent.rng"
               uri="rng/learningContent.rng"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:pubid:example.com:dita:spec:learning:rng:learningObjectMap.rng"
+      <uri name="urn:pubid:example.com:dita:rng:learningObjectMap.rng"
            uri="rng/learningObjectMap.rng"/>
-      <uri name="urn:pubid:example.com:dita:spec:learning:rng:learningBookmap.rng"
+      <uri name="urn:pubid:example.com:dita:rng:learningBookmap.rng"
            uri="rng/learningBookmap.rng"/>
-      <uri name="urn:pubid:example.com:dita:spec:learning:rng:learningOverview.rng"
+      <uri name="urn:pubid:example.com:dita:rng:learningOverview.rng"
            uri="rng/learningOverview.rng"/>
-      <uri name="urn:pubid:example.com:dita:spec:learning:rng:learningSummary.rng"
+      <uri name="urn:pubid:example.com:dita:rng:learningSummary.rng"
            uri="rng/learningSummary.rng"/>
-      <uri name="urn:pubid:example.com:dita:spec:learning:rng:learningMap.rng"
+      <uri name="urn:pubid:example.com:dita:rng:learningMap.rng"
            uri="rng/learningMap.rng"/>
-      <uri name="urn:pubid:example.com:dita:spec:learning:rng:learningAssessment.rng"
+      <uri name="urn:pubid:example.com:dita:rng:learningAssessment.rng"
            uri="rng/learningAssessment.rng"/>
-      <uri name="urn:pubid:example.com:dita:spec:learning:rng:learningGroupMap.rng"
+      <uri name="urn:pubid:example.com:dita:rng:learningGroupMap.rng"
            uri="rng/learningGroupMap.rng"/>
-      <uri name="urn:pubid:example.com:dita:spec:learning:rng:learningPlan.rng"
+      <uri name="urn:pubid:example.com:dita:rng:learningPlan.rng"
            uri="rng/learningPlan.rng"/>
-      <uri name="urn:pubid:example.com:dita:spec:learning:rng:learningContent.rng"
+      <uri name="urn:pubid:example.com:dita:rng:learningContent.rng"
            uri="rng/learningContent.rng"/>
    </group>
 </catalog>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../local-rng-shells/learning/rng/learningObjectMap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:learningObjectMap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <learningObjectMap>
   <title>Test of example.com LearningObjectMap document type shell</title>
   <learningObject>

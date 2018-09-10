@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../local-rng-shells/subjectScheme/rng/classifyMap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:classifyMap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <map>
   <title>Test of example.com classify map</title>
   <topicgroup>

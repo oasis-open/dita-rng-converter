@@ -21,11 +21,11 @@ Learning assessment
          <moduleShortName>learningAssessment</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Assessment//EN</dtdShell>
-            <rncShell>urn:pubid:example.com:dita:spec:learning:rnc:learningAssessment.rnc
+            <rncShell>urn:pubid:example.com:dita:learning:rnc:learningAssessment.rnc
             </rncShell>
-            <rngShell>urn:pubid:example.com:dita:spec:learning:rng:learningAssessment.rng
+            <rngShell>urn:pubid:example.com:dita:learning:rng:learningAssessment.rng
             </rngShell>
-            <xsdShell>urn:pubid:example.com:dita:spec:learning:xsd:learningAssessment.xsd
+            <xsdShell>urn:pubid:example.com:dita:learning:xsd:learningAssessment.xsd
             </xsdShell>
          </shellPublicIds>
       </moduleMetadata>

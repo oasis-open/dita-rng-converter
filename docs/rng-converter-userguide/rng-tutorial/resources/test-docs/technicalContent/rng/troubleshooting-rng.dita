@@ -1,4 +1,4 @@
-<?xml-model href="../../../local-rng-shells/technicalContent/rng/troubleshooting.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:pubid:example.com:dita:technicalContent:rng:troubleshooting.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <troubleshooting id="test-concept">
   <title>Test of example.com troubleshooting document type shell</title>
   <troublebody>
