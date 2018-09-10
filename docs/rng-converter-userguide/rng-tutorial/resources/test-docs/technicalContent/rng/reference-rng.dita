@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="urn:pubid:example.com:dita:technicalContent:rng:reference.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:reference.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <reference id="test-reference">
   <title>Test of example.com reference document type shell</title>
   <refbody>
     <refbodydiv>
       <example>
         <p>This topic tests the example.com reference document type shell.</p>
-        <codeblock><coderef href="urn:pubid:example.com:dita:technicalContent:rng:reference.rng#line-range(24,24)"/></codeblock>
+        <codeblock><coderef href="urn:pubid:example.com:dita:rng:reference.rng#line-range(24,24)"/></codeblock>
       </example>
     </refbodydiv>
     <section spectitle="First Section">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="urn:pubid:example.com:dita:technicalContent:rng:task.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:task.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <task id="test-task">
   <title>Test of example.com (constrained) task document type shell</title>
   <taskbody>
