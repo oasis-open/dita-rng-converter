@@ -29,31 +29,31 @@ All Rights Reserved.
       <domainsContribution>(topic restrictedBasicBlock-c)</domainsContribution>
     </moduleMetadata>
   </moduleDesc>
-  <include href="urn:oasis:names:tc:dita:rng:commonElementsMod.rng">
+  <include href="urn:oasis:names:tc:dita:rng:topicMod.rng">
     <a:documentation>Test Documenation Block</a:documentation>
-    <define name="basic.block" combine="interleave">
-      <choice>
-        <ref name="dl"/>
-<ref name="div"/>
-</choice>
+    <define name="basic.block">
+       <choice>
+         <ref name="dl"/>
+         <ref name="div"/>
+       </choice>
     </define>
     <a:documentation/>
-    <define name="basic.block.notbl" combine="interleave">
+    <define name="basic.block.notbl" >
       <choice>
         <ref name="dl"/>
-<ref name="div"/>
-<ref name="fig"/>
-<ref name="image"/>
-<ref name="lines"/>
-<ref name="lq"/>
-<ref name="note"/>
-<ref name="object"/>
-<ref name="ol"/>
-<ref name="p"/>
-<ref name="pre"/>
-<ref name="sl"/>
-<ref name="ul"/>
-</choice>
+        <ref name="div"/>
+        <ref name="fig"/>
+        <ref name="image"/>
+        <ref name="lines"/>
+        <ref name="lq"/>
+        <ref name="note"/>
+        <ref name="object"/>
+        <ref name="ol"/>
+        <ref name="p"/>
+        <ref name="pre"/>
+        <ref name="sl"/>
+        <ref name="ul"/>
+        </choice>
     </define>
   </include>
 </grammar>
