@@ -51,7 +51,7 @@
   <div>
       <a:documentation>CONTENT CONSTRAINT INTEGRATION</a:documentation>
 
-      <include href="urn:example.com:names:doctypes:dita:rng:machineryTaskbodyConstraintMod.rng">
+      <include href="urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng">
          <define name="task-info-types">
             <ref name="task.element"/>
          </define>
@@ -61,16 +61,16 @@
   <div>
       <a:documentation>MODULE INCLUSIONS</a:documentation>
 
-      <include href="urn:example.com:names:doctypes:dita:rng:topicMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:topicMod.rng"/>
     
-      <include href="urn:example.com:names:doctypes:dita:rng:deliveryTargetAttDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:hazardstatementDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:highlightDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:indexingDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:svgDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:taskreqDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:uiDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:utilitiesDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:svgDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:taskreqDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:uiDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
   </div>
   <div>
       <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>

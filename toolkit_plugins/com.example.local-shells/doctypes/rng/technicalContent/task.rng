@@ -59,7 +59,7 @@ Sample document type shell for Task Topics
   </div>
   <div>
       <a:documentation>CONTENT CONSTRAINT INTEGRATION</a:documentation>
-      <include href="urn:example.com:names:doctypes:dita:rng:strictTaskbodyConstraintMod.rng">
+      <include href="urn:oasis:names:tc:dita:rng:strictTaskbodyConstraintMod.rng">
          <define name="task-info-types">
             <ref name="task.element"/>
          </define>            
@@ -68,22 +68,22 @@ Sample document type shell for Task Topics
 
   <div>
       <a:documentation> MODULE INCLUSIONS </a:documentation>
-      <include href="urn:example.com:names:doctypes:dita:rng:topicMod.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:abbreviateDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:deliveryTargetAttDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:equationDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:hazardstatementDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:highlightDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:indexingDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:markupDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:mathmlDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:programmingDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:releaseManagementDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:softwareDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:svgDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:uiDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:utilitiesDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:xmlDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:topicMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:abbreviateDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:equationDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:hazardDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:markupDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:mathmlDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:programmingDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:softwareDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:svgDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:uiDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:xmlDomain.rng" dita:since="1.3"/>
 
   </div>
   <div>

@@ -53,23 +53,23 @@
   </div>
   <div>
       <a:documentation>MODULE INCLUSIONS</a:documentation>
-      <include href="urn:example.com:names:doctypes:dita:rng:topicMod.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningBaseMod.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningPlanMod.rng">
+      <include href="urn:oasis:names:tc:dita:rng:topicMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningBaseMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningPlanMod.rng">
          <define name="learningPlan-info-types">
             <empty/>
          </define>
       </include>    
-      <include href="urn:example.com:names:doctypes:dita:rng:deliveryTargetAttDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:highlightDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:indexingDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:releaseManagementDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:utilitiesDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningInteractionBaseDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningInteractionBase2Domain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learning2Domain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningMetadataDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningInteractionBaseDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningInteractionBase2Domain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learning2Domain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningMetadataDomain.rng"/>
   </div>
   <div>
       <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>

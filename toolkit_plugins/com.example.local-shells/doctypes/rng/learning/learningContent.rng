@@ -59,40 +59,40 @@
   </div>
   <div>
       <a:documentation>MODULE INCLUSIONS</a:documentation>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningBaseMod.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:topicMod.rng">
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningBaseMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:topicMod.rng">
          <define name="topic-info-types">
             <empty/>
          </define>
       </include>    
-      <include href="urn:example.com:names:doctypes:dita:rng:taskMod.rng">
+      <include href="urn:oasis:names:tc:dita:rng:taskMod.rng">
          <define name="task-info-types">
             <empty/>
          </define>
       </include>
-      <include href="urn:example.com:names:doctypes:dita:rng:conceptMod.rng">
+      <include href="urn:oasis:names:tc:dita:rng:conceptMod.rng">
          <define name="concept-info-types">
             <empty/>
          </define>
       </include>
-      <include href="urn:example.com:names:doctypes:dita:rng:referenceMod.rng">
+      <include href="urn:oasis:names:tc:dita:rng:referenceMod.rng">
          <define name="reference-info-types">
             <empty/>
          </define>
       </include>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningSummaryMod.rng">
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningSummaryMod.rng">
          <define name="learningSummary-info-types">
             <empty/>
          </define>      
       </include>
     
-      <include href="urn:example.com:names:doctypes:dita:rng:learningAssessmentMod.rng">
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningAssessmentMod.rng">
          <define name="learningAssessment-info-types">
             <empty/>
          </define>
       </include>
     
-      <include href="urn:example.com:names:doctypes:dita:rng:learningContentMod.rng">
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningContentMod.rng">
          <define name="learningContent-info-types">
             <zeroOrMore>
                <choice>
@@ -110,17 +110,17 @@
             </optional>
          </define>
       </include>
-      <include href="urn:example.com:names:doctypes:dita:rng:deliveryTargetAttDomain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:highlightDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:indexingDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:releaseManagementDomain.rng"
+      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:releaseManagementDomain.rng"
                dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:utilitiesDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningInteractionBaseDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningInteractionBase2Domain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningDomain.rng"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learning2Domain.rng" dita:since="1.3"/>
-      <include href="urn:example.com:names:doctypes:dita:rng:learningMetadataDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningInteractionBaseDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningInteractionBase2Domain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningDomain.rng"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learning2Domain.rng" dita:since="1.3"/>
+      <include href="urn:oasis:names:tc:dita:spec:learning:rng:learningMetadataDomain.rng"/>
   </div>
   <div>
       <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
