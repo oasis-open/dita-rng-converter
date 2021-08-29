@@ -1,0 +1,8 @@
+<!-- ====================================
+     Sample local document type shells
+     
+     
+     ==================================== -->
+<plugin id="com.exmaple.local-shells">
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
+</plugin>

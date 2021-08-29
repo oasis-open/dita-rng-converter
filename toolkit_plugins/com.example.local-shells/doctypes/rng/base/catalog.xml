@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Base Map Shell-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:example.com:names:doctypes:dita:basemap.rng"
+              uri="basemap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:basemap.rng"
+              uri="basemap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:basetopic.rng"
+              uri="basetopic.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:basetopic.rng"
+              uri="basetopic.rng"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:example.com:names:doctypes:dita:basemap.rng"
+           uri="basemap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:basemap.rng" uri="basemap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:basetopic.rng"
+           uri="basetopic.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:basetopic.rng"
+           uri="basetopic.rng"/>
+   </group>
+</catalog>

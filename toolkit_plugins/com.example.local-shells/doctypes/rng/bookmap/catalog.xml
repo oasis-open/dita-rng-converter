@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Book Map Shell-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:example.com:names:doctypes:dita:bookmap.rng"
+              uri="bookmap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:bookmap.rng"
+              uri="bookmap.rng"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:example.com:names:doctypes:dita:bookmap.rng"
+           uri="bookmap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:bookmap.rng" uri="bookmap.rng"/>
+   </group>
+</catalog>
