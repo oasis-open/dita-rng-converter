@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:reference.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<reference id="test_reference_01">
+    <title>Test Reference 01</title>
+    <shortdesc>A reference teset</shortdesc>
+    <prolog>     
+    </prolog>
+    <refbody>
+        <section>
+            <title>Section 01</title>
+            <p>The section content</p>
+        </section>
+    </refbody>
+</reference>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:map.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+    <title>Test Map 01</title>
+    <topicref keys="root-topic" href="topics/topic-01.dita">
+    <topicref href="topics/test_concept_01.dita"/>
+    <topicref href="topics/test_reference_01.dita"/>
+    <topicref href="topics/test_task_01.dita"/>
+  </topicref>
+  <topicref href="subjectSchemes/subject_scheme_map.ditamap" format="ditamap"/>
+</map>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:reference.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<reference id="topic-id">
+    <title></title>
+    <shortdesc></shortdesc>
+    <prolog>     
+    </prolog>
+    <refbody>
+        <section>
+            <title></title>
+            <p></p>
+        </section>
+    </refbody>
+</reference>

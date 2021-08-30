@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:bookmap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<bookmap>
+    <booktitle>
+        <mainbooktitle></mainbooktitle>
+        <booktitlealt></booktitlealt>
+    </booktitle>
+    <bookmeta></bookmeta>
+    <chapter></chapter>
+    <part></part>
+    <appendices>
+        <appendix></appendix>
+    </appendices>
+</bookmap>

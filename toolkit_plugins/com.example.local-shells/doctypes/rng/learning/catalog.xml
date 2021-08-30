@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--DITA Learning 2 Domain-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningAssessment.rng"
+              uri="learningAssessment.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningAssessment.rng"
+              uri="learningAssessment.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningBookmap.rng"
+              uri="learningBookmap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningBookmap.rng"
+              uri="learningBookmap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningContent.rng"
+              uri="learningContent.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningContent.rng"
+              uri="learningContent.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningGroupMap.rng"
+              uri="learningGroupMap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningGroupMap.rng"
+              uri="learningGroupMap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningMap.rng"
+              uri="learningMap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningMap.rng"
+              uri="learningMap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningObjectMap.rng"
+              uri="learningObjectMap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningObjectMap.rng"
+              uri="learningObjectMap.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningOverview.rng"
+              uri="learningOverview.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningOverview.rng"
+              uri="learningOverview.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningPlan.rng"
+              uri="learningPlan.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningPlan.rng"
+              uri="learningPlan.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningSummary.rng"
+              uri="learningSummary.rng"/>
+      <system systemId="urn:example.com:names:doctypes:dita:rng:learningSummary.rng"
+              uri="learningSummary.rng"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningAssessment.rng"
+           uri="learningAssessment.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningAssessment.rng"
+           uri="learningAssessment.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningBookmap.rng"
+           uri="learningBookmap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningBookmap.rng"
+           uri="learningBookmap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningContent.rng"
+           uri="learningContent.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningContent.rng"
+           uri="learningContent.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningDomain.rng"
+           uri="learningDomain.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningDomain.rng"
+           uri="learningDomain.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningGroupMap.rng"
+           uri="learningGroupMap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningGroupMap.rng"
+           uri="learningGroupMap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningMap.rng"
+           uri="learningMap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningMap.rng"
+           uri="learningMap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningObjectMap.rng"
+           uri="learningObjectMap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningObjectMap.rng"
+           uri="learningObjectMap.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningOverview.rng"
+           uri="learningOverview.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningOverview.rng"
+           uri="learningOverview.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningPlan.rng"
+           uri="learningPlan.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningPlan.rng"
+           uri="learningPlan.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningSummary.rng"
+           uri="learningSummary.rng"/>
+      <uri name="urn:example.com:names:doctypes:dita:rng:learningSummary.rng"
+           uri="learningSummary.rng"/>
+   </group>
+</catalog>

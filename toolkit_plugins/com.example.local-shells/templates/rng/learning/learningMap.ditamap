@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:learningMap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+ <title></title>
+    <learningGroup></learningGroup>
+</map>
