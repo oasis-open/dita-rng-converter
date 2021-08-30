@@ -17,11 +17,11 @@
          <moduleShortName>learningGroupMap</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Learning Group Map//EN</dtdShell>
-            <rncShell>urn:example.com:names:doctypes:dita:spec:learning:rnc:learningGroupMap.rnc
+            <rncShell>urn:example.com:names:doctypes:dita:rnc:learningGroupMap.rnc
             </rncShell>
-            <rngShell>urn:example.com:names:doctypes:dita:spec:learning:rng:learningGroupMap.rng
+            <rngShell>urn:example.com:names:doctypes:dita:rng:learningGroupMap.rng
             </rngShell>
-            <xsdShell>urn:example.com:names:doctypes:dita:spec:learning:xsd:learningGroupMap.xsd
+            <xsdShell>urn:example.com:names:doctypes:dita:xsd:learningGroupMap.xsd
             </xsdShell>
          </shellPublicIds>
       </moduleMetadata>

@@ -17,11 +17,11 @@
          <moduleShortName>learningBookmap</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Learning BookMap//EN</dtdShell>
-            <rncShell>urn:example.com:names:doctypes:dita:spec:learning:rnc:learningBookmap.rnc
+            <rncShell>urn:example.com:names:doctypes:dita:rnc:learningBookmap.rnc
             </rncShell>
-            <rngShell>urn:example.com:names:doctypes:dita:spec:learning:rng:learningBookmap.rng
+            <rngShell>urn:example.com:names:doctypes:dita:rng:learningBookmap.rng
             </rngShell>
-            <xsdShell>urn:example.com:names:doctypes:dita:spec:learning:xsd:learningBookmap.xsd
+            <xsdShell>urn:example.com:names:doctypes:dita:xsd:learningBookmap.xsd
             </xsdShell>
          </shellPublicIds>
       </moduleMetadata>

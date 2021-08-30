@@ -17,12 +17,9 @@ Sample document type shell for Techinical Content maps
          <moduleShortName>map</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Map//EN</dtdShell>
-            <rncShell>urn:example.com:names:doctypes:dita:rnc:map.rnc
-            </rncShell>
-            <rngShell>urn:example.com:names:doctypes:dita:rng:map.rng
-            </rngShell>
-            <xsdShell>urn:example.com:names:doctypes:dita:xsd:map.xsd
-            </xsdShell>
+            <rncShell>urn:example.com:names:doctypes:dita:rnc:map.rnc</rncShell>
+            <rngShell>urn:example.com:names:doctypes:dita:rng:map.rng</rngShell>
+            <xsdShell>urn:example.com:names:doctypes:dita:xsd:map.xsd</xsdShell>
          </shellPublicIds>
       </moduleMetadata>
   </moduleDesc>

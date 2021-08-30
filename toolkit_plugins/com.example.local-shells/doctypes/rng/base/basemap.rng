@@ -19,7 +19,7 @@ Base map shell for com.example
          <moduleShortName>basemap</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Base Map//EN</dtdShell>
-            <xsdShell>urn:example.com:names:doctypes:dita:dita:xsd:basemap.xsd
+            <xsdShell>urn:example.com:names:doctypes:dita:xsd:basemap.xsd
             </xsdShell>
             <rncShell>urn:example.com:names:doctypes:dita:rnc:basemap.rnc
             </rncShell>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:task.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<task id="test_task_01">
+  <title>Test Task 01</title>
+  <shortdesc>A task test</shortdesc>
+  <prolog> </prolog>
+  <taskbody>
+    <steps>
+      <step>
+        <cmd>Dd this</cmd>
+        <stepresult>Something will have happened.</stepresult>
+      </step>
+      <step>
+        <cmd>Then do this</cmd>
+      </step>
+    </steps>
+    <result id="result_fjm_pb5_tqb">
+      <p>This is the result of the doing.</p>
+    </result>
+  </taskbody>
+</task>

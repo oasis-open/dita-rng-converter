@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:ditabase.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<dita>
+  <task id="topic-id">
+    <title/>
+    <shortdesc/>
+    <prolog> </prolog>
+    <taskbody>
+      <steps>
+        <step>
+          <cmd/>
+        </step>
+      </steps>
+    </taskbody>
+  </task>
+</dita>

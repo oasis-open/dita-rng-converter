@@ -2,24 +2,26 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
 <!--DITA Subject Classification Domain-->
 
-   <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:oasis:tc:tc:dita:spec:classification:rng:classifyMap.rng"
-              uri="classifyMap.rng"/>
-      <system systemId="urn:oasis:tc:tc:dita:spec:classification:rng:classifyMap.rng"
-              uri="classifyMap.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:subjectScheme.rng"
-              uri="subjectScheme.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:subjectScheme.rng"
-              uri="subjectScheme.rng"/>
-   </group>
-   <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:oasis:tc:tc:dita:spec:classification:rng:classifyMap.rng"
-           uri="classifyMap.rng"/>
-      <uri name="urn:oasis:tc:tc:dita:spec:classification:rng:classifyMap.rng"
-           uri="classifyMap.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:subjectScheme.rng"
-           uri="subjectScheme.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:subjectScheme.rng"
-           uri="subjectScheme.rng"/>
-   </group>
+  <group>
+    <!-- System ID (URL) catalog entries -->
+    <system systemId="urn:example.com:names:doctypes:dita:rng:classifyMap.rng"
+    uri="classifyMap.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:classifyMap.rng"
+    uri="classifyMap.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:subjectScheme.rng"
+    uri="subjectScheme.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:subjectScheme.rng"
+    uri="subjectScheme.rng"/>
+  </group>
+  <group>
+    <!-- Public ID (URN) catalog entries -->
+    <uri name="urn:example.com:names:doctypes:dita:rng:classifyMap.rng"
+    uri="classifyMap.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:classifyMap.rng"
+    uri="classifyMap.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:subjectScheme.rng"
+    uri="subjectScheme.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:subjectScheme.rng"
+    uri="subjectScheme.rng"/>
+  </group>
 </catalog>

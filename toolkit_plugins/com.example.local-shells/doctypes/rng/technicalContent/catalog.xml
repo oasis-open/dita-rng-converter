@@ -1,84 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-<!--DITA Abbreviated Form Domain-->
+  <!--DITA Abbreviated Form Domain-->
 
-   <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:example.com:names:doctypes:dita:concept.rng"
-              uri="concept.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:concept.rng"
-              uri="concept.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:ditabase.rng"
-              uri="ditabase.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:ditabase.rng"
-              uri="ditabase.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:generalTask.rng"
-              uri="generalTask.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:generalTask.rng"
-              uri="generalTask.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:glossary.rng"
-              uri="glossary.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:glossary.rng"
-              uri="glossary.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:glossentry.rng"
-              uri="glossentry.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:glossentry.rng"
-              uri="glossentry.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:glossgroup.rng"
-              uri="glossgroup.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:glossgroup.rng"
-              uri="glossgroup.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:glossrefDomain.rng"
-              uri="glossrefDomain.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:glossrefDomain.rng"
-              uri="glossrefDomain.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:map.rng" uri="map.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:map.rng" uri="map.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:reference.rng"
-              uri="reference.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:reference.rng"
-              uri="reference.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:task.rng" uri="task.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:task.rng" uri="task.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:topic.rng"
-              uri="topic.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:topic.rng" uri="topic.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:troubleshooting.rng"
-              uri="troubleshooting.rng"/>
-      <system systemId="urn:example.com:names:doctypes:dita:troubleshooting.rng"
-              uri="troubleshooting.rng"/>
-   </group>
-   <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:example.com:names:doctypes:dita:concept.rng"
-           uri="concept.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:concept.rng" uri="concept.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:ditabase.rng"
-           uri="ditabase.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:ditabase.rng" uri="ditabase.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:generalTask.rng"
-           uri="generalTask.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:generalTask.rng"
-           uri="generalTask.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:glossentry.rng"
-           uri="glossentry.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:glossentry.rng"
-           uri="glossentry.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:glossgroup.rng"
-           uri="glossgroup.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:glossgroup.rng"
-           uri="glossgroup.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:map.rng" uri="map.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:map.rng" uri="map.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:reference.rng"
-           uri="reference.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:reference.rng"
-           uri="reference.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:task.rng" uri="task.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:task.rng" uri="task.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:topic.rng" uri="topic.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:topic.rng" uri="topic.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:troubleshooting.rng"
-           uri="troubleshooting.rng"/>
-      <uri name="urn:example.com:names:doctypes:dita:troubleshooting.rng"
-           uri="troubleshooting.rng"/>
-   </group>
+  <group>
+    <!-- System ID (URL) catalog entries -->
+    <system systemId="urn:example.com:names:doctypes:dita:rng:concept.rng" uri="concept.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:concept.rng" uri="concept.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:ditabase.rng" uri="ditabase.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:ditabase.rng" uri="ditabase.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:generalTask.rng" uri="generalTask.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:generalTask.rng" uri="generalTask.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:glossary.rng" uri="glossary.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:glossary.rng" uri="glossary.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:glossentry.rng" uri="glossentry.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:glossentry.rng" uri="glossentry.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:glossgroup.rng" uri="glossgroup.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:glossgroup.rng" uri="glossgroup.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:glossrefDomain.rng"
+      uri="glossrefDomain.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:glossrefDomain.rng"
+      uri="glossrefDomain.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:map.rng" uri="map.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:map.rng" uri="map.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:reference.rng" uri="reference.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:reference.rng" uri="reference.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:task.rng" uri="task.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:task.rng" uri="task.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:topic.rng" uri="topic.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:topic.rng" uri="topic.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:troubleshooting.rng"
+      uri="troubleshooting.rng"/>
+    <system systemId="urn:example.com:names:doctypes:dita:rng:troubleshooting.rng"
+      uri="troubleshooting.rng"/>
+  </group>
+  <group>
+    <!-- Public ID (URN) catalog entries -->
+    <uri name="urn:example.com:names:doctypes:dita:rng:concept.rng" uri="concept.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:concept.rng" uri="concept.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:ditabase.rng" uri="ditabase.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:ditabase.rng" uri="ditabase.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:generalTask.rng" uri="generalTask.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:generalTask.rng" uri="generalTask.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:glossentry.rng" uri="glossentry.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:glossentry.rng" uri="glossentry.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:glossgroup.rng" uri="glossgroup.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:glossgroup.rng" uri="glossgroup.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:map.rng" uri="map.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:map.rng" uri="map.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:reference.rng" uri="reference.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:reference.rng" uri="reference.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:task.rng" uri="task.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:task.rng" uri="task.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:topic.rng" uri="topic.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:topic.rng" uri="topic.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:troubleshooting.rng"
+      uri="troubleshooting.rng"/>
+    <uri name="urn:example.com:names:doctypes:dita:rng:troubleshooting.rng"
+      uri="troubleshooting.rng"/>
+  </group>
 </catalog>

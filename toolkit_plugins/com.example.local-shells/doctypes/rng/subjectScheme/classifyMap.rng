@@ -18,12 +18,9 @@
          <moduleShortName>classifyMap</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Classification Map//EN</dtdShell>
-            <rncShell>urn:oasis:tc:tc:dita:spec:classification:rnc:classifyMap.rnc
-            </rncShell>
-            <rngShell>urn:oasis:tc:tc:dita:spec:classification:rng:classifyMap.rng
-            </rngShell>
-            <xsdShell>urn:oasis:tc:tc:dita:spec:classification:xsd:classifyMap.xsd
-            </xsdShell>
+            <rncShell>urn:example.com:names:doctypes:dita:rnc:classifyMap.rnc</rncShell>
+            <rngShell>urn:example.com:names:doctypes:dita:rng:classifyMap.rng</rngShell>
+            <xsdShell>urn:example.com:names:doctypes:dita:xsd:classifyMap.xsd</xsdShell>
          </shellPublicIds>
       </moduleMetadata>
   </moduleDesc>
@@ -65,7 +62,7 @@
       <include href="urn:oasis:names:tc:dita:rng:mapMod.rng"/>
       <include href="urn:oasis:names:tc:dita:rng:mapGroupMod.rng"/>
   
-      <include href="urn:oasis:names:tc:dita:rng:classifyDomain.rng"/>
+     <include href="urn:oasis:tc:tc:dita:spec:classification:rng:classifyDomain.rng"/>
       <include href="urn:oasis:names:tc:dita:rng:abbreviateDomain.rng"/>
       <include href="urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng"/>
       <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng" dita:since="1.3"/>

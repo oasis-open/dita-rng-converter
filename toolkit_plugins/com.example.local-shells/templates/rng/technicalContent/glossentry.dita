@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:glossentry.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<glossentry id="gloss-id">
+  <glossterm></glossterm>
+  <glossdef></glossdef>
+</glossentry>

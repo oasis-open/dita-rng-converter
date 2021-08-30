@@ -17,12 +17,9 @@ Sample document type shell for Troubleshooting Topics
          <moduleShortName>troubleshooting</moduleShortName>
          <shellPublicIds>
             <dtdShell>-//EXAMPLE.COM//DTD DITA Troubleshooting//EN</dtdShell>
-            <xsdShell>urn:example.com:names:doctypes:dita:xsd:troubleshooting.xsd
-            </xsdShell>
-            <rncShell>urn:example.com:names:doctypes:dita:rnc:troubleshooting.rnc
-            </rncShell>
-            <rngShell>urn:example.com:names:doctypes:dita:rng:troubleshooting.rng
-            </rngShell>
+            <xsdShell>urn:example.com:names:doctypes:dita:xsd:troubleshooting.xsd</xsdShell>
+            <rncShell>urn:example.com:names:doctypes:dita:rnc:troubleshooting.rnc</rncShell>
+            <rngShell>urn:example.com:names:doctypes:dita:rng:troubleshooting.rng</rngShell>
          </shellPublicIds>
       </moduleMetadata>
   </moduleDesc>

@@ -3,15 +3,15 @@
 <!--DITA Machinery Task Shell-->
 
    <group><!-- System ID (URL) catalog entries -->
-      <system systemId="urn:oasis:names:tc:dita:spec:machinery:rng:machinerytask.rng"
+      <system systemId="urn:example.com:names:doctypes:dita:rng:machinerytask.rng"
               uri="machineryTask.rng"/>
-      <system systemId="urn:oasis:names:tc:dita:spec:machinery:rng:machinerytask.rng"
+      <system systemId="urn:example.com:names:doctypes:dita:rng:machinerytask.rng"
               uri="machineryTask.rng"/>
    </group>
    <group><!-- Public ID (URN) catalog entries -->
-      <uri name="urn:oasis:names:tc:dita:spec:machinery:rng:machinerytask.rng"
+      <uri name="urn:example.com:names:doctypes:dita:rng:machinerytask.rng"
            uri="machineryTask.rng"/>
-      <uri name="urn:oasis:names:tc:dita:spec:machinery:rng:machinerytask.rng"
+      <uri name="urn:example.com:names:doctypes:dita:rng:machinerytask.rng"
            uri="machineryTask.rng"/>
    </group>
 </catalog>

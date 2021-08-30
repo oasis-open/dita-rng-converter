@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:machinerytask.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<task id="topic-id">
+    <title></title>
+    <shortdesc></shortdesc>
+    <prolog>     
+    </prolog>
+    <taskbody>
+        <prelreqs>
+        </prelreqs>
+        <context>
+        </context>
+    </taskbody>
+</task>
