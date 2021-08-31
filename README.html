@@ -28,8 +28,8 @@
 <p>The repository manages the source code and supporting documentation for the RELAX NG-to-DTD and
           RELAX NG-to-XSD (and any other RNG-to-X transforms that might be developed, such as RELAX
           NG-to-EDD or RELAX NG-to-Schematron) transforms developed originally for use by the DITA
-          TC in producing the <a href="http://docs.oasis-open.org/dita/dita/v1.3/">DITA 1.3</a> DTDs
-          and XSDs from the normative RELAX NG versions of the DITA 1.3 grammar. The converter is
+          TC in producing the <a href="http://docs.oasis-open.org/dita/dita/v1.3/">DITA 1.3</a> and DITA 2.x DTDs
+          and XSDs from the normative RELAX NG versions of the DITA 1.3 or DITA 2.x grammars. The converter is
           intended to make it easy for any DITA user to develop and maintain their own document type
           shells, constraint modules, and vocabulary modules using RELAX NG, which has proven to be
           much easier to use than DTD or XSD.</p>
@@ -43,10 +43,11 @@
 This project provides the following transforms from RNG grammars that follow the coding conventions used by the DITA Technical Committee for the TC-defined modules and shells:
 </p><ul>
 <li>RNG-to-DTD: Generates both conforming DTD-syntax document type shells and modules as well as
-              single-file DTDs.</li>
+              single-file ("monolithiDTDs.</li>
 <li>RNG-to-XSD: Generates both modular (DITA 1.x-style) XSD-syntax document type shells and modules
-              that use the XSD redefine feature as well as "monolithic" single-file XSDs that do not
-              use redefine.</li>
+              that use the XSD redefine feature (within limits on the ability to generate modular
+              constrained XSDs) as well as "monolithic" single-file XSDs that do not use
+              redefine.</li>
 <li>XML entity resolution catalog generator: Generates XML entity resolution catalogs for the RNG, DTD, and XSD modules processed or generated.</li>
 </ul>
 <p>The transforms are implemented as XSLT transforms and run through an Ant script. See the project documentation for details.</p>
