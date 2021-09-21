@@ -69,7 +69,7 @@ Toshihiko Makita on the DITA Community version of the repo (https://github.com/d
 <li>Refine the Ant scripts to ensure that all parameters are appropriate and working.</li>
 <li>Finish documentation.</li> 
 </ol>
-<p>Schedule: Goal is to complete these actions by the end of December 2016 or as early in 2017 as possible.</p>
+<p>Schedule: Goal is to complete these actions by the end of April 2022.</p>
 <p>Additional implementation goals include:
 </p><ul>
 <li>Provide a simple interactive tool for creating new document type shells and generating DTD and XSD from them.</li>
