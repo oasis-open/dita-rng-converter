@@ -1,4 +1,9 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OASIS TC Open Repository: dita-rng-converter</title>
+  </head>
+  <body>
 <div>
 <h1>README</h1>
 
@@ -20,7 +25,14 @@
 
 <p>Statement of Purpose for this OASIS TC Open Repository (dita-rng-converter) as <a href="https://lists.oasis-open.org/archives/dita/201601/msg00040.html">proposed</a> and <a href="https://www.oasis-open.org/committees/download.php/57596/minutes20160223.txt">approved</a> by the TC:</p>
 
-<p>The repository manages the source code and supporting documentation for the RELAX NG-to-DTD and RELAX NG-to-XSD (and any other RNG-to-X transforms that might be developed, such as RELAX NG-to-EDD or RELAX NG-to-Schematron) transforms developed originally for use by the DITA TC in producing the <a href="http://docs.oasis-open.org/dita/dita/v1.3/">DITA 1.3</a> DTDs and XSDs from the normative RELAX NG versions of the DITA 1.3 grammar. The converter is intended to make it easy for any DITA user to develop and maintain their own document type shells, constraint modules, and vocabulary modules using RELAX NG, which has proven to be much easier to use than DTD or XSD.</p>
+<p>The repository manages the source code and supporting documentation for the RELAX NG-to-DTD and
+          RELAX NG-to-XSD (and any other RNG-to-X transforms that might be developed, such as RELAX
+          NG-to-EDD or RELAX NG-to-Schematron) transforms developed originally for use by the DITA
+          TC in producing the <a href="http://docs.oasis-open.org/dita/dita/v1.3/">DITA 1.3</a> and
+          DITA 2.x DTDs and XSDs from the normative RELAX NG versions of the DITA 1.3 and DITA 2.x
+          grammars. The converter is intended to make it easy for any DITA user to develop and
+          maintain their own document type shells, constraint modules, and vocabulary modules using
+          RELAX NG, which has proven to be much easier to use than DTD or XSD.</p>
 
 </div>
 
@@ -29,14 +41,20 @@
 <div><h3>Tool Overview</h3>
 <p>
 This project provides the following transforms from RNG grammars that follow the coding conventions used by the DITA Technical Committee for the TC-defined modules and shells:
-<ul>
-<li>RNG-to-DTD: Generates conforming DTD-syntax document type shells and modules</li>
-<li>RNG-to-XSD: Generates conforming XSD-syntax document type shells and modules</li>
+</p><ul>
+<li>RNG-to-DTD: Generates both DTD-syntax document type shells and modules as well as single-file
+              ("monolithic") DTDs.</li>
+<li>RNG-to-XSD: Generates both modular (DITA 1.x-style) XSD-syntax document type shells and modules
+              that use the XSD redefine feature (within limits on the ability to generate modular
+              constrained XSDs) as well as "monolithic" single-file XSDs that do not use
+              redefine.</li>
 <li>XML entity resolution catalog generator: Generates XML entity resolution catalogs for the RNG, DTD, and XSD modules processed or generated.</li>
 </ul>
 <p>The transforms are implemented as XSLT transforms and run through an Ant script. See the project documentation for details.</p>
-<p>The transforms can be run standalone or through an Open Toolkit plugin. The transforms have no dependency on the DITA Open Toolkit itself.</p>
-<p>You can use these transforms to generate both DITA 1.2 and DITA 1.3 shells and modules: RNG versions of the DITA 1.2 shells and vocabulary are included in the project (as developed by the DITA Technical Committee).</p>
+<p>The transforms can be run standalone or through an Open Toolkit plug-in. The transforms have no
+            dependency on DITA Open Toolkit itself.</p>
+<p>You can use these transforms to generate shells and modules for all DITA versions through
+            2.0.</p>
 <p><b>NOTE:</b> At some point the OASIS-defined grammars will be removed from this project and you'll need to get the latest DITA Open Toolkit 
 distribution in order to minimize the number of copies of the OASIS-provided grammars.</p>
 </div>
@@ -45,15 +63,15 @@ distribution in order to minimize the number of copies of the OASIS-provided gra
 <p>The code as added 24 March 2016 is still under development and requires more work to make it
 ready for general use. The latest code is on the develop branch.</p>
 <p>The current development plan is:
-<ol>
+</p><ol>
 <li>Fix bugs related to infinite looping of code when generating shells, as reported by 
 Toshihiko Makita on the DITA Community version of the repo (https://github.com/dita-community/dita-rng-converter/issues/2)</li>
 <li>Refine the Ant scripts to ensure that all parameters are appropriate and working.</li>
 <li>Finish documentation.</li> 
 </ol>
-<p>Schedule: Goal is to complete these actions by the end of April 2016.</p>
+<p>Schedule: Goal is to complete these actions by the end of April 2022.</p>
 <p>Additional implementation goals include:
-<ul>
+</p><ul>
 <li>Provide a simple interactive tool for creating new document type shells and generating DTD and XSD from them.</li>
 <li>Implement a FrameMaker EDD generation process to make it easier to use local shells, specializations, and 
 constraints with FrameMaker.</li>
@@ -79,15 +97,13 @@ constraints with FrameMaker.</li>
 </div>
 
 <div><h2><a id="aboutOpenRepos">About OASIS TC Open Repositories</a></h2>
-
-<p><ul>
-<li><a href="https://www.oasis-open.org/resources/open-repositories/">TC Open Repositories: Overview and Resources</a></li>
-<li><a href="https://www.oasis-open.org/resources/open-repositories/faq">Frequently Asked Questions</a></li>
-<li><a href="https://www.oasis-open.org/resources/open-repositories/licenses">Open Source Licenses</a></li>
-<li><a href="https://www.oasis-open.org/resources/open-repositories/cla">Contributor License Agreements (CLAs)</a></li>
-<li><a href="https://www.oasis-open.org/resources/open-repositories/maintainers-guide">Maintainers' Guidelines and Agreement</a></li>
-</ul></p>
-
+  <ul>
+   <li><a href="https://www.oasis-open.org/resources/open-repositories/">TC Open Repositories: Overview and Resources</a></li>
+   <li><a href="https://www.oasis-open.org/resources/open-repositories/faq">Frequently Asked Questions</a></li>
+   <li><a href="https://www.oasis-open.org/resources/open-repositories/licenses">Open Source Licenses</a></li>
+   <li><a href="https://www.oasis-open.org/resources/open-repositories/cla">Contributor License Agreements (CLAs)</a></li>
+   <li><a href="https://www.oasis-open.org/resources/open-repositories/maintainers-guide">Maintainers' Guidelines and Agreement</a></li>
+ </ul>
 </div>
 
 <div><h2><a id="feedback">Feedback</a></h2>
@@ -95,3 +111,4 @@ constraints with FrameMaker.</li>
 <p>Questions or comments about this TC Open Repository's activities should be composed as GitHub issues or comments. If use of an issue/comment is not possible or appropriate, questions may be directed by email to the Maintainer(s) <a href="#currentMaintainers">listed above</a>.  Please send general questions about TC Open Repository participation to OASIS Staff at <a href="mailto:repository-admin@oasis-open.org">repository-admin@oasis-open.org</a> and any specific CLA-related questions to <a href="mailto:repository-cla@oasis-open.org">repository-cla@oasis-open.org</a>.</p>
 
 </div></div>
+  </body></html>
