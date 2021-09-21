@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--=============================================================-->
+<!--Sample map specialization                                    -->
+<!--Adds required "pubroot" topicref.                            -->
+<!--=============================================================-->
+<xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:group name="mymap">
+      <xs:sequence>
+         <xs:choice>
+            <xs:element ref="mymap"/>
+         </xs:choice>
+      </xs:sequence>
+   </xs:group>
+   <xs:group name="pubroot">
+      <xs:sequence>
+         <xs:choice>
+            <xs:element ref="pubroot"/>
+         </xs:choice>
+      </xs:sequence>
+   </xs:group>
+   <xs:group name="pubresources">
+      <xs:sequence>
+         <xs:choice>
+            <xs:element ref="pubresources"/>
+         </xs:choice>
+      </xs:sequence>
+   </xs:group>
+</xs:schema>

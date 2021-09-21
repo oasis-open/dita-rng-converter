@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:learningSummary.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<learningSummary id="test-learningSummary">
+  <title>Test of example.com Learning Summary</title>
+  <learningSummarybody>
+    <lcSummary>
+      <p>The summary of the learning summary.</p>
+    </lcSummary>
+  </learningSummarybody>
+</learningSummary>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<readme>
+  This file serves as input to the 
+  testdoc-generator.xsl transform.
+  It simply serves to establish the
+  root input directory to process.
+</readme>

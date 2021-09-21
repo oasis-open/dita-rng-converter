@@ -21,13 +21,7 @@
       <toc/>
     </booklists>
   </frontmatter>
-  <chapter href="getting-started.dita">
-    <topicref href="topics/one_time_setup.dita"/>
-    <topicref href="topics/running_the_dita_rng_converter.dita"/>
-    <topicref href="understanding_the_oasis_file_organization_scheme.dita"/>
-  </chapter>
-  <chapter href="topics/generating_dtds.dita">
-    <topicref href="topics/generating_dtd_document_type_shells.dita"/>
-    <topicref href="topics/generating_vocabulary_and_constraint_modules.dita"/>
-  </chapter>
+  <chapter href="getting-started/getting-started.ditamap" format="ditamap"/>
+  <chapter href="generating-dtds/generating-dtds.ditamap" format="ditamap"/>
+  <chapter href="rng-tutorial/rng-tutorial-chapter.ditamap" format="ditamap"/>
 </bookmap>

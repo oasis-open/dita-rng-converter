@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--My Specialized Map Type Shell-->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:pubid:example.org:dita:xsd:map.xsd" uri="xsd/myMap.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:map.xsd:1.x"
+              uri="xsd/myMap.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:map.xsd:1.3"
+              uri="xsd/myMap.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:myMapGrp.xsd"
+              uri="xsd/myMapGrp.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:myMapGrp.xsd:1.x"
+              uri="xsd/myMapGrp.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:myMapGrp.xsd:1.3"
+              uri="xsd/myMapGrp.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:myMapMod.xsd"
+              uri="xsd/myMapMod.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:myMapMod.xsd:1.x"
+              uri="xsd/myMapMod.xsd"/>
+      <system systemId="urn:pubid:example.org:dita:xsd:myMapMod.xsd:1.3"
+              uri="xsd/myMapMod.xsd"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:pubid:example.org:dita:xsd:map.xsd" uri="xsd/myMap.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:map.xsd:1.x" uri="xsd/myMap.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:map.xsd:1.3" uri="xsd/myMap.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:myMapGrp.xsd"
+           uri="xsd/myMapGrp.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:myMapGrp.xsd:1.x"
+           uri="xsd/myMapGrp.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:myMapGrp.xsd:1.3"
+           uri="xsd/myMapGrp.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:myMapMod.xsd"
+           uri="xsd/myMapMod.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:myMapMod.xsd:1.x"
+           uri="xsd/myMapMod.xsd"/>
+      <uri name="urn:pubid:example.org:dita:xsd:myMapMod.xsd:1.3"
+           uri="xsd/myMapMod.xsd"/>
+   </group>
+</catalog>

@@ -12,7 +12,8 @@
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita rngfunc rng2ditadtd"
-  version="2.0">
+  expand-text="yes"
+  version="3.0">
   
   <!-- ==============================================================
        Standalone RNG-to-entity resolution catalog generation
@@ -69,6 +70,18 @@
        
     -->
   
+  <xd:doc>
+    <xd:param>$catalogs: URL(s) of catalogs to use.</xd:param>
+  </xd:doc>
+  
+  <!-- FIXME: This is used by the catalog utility to resolve URIs through a catalog.
+              
+              This needs to be replaced with a list of catalogs
+              and then used to construct a global map representing
+              the resolved catalogs to be used for URI lookup.
+    -->
+  <xsl:param name="catalogs" as="xs:string?" select="()"/>
+  
   <xsl:output omit-xml-declaration="yes"/>
   
   <xsl:template name="processDir">
@@ -83,9 +96,9 @@
     <xsl:variable name="effectiveRootDir" as="xs:string" 
       select="if ($rootDir != '')
       then $rootDir
-      else relpath:getParent(document-uri(root(.)))
+      else relpath:getParent(base-uri(root(.)/*))
       "/>
-    <xsl:message> + [INFO] processDir: effectiveRootDir="<xsl:value-of select="$effectiveRootDir"/></xsl:message>
+    <xsl:message> + [INFO] processDir: effectiveRootDir="{$effectiveRootDir}</xsl:message>
     <xsl:variable name="collectionUri" 
       select="concat($effectiveRootDir, '?', 
       'recurse=yes;',
@@ -100,8 +113,7 @@
       <xsl:message> + [DEBUG] Documents to process:</xsl:message>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:for-each select="$rngDocs">
-        <xsl:message> + [DEBUG]  <xsl:value-of 
-          select="substring-after(string(document-uri(.)), concat($effectiveRootDir, '/'))"/></xsl:message>
+        <xsl:message> + [DEBUG]  {substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))}</xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
     </xsl:if>    
@@ -123,10 +135,10 @@
   <xsl:template name="reportParameters">
     <xsl:message> + [INFO] Parameters:
       
-      debug              ="<xsl:value-of select="$debug"/>"
-      ditaVersion        ="<xsl:value-of select="$ditaVersion"/>"
-      outdir             ="<xsl:value-of select="$outdir"/>"
-      rootDir            ="<xsl:value-of select="$rootDir"/>"
+      debug              ="{$debug}"
+      ditaVersion        ="{$ditaVersion}"
+      outdir             ="{$outdir}"
+      rootDir            ="{$rootDir}"
       
     </xsl:message>    
     

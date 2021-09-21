@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <ref name="my-root-element"/>
+  </start>
+  
+  <define name="my-root-element">
+    <element name="my-root-element">
+      <ref name="a"/>
+      <optional>
+        <ref name="b"/>
+      </optional>
+      <optional>
+        <attribute name="id"/>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="a">
+    <element name="a">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="b">
+    <element name="b">
+      <choice>
+        <ref name="a"/>
+        <ref name="b"/>
+      </choice>
+    </element>
+  </define>
+</grammar>

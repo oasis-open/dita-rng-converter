@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>My Map Type</moduleTitle>
+    <headerComment xml:space="preserve">
+=============================================================
+Sample map specialization
+
+Adds required "pubroot" topicref.
+=============================================================
+</headerComment>
+    <moduleMetadata>
+      <moduleType>map</moduleType>
+      <moduleShortName>mymap</moduleShortName>
+      <modulePublicIds>
+        <dtdMod>urn:pubid:example.org:dita:elements:<var presep=":" name="ditaver"/>:myMap.mod</dtdMod>
+        <dtdEnt>urn:pubid:example.org:dita:entities:<var presep=":" name="ditaver"/>:myMap.ent</dtdEnt>
+        <rncMod>urn:pubid:example.org:dita:rnc:myMapMod.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:pubid:example.org:dita:rng:myMapMod.rng<var presep=":" name="ditaver"/></rngMod>
+        <xsdGrp>urn:pubid:example.org:dita:xsd:myMapGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
+        <xsdMod>urn:pubid:example.org:dita:xsd:myMapMod.xsd<var presep=":" name="ditaver"/></xsdMod>
+      </modulePublicIds>
+      <domainsContribution>(map mymap)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
+
+  <div>
+    <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+    <define name="pubroot">
+      <ref name="pubroot.element"/>
+    </define>
+    <define name="pubresources">
+      <ref name="pubresources.element"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>COMMON ATTRIBUTE SETS</a:documentation>
+    
+  </div>
+  <div>
+    <a:documentation> ELEMENT DECLARATIONS </a:documentation>
+    <div>
+      <a:documentation>LONG NAME: My Map</a:documentation>
+      <define name="mymap.content">
+        <optional>
+          <ref name="title"/>
+        </optional>
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="pubresources"/>
+          </choice>
+        </zeroOrMore>
+        <ref name="pubroot"/>
+        <zeroOrMore>
+          <choice>
+            <ref name="topicref"/>
+          </choice>
+        </zeroOrMore>
+        <zeroOrMore>
+          <choice>
+            <ref name="reltable"/>
+          </choice>
+        </zeroOrMore>        
+      </define>
+      <define name="mymap.attributes">
+        <optional>
+          <attribute name="title"/>
+        </optional>
+        <optional>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
+        </optional>
+        <ref name="conref-atts"/>
+        <optional>
+          <attribute name="anchorref"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="localization-atts"/>
+        <ref name="topicref-atts"/>
+        <ref name="select-atts"/>
+      </define>
+      <define name="mymap.element">
+        <element name="mymap" dita:longName="My Map Type">
+          <a:documentation>Sample specialized map type</a:documentation>
+          <ref name="mymap.attlist"/>
+          <ref name="mymap.content"/>
+        </element>
+      </define>
+      <define name="mymap.attlist" combine="interleave">
+        <ref name="mymap.attributes"/>
+        <ref name="arch-atts"/>
+        <optional>
+          <attribute name="domains" a:defaultValue="(map mapgroup-d) (map mymap)"/>
+        </optional>
+      </define>
+
+    </div>    <div>
+      <a:documentation>LONG NAME: publicaton root</a:documentation>
+      <define name="pubroot.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="data.elements.incl"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="topicref"/>
+        </zeroOrMore>
+      </define>
+      <define name="pubroot.attributes">
+        <optional>
+          <attribute name="href"/>
+        </optional>
+        <optional>
+          <attribute name="keyref"/>
+        </optional>
+        <optional>
+          <attribute name="keys"/>
+        </optional>
+        <optional>
+          <attribute name="cascade" dita:since="1.3"/>
+        </optional>
+        <optional>
+          <attribute name="format" a:defaultValue="ditamap"/>
+        </optional>
+        <optional dita:since="DITA 1.3">
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="pubroot.element">
+        <element name="pubroot" dita:longName="Publication Root">
+          <a:documentation>Serves as the root for the navigation tree of a publication.</a:documentation>
+          <ref name="pubroot.attlist"/>
+          <ref name="pubroot.content"/>
+        </element>
+      </define>
+      <define name="pubroot.attlist" combine="interleave">
+        <ref name="pubroot.attributes"/>
+      </define>
+    </div>
+    <div>
+      <a:documentation>LONG NAME: publicaton resources</a:documentation>
+      <define name="pubresources.content">
+        <zeroOrMore>
+          <ref name="data.elements.incl"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="topicref"/>
+        </zeroOrMore>
+      </define>
+      <define name="pubresources.attributes">
+        <optional>
+          <attribute name="processing-role" a:defaultValue="resource-only"/>
+        </optional>
+        <optional>
+          <attribute name="cascade" dita:since="1.3"/>
+        </optional>
+        <optional dita:since="DITA 1.3">
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="pubresources.element">
+        <element name="pubresources" dita:longName="Publication Resources">
+          <a:documentation>Container for resources defined in the map. Sets processing-role to "resource-only" by default.</a:documentation>
+          <ref name="pubresources.attlist"/>
+          <ref name="pubresources.content"/>
+        </element>
+      </define>
+      <define name="pubresources.attlist" combine="interleave">
+        <ref name="pubresources.attributes"/>
+      </define>
+    </div>
+  </div>
+  <div>
+    <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
+    <define name="mymap.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/map mymap/mymap "/>
+      </optional>
+    </define>
+    <define name="pubroot.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/topicref mymap/pubroot "/>
+      </optional>
+    </define>
+    <define name="pubresources.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/topicref mymap/pubresources "/>
+      </optional>
+    </define>
+  </div>
+</grammar>

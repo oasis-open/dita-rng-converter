@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:ditabase.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<dita>
+  <concept id="concept-in-ditabase">
+    <title>This is a concept in a ditabase document.</title>
+  </concept>
+  <task id="task-in-ditabase">
+    <title>This is a task in a ditabase document.</title>
+  </task>
+</dita>

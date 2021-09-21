@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:glossentry.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<glossentry id="test-glossentry">
+  <glossterm>Test of example.com glossentry document type shell</glossterm>
+  <glossdef>
+    <p>This is the glossary definition.</p>
+  </glossdef>
+  <glossBody>
+    <glossUsage><p>Glossary usage.</p></glossUsage>
+  </glossBody>
+</glossentry>

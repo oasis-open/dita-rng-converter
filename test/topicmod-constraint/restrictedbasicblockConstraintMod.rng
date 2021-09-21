@@ -1,0 +1,59 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA restrictedBasicBlock Constraint</moduleTitle>
+    <headerComment xml:space="preserve">
+============================================================= 
+MODULE:    DITA restrictedBasicBlock - RNG              
+VERSION:   1.3                                             
+DATE:      June 2013                                       
+=============================================================
+
+============================================================= 
+SYSTEM:     Darwin Information Typing Architecture (DITA)     
+PURPOSE:    
+ORIGINAL CREATION DATE:  
+June 2013                                              
+(C) Copyright OASIS Open 2013, 2014                                
+All Rights Reserved.                                          
+=============================================================
+        </headerComment>
+    <moduleMetadata>
+      <moduleType>constraint</moduleType>
+      <moduleShortName>restrictedBasicBlock</moduleShortName>
+      <modulePublicIds>
+        <dtdMod>-//DITTOSTUDIO//ENTITIES DITA restrictedBasicBlock Constraint//EN</dtdMod>
+        <xsdMod>urn:dittostudio:dita:xsd:restrictedBasicBlockConstraintMod.xsd</xsdMod>
+        <rncMod>urn:dittostudio:dita:rnc:restrictedBasicBlockConstraintMod.rnc</rncMod>
+        <rngMod>urn:dittostudio:dita:rng:restrictedBasicBlockConstraintMod.rng</rngMod>
+      </modulePublicIds>
+      <domainsContribution>(topic restrictedBasicBlock-c)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
+  <include href="urn:oasis:names:tc:dita:rng:topicMod.rng">
+    <a:documentation>Test Documenation Block</a:documentation>
+    <define name="basic.block">
+       <choice>
+         <ref name="dl"/>
+         <ref name="div"/>
+       </choice>
+    </define>
+    <a:documentation/>
+    <define name="basic.block.notbl" >
+      <choice>
+        <ref name="dl"/>
+        <ref name="div"/>
+        <ref name="fig"/>
+        <ref name="image"/>
+        <ref name="lines"/>
+        <ref name="lq"/>
+        <ref name="note"/>
+        <ref name="object"/>
+        <ref name="ol"/>
+        <ref name="p"/>
+        <ref name="pre"/>
+        <ref name="sl"/>
+        <ref name="ul"/>
+        </choice>
+    </define>
+  </include>
+</grammar>

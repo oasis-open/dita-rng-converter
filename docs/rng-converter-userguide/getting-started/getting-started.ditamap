@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+  <booktitle>
+    <mainbooktitle>Getting Started With the DITA RNG Converter</mainbooktitle>
+  </booktitle>
+  <chapter keys="getting-started" href="topics/getting-started.dita">
+    <topicref keys="one-time-setup" href="topics/one_time_setup.dita"/>
+    <topicref keys="running-rng-converter" href="topics/running_the_dita_rng_converter.dita"/>
+    <topicref keys="understanding-file-organization"
+      href="topics/understanding_the_oasis_file_organization_scheme.dita"/>
+  </chapter>
+</bookmap>

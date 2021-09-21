@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--=============================================================-->
+<!--Sample map specialization                                    -->
+<!--Adds required "pubroot" topicref.                            -->
+<!--=============================================================-->
+<xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- ==================== Import Section ======================= -->
+   <xs:import namespace="http://dita.oasis-open.org/architecture/2005/"
+              schemaLocation="../../base/xsd/ditaarch.xsd"/>
+
+   <xs:annotation>
+      <xs:appinfo>
+         <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(map mymap)</dita:domainsModule>
+      </xs:appinfo>
+   </xs:annotation>
+
+   <xs:element name="mymap">
+      <xs:annotation>
+         <xs:documentation>Sample specialized map type</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="mymap.class">
+               <xs:attribute ref="class" default="- map/map mymap/mymap "/>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:complexType name="mymap.class">
+      <xs:sequence>
+         <xs:group ref="mymap.content"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="mymap.attributes"/>
+   </xs:complexType>
+   <xs:group name="mymap.content">
+      <xs:sequence>
+         <xs:group ref="title" minOccurs="0"/>
+         <xs:group ref="topicmeta" minOccurs="0"/>
+         <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="pubresources"/>
+         </xs:choice>
+         <xs:group ref="pubroot"/>
+         <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="topicref"/>
+         </xs:choice>
+         <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="reltable"/>
+         </xs:choice>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="mymap.attributes">
+      <xs:attribute name="title" type="xs:string"/>
+      <xs:attribute name="id" type="xs:ID"/>
+      <xs:attributeGroup ref="conref-atts"/>
+      <xs:attribute name="anchorref" type="xs:string"/>
+      <xs:attribute name="outputclass" type="xs:string"/>
+      <xs:attributeGroup ref="localization-atts"/>
+      <xs:attributeGroup ref="topicref-atts"/>
+      <xs:attributeGroup ref="select-atts"/>
+      <xs:attribute ref="ditaarch:DITAArchVersion"/>
+      <xs:attribute name="domains" type="xs:string"/>
+      <xs:attributeGroup ref="global-atts"/>
+   </xs:attributeGroup>
+   <xs:attributeGroup name="mymap.attlist">
+      <xs:attribute ref="ditaarch:DITAArchVersion"/>
+      <xs:attribute name="domains" type="xs:string"/>
+   </xs:attributeGroup>
+   <xs:element name="pubroot">
+      <xs:annotation>
+         <xs:documentation>Serves as the root for the navigation tree of a publication.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="pubroot.class">
+               <xs:attribute ref="class" default="- map/topicref mymap/pubroot "/>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:complexType name="pubroot.class">
+      <xs:sequence>
+         <xs:group ref="pubroot.content"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="pubroot.attributes"/>
+   </xs:complexType>
+   <xs:group name="pubroot.content">
+      <xs:sequence>
+         <xs:group ref="topicmeta" minOccurs="0"/>
+         <xs:group ref="data.elements.incl" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:group ref="topicref" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="pubroot.attributes">
+      <xs:attribute name="href" type="xs:string"/>
+      <xs:attribute name="keyref" type="xs:string"/>
+      <xs:attribute name="keys" type="xs:string"/>
+      <xs:attribute name="cascade" type="xs:string"/>
+      <xs:attribute name="format" type="xs:string"/>
+      <xs:attribute name="outputclass" type="xs:string"/>
+      <xs:attributeGroup ref="univ-atts"/>
+      <xs:attributeGroup ref="global-atts"/>
+   </xs:attributeGroup>
+   <xs:element name="pubresources">
+      <xs:annotation>
+         <xs:documentation>Container for resources defined in the map. Sets processing-role to "resource-only" by default.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="pubresources.class">
+               <xs:attribute ref="class" default="- map/topicref mymap/pubresources "/>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:complexType name="pubresources.class">
+      <xs:sequence>
+         <xs:group ref="pubresources.content"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="pubresources.attributes"/>
+   </xs:complexType>
+   <xs:group name="pubresources.content">
+      <xs:sequence>
+         <xs:group ref="data.elements.incl" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:group ref="topicref" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="pubresources.attributes">
+      <xs:attribute name="processing-role" type="xs:string"/>
+      <xs:attribute name="cascade" type="xs:string"/>
+      <xs:attribute name="outputclass" type="xs:string"/>
+      <xs:attributeGroup ref="univ-atts"/>
+      <xs:attributeGroup ref="global-atts"/>
+   </xs:attributeGroup>
+</xs:schema>

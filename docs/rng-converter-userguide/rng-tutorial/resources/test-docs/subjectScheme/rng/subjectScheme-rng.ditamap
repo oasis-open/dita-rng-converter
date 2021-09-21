@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:subjectScheme.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<subjectScheme>
+  <title>Test example.com subjectScheme map</title>
+  <subjectdef keys="some-subject">
+    <topicmeta>
+      <navtitle>Some subject</navtitle>
+    </topicmeta>
+  </subjectdef>
+</subjectScheme>

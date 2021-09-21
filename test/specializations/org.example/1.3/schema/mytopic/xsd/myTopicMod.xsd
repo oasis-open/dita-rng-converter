@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--=============================================================-->
+<!--Sample topic specialization. Sets the root element to "myTopic".-->
+<!--=============================================================-->
+<xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- ==================== Import Section ======================= -->
+   <xs:import namespace="http://dita.oasis-open.org/architecture/2005/"
+              schemaLocation="urn:oasis:names:tc:dita:xsd:ditaarch.xsd:1.3"/>
+
+   <xs:annotation>
+      <xs:appinfo>
+         <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic mytopic)</dita:domainsModule>
+      </xs:appinfo>
+   </xs:annotation>
+
+   <xs:group name="mytopic-info-types">
+      <xs:choice>
+         <xs:group ref="mytopic"/>
+         <xs:group ref="info-types"/>
+      </xs:choice>
+   </xs:group>
+   <xs:element name="mytopic">
+      <xs:annotation>
+         <xs:documentation>A trivial specialization of topic that simply changes the topic element tag name.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="mytopic.class">
+               <xs:attribute ref="class" default="- topic/topic mytopic/mytopic "/>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:complexType name="mytopic.class">
+      <xs:sequence>
+         <xs:group ref="mytopic.content"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="mytopic.attributes"/>
+   </xs:complexType>
+   <xs:group name="mytopic.content">
+      <xs:sequence>
+         <xs:group ref="title"/>
+         <xs:group ref="titlealts" minOccurs="0"/>
+         <xs:choice minOccurs="0">
+            <xs:group ref="abstract"/>
+            <xs:group ref="shortdesc"/>
+         </xs:choice>
+         <xs:group ref="prolog" minOccurs="0"/>
+         <xs:group ref="body" minOccurs="0"/>
+         <xs:group ref="related-links" minOccurs="0"/>
+         <xs:group ref="mytopic-info-types" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="mytopic.attributes">
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+      <xs:attributeGroup ref="conref-atts"/>
+      <xs:attributeGroup ref="select-atts"/>
+      <xs:attributeGroup ref="localization-atts"/>
+      <xs:attribute name="outputclass" type="xs:string"/>
+      <xs:attribute ref="ditaarch:DITAArchVersion"/>
+      <xs:attributeGroup ref="domains-att"/>
+      <xs:attributeGroup ref="global-atts"/>
+   </xs:attributeGroup>
+   <xs:attributeGroup name="mytopic.attlist">
+      <xs:attribute ref="ditaarch:DITAArchVersion"/>
+      <xs:attributeGroup ref="domains-att"/>
+   </xs:attributeGroup>
+</xs:schema>

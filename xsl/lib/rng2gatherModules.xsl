@@ -10,7 +10,8 @@
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc rng2ditadtd"
-  version="2.0">
+  expand-text="yes"
+  version="3.0">
   <!-- ==============================
        Gather Modules mode
        
@@ -30,14 +31,14 @@
     <xsl:choose>
       <xsl:when test="$rngModule">
         <xsl:if test="false() and $doDebug">
-<!--          <xsl:message> + [DEBUG] gatherModules: Resolved reference to module <xsl:sequence select="string(@href)" /></xsl:message>-->
-<!--          <xsl:message> + [DEBUG]   document-uri($rngModule)="<xsl:value-of select="document-uri($rngModule)"/>"</xsl:message>-->
+<!--          <xsl:message> + [DEBUG] gatherModules: Resolved reference to module {@href} /></xsl:message>-->
+<!--          <xsl:message> + [DEBUG]   document-uri($rngModule)="{document-uri($rngModule)}"</xsl:message>-->
         </xsl:if>
         <xsl:sequence select="$rngModule"/>
         <xsl:apply-templates mode="gatherModules" select="$rngModule"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> - [ERROR] Failed to resolve reference to module <xsl:sequence select="string(@href)" /> relative to base "<xsl:sequence select="document-uri(.)"/>"</xsl:message>
+        <xsl:message> - [ERROR] Failed to resolve reference to module <xsl:sequence select="string(@href)" /> relative to base "<xsl:sequence select="document-uri(.)"/>" ("{base-uri(./*)}")</xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--============================================================= -->
+<!--Sample specialization module                                 -->
+<!--This module defines several specializations of the           -->
+<!--"markupname" element from the DITA 1.3 markup name           -->
+<!--domain, which is the base domain for the DITA 1.3            -->
+<!--XML domain.                                                  -->
+<!--=============================================================      -->
+<!--                                                             -->
+<xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:annotation>
+      <xs:appinfo>
+         <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic markup-d mymention-d)</dita:domainsModule>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:group name="rngpattern">
+      <xs:sequence>
+         <xs:choice>
+            <xs:element ref="rngpattern"/>
+         </xs:choice>
+      </xs:sequence>
+   </xs:group>
+
+   <xs:group name="mymention-d-keyword">
+      <xs:choice>
+         <xs:element ref="rngpattern"/>
+      </xs:choice>
+   </xs:group>
+   <xs:element name="rngpattern">
+      <xs:annotation>
+         <xs:documentation/>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="rngpattern.class">
+               <xs:attribute ref="class"
+                             default="+ topic/keyword markup-d/markupname mymention-d/rngpattern "/>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:complexType name="rngpattern.class" mixed="true">
+      <xs:sequence>
+         <xs:group ref="rngpattern.content"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="rngpattern.attributes"/>
+   </xs:complexType>
+   <xs:group name="rngpattern.content">
+      <xs:sequence>
+         <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="draft-comment"/>
+            <xs:group ref="required-cleanup"/>
+            <xs:group ref="text"/>
+         </xs:choice>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="rngpattern.attributes">
+      <xs:attributeGroup ref="univ-atts"/>
+      <xs:attribute name="outputclass" type="xs:string"/>
+      <xs:attributeGroup ref="global-atts"/>
+   </xs:attributeGroup>
+</xs:schema>

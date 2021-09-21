@@ -108,46 +108,39 @@
                         the name of the domain(s) in which the
                         extension was declared                     -->
 
+<!ENTITY % term         "term |
+                         %abbrev-d-term;
+                        ">
+<!ENTITY % note         "note |
+                         %hazard-d-note;
+                        ">
+<!ENTITY % ph           "ph |
+                         %hi-d-ph; |
+                         %pr-d-ph; |
+                         %sw-d-ph; |
+                         %ui-d-ph; |
+                         %equation-d-ph;
+                        ">
+<!ENTITY % index-base   "index-base |
+                         %indexing-d-index-base;
+                        ">
 <!ENTITY % keyword      "keyword |
-                         %mymention-d-keyword; |
                          %markup-d-keyword; |
+                         %mymention-d-keyword; |
                          %pr-d-keyword; |
                          %sw-d-keyword; |
                          %ui-d-keyword; |
                          %xml-d-keyword;
                         ">
-<!ENTITY % term         "term |
-                         %abbrev-d-term;
-                        ">
-<!ENTITY % ph           "ph |
-                         %equation-d-ph; |
-                         %hi-d-ph; |
-                         %pr-d-ph; |
-                         %sw-d-ph; |
-                         %ui-d-ph;
-                        ">
-<!ENTITY % div          "div |
-                         %equation-d-div;
-                        ">
-<!ENTITY % fig          "fig |
-                         %equation-d-fig; |
-                         %pr-d-fig; |
-                         %ut-d-fig;
-                        ">
-<!ENTITY % note         "note |
-                         %hazard-d-note;
-                        ">
-<!ENTITY % index-base   "index-base |
-                         %indexing-d-index-base;
-                        ">
-<!ENTITY % foreign      "foreign |
-                         %mathml-d-foreign; |
-                         %svg-d-foreign;
-                        ">
 <!ENTITY % pre          "pre |
                          %pr-d-pre; |
                          %sw-d-pre; |
                          %ui-d-pre;
+                        ">
+<!ENTITY % fig          "fig |
+                         %pr-d-fig; |
+                         %ut-d-fig; |
+                         %equation-d-fig;
                         ">
 <!ENTITY % dl           "dl |
                          %pr-d-dl;
@@ -158,13 +151,20 @@
 <!ENTITY % data         "data |
                          %ut-d-data;
                         ">
+<!ENTITY % div          "div |
+                         %equation-d-div;
+                        ">
+<!ENTITY % foreign      "foreign |
+                         %mathml-d-foreign; |
+                         %svg-d-foreign;
+                        ">
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
 <!-- ============================================================= -->
 
 <!ENTITY % props-attribute-extensions
-  "%myPropsAtt-d-attribute;"
+  "%deliveryTargetAtt-d-attribute;"
 >
 <!ENTITY % base-attribute-extensions
   ""
@@ -175,8 +175,7 @@
 <!-- ============================================================= -->
 
 <!ENTITY % topic-info-types
-              "topic
-"
+              "topic"
 >
 
 <!-- ============================================================= -->

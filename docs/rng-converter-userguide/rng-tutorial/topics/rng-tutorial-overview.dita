@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="rng-tutorial-overview">
+    <title>Overview of the RELAX NG Tutorial</title>
+    <conbody>
+        <p>This tutorial starts with the most basic task, creating local shells. You should always
+      create local shells for any real-world, production use of DITA. Having created your own RELAX
+      NG local shells for all of the standard DITA map and topic types, you will then use the RNG
+      converter tool to generate DTD versions of all the shells. This task is mostly about copying
+      files and making a few global changes to files you copy.</p>
+    <p>For many users of DITA making local shells is as much as you'll need in terms of document
+      type configuration and customization. However, having created local shells you are then
+      prepared to do any amount of further configuration, constraint, or specialization you may
+      need.</p>
+    <p>The remaining tutorials reflect increasingly more sophisticated configuration, constraint,
+      and specialization tasks. </p>
+    <p>Most DITA users will likely want to remove some domains from their shells (XNAL anyone) and
+      many may want to add additional domains from third parties. With RELAX NG, adding and removing
+      domains is about as easy as it could possibly be: simply remove includes of the domains you
+      don't want and add includes to the domains you do want.</p>
+    <p>Another common task, which RELAX NG also makes fairly straightforward, is defining simple
+      constraints, such as disallowing specific element types provided by  given domain. This can be
+      done directly in your document type shells. More sophisticated constraints, such as
+      constraining content models of individual element types, is more involved but not that
+      difficult.</p>
+    <p>For specialization, many DITA users will want specialized conditional attributes (always
+      specialized from <xmlatt>props</xmlatt>). Attribute specializations are the easiest
+      specialization to create and anyone can do it. Again, RELAX NG makes it about as easy as it
+      can be.</p>
+    <p>The final tutorials introduce more sophisticated specializations for element domains, new
+      topic types, and new map types. Depending on the nature of your requirements the
+      specializations can be very easy to create (new topic types) or more involved, requiring a
+      deeper understanding of DITA rules and how to construct content models and attribute
+      lists.</p>
+    <p>The resources provided for the tutorials include the following materials:<ul
+        id="ul_khy_dmd_cfb">
+        <li>A starter set of RNG document type shells, one for each OASIS-defined map and topic
+          type, organized into a DITA Open Toolkit plugin</li>
+        <li>A set of test documents, one for each shell/grammar-type pair.</li>
+        <li>The worked result for each tutorial.</li>
+      </ul></p>
+    </conbody>
+  <concept id="concept_yyl_wmd_cfb">
+    <title>About the Starter Document Type Shells</title>
+    <conbody>
+      <p>The sample shells use URNs, not URLs, to refer to the OASIS-provided modules, so that you
+        can use them in your own plugin. (The OASIS-provided document type shells use relative URLs
+        to refer to all modules, which makes sense for the OASIS-provided grammars because they are
+        all developed and delivered as a unit, but doesn't work for non-OASIS shells where the
+        OASIS-provided modules will (or should) never be in a predictable position relative tot he
+        shells. By using URNs you are forced to provide entity resolution catalogs that map the URNs
+        to real files in the context of a given deployment (i.e., a DITA Open Toolkit to which all
+        the grammars have been deployed using normal Open Toolkit plugins). Fortunately, the RNG
+        converter can generate the catalogs for your grammars for you, so you should never need to
+        manually create catalogs for your grammars.</p>
+      <p>By packaging your shells as a DITA Open Toolkit plugin you make managing the deployment and
+        configuration of your grammars about as easy as it can be. Simply deploy your document types
+        plugin, run the Toolkit's "install" command, and your grammars are ready to use by any tool
+        that can use XML catalogs to resolve references to grammars, which should be all of them
+        (unfortunately it is not all of them, but that's another story).</p>
+      <p>The shells themselves differ from the OASIS-provided shells in the following ways:<ol
+          id="ol_yz3_fnd_cfb">
+          <li>The header comments have been cleared of any OASIS-specific information and replaced
+            with simple placeholder text that you can replace with your own comments to suit your
+            shell documentation preferences.</li>
+          <li>The DITA-specific shell public ID metadata at the beginning of the module has been
+            updated to reflect "example.com"'s ownership of the shells. You can update your versions
+            of the shells to reflect the appropriate owner, typically the enterprise that will be
+            using the shells.</li>
+          <li>The <xmlelement>include</xmlelement> elements use the OASIS-defined URNs for all
+            module references, not relative URLs.</li>
+        </ol></p>
+      <p>In all other respects the shells are identical to the OASIS-provided shells any document
+        that is valid against an OASIS-provided shell should validate against the corresponding
+        local shell (until you start adding your own constraints, of course).</p>
+    </conbody>
+  </concept>
+  <concept id="concept_oy3_ztd_cfb">
+    <title>About the Test Documents</title>
+    <conbody>
+      <p>The test documents in the <filepath>resources/test-docs</filepath> subdirectory are
+        intended to test the local shells. There is one test document for each map and topic type.
+        The organization of the files mirrors the organization of the grammar files.</p>
+      <p>In addition to the shell-specific test files, there are two top-level DITA maps,
+          <filepath>test-docs-rng.ditamap</filepath> and <filepath>test-docs-dtd.ditamap</filepath>,
+        that act as catalogs for the test files. You should be able to publish both maps using the
+        Open Toolkit and get good output.</p>
+      <p>The test documents are intended primarily to do a "smoke test" of the shells, verifying
+        that they can be resolved and that minimal markup for each type is valid. They are not
+        intended to be exhaustive tests of all the rules in a given document type.</p>
+    </conbody>
+  </concept>
+  <concept id="concept_gml_bvd_cfb">
+    <title>Basic DITA Concepts: Configuration, Constraint, and Specialization</title>
+    <conbody>
+      <p>The DITA standard makes clear and important distinctions between the three kinds of things
+        you can do with DITA grammars:<ul id="ul_ikw_gvd_cfb">
+          <li><term>configuration</term> is the act of modifying the set of modules used for a given
+            document type without adding or removing any individual element types. Creating a new
+            document type shell is <term>configuration</term>. Anyone who can edit an XML file
+            should be able to do DITA configuration using RELAX NG. It does not require any special
+            knowledge of RELAX NG syntax or DITA markup details.</li>
+          <li><term>constraint</term> is the act of modifying the specific rules for one or more
+            element types or attributes without adding any new element types or attributes.
+            Constraints can be very simple, such as disallowing individual element types from a
+            domain, or very involved, such as completely redefining the content models of a number
+            of element types for some reason. Simple constraints do not require special knowledge of
+            RELAX NG beyond what is described in these tutorials. Complex constraints of course
+            require a deeper working understanding of RELAX NG, DITA rules, and possibly DTD syntax
+            rules (in order to understand the limitations on what you can do with DITA RELAX NG
+            grammars that will be used to generate DTDs).</li>
+          <li><term>specialization</term> is the act of defining new markup that conforms to the
+            general DITA rules for specialized elements. Some specializations are simple, such as
+            specialized attributes and simple domains that just provide specializations of
+              <xmlelement>ph</xmlelement>, <xmlelement>data</xmlelement>,
+              <xmlelement>xref</xmlelement>, <xmlelement>topicref</xmlelement>, and other elements
+            with simple content models, and should be doable by anyone willing to work through the
+            specialization tutorials provided here. More sophisticated specializations, such as
+            highly specialized topic and map types, require a deeper understanding of how to define
+            elements and attributes and the rules for DITA specializations. It's not rocket science
+            but it does require a bit more effort and understanding. However, the use of RELAX NG as
+            the grammar language does avoid the syntax creation and debugging issues inherent in DTD
+            syntax and the redefine complexities present in XSD.</li>
+        </ul></p>
+      <p>All production users of DITA should do configuration, if only to create otherwise
+        unmodified local shells, as described in Tutorial 1. Many production DITA users will need to
+        do some constraint. Some, if not many, production DITA users will need to some
+        specialization, even if it's only to define custom conditional attributes (the simplest form
+        of specialization).</p>
+    </conbody>
+  </concept>
+  <concept id="concept_elg_5yd_cfb">
+    <title>Editing the Grammars and Test Documents</title>
+    <conbody>
+      <p>To complete the tutorials you need an editor that can edit XML documents. You will also
+        need to do global search and replaces across a large number of files.</p>
+      <p>The oXygenXML editor is ideally suited to these tasks because it is a full-featured XML
+        editor that provides built-in support for validating RNG-based documents. OxygenXML also
+        provides good tools for making global changes across multiple files, including XML-aware
+        search and replace.</p>
+      <p>At the moment oXygenXML is the only DITA-aware editor that also provides RELAX NG
+        validation. You can set up RELAX NG validation using the Trang tool if oXygenXML is not an
+        option for you. At the time of writing, the RNG support for the DITA Open Toolkit does not
+        do validation, only resolving of default attributes, so while you can easily process
+        RNG-based documents with the Open Toolkit, it will not validate and thus will not fully
+        verify your RNG shells. If you need oXygenXML just for the purpose of working these
+        tutorials, Syncro Soft offer a one-month free evaluation license.</p>
+    </conbody>
+  </concept>
+  <concept id="concept_t5z_4d2_cfb">
+    <title>A Note About File Paths</title>
+    <conbody>
+      <p>In this tutorial all file paths are shown with forward slashes ("/") except in the context
+        of explicitly Windows-specific examples. This reflects the fact that all file references in
+        DITA are URLs, not file system paths, and also makes it easier for me, the author, since I
+        work primarily on macOS or on linux systems. If you are a Windows user just mentally
+        translate "/" to "\" as necessary.</p>
+    </conbody>
+  </concept>
+</concept>

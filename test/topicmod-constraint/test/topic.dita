@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../topic.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<topic id="topic">
+    <title>Test of constrained topic</title>
+    <body>
+    <div>
+      <div>
+        <dl>
+          <dlentry>
+            <dt>asdf sa</dt>
+            <dd/>
+          </dlentry>
+        </dl>
+      </div>
+    </div>
+    <dl>
+      <dlentry>
+        <dt/>
+        <dd/>
+      </dlentry>
+    </dl>
+      <div></div>
+    <dl>
+      <dlentry>
+        <dt></dt>
+        <dd></dd>
+      </dlentry>
+    </dl>  
+  </body>
+</topic>

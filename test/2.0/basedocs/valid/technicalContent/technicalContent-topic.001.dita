@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic id="topic" shellPackage="technicalContent" shellName="topic">
+  <title>Unit Test: topic.dtd.001.dita</title>
+  <prolog>
+    <author type="creator">Jane</author>
+    <author type="contributor">John</author>
+    <metadata>
+      <audience type="programmer" job="programming" experiencelevel="expert"/>
+    </metadata>
+  </prolog>
+  <body>
+    <p>Here's a little topic.</p>
+    <ul>
+      <li>Some item</li>
+      <li>Another item</li>
+    </ul>
+    <image href="tip-ing.jpg">
+      <alt>Here's a Tip!</alt>
+    </image> 
+    <p>Use the <apiname>document.write</apiname> method to create text 
+      output in the dynamically constructed view.</p>
+    <p>She said "<boolean state="yes"/>" when I asked her to marry me!</p>
+  </body>
+</topic>

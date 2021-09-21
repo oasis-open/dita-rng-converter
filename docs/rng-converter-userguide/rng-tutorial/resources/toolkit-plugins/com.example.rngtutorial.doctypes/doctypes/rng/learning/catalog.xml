@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!-- DITA learningObjectMap Shell -->
+
+   <group><!-- System ID (URL) catalog entries -->
+      <system systemId="urn:pubid:example.com:dita:rng:learningObjectMap.rng"
+              uri="rng/learningObjectMap.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:learningBookmap.rng"
+              uri="rng/learningBookmap.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:learningOverview.rng"
+              uri="rng/learningOverview.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:learningSummary.rng"
+              uri="rng/learningSummary.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:learningMap.rng"
+              uri="rng/learningMap.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:learningAssessment.rng"
+              uri="rng/learningAssessment.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:learningGroupMap.rng"
+              uri="rng/learningGroupMap.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:learningPlan.rng"
+              uri="rng/learningPlan.rng"/>
+      <system systemId="urn:pubid:example.com:dita:rng:learningContent.rng"
+              uri="rng/learningContent.rng"/>
+   </group>
+   <group><!-- Public ID (URN) catalog entries -->
+      <uri name="urn:pubid:example.com:dita:rng:learningObjectMap.rng"
+           uri="rng/learningObjectMap.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:learningBookmap.rng"
+           uri="rng/learningBookmap.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:learningOverview.rng"
+           uri="rng/learningOverview.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:learningSummary.rng"
+           uri="rng/learningSummary.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:learningMap.rng"
+           uri="rng/learningMap.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:learningAssessment.rng"
+           uri="rng/learningAssessment.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:learningGroupMap.rng"
+           uri="rng/learningGroupMap.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:learningPlan.rng"
+           uri="rng/learningPlan.rng"/>
+      <uri name="urn:pubid:example.com:dita:rng:learningContent.rng"
+           uri="rng/learningContent.rng"/>
+   </group>
+</catalog>

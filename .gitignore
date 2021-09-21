@@ -13,3 +13,6 @@ hs_err_pid*
 
 */generationManifests*
 *generation-manifest*
+doctypes/oasis/2.0/rng-media
+!lib/*.jar
+.ant-targets-build-plugins.xml

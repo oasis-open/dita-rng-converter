@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:map.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+  <title>Test of example.com technical content map</title>
+  <topicgroup>
+    <mapref href="../../keydefs-topics-rng.ditamap"/>
+    <mapref href="../../subjectScheme/rng/subjectScheme-rng.ditamap"/>
+  </topicgroup>
+  <topicgroup>
+    <topicref keyref="test-concept"/>
+  </topicgroup>
+</map>
+  

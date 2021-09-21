@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="understanding_the_oasis_file_organization_scheme">
+  <title>Understanding the OASIS File Organization Scheme</title>
+  <body>
+    <p>The way the OASIS-defined grammar files are organized may seem a little odd, with more
+      directory levels than are really necessary. This is true but the organization reflects early
+      DITA practice and the DITA Technical Committee did not want to change the way the files were
+      organized in moving from DITA 1.2 to DITA 1.3.</p>
+    <p>The organizing principle is:<ul id="ul_qrs_c3x_fw">
+        <li>There is a top-level directory for each grammar type (DTD, RNC, RNG, and XSD)</li>
+        <li>Within each top-level directory is a directory reflecting different related sets of
+          grammars: <filepath>base</filepath>, <filepath>bookmap</filepath>, etc.</li>
+        <li>Within each of these directories is a directory reflecting the same grammar type as the
+          top-level directory, e.g. <filepath>dtd</filepath>, <filepath>rng</filepath>, etc. These
+          directories also contain the entity resolution catalog files for that grammar set
+            (<filepath>catalog.xml)</filepath></li>
+        <li>The grammar-type directory then contains all the grammar files for that set of
+          grammars.</li>
+      </ul></p>
+    <p>Because the RELAX NG converter was originally developed for use by the DITA Technical
+      Committee it reflects this file organization strategy in the way it constructs output
+      directories for generated DTD and XSD files. The converter may be made more flexible in the
+      future.</p>
+  </body>
+</topic>

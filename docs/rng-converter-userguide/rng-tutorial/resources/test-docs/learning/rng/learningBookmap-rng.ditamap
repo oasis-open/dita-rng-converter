@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:learningBookmap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<bookmap>
+  <booktitle>
+    <mainbooktitle>Test of example.com Learning Bookmap</mainbooktitle>
+  </booktitle>
+  <frontmatter>
+    <topicgroup>
+      <mapref href="../../keydefs-topics-rng.ditamap"/>
+    </topicgroup>
+  </frontmatter>
+  <chapter>
+    <topicmeta>
+      <navtitle>Chapter With Referneces to learning stuff</navtitle>
+    </topicmeta>
+    <topicref keyref="test-learningPlan"/>
+    <topicref keyref="test-learningOverview"/>   
+    <learningGroupMapRef href="learningGroupMap-rng.ditamap" format="ditamap"/>
+  </chapter>
+  
+</bookmap>

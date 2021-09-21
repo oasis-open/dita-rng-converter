@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:machineryTask.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<task id="test-machinery-task">
+  <title>Test of example.com Machinery Task</title>
+  <taskbody>
+    <steps>
+      <step>
+        <cmd>A step in a task.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>

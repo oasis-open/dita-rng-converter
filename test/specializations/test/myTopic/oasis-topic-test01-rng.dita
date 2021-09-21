@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:concept.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<concept id="topic_z55_x5x_fw">
+  <title>This is an OASIS concept topic</title>
+  <conbody>
+    <p>The topic body.</p>
+    <mathml xmlns:m="http://www.w3.org/1998/Math/MathML">
+      <m:math>
+        
+      </m:math>
+    </mathml>
+  </conbody>
+</concept>

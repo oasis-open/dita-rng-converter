@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="generating_vocabulary_and_constraint_modules">
+  <title>Generating Vocabulary and Constraint Modules</title>
+  <body>
+    <p>You can generate DTD and XSD versions of RNG vocabulary and constraint modules. Vocabulary
+      modules define new specializations, either new domains or new topic or map types.</p>
+    <p>To generate the DTD and XSD versions of vocabulary modules and constraint modules, you need
+      at least one RELAX NG document type shell that includes the modules you want to generate. You
+      then apply the generator to this shell, setting the <parmname>generateModules</parmname>
+      parameter to
+      "true":<codeblock>ant generate-dtd \
+  -DdoctypesDir=test/specializations/org.example/1.3/topic \
+  -Doutdir=test/specializations/org.example \
+  -DgenerateCatalogs=true \
+  -DgenerateModules=true</codeblock></p>
+    <p>This form of the command will generate the DTD version of the document type shell and also
+      generate the DTD versions of any non-OASIS-defined modules referenced by the shell.</p>
+    <p>Note that for XSD, generation of constraint modules is imperfect because of the rules for XSD
+      constraints. If your constraints are simple it may generate working modules but in many cases
+      you will need to modify the generated modules manually to create working XSD constraint
+      modules (which is one reason to want to avoid XSD for DITA entirely).</p>
+  </body>
+</topic>

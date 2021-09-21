@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--=============================================================-->
+<!--Sample attribute domain specialization                       -->
+<!--This domain defines a specialization of @props named @myProps-->
+<!--=============================================================-->
+<xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:annotation>
+      <xs:appinfo>
+         <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">a(props myProps)</dita:domainsModule>
+      </xs:appinfo>
+   </xs:annotation>
+
+   <xs:attributeGroup name="myPropsAtt-d-attribute">
+      <xs:attribute name="myProps" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>A sample specialization of @props</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+   </xs:attributeGroup>
+</xs:schema>

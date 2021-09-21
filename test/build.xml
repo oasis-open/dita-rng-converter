@@ -4,7 +4,7 @@
   <property environment="env"/>
 
   <property name="ditaver" description="The DITA version to generate (1.2, 1.3, etc.)"
-     value="1.2"
+     value="2.0"
   />
   
   <property name="basedocsSubdir" value=""/>
@@ -144,7 +144,7 @@
      classpathref="saxonClasspath"
      force="true"
      >
-     <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+     <factory name="net.sf.saxon.TransformerFactoryImpl"/>     
      <param name="outdir" expression="${docsToValidateDir}/valid"/>
      <param name="debug" expression="${debug}"/>
    </xslt>

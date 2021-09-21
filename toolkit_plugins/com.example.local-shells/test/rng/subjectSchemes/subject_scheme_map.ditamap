@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:subjectScheme.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<subjectScheme>
+  <title>Test Subject Scheme</title>
+  <subjectdef keys="subject01">
+    <topicmeta>
+      <navtitle>The first subject</navtitle>
+    </topicmeta>
+  </subjectdef>
+</subjectScheme>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="3.0"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:local="urn:localfunctions"
   exclude-result-prefixes="relpath xs local"
+  expand-text="yes"
   
   >
   <xsl:variable name="allones" select="(1,1,1,1, 1,1,1,1)" as="xs:integer*"/>
@@ -378,7 +379,10 @@
          component of the path.
     -->
     <xsl:param name="sourcePath" as="xs:string"/>
-    <xsl:value-of select="tokenize($sourcePath, '/')[last()]"/>
+    <xsl:variable name="result" 
+      select="tokenize($sourcePath, '/')[last()]"
+    />
+    <xsl:sequence select="$result"/>
   </xsl:function>
   
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
@@ -503,7 +507,7 @@
     <xsl:variable name="pathTokens" select="tokenize($sourcePath, '/')" as="xs:string*"/>
     <xsl:if test="false()">
       <xsl:message> + DEBUG relpath:getAbsolutePath(): Starting</xsl:message>
-      <xsl:message> +       sourcePath="<xsl:value-of select="$sourcePath"/>"</xsl:message>
+      <xsl:message> +       sourcePath="{$sourcePath}"</xsl:message>
     </xsl:if>
     <xsl:variable name="baseResult" 
     select="string-join(relpath:makePathAbsolute($pathTokens, ()), '/')" as="xs:string"/>
@@ -518,7 +522,7 @@
                "
     />
     <xsl:if test="false()">
-      <xsl:message> + DEBUG: result="<xsl:value-of select="$result"/>"</xsl:message>
+      <xsl:message> + DEBUG: result="{$result}"</xsl:message>
     </xsl:if>
     <xsl:value-of select="$result"/>
   </xsl:function>
@@ -536,8 +540,8 @@
     <xsl:param name="resultTokens" as="xs:string*"/>
     <xsl:if test="false()">
       <xsl:message> + DEBUG: relpath:makePathAbsolute(): Starting...</xsl:message>
-      <xsl:message> + DEBUG:    pathTokens="<xsl:value-of select="string-join($pathTokens, ',')"/>"</xsl:message>
-      <xsl:message> + DEBUG:    resultTokens="<xsl:value-of select="string-join($resultTokens, ',')"/>"</xsl:message>
+      <xsl:message> + DEBUG:    pathTokens="{string-join($pathTokens, ',')}"</xsl:message>
+      <xsl:message> + DEBUG:    resultTokens="{string-join($resultTokens, ',')}"</xsl:message>
     </xsl:if>
     <xsl:sequence select="if (count($pathTokens) = 0)
                              then $resultTokens
@@ -588,8 +592,8 @@
     />
     <xsl:if test="false()">
       <xsl:message> + [DEBUG]: relpath:getRelativePath(): Starting...</xsl:message>
-      <xsl:message> + [DEBUG]:     source="<xsl:value-of select="$effectiveSource"/>"</xsl:message>
-      <xsl:message> + [DEBUG]:     target="<xsl:value-of select="$target"/>"</xsl:message>
+      <xsl:message> + [DEBUG]:     source="{$effectiveSource}"</xsl:message>
+      <xsl:message> + [DEBUG]:     target="{$target}"</xsl:message>
     </xsl:if>
     <xsl:variable name="sourceTokens" select="tokenize((if (starts-with($effectiveSource, '/')) then substring-after($effectiveSource, '/') else $effectiveSource), '/')" as="xs:string*"/>
     <xsl:variable name="targetTokens" select="tokenize((if (starts-with($target, '/')) then substring-after($target, '/') else $target), '/')" as="xs:string*"/>
@@ -725,9 +729,9 @@
     <xsl:param name="resultTokens" as="xs:string*"/>
     <xsl:if test="false()">
     <xsl:message> + DEBUG: relpath:analyzePathTokens(): Starting...</xsl:message>
-    <xsl:message> + DEBUG:     sourceTokens=<xsl:value-of select="string-join($sourceTokens, ',')"/></xsl:message>
-    <xsl:message> + DEBUG:     targetTokens=<xsl:value-of select="string-join($targetTokens, ',')"/></xsl:message>
-    <xsl:message> + DEBUG:     resultTokens=<xsl:value-of select="string-join($resultTokens, ',')"/></xsl:message>
+    <xsl:message> + DEBUG:     sourceTokens={string-join($sourceTokens, ',')}</xsl:message>
+    <xsl:message> + DEBUG:     targetTokens={string-join($targetTokens, ',')}</xsl:message>
+    <xsl:message> + DEBUG:     resultTokens={string-join($resultTokens, ',')}</xsl:message>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="count($sourceTokens) = 0">

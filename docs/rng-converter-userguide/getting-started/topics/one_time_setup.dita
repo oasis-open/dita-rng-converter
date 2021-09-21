@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="one_time_setup">
+  <title>One-Time Setup</title>
+  <body>
+    <p>The DITA RNG Converter Ant script needs to be told where your Open Toolkit installation is
+      using the Ant property <parmname>dita-ot-dir</parmname>. You can set this property in either
+      of two ways:<ol id="ol_dqt_13q_fw">
+        <li>Have the <cmdname>ant</cmdname> command in your PATH. Normal DITA Open Toolkit packages
+          include the <cmdname>ant</cmdname> command in the <filepath>bin/</filepath> directory if
+          you don't already have Ant installed for general use.</li>
+        <li>Create a file named "<filepath>.build.properties</filepath>" or
+            "<filepath>build.properties</filepath>" in your home directory or in the directory
+          containing the DITA RNG Converter <filepath>build.xml</filepath> file and set the
+            <parmname>dita-ot-dir</parmname> property there,
+            e.g.:<codeblock>dita-ot-dir=c:/apps/DITA-OT</codeblock><p>Where
+              <codeph>c:/apps/DITA-OT</codeph> is wherever you have your Open Toolkit installed.
+            Note that the slashes are forward slashes ("/") even though this is a Windows path in
+            this case. This is an Ant requirement.</p></li>
+        <li>Set the <parmname>dita-ot-dir</parmname> property on the Ant command line using the
+            <parmname>-D</parmname>
+          flag:<codeblock>c:\dita-rng-converter > ant "-Ddita-ot-dir=c:/apps/DITA-OT" ...</codeblock></li>
+      </ol></p>
+    <p>If you don't set the <parmname>dita-ot-dir</parmname> property, the Ant script will issue a
+      message:<codeblock>/Users/ekimber/workspace-oasis/dita-rng-converter/build.xml:26: - [ERROR]
+  Required property dita-ot-dir is not set.
+  It should be set in your build.properties or
+  .build.properties file or on the command line
+  using -Ddita-ot-dir={location of DITA OT}</codeblock></p>
+  </body>
+</topic>

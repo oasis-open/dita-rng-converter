@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:concept.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<concept id="test_concept_01">
+    <title>Test Concept 01</title>
+    <shortdesc>A concept test</shortdesc>
+    <prolog>     
+    </prolog>
+    <conbody>
+        <p>The concept.</p>
+    </conbody>
+</concept>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:basemap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+  <title>Test Document Keydefs for Topics</title>
+  <topicgroup>
+    <topicmeta>
+      <navtitle>Key definitions for topics</navtitle>
+    </topicmeta>
+    <topicgroup>
+      <topicmeta>
+        <navtitle>Base topic types</navtitle>
+      </topicmeta>
+      <keydef keys="test-basetopic" href="base/rng/basetopic-rng.dita"/>      
+    </topicgroup>
+    <topicgroup>
+      <topicmeta>
+        <navtitle>Learning topic types</navtitle>
+      </topicmeta>
+      <keydef keys="test-learningAssessment" href="learning/rng/learningAssessment-rng.dita"/>
+      <keydef keys="test-learningContent" href="learning/rng/learningContent-rng.dita"/>
+      <keydef keys="test-learningOverview" href="learning/rng/learningOverview-rng.dita"/>
+      <keydef keys="test-learningPlan" href="learning/rng/learningPlan-rng.dita"/>
+      <keydef keys="test-learningSummary" href="learning/rng/learningSummary-rng.dita"/>
+    </topicgroup>
+    <topicgroup>
+      <topicmeta>
+        <navtitle>Machinery industry topic types</navtitle>
+      </topicmeta>
+      <keydef keys="test-machineryTask" href="machineryIndustry/rng/machineryTask-rng.dita"/>
+    </topicgroup>
+    <topicgroup>
+      <topicmeta>
+        <navtitle>Technical Content topic types</navtitle>
+      </topicmeta>
+      <keydef keys="test-concept" href="technicalContent/rng/concept-rng.dita"/>
+      <keydef keys="test-generalTask" href="technicalContent/rng/generalTask-rng.dita"/>
+      <keydef keys="test-glossentry" href="technicalContent/rng/glossentry-rng.dita"/>
+      <keydef keys="test-glossgroup" href="technicalContent/rng/glossgroup-rng.dita"/>
+      <keydef keys="test-reference" href="technicalContent/rng/reference-rng.dita"/>
+      <keydef keys="test-task" href="technicalContent/rng/task-rng.dita"/>
+      <keydef keys="test-topic" href="technicalContent/rng/topic-rng.dita"/>
+      <keydef keys="test-troubleshooting" href="technicalContent/rng/troubleshooting-rng.dita"/>
+    </topicgroup>
+  </topicgroup>
+</map>

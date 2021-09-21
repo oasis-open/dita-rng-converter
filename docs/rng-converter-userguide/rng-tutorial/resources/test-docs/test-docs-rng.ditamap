@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:basemap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+  <title>Master Catalog of Test Documents for example.com Document Type Shells</title>
+  <topicgroup>
+    <mapref href="keydefs-topics-rng.ditamap"/>
+    <mapref href="base/rng/basemap-rng.ditamap" scope="peer" keyscope="basemap"/>
+    <mapref href="bookmap/rng/bookmap-rng.ditamap" scope="peer" keyscope="bookmaps"/>
+    <mapref href="learning/rng/learningMap-rng.ditamap" scope="peer" keyscope="learningMap"/>
+    <mapref href="subjectScheme/rng/subjectScheme-rng.ditamap" scope="local"/>
+    <mapref href="technicalContent/rng/map-rng.ditamap" scope="peer" keyscope="techcommMap"/>
+  </topicgroup>
+  <topicgroup>
+    <topicref keyref="test-basetopic">
+      <topicref keyref="test-machineryTask"/>
+      <topicref keyref="test-concept"/>
+      <topicref keyref="test-generalTask"/>
+      <topicref keyref="test-glossentry"/>
+      <topicref keyref="test-glossgroup"/>
+      <topicref keyref="test-reference"/>
+      <topicref keyref="test-task"/>
+      <topicref keyref="test-troubleshooting"/>
+    </topicref>
+  </topicgroup>
+</map>

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="2.0" 
+<xsl:stylesheet version="3.0" 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
   xmlns="http://relaxng.org/ns/structure/1.0" 
   xmlns:rng="http://relaxng.org/ns/structure/1.0" 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:local="http://local-functions"
-exclude-result-prefixes = "xs rng local">
+exclude-result-prefixes = "xs rng local"
+expand-text="yes"
+  >
   <!-- ===============================================
        RNG Simplification transform
        
@@ -63,6 +65,7 @@ exclude-result-prefixes = "xs rng local">
 			<xsl:apply-templates select="$step" mode="step4.03"> 
 				<xsl:with-param name="out" select="$out" as="xs:boolean"/>
 				<xsl:with-param name="stop-after" select="$stop-after" as="xs:string"/>
+			  <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->
         <!-- We need this for resolving references later in the process
              where we're operating on internal nodes where the base
              URI is the XSLT transform itself.
@@ -268,7 +271,9 @@ exclude-result-prefixes = "xs rng local">
 
 
 <xsl:template match="rng:externalRef" mode="step4.06">
+  <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->  
   <xsl:param name="origDoc" tunnel="yes" as="document-node()"/>
+  
   <xsl:variable name="uriRef" as="xs:string" select="@href"/>
   <xsl:message> + [DEBUG]] rng:externalRef: uriRef = "<xsl:sequence select="$uriRef"/>"</xsl:message>
   <xsl:variable name="includedDoc" as="document-node()?" 
@@ -337,7 +342,9 @@ exclude-result-prefixes = "xs rng local">
 
 
 <xsl:template match="rng:include" mode="step4.07">
+  <!-- FIXME: Won't need this once xml:base is set on root elements of intermediate docs. -->
   <xsl:param name="origDoc" as="document-node()" tunnel="yes"/>
+
   <xsl:variable name="uriRef" as="xs:string" select="@href"/>
   <xsl:message> + [INFO] ======</xsl:message>
   <xsl:message> + [INFO] Processing included schema "<xsl:sequence select="$uriRef"/>"</xsl:message>
@@ -422,9 +429,7 @@ exclude-result-prefixes = "xs rng local">
 		<xsl:if test="self::rng:attribute and not(@ns)">
 			<xsl:attribute name="ns"/>
 		</xsl:if>
-		<name>
-			<xsl:value-of select="@name"/>
-		</name>
+		<name>{@name}</name>
 		<xsl:apply-templates mode="step4.08"/>
 	</xsl:copy>
 </xsl:template>
@@ -518,7 +523,7 @@ exclude-result-prefixes = "xs rng local">
 	<xsl:variable name="prefix" select="substring-before(., ':')" as="xs:string"/>
 	<name>
 		<xsl:attribute name="ns" select="string(namespace::*[name(.) = $prefix])"/>
-		<xsl:value-of select="substring-after(., ':')"/>
+		{substring-after(., ':')}
 	</name>
 </xsl:template>
 

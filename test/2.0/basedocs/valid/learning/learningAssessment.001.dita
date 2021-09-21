@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<learningAssessment id="assessment_jxg_42z_2n" shellPackage="learning" shellName="learningAssessment">
+ <title>Quiz</title>
+ <shortdesc>The short description</shortdesc>
+ <learningAssessmentbody>
+   <lcDuration><lcTime value="3.5hr"/></lcDuration>
+   <lcSummary>
+     <p>The summary</p>
+   </lcSummary>
+ </learningAssessmentbody>
+</learningAssessment>

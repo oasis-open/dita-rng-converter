@@ -12,7 +12,9 @@
   xmlns:local="http://local-functions"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc local rng2ditadtd"
-  version="2.0">
+  expand-text="yes"
+  version="3.0"
+  >
   
   <!-- Overrides to handle special cases in the DTD generation required for
        strict backward compatibility with DITA 1.2 DTDs.
@@ -20,7 +22,7 @@
       
   <xsl:template priority="10" 
     match="dita:domainsContribution[rngfunc:getModuleShortName(ancestor::rng:grammar) = 'strictTaskbody']" 
-    mode="domainAttContributeEntityDecl">
+    mode="domainAttContributionEntityDecl">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- OVERRIDE: Use "taskbody" for the entity name, not the module short name -->
     <xsl:variable name="domainPrefix" as="xs:string" select="'taskbody'"/>
@@ -53,7 +55,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] mode: element-decls: element-defining define, name="<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] mode: element-decls: element-defining define, name="{@name}"</xsl:message>
     </xsl:if> 
     <xsl:call-template name="no-topic-nesting-elementdecl"/>    
   </xsl:template>
@@ -83,7 +85,7 @@
 
     <!-- Generate glossary.dtd shell -->
 
-    <xsl:message> + [INFO] === Generating DTD shell <xsl:value-of select="$dtdFilename" />...</xsl:message>
+    <xsl:message>+ [INFO] === Generating DTD shell {$dtdFilename}...</xsl:message>
     
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
     
@@ -126,7 +128,7 @@
     <xsl:value-of select="rngfunc:getModuleTitle(.)"/>
     <xsl:text> ================= --></xsl:text>
     
-    <xsl:message> + [INFO] === DTD shell <xsl:value-of select="$dtdFilename" /> generated.</xsl:message>
+    <xsl:message>+ [INFO] === DTD shell {$dtdFilename} generated.</xsl:message>
     
   </xsl:template>
 
@@ -140,7 +142,7 @@
     <!-- Generate glossary.ent file -->
     
     <xsl:if test="$doDebug"> 
-      <xsl:message> + [DEBUG] === entityFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>
+      <xsl:message expand-text="yes">+ [DEBUG] === entityFile: rng:grammar "{base-uri(.)}"</xsl:message>
     </xsl:if>    
     
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
@@ -196,7 +198,7 @@
     <!-- Generate glossary.mod file -->
     
     <xsl:if test="$doDebug"> 
-      <xsl:message> + [DEBUG] === moduleFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>
+      <xsl:message expand-text="yes">+ [DEBUG] === moduleFile: rng:grammar "{base-uri(.)}"</xsl:message>
     </xsl:if>    
     
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
@@ -285,12 +287,12 @@
     <xsl:param name="modulesToProcess" tunnel="yes" as="document-node()*" />
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] dtdFile: rng:grammar: dtdDir="<xsl:sequence select="$dtdOutputDir"/>"</xsl:message>
+      <xsl:message>+ [DEBUG] dtdFile: rng:grammar: dtdDir="<xsl:sequence select="$dtdOutputDir"/>"</xsl:message>
     </xsl:if>    
     <xsl:variable name="firstStart" as="element()?"
       select="(//rng:start/rng:ref)[1]"
     />
-    <xsl:message> + [INFO] === Generating DTD shell <xsl:value-of select="$dtdFilename" />...</xsl:message>
+    <xsl:message>+ [INFO] === Generating DTD shell {$dtdFilename}...</xsl:message>
     
     <xsl:apply-templates 
       select="(dita:moduleDesc/dita:headerComment[@fileType='dtdShell'], dita:moduleDesc/dita:headerComment[1])[1]" 

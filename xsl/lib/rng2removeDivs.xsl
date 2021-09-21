@@ -12,7 +12,8 @@
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita rngfunc rng2ditadtd"
-  version="2.0">
+  expand-text="yes"
+  version="3.0">
   
   <!-- Does preprocessing on the RNG documents to remove <div> elements.
     -->
@@ -28,15 +29,12 @@
   <xsl:template mode="removeDivs" match="rng:grammar" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
 
-    <xsl:variable name="origURI" select="string(document-uri(root(.)))" as="xs:string?"/>
+    <xsl:variable name="base-uri" select="string(base-uri(.))" as="xs:string"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] removeDivs: rng:grammar, origURI="<xsl:value-of select="$origURI"/>"</xsl:message>
+      <xsl:message> + [DEBUG] removeDivs: rng:grammar, base-uri="{$base-uri}"</xsl:message>
     </xsl:if>
     <xsl:copy>
-      <xsl:if test="$origURI">
-    <!--<xsl:message> + [DEBUG] removeDivs: Constructing @origURI attribute</xsl:message>-->
-        <xsl:attribute name="origURI" select="$origURI"/>
-      </xsl:if>
+      <xsl:attribute name="xml:base" select="$base-uri"/>
       <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>

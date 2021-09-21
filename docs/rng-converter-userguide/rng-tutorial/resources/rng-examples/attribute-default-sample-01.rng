@@ -1,0 +1,14 @@
+<grammar 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  ...
+  <attribute name="translate" a:defaultValue="no">
+    <choice>
+      <value>no</value>
+      <value>yes</value>
+      <value>-dita-use-conref-target</value>
+    </choice>
+  </attribute>
+  ...
+</grammar>

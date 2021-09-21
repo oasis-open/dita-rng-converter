@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="20.1">
+    <meta>
+        <filters directoryPatterns="" filePatterns="dita-rng-converter.xpr" positiveFilePatterns="" showHiddenFiles="false"/>
+        <options>
+            <serialized version="20.1" xml:space="preserve">
+                <serializableOrderedMap>
+                    <entry>
+                        <String>ask.open.ditamap.in.dita.manager</String>
+                        <Integer>0</Integer>
+                    </entry>
+                    <entry>
+                        <String>dita.ot.directory</String>
+                        <String>/Users/ekimber/dita-ot/dita-ot-3.1.2</String>
+                    </entry>
+                    <entry>
+                        <String>enable.project.master.files.support</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>key.dita.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>key.xml.catalog.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>keys.context</String>
+                        <String>${pdu}/docs/rng-converter-userguide/rng-converter-userguide.ditamap</String>
+                    </entry>
+                    <entry>
+                        <String>scenario.associations</String>
+                        <scenarioAssociation-array>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../../dita-ot/dita-ot-3.0.4/plugins/com.parson-europe.dita.rng/rng/technicalContent/rng/par_concept.rng</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>update domains value</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XML_XQUERY</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                        </scenarioAssociation-array>
+                    </entry>
+                    <entry>
+                        <String>scenarios</String>
+                        <scenario-array>
+                            <scenario>
+                                <field name="advancedOptionsMap">
+                                    <serializableOrderedMap>
+                                        <entry>
+                                            <String>Saxon-PE XQuery</String>
+                                            <xquerySaxonBAdvancedOptions>
+                                                <field name="allowCallsOnExtensionFunctions">
+                                                    <Boolean>true</Boolean>
+                                                </field>
+                                                <field name="isEnabledLinkedTreeModel">
+                                                    <Boolean>false</Boolean>
+                                                </field>
+                                                <field name="errorRecoverPolicy">
+                                                    <String>saxon.recover.with.warning</String>
+                                                </field>
+                                                <field name="stripWS">
+                                                    <String>saxon.strip.ws.none</String>
+                                                </field>
+                                                <field name="optimizationEnabled">
+                                                    <Boolean>true</Boolean>
+                                                </field>
+                                                <field name="useConfigFile">
+                                                    <Boolean>false</Boolean>
+                                                </field>
+                                                <field name="configSystemID">
+                                                    <null/>
+                                                </field>
+                                                <field name="initializer">
+                                                    <String></String>
+                                                </field>
+                                            </xquerySaxonBAdvancedOptions>
+                                        </entry>
+                                    </serializableOrderedMap>
+                                </field>
+                                <field name="name">
+                                    <String>update domains value</String>
+                                </field>
+                                <field name="baseURL">
+                                    <String></String>
+                                </field>
+                                <field name="footerURL">
+                                    <String></String>
+                                </field>
+                                <field name="fOPMethod">
+                                    <String>pdf</String>
+                                </field>
+                                <field name="fOProcessorName">
+                                    <String>Apache FOP</String>
+                                </field>
+                                <field name="headerURL">
+                                    <String></String>
+                                </field>
+                                <field name="inputXSLURL">
+                                    <String>${pdu}/xqy/updateDomainsValue.xquery</String>
+                                </field>
+                                <field name="inputXMLURL">
+                                    <String>${currentFileURL}</String>
+                                </field>
+                                <field name="defaultScenario">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="isFOPPerforming">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="type">
+                                    <String>XML_XQUERY</String>
+                                </field>
+                                <field name="saveAs">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="openInBrowser">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="outputFile">
+                                    <null/>
+                                </field>
+                                <field name="outputResource">
+                                    <null/>
+                                </field>
+                                <field name="openOtherLocationInBrowser">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="locationToOpenInBrowserURL">
+                                    <null/>
+                                </field>
+                                <field name="openInEditor">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInHTMLPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInXMLPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInSVGPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInResultSetPane">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="useXSLTInput">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="xsltParams">
+                                    <list/>
+                                </field>
+                                <field name="cascadingStylesheets">
+                                    <String-array/>
+                                </field>
+                                <field name="xslTransformer">
+                                    <String>Saxon-EE XQuery</String>
+                                </field>
+                                <field name="extensionURLs">
+                                    <String-array/>
+                                </field>
+                            </scenario>
+                        </scenario-array>
+                    </entry>
+                    <entry>
+                        <String>use.default.catalog</String>
+                        <Boolean>false</Boolean>
+                    </entry>
+                </serializableOrderedMap>
+            </serialized>
+        </options>
+    </meta>
+    <projectTree name="dita-rng-converter.xpr">
+        <folder masterFiles="true" name="Master Files">
+            <file name="doctypes/oasis/2.0/rng/base/rng/basetopic.rng"/>
+            <file name="test/specializations/org.example/1.3/rng/myMap/rng/myMap.rng"/>
+            <file name="test/specializations/org.example/1.3/dtd/mytopic/dtd/myTopic.dtd"/>
+            <file name="docs/rng-converter-userguide/rng-converter-userguide.ditamap"/>
+            <file name="xsl/rng2catalogs/rng2catalogs.xsl"/>
+            <file name="xsl/rng2ditadtd/rng2ditadtd.xsl"/>
+            <file name="xsl/rng2ditarnc/rng2ditarnc.xsl"/>
+            <file name="xsl/rng2ditaxsd/rng2ditaxsd.xsl"/>
+        </folder>
+        <folder path="../../apps/"/>
+        <folder path="../../dita-ot/"/>
+        <folder path="../../dita-ot/dita-ot-3.0.4-dita20/"/>
+        <folder path="../../dita-ot/dita-ot-3.1.2/"/>
+        <folder path="../../dita-ot/DITA-OT/"/>
+        <folder path="../ah-dita/"/>
+        <folder path="../dita-12-spec-dev/"/>
+        <folder path="."/>
+        <folder path="../dita-wek/"/>
+        <folder path="../makita-dita-rng-converter/"/>
+        <folder path="../saxon-issue-2788/"/>
+        <folder path="../../workspace/dita-12-spec/"/>
+        <file name="../../Downloads/dita-oasis.zip"/>
+    </projectTree>
+</project>

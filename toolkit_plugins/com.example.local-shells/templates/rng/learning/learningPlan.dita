@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:example.com:names:doctypes:dita:rng:learningPlan.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<learningPlan id="topic-id">
+    <title></title>
+    <shortdesc></shortdesc>
+    <prolog>     
+    </prolog>
+    <learningPlanbody>
+      <lcProject></lcProject>
+    </learningPlanbody>
+</learningPlan>

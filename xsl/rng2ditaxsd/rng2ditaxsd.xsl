@@ -11,7 +11,9 @@
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   xmlns:local="http://local-functions"
   exclude-result-prefixes="xs xd rng rnga relpath str rngfunc local rng2ditaxsd"
-  version="2.0">
+  expand-text="yes"
+  version="3.0"
+  >
   
   <xsl:include href="../lib/relpath_util.xsl" />
   <xsl:include href="../lib/rng2functions.xsl"/>
@@ -97,6 +99,17 @@
     select="matches($useURNsInShell, '(yes|true|1|no)', 'i')"
   />
   
+  <!-- FIXME: This is used by the catalog utility to resolve URIs through a catalog.
+              
+              This needs to be replaced with a list of catalogs
+              and then used to construct a global map representing
+              the resolved catalogs to be used for URI lookup.
+    -->
+  <xd:doc>
+    <xd:param>$catalogs: File URL of [DITA-OT]/catalog-dita.xml</xd:param>
+  </xd:doc>
+  <xsl:param name="catalogs" as="xs:string?" select="()"/>
+
   <!-- NOTE: The primary output of this transform is an XML 
        manifest file that lists all input files and their
        corresponding outputs.
@@ -143,10 +156,10 @@
     <xsl:variable name="effectiveRootDir" as="xs:string" 
       select="if ($rootDir != '')
       then $rootDir
-      else relpath:getParent(document-uri(root(.)))
+      else relpath:getParent(base-uri(root(.)/*))
       "/>
     
-    <xsl:message> + [INFO] processDir: effectiveRootDir="<xsl:value-of select="$effectiveRootDir"/></xsl:message>
+    <xsl:message> + [INFO] processDir: effectiveRootDir="{$effectiveRootDir}</xsl:message>
     <xsl:variable name="collectionUri" 
       select="concat($effectiveRootDir, '?', 
       'recurse=yes;',
@@ -176,13 +189,14 @@
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] Referenced modules:
-<xsl:sequence select="for $doc in $referencedModules return concat(document-uri($doc), '&#x0a;')"/>      
+<xsl:sequence select="for $doc in $referencedModules return concat(document-uri($doc), ' (', base-uri($doc/*), ')', '&#x0a;')"/>      
       </xsl:message>
     </xsl:if>    
     
+    <!-- FIXME: Need to use module metadata, not filename, to get modules -->
     <xsl:variable name="moduleDocs" as="document-node()*"
       select="(for $doc in $rngDocs 
-                return if (matches(string(document-uri($doc)), '.+Mod.rng'))
+                return if (matches(string(base-uri($doc/*)), '.+Mod.rng'))
                           then $doc
                           else ()), 
                 $referencedModules except (rngDocs)
@@ -192,16 +206,14 @@
       <xsl:message> + [DEBUG] Shell documents to process:</xsl:message>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:for-each select="$shellDocs">
-        <xsl:message> + [DEBUG]  <xsl:value-of 
-          select="substring-after(string(document-uri(.)), concat($effectiveRootDir, '/'))"/></xsl:message>
+        <xsl:message> + [DEBUG]  {substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))}</xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:message> + [DEBUG] Module documents to process:</xsl:message>
       <xsl:message> + [DEBUG]</xsl:message>
       <xsl:for-each select="$moduleDocs">
-        <xsl:message> + [DEBUG] - <xsl:value-of select="/*/ditaarch:moduleDesc/ditaarch:moduleTitle"/></xsl:message>
-        <xsl:message> + [DEBUG]    <xsl:value-of 
-          select="substring-after(string(document-uri(.)), concat($effectiveRootDir, '/'))"/></xsl:message>
+        <xsl:message> + [DEBUG] - {/*/ditaarch:moduleDesc/ditaarch:moduleTitle}</xsl:message>
+        <xsl:message> + [DEBUG]    {substring-after(string(base-uri(./*)), concat($effectiveRootDir, '/'))}</xsl:message>
       </xsl:for-each>
       <xsl:message> + [DEBUG]</xsl:message>
     </xsl:if>    
@@ -211,13 +223,13 @@
     <xsl:message> + [INFO] Getting list of unique modules...</xsl:message>
     <!-- Construct list of unique modules -->
     <xsl:variable name="modulesToProcess" as="document-node()*">
-      <xsl:for-each-group select="$moduleDocs" group-by="string(document-uri(.))">
+      <xsl:for-each-group select="$moduleDocs" group-by="string(base-uri(./*))">
         <xsl:sequence select="."/><!-- Select first member of each group -->
       </xsl:for-each-group>
     </xsl:variable>
     
     <xsl:if test="count($modulesToProcess) = 0">
-      <xsl:message terminate="yes"> - [ERROR] construction of $modulesToProcess failed. Count is <xsl:value-of select="count($modulesToProcess)"/>, should be greater than zero</xsl:message>
+      <xsl:message terminate="yes"> - [ERROR] construction of $modulesToProcess failed. Count is {count($modulesToProcess)}, should be greater than zero</xsl:message>
     </xsl:if>
     
     <xsl:message> + [INFO] Removing div elements from modules...</xsl:message>
@@ -232,19 +244,12 @@
     </xsl:variable>
     
     <xsl:if test="count($modulesNoDivs) lt count($modulesToProcess)">
-      <xsl:message terminate="yes"> - [ERROR] construction of $modulesNoDivs failed. Count is <xsl:value-of select="count($modulesNoDivs)"/>, should be <xsl:value-of select="count($modulesToProcess)"/></xsl:message>
+      <xsl:message terminate="yes"> - [ERROR] construction of $modulesNoDivs failed. Count is {count($modulesNoDivs)}, should be {count($modulesToProcess)}</xsl:message>
     </xsl:if>
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] Got <xsl:value-of select="count($modulesNoDivs)"/> modulesNoDivs.</xsl:message>
+      <xsl:message> + [DEBUG] Got {count($modulesNoDivs)} modulesNoDivs.</xsl:message>
     </xsl:if>
-    
-    <!-- NOTE: At this point, the modules have been preprocessed to remove
-         <div> elements. This means that any module may be an intermediate
-         document-node that has no associated document-uri() value. The @origURI
-         attribute will have been added to the root element so we know where
-         it came from.
-      -->
     
     <xsl:variable name="schemaDirName" as="xs:string"
       select="if ($doUseURNsInShell) then 'schema' else 'schama-url'"
@@ -318,9 +323,9 @@
       as="xs:string"
     />
     <xsl:variable name="rngModuleUrl" as="xs:string"
-      select="if (*/@origURI) then */@origURI else base-uri(.)"
+      select="string(base-uri(./*))"
     />
-    <xsl:message> + [INFO] processModules: Handling module <xsl:value-of select="$rngModuleUrl"/>...</xsl:message>
+    <xsl:message> + [INFO] processModules: Handling module {$rngModuleUrl}...</xsl:message>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence
         select="$rngModuleUrl"/>"</xsl:message>
@@ -410,7 +415,7 @@
       <!-- FIXME: Generate grp files when needed -->
     </moduleFiles>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] processModules: Applying templates in mode generate-modules to generate "<xsl:value-of select="$modResultUrl"/>"</xsl:message>
+      <xsl:message> + [DEBUG] processModules: Applying templates in mode generate-modules to generate "{$modResultUrl}"</xsl:message>
     </xsl:if>
     <xsl:apply-templates mode="generate-modules" select="."><!-- Root template for generate-modules matches on document, not rng:grammar -->
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>                 
@@ -469,13 +474,6 @@
         <xsl:with-param name="origModule" select="root(.)"/>
       </xsl:apply-templates>
     </xsl:variable>
-    
-    <!-- NOTE: At this point, the modules have been preprocessed to remove
-         <div> elements. This means that any module may be an intermediate
-         node that has no associated document-uri() value. The @origURI
-         attribute will have been added to the root element so we know where
-         it came from.
-      -->
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
@@ -572,7 +570,7 @@
     />
     
     <xsl:variable name="rngModuleUrl" as="xs:string"
-      select="if (*/@origURI) then */@origURI else base-uri(.)"
+      select="string(base-uri(./*))"
     />
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence
@@ -664,13 +662,13 @@
   <xsl:template name="reportParameters">
     <xsl:message> + [INFO] Parameters:
       
-      debug              ="<xsl:value-of select="$debug"/>"
-      ditaVersion        ="<xsl:value-of select="$ditaVersion"/>"
-      generateModules    ="<xsl:value-of select="concat($generateModules, ' (', $doGenerateModules, ')')"/>"
-      headerCommentStyle ="<xsl:value-of select="$headerCommentStyle"/>"
-      moduleOutdir       ="<xsl:value-of select="$moduleOutdir"/>"
-      outdir             ="<xsl:value-of select="$outdir"/>"
-      useURNsInShell     ="<xsl:value-of select="concat($useURNsInShell, ' (', $doUseURNsInShell, ')')"/>"
+      debug              ="{$debug}"
+      ditaVersion        ="{$ditaVersion}"
+      generateModules    ="{concat($generateModules, ' (', $doGenerateModules, ')')}"
+      headerCommentStyle ="{$headerCommentStyle}"
+      moduleOutdir       ="{$moduleOutdir}"
+      outdir             ="{$outdir}"
+      useURNsInShell     ="{concat($useURNsInShell, ' (', $doUseURNsInShell, ')')}"
       
     </xsl:message>        
     

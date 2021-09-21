@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--=============================================================-->
+<!--Sample topic specialization. Sets the root element to "myTopic".-->
+<!--=============================================================-->
+<xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:group name="mytopic">
+      <xs:sequence>
+         <xs:choice>
+            <xs:element ref="mytopic"/>
+         </xs:choice>
+      </xs:sequence>
+   </xs:group>
+</xs:schema>

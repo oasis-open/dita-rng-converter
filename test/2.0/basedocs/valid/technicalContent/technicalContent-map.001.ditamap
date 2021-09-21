@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map shellPackage="technicalContent" shellName="map">
+  <title>Technical content map</title>
+ <topicref navtitle="Start here" href="start.dita" toc="yes">
+  <navref mapref="othermap2.ditamap"/>
+  <navref mapref="othermap3.ditamap"/>
+  <anchor id="a1"/>
+ </topicref>
+ <topicref href="componentA/configA.dita">
+  <topicmeta>
+   <exportanchors>
+    <anchorkey keyref="commonconfig"/>
+    <anchorid id="step1"/>
+    <anchorid id="step2"/>
+    <anchorid id="step3"/>
+   </exportanchors>
+  </topicmeta>
+ </topicref>
+ <topicref keys="componentAconfig commonconfig" 
+  href="componentA/configA.dita#configA">
+  <topicmeta>
+   <exportanchors>
+    <anchorkey keyref="commonconfig"/>
+    <anchorid id="step1"/>
+    <anchorid id="step2"/>
+   </exportanchors>
+  </topicmeta>
+ </topicref>
+ <topicref href="astroTasks.dita">
+  <topicref href="astroOverview.dita"/>
+  <anchorref href="#prepDetail">
+   <topicref href="astroChecklist.dita"/>
+   <topicref href="otherPreparation.dita"/>
+  </anchorref>
+  <topicref href="astroConclusion.dita"/>
+ </topicref>
+</map>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:example.com:dita:rng:concept.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<concept id="test-concept">
+  <title>Test of example.com concept document type shell</title>
+  <conbody>
+    <p>This topic tests the example.com concept document type shell.</p>
+    <pre><![CDATA[
+      <rngShell>urn:pubid:example.com:dita:rng:concept.rng</rngShell>      
+    ]]></pre>
+    
+  </conbody>
+</concept>
