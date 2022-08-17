@@ -59,7 +59,7 @@ Initially, the associated TC members have designated one or more persons to serv
 
 **Current Maintainers of this TC Open Repository**
 
-*   [Eliot Kimber](mailto:ekimber@contrext.com) (`ekimber@contrext.com`); GitHub ID: [drmacro](https://github.com/drmacro); OASIS Individual Member
+*   [Eliot Kimber](mailto:eliot.kimber@servicenow.com) (`eliot.kimber@servicenow.com`); GitHub ID: [drmacro](https://github.com/drmacro); ServiceNow
 
 ## About OASIS TC Open Repositories
 
